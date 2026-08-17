@@ -1,0 +1,2 @@
+Files in this folder are deployed with the app package and can be accessed
+using the MAUI file system APIs.

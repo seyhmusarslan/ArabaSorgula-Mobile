@@ -1,0 +1,52 @@
+## .NET / Visual Studio
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## VS Code local
+.vscode/
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Build / publish artifacts
+artifacts/
+publish/
+*.apk
+*.aab
+*.ipa
+*.appx
+*.msix
+*.msixbundle
+
+## Local secrets / signing
+*.keystore
+*.jks
+*.pfx
+*.p12
+*.mobileprovision
+*.cer
+*.key
+*.pem
+secrets.json
+appsettings.Local.json
+appsettings.*.local.json
+
+## Local environment
+.env
+.env.*
+!.env.example
+
+## Temporary
+*.tmp
+*.bak
+*.log
