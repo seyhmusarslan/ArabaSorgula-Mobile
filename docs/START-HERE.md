@@ -1,39 +1,52 @@
-# START HERE
+# Start Here
 
-Bu repository iki farklı bilgisayarda GitHub üzerinden çalışmak için
-tasarlanmıştır.
+Bu dosya Arabasorgula Mobile specification ve governance belgelerinin
+indeksidir.
 
-## Her çalışma başlangıcında
+## Zorunlu okuma sırası
 
-```bash
-git status
-git fetch --all --prune
-git pull --rebase
+1. Root `AGENTS.md`
+2. [Project Specification](PROJECT-SPEC.md)
+3. [Architecture](ARCHITECTURE.md)
+4. [Development Rules](DEVELOPMENT-RULES.md)
+5. Task ile ilgili domain belgeleri
+6. [Implementation Status](IMPLEMENTATION-STATUS.md)
+
+## Domain documents
+
+- [Design System](DESIGN-SYSTEM.md): `AS.*` token contract ve resource kuralları
+- [Navigation](NAVIGATION.md): Shell authority ve navigation contract
+- [Screen Flows](SCREEN-FLOWS.md): planlanan ekran ilişkileri
+- [Component Standards](COMPONENT-STANDARDS.md): reusable component sözleşmesi
+- [Grial Integration](GRIAL-INTEGRATION.md): compatibility ve G0–G8 planı
+- [Grial Usage Rules](GRIAL-USAGE-RULES.md): agent ve source governance
+- [Grial Placement](GRIAL-PLACEMENT.md): reference project izolasyonu
+
+Grial task'larında Grial Integration, Grial Usage Rules ve Design System
+belgeleri zorunludur.
+
+## Work start
+
+```powershell
+git status --short --branch
 ```
 
-Ardından:
+Remote sync gerektiğinde ve task izin verdiğinde `fetch`/`pull` ayrıca yapılır.
+Uncommitted user değişiklikleri korunur.
 
-1. `AGENTS.md`
-2. `docs/PROJECT-STATUS.md`
-3. ileride eklenecek aktif task dosyası
+## Work finish
 
-okunur.
+```powershell
+dotnet build .\src\ArabaSorgula.Mobile\ArabaSorgula.Mobile.csproj -f net10.0-android -c Debug
+git diff --check
+git status --short --branch
+```
 
-## Her çalışma sonunda
+İlgili tests varsa canonical build öncesinde veya sonrasında çalıştırılır.
+Commit ve push yalnız açık task/kullanıcı talebiyle yapılır.
 
-1. Build/test çalıştır.
-2. Proje durumunu güncelle.
-3. Commit oluştur.
-4. GitHub'a push et.
+## Current stage
 
-## Şimdiki aşama
-
-Henüz detaylı tasarım sistemi ve task sistemi kilitlenmedi.
-
-Öncelik:
-
-1. Bu repository iskeletini GitHub'a koymak.
-2. Grial kaynaklarını `reference/GrialUiKit/Source/` altına yerleştirmek.
-3. Ana Arabasorgula projesinin Android build'ini doğrulamak.
-4. Grial inventory çıkarmak.
-5. Sonra detaylı `.md` standardını ve task'ları belirlemek.
+Discovery ve architecture/governance pack tamamlanmıştır. Production Grial
+integration ve product features henüz başlamamıştır. Gerçek durum için
+[Implementation Status](IMPLEMENTATION-STATUS.md) esas alınır.

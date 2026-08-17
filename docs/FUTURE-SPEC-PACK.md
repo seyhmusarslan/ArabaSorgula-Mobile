@@ -1,38 +1,21 @@
-# Future Spec Pack
+# Future Spec Pack — SUPERSEDED
 
-Bu dosya bilinçli olarak kısa tutulmuştur.
+Bu geçici plan SPEC-01 ile tamamlanmış ve superseded olmuştur. Repository
+history'sindeki başlangıç niyetini korumak için dosya silinmemiştir.
 
-Grial kaynakları yerleştirilip ilk inventory tamamlandıktan sonra
-aşağıdaki belgeler oluşturulacaktır:
+Güncel belge indeksi: [START-HERE.md](START-HERE.md)
 
-```text
-docs/
-├── 00-governance/
-├── 01-architecture/
-├── 02-design/
-├── 03-product/
-├── 04-tasks/
-├── 05-decisions/
-├── 06-status/
-├── 07-inventory/
-└── screens/
-```
+Güncel architecture ve governance pack:
 
-Özellikle:
+- `PROJECT-SPEC.md`
+- `ARCHITECTURE.md`
+- `DESIGN-SYSTEM.md`
+- `GRIAL-INTEGRATION.md`
+- `GRIAL-USAGE-RULES.md`
+- `NAVIGATION.md`
+- `SCREEN-FLOWS.md`
+- `COMPONENT-STANDARDS.md`
+- `DEVELOPMENT-RULES.md`
+- `IMPLEMENTATION-STATUS.md`
 
-- PROJECT-VISION.md
-- AI-WORKING-AGREEMENT.md
-- GIT-WORKFLOW.md
-- ARCHITECTURE.md
-- GRIAL-USAGE-RULES.md
-- DESIGN-SYSTEM.md
-- COMPONENT-STANDARDS.md
-- APP-FLOW.md
-- SCREEN-INVENTORY.md
-- CURRENT-TASK.md
-- TASK-TEMPLATE.md
-- SESSION-HANDOFF.md
-- GRIAL-INVENTORY.md
-
-Grial gerçek yapısı görülmeden bu dosyaları gereğinden fazla erken
-kilitlemiyoruz.
+Eski klasör ve belge isimleri plan olarak uygulanmış kabul edilmez.

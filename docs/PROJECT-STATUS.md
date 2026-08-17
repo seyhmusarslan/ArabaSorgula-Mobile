@@ -1,26 +1,18 @@
-# Project Status
+# Project Status — Redirect
 
-## Phase
+Bu dosya eski foundation checklist'inin adresini korur.
 
-Repository Foundation
+Canonical ve ayrıntılı durum belgesi:
 
-## Current State
+[IMPLEMENTATION-STATUS.md](IMPLEMENTATION-STATUS.md)
 
-- [x] Ana repository klasör yapısı hazır.
-- [x] Arabasorgula MAUI app ayrı `src/` altında.
-- [x] Grial için build dışı `reference/` alanı hazır.
-- [x] Canonical Android build script'i hazır.
-- [ ] Repository GitHub'a push edilecek.
-- [ ] Grial kaynakları `reference/GrialUiKit/Source/` altına eklenecek.
-- [ ] Lokal Android build doğrulanacak.
-- [ ] Grial project inventory çıkarılacak.
-- [ ] Design System `.md` dosyaları kilitlenecek.
-- [ ] Task sistemi başlatılacak.
+Özet:
 
-## Active Task
+- Repository ve Android MAUI baseline: complete
+- Grial reference isolation: complete
+- DISCOVERY-01 ve DISCOVERY-02: complete
+- SPEC-01 governance pack: complete
+- Production Grial integration G0–G8: not started
+- Product features: not started
 
-Henüz aktif development task yok.
-
-## Next Milestone
-
-`FOUNDATION-01`: GitHub + Grial source placement + ilk build doğrulaması.
+Yeni status güncellemeleri yalnız `IMPLEMENTATION-STATUS.md` içinde yapılır.

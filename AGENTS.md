@@ -6,11 +6,23 @@ Bu repository üzerinde çalışan Codex/Cursor/AI agent için ana kurallar.
 
 Sırayla oku:
 
-1. `docs/START-HERE.md`
-2. `docs/PROJECT-STATUS.md`
-3. `docs/GRIAL-PLACEMENT.md`
+1. `AGENTS.md`
+2. `docs/PROJECT-SPEC.md`
+3. `docs/ARCHITECTURE.md`
+4. `docs/DEVELOPMENT-RULES.md`
+5. task ile ilgili domain belgeleri
+6. `docs/IMPLEMENTATION-STATUS.md`
 
-Daha sonra aktif task sistemi eklendiğinde ilgili task dosyasını da oku.
+Doküman indeksi için `docs/START-HERE.md` kullanılır.
+
+Task Grial inceleme veya entegrasyonu içeriyorsa ayrıca, implementation
+başlamadan önce:
+
+1. `docs/GRIAL-INTEGRATION.md`
+2. `docs/GRIAL-USAGE-RULES.md`
+3. `docs/DESIGN-SYSTEM.md`
+
+okunur.
 
 ## Repository sınırları
 
@@ -54,9 +66,15 @@ Grial demo `.sln` veya `.csproj` dosyalarını canonical build'e dahil etme.
 - Task dışı refactor yapma.
 - Yeni UI framework ekleme.
 - Grial demo ekranını production ekranı olarak doğrudan kopyalama.
+- Shell dışındaki bir yapıyı application navigation authority yapma.
+- Yeni production resource'larında `AS.*` naming contract'ını kullan.
 - Platform-specific handler yazmadan önce mevcut MAUI/Grial çözümünü incele.
 - Secret veya signing credential commit etme.
 - Build doğrulanmadan task DONE kabul etme.
+
+Agent açık task/human approval olmadan dependency, minimum SDK, target
+framework, navigation root, global handler veya platform permission
+değiştiremez.
 
 ## Önemli
 
