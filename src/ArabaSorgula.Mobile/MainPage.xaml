@@ -3,31 +3,34 @@
     x:Class="ArabaSorgula.Mobile.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="{StaticResource AppBackgroundColor}">
+    BackgroundColor="{DynamicResource AS.Color.Background.Primary}">
 
-    <Grid Padding="24">
+    <Grid Padding="{StaticResource AS.Space.Xl}">
         <VerticalStackLayout
             HorizontalOptions="Center"
-            Spacing="12"
+            Spacing="{StaticResource AS.Space.Md}"
             VerticalOptions="Center">
 
             <Border
-                Padding="18"
-                BackgroundColor="{StaticResource PrimaryColor}"
-                StrokeThickness="0"
-                StrokeShape="RoundRectangle 18">
+                Padding="{StaticResource AS.Space.Lg}"
+                BackgroundColor="{DynamicResource AS.Color.Brand.Primary}"
+                StrokeThickness="0">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="{StaticResource AS.Radius.Lg}" />
+                </Border.StrokeShape>
 
                 <Label
                     FontAttributes="Bold"
                     FontSize="28"
                     HorizontalTextAlignment="Center"
                     Text="ArabaSorgula"
-                    TextColor="White" />
+                    TextColor="{DynamicResource AS.Color.Text.OnBrand}" />
             </Border>
 
             <Label
                 HorizontalTextAlignment="Center"
-                Style="{StaticResource BodyTextStyle}"
+                Style="{StaticResource AS.Style.Label.Body}"
                 Text="Temel proje hazır. Grial UI Kit kaynaklarını reference/GrialUiKit/Source altına ekleyebilirsin." />
 
         </VerticalStackLayout>

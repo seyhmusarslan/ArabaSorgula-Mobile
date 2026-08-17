@@ -3,12 +3,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="PrimaryColor">#E31D1D</Color>
-    <Color x:Key="PrimaryDarkColor">#8B0E0E</Color>
-    <Color x:Key="AppBackgroundColor">#F7F8FA</Color>
-    <Color x:Key="SurfaceColor">#FFFFFF</Color>
-    <Color x:Key="TextPrimaryColor">#18181B</Color>
-    <Color x:Key="TextSecondaryColor">#71717A</Color>
-    <Color x:Key="BorderColor">#E4E4E7</Color>
+    <Color x:Key="AS.Color.Raw.Red.600">#E31D1D</Color>
+    <Color x:Key="AS.Color.Raw.Gray.50">#F7F8FA</Color>
+    <Color x:Key="AS.Color.Raw.White">#FFFFFF</Color>
+    <Color x:Key="AS.Color.Raw.Gray.950">#18181B</Color>
+    <Color x:Key="AS.Color.Raw.Gray.500">#71717A</Color>
+    <Color x:Key="AS.Color.Raw.Gray.200">#E4E4E7</Color>
 
 </ResourceDictionary>
