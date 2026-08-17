@@ -2,8 +2,17 @@
 
 ## Status
 
-Bu belge resource contract'ını kilitler. Gerçek marka renkleri, typography
-ölçüleri ve dark theme henüz uygulanmış veya onaylanmış kabul edilmez.
+Bu belge resource contract'ını kilitler. G1 kapsamında human-approved marka
+renkleri ve light neutral baseline uygulanmıştır. Typography ölçüleri ve dark
+theme henüz uygulanmış veya onaylanmış kabul edilmez.
+
+Human-approved brand palette:
+
+```text
+Dark:    #8B0E0E
+Mid:     #B81414
+Primary: #E31D1D
+```
 
 ## Naming contract
 
@@ -13,12 +22,17 @@ Yeni product kaynakları `AS.*` prefix'i kullanır.
 
 ```text
 AS.Color.Brand.Primary
+AS.Color.Brand.Mid
+AS.Color.Brand.Dark
 AS.Color.Background.Primary
 AS.Color.Background.Secondary
 AS.Color.Surface.Primary
+AS.Color.Surface.Secondary
 AS.Color.Text.Primary
 AS.Color.Text.Secondary
+AS.Color.Text.OnBrand
 AS.Color.Border.Default
+AS.Color.Border.Subtle
 AS.Color.State.Success
 AS.Color.State.Warning
 AS.Color.State.Error
@@ -62,9 +76,17 @@ AS.Icon.Size.Sm
 AS.Icon.Size.Md
 AS.Icon.Size.Lg
 AS.Control.Button.Primary
+AS.Control.Button.Secondary
 AS.Control.Entry.Default
 AS.Control.Card.Default
+AS.Style.Label.Primary
+AS.Style.Label.Secondary
+AS.Style.Label.Body
+AS.Brush.Brand.VerticalGradient
 ```
+
+State color values G1 sonunda `NOT CONFIRMED` durumundadır ve production
+resource olarak uygulanmamıştır.
 
 Feature-specific kaynaklar `AS.Auth.*`, `AS.Home.*`, `AS.Query.*`,
 `AS.History.*`, `AS.Settings.*` ve `AS.Profile.*` ile başlar.

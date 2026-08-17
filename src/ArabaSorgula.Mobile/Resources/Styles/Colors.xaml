@@ -3,7 +3,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="AS.Color.Raw.Red.600">#E31D1D</Color>
+    <Color x:Key="AS.Color.Raw.Brand.Dark">#8B0E0E</Color>
+    <Color x:Key="AS.Color.Raw.Brand.Mid">#B81414</Color>
+    <Color x:Key="AS.Color.Raw.Brand.Primary">#E31D1D</Color>
     <Color x:Key="AS.Color.Raw.Gray.50">#F7F8FA</Color>
     <Color x:Key="AS.Color.Raw.White">#FFFFFF</Color>
     <Color x:Key="AS.Color.Raw.Gray.950">#18181B</Color>

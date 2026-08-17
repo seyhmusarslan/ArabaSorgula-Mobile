@@ -20,7 +20,7 @@ Status değerleri:
 ## Grial integration
 
 - G0 Package/license bootstrap spike: `COMPLETE`
-- G1 Semantic design tokens implementation: `IN PROGRESS`
+- G1 Semantic design tokens implementation: `COMPLETE`
 - G2 Typography/icon foundation: `NOT STARTED`
 - G3 Reusable controls: `NOT STARTED`
 - G4 Auth visual prototype: `NOT STARTED`
@@ -54,11 +54,11 @@ Status değerleri:
 Production app `net10.0-android`, Android minimum SDK 21,
 `Microsoft.Maui.Controls` 10.0.30 ve `UXDivers.GrialMaui` 4.4.127 kullanır.
 Local ve ignored `GrialLicense` ile restore, canonical build ve fiziksel Android
-cihaz launch smoke test'i tamamlanmıştır. G1.1 semantic design-token foundation
-implementation'ı devam etmektedir; production feature, popup veya maps
-implementation'ı yoktur.
+cihaz launch smoke test'i tamamlanmıştır. G1 semantic design tokens, approved
+brand palette ve base control styles implementation'ı tamamlanmıştır;
+production feature, popup veya maps implementation'ı yoktur.
 
 ## Next implementation decision
 
-G0 tamamlanmıştır. G1.1 semantic design-token foundation uygulanmaktadır;
-G1.2 için ayrı açık task/human approval gereklidir.
+G0 ve G1 tamamlanmıştır. G2 typography/icon foundation için ayrı açık
+task/human approval gereklidir.
