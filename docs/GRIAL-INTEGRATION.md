@@ -13,11 +13,18 @@ gerektiğinde `UXDivers.GrialMaui` paketini doğrudan kullanabilir.
 
 ## Verified compatibility facts
 
-- Production: `net10.0-android`, MAUI resolved baseline `10.0.20`, Android 21.
+- Production: `net10.0-android`, `Microsoft.Maui.Controls` `10.0.30`,
+  `UXDivers.GrialMaui` `4.4.127`, Android minimum SDK 21.
 - Reference: `net10.0-android;net10.0-ios`, MAUI `10.0.30`, Android 28,
   Grial `4.4.127`.
-- MAUI patch ve Android minimum farkları implementation öncesi doğrulanır.
-- Android minimum SDK tahminle 28'e yükseltilmez.
+- Grial `4.4.127`, restore sırasında `Microsoft.Maui.Controls >= 10.0.30`
+  gerektirdi. Production MAUI human-approved olarak `10.0.30`'a hizalandı.
+- G0 kapsamında restore, canonical Android build ve fiziksel Android cihaz
+  runtime smoke test'i başarılıdır.
+- Android minimum SDK 21, G0 package/license bootstrap için build ve runtime
+  açısından doğrulanmıştır.
+- Bu sonuç bütün future Grial controls'un API 21 desteğini garanti etmez; her
+  seçilmiş component kendi dependency/runtime closure'ında doğrulanır.
 
 ## License boundary
 
@@ -25,7 +32,7 @@ gerektiğinde `UXDivers.GrialMaui` paketini doğrudan kullanabilir.
 - Package kullanımı başlarsa license final production assembly içinde doğru
   resource adıyla embedded olmalıdır.
 - Android initialization `MainApplication` içinde, MAUI app kurulmadan önce
-  `GrialKit.Init(...)` gerektirebilir; exact contract G0'da doğrulanır.
+  `GrialKit.Init(...)` ile yapılır; bu contract G0'da doğrulanmıştır.
 - iOS initialization gelecekte ayrı task'tır.
 
 ## Theme and resource boundary
@@ -140,4 +147,3 @@ ViewModel navigation yaklaşımı taşınmaz.
 - Forbidden: foundation'a önceden package, permission veya API key eklemek.
 - Build checkpoint: platform-specific build/runtime tests.
 - Exit: somut feature, permission, key management ve fallback tamamlanmış.
-

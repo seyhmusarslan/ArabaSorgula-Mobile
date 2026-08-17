@@ -18,6 +18,8 @@ indeksidir.
 - [Navigation](NAVIGATION.md): Shell authority ve navigation contract
 - [Screen Flows](SCREEN-FLOWS.md): planlanan ekran ilişkileri
 - [Component Standards](COMPONENT-STANDARDS.md): reusable component sözleşmesi
+- [Local Development](LOCAL-DEVELOPMENT.md): private feed, local license,
+  restore/build ve fiziksel Android cihaz kurulumu
 - [Grial Integration](GRIAL-INTEGRATION.md): compatibility ve G0–G8 planı
 - [Grial Usage Rules](GRIAL-USAGE-RULES.md): agent ve source governance
 - [Grial Placement](GRIAL-PLACEMENT.md): reference project izolasyonu
@@ -47,6 +49,6 @@ Commit ve push yalnız açık task/kullanıcı talebiyle yapılır.
 
 ## Current stage
 
-Discovery ve architecture/governance pack tamamlanmıştır. Production Grial
-integration ve product features henüz başlamamıştır. Gerçek durum için
+Discovery, architecture/governance pack ve Grial G0 bootstrap tamamlanmıştır.
+G1 ve product features henüz başlamamıştır. Gerçek durum için
 [Implementation Status](IMPLEMENTATION-STATUS.md) esas alınır.

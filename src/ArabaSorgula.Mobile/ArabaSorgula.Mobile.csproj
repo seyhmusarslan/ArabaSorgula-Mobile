@@ -37,7 +37,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.30" />
+        <PackageReference Include="UXDivers.GrialMaui" Version="4.4.127" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="GrialLicense" />
+        <EmbeddedResource Include="GrialLicense"
+                          LogicalName="ArabaSorgula.Mobile.GrialLicense" />
     </ItemGroup>
 
 </Project>

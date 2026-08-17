@@ -29,6 +29,10 @@ daha sonra bilinçli şekilde `src/ArabaSorgula.Mobile` projesine eklenir.
 Architecture, design-system, navigation ve Grial governance kararları `docs/`
 altındaki final spec pack'te tutulur.
 
+Grial kullanan yeni clone/bilgisayar kurulumu için
+[`docs/LOCAL-DEVELOPMENT.md`](docs/LOCAL-DEVELOPMENT.md) içindeki private feed,
+local license ve Android device adımlarını tamamla.
+
 ## İlk kurulum
 
 1. Repository'yi clone et.

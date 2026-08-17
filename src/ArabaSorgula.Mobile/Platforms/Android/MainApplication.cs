@@ -1,5 +1,6 @@
 using Android.App;
 using Android.Runtime;
+using UXDivers.Grial;
 
 namespace ArabaSorgula.Mobile;
 
@@ -11,5 +12,10 @@ public class MainApplication : MauiApplication
     {
     }
 
-    protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+    protected override MauiApp CreateMauiApp()
+    {
+        GrialKit.Init("ArabaSorgula.Mobile.GrialLicense");
+
+        return MauiProgram.CreateMauiApp();
+    }
 }
