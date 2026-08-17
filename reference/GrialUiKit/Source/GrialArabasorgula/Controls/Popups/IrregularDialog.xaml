@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    x:Class="arabasorgula.IrregularDialog"
+    CloseWhenBackgroundIsClicked="{ StaticResource DialogsCloseWhenBackgroundIsClicked }"
+    Background="{ DynamicResource OverlayColor }">
+
+    <uxd:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <Grid VerticalOptions="{ StaticResource DialogsVerticalPositioning }">
+        <Grid
+            VerticalOptions="{ StaticResource DialogsVerticalPositioning }"
+            RowSpacing="0"
+            grial:Effects.CornerRadius="{ StaticResource DialogsCornerRadius }"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            RowDefinitions="{ grial:OnOrientationRowDefinitions
+                Portrait='44,*,Auto',
+                Landscape='33,*,Auto'
+            }"
+            Margin="{ grial:OnOrientationThickness
+                Portrait='30,65,30,30',
+                Landscape='100,65,100,30'
+            }">
+            <VerticalStackLayout
+                Grid.Row="1"
+                Spacing="8"
+                HorizontalOptions="Center">
+
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="{ grial:Translate StringIrregularDialogTitle }"
+                    TextColor="{ DynamicResource TextColor }"
+                    FontSize="{ DynamicResource DialogsTitleFontSize }"
+                    Margin="0,10,0,0"
+                />
+
+                <Label
+                    FontSize="{ StaticResource DialogsBodyFontSize }"
+                    HorizontalTextAlignment="Center"
+                    Text="{ grial:Translate StringIrregularDialogText }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                />
+
+                <!-- RATING -->
+                <grial:Rating
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Center"
+                    IconFontSize="{ DynamicResource TitleFontSize }"
+                    UnselectedIconColor="{ DynamicResource DisabledSecondaryColor }"
+                    UnselectedIconText="{ x:Static local:GrialIconsFont.StarFill }"
+                    Spacing="6"
+                    MaxValue="5"
+                    Value="4.0"
+                    Margin="{ grial:OnOrientationThickness
+                        Portrait='0,12,0,8',
+                        Landscape='0,2,0,12'
+                    }"
+                />
+            </VerticalStackLayout>
+
+            <!-- FOOTER -->
+            <Grid
+                Margin="20,0,20,20"
+                Grid.Row="2">
+                <Button
+                    WidthRequest="{ grial:OnOrientationDouble
+                        Default=-1,
+                        Landscape=250
+                    }"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        Portrait='Fill',
+                        Landscape=Center
+                    }"
+                    Style="{ StaticResource DialogPrimaryActionButtonStyle }"
+                    Text="{ grial:Translate StringDone }"
+                    Clicked="OnClose"
+                />
+            </Grid>
+
+        </Grid>
+
+        <!-- AVATAR -->
+        <grial:RoundedImage
+            BorderSize="6"
+            BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+            Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/user_03.jpg"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            Size="{ grial:OnOrientationDouble
+                Portrait=106,
+                Landscape=80
+            }"
+            CornerRadius="{ DynamicResource BaseCornerRadiusDouble }"
+        />
+
+    </Grid>
+
+</uxd:PopupPage>

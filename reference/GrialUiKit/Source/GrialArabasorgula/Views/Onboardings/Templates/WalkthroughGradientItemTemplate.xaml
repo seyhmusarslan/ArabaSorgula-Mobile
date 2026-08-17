@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:WalkthroughBaseItemTemplate
+    x:Class="arabasorgula.WalkthroughGradientItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Name="Root"
+    BackgroundColor="{ DynamicResource FavoriteColor }">
+
+    <local:WalkthroughBaseItemTemplate.Resources>
+        <ResourceDictionary>
+            <!-- OVERLAY GRADIENT -->
+            <grial:RadialGradient x:Key="StepTemplateGradient" CenterX=".5" CenterY="0.5" Radius="320" RadiusType="Absolute">
+                <grial:GradientColor Color="#00000000" />
+                <grial:GradientColor Color="#55000000" />
+            </grial:RadialGradient>
+
+            <!-- ANIM IN -->
+            <grial:AnimationStoryboard
+                x:Key="AnimIn"
+                Delay="200">
+
+                <grial:AnimationFadeTo
+                    Opacity="1"
+                    Target="{ x:Reference image }"
+                    Duration="100"
+                />
+
+                <grial:AnimationScaleTo
+                    Delay="150"
+                    Scale="1"
+                    Target="{ x:Reference image }"
+                    Duration="100"
+                />
+
+                <grial:AnimationPopIn
+                    Delay="150"
+                    Direction="Up"
+                    Target="{ x:Reference headerLabel }"
+                    Duration="200"
+                />
+
+                <grial:AnimationPopIn
+                    Delay="150"
+                    Direction="Down"
+                    Distance="20"
+                    Target="{ x:Reference descriptionLabel }"
+                    Duration="200"
+                />
+
+            </grial:AnimationStoryboard>
+
+            <!-- ANIM RESET -->
+            <grial:AnimationStoryboard x:Key="AnimReset">
+
+                <grial:AnimationReset
+                    Opacity="0"
+                    Scale="2"
+                    Target="{ x:Reference image }"
+                />
+
+                <grial:AnimationReset
+                    Opacity="0"
+                    Target="{ x:Reference headerLabel }"
+                />
+
+                <grial:AnimationReset
+                    Opacity="0"
+                    Target="{ x:Reference descriptionLabel }"
+                />
+
+            </grial:AnimationStoryboard>
+        </ResourceDictionary>
+    </local:WalkthroughBaseItemTemplate.Resources>
+
+    <local:WalkthroughBaseItemTemplate.Triggers>
+        <EventTrigger Event="ItemInitialized">
+            <grial:StartAnimation Animation="{ StaticResource AnimReset }" />
+        </EventTrigger>
+
+        <EventTrigger Event="ItemDisappearing">
+            <grial:StartAnimation Animation="{ StaticResource AnimReset }" />
+        </EventTrigger>
+
+        <EventTrigger Event="ItemAppearing">
+            <grial:StartAnimation Animation="{ StaticResource AnimIn }" />
+        </EventTrigger>
+    </local:WalkthroughBaseItemTemplate.Triggers>
+
+    <local:WalkthroughBaseItemTemplate.Content>
+        <Grid
+            Margin="{ StaticResource CarouselViewItemFix }"
+            grial:Effects.BackgroundGradient="{ StaticResource StepTemplateGradient }"
+            IsClippedToBounds="true"
+            RowDefinitions="*,Auto">
+
+            <!-- BACKGROUND IMAGE -->
+            <Image
+                x:Name="image"
+                Margin="0,100,0,0"
+                AnchorY="0.5"
+                Aspect="AspectFit"
+                HeightRequest="{ grial:OnOrientationSizeRequest LandscapeTablet=200 }"
+                Source="{ Binding Source={x:Reference Root}, Path=StepBackgroundImage }"
+                VerticalOptions="Fill"
+            />
+
+            <VerticalStackLayout
+                Grid.Row="1"
+                Spacing="50"
+                VerticalOptions="End">
+
+                <VerticalStackLayout Spacing="20">
+                    <!-- HEADER -->
+                    <Label
+                        x:Name="headerLabel"
+                        BackgroundColor="Transparent"
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalTextAlignment="Center"
+                        Text="{ Binding Source={x:Reference Root}, Path=Header }"
+                        TextColor="{ DynamicResource OnSurfaceColor }"
+                    />
+
+                    <!-- TEXT -->
+                    <Label
+                        x:Name="descriptionLabel"
+                        BackgroundColor="Transparent"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Opacity="0.7"
+                        Text="{ Binding Source={x:Reference Root}, Path=Text }"
+                        TextColor="{ DynamicResource OnSurfaceColor }"
+                    />
+                </VerticalStackLayout>
+
+                <!-- BUTTON -->
+                <Button
+                    x:Name="actionButton"
+                    Margin="{ DynamicResource AirSpacingNoTop }"
+                    Command="{ Binding ActionButtonCommand, Source={x:Reference Root} }"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        PortraitPhone=Fill,
+                        LandscapePhone=Center,
+                        PortraitTablet=Fill,
+                        LandscapeTablet=Center
+                    }"
+                    Style="{ StaticResource OutlineInverseButtonStyle }"
+                    Text="{ Binding Source={x:Reference Root}, Path=ButtonText }"
+                    VerticalOptions="End"
+                    WidthRequest="{ grial:OnOrientationSizeRequest
+                        LandscapePhone=200,
+                        LandscapeTablet=400
+                    }"
+                />
+
+            </VerticalStackLayout>
+
+
+            <!-- CLOSE ICON -->
+            <local:RoundedIconButton
+                Command="{ Binding CloseCommand, Source={x:Reference Root} }"
+                HorizontalOptions="End"
+                Style="{ DynamicResource CloseIconButtonStyle }"
+            />
+        </Grid>
+    </local:WalkthroughBaseItemTemplate.Content>
+</local:WalkthroughBaseItemTemplate>

@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    Title="{ grial:Translate Key=PageTitleCardArticle }"
+    x:Class="arabasorgula.CardArticlePage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:GrialNavigationPage.BarBackgroundColor="Transparent"
+    grial:GrialNavigationPage.BarType="Transparent"
+    grial:GrialNavigationPage.BarTextColor="{ DynamicResource BackgroundSecondaryColor }">
+
+    <ScrollView
+        Padding="{ OnPlatform iOS=20 }"
+        grial:Effects.IgnoreIOSSafeAreaOnScrollView="All"
+        grial:SolidNavBarOnScrollBehavior.Attached="True"
+        grial:SolidNavBarOnScrollBehavior.EndBarBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        grial:SolidNavBarOnScrollBehavior.EndBarTextColor="{ DynamicResource TextColor }">
+        <Grid
+            RowSpacing="0"
+            Padding="{ OnPlatform Android=20 }"
+            RowDefinitions="280,Auto,Auto,Auto">
+
+            <!-- ARTICLE IMAGE -->
+            <Image
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Margin="-20,-20,-20,0"
+                Source="{ Binding Article.BackgroundImage }"
+                HeightRequest="367"
+                VerticalOptions="Start"
+            />
+
+            <!-- PLAY BUTTON -->
+            <!-- TODO: height = 1/2 Cornerradius -->
+            <Button
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                WidthRequest="60"
+                HeightRequest="60"
+                CornerRadius="30"
+                Margin="0,0,0,0"
+                FontSize="30"
+                BorderWidth="2"
+                BackgroundColor="#22000000"
+                Text="{ x:Static local:GrialIconsFont.AudioPlay }"
+                TextColor="{ DynamicResource OnSurfaceColor }"
+                FontFamily="{ StaticResource IconsFontFamily }"
+                BorderColor="{ DynamicResource OnSurfaceColor }"
+                Padding="5,0,0,0"
+            />
+
+            <!-- CARD -->
+            <grial:CardView
+                CornerRadius="{ DynamicResource CornerRadius-lg }"
+                RowSpacing="0"
+                Grid.Row="1"
+                HasShadow="False"
+                Padding="{ DynamicResource AirSpacing }"
+                Margin="0,0,0,10"
+                grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <!-- Date -->
+                    <Label
+                        VerticalOptions="Center"
+                        Text="{ Binding Article.When }"
+                        FontSize="{ StaticResource BaseFontSize }"
+                        Opacity="0.5"
+                    />
+
+                    <!-- Title -->
+                    <Label
+                        VerticalOptions="Center"
+                        Text="{ Binding Article.Title }"
+                        FontSize="24"
+                        FontAttributes="None"
+                    />
+
+
+                    <Grid>
+                        <!-- Category -->
+                        <Label
+                            Text="{ Binding Article.Section }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            FontSize="{ StaticResource BaseFontSize }"
+                            VerticalOptions="Center"
+                        />
+
+
+                        <!-- INFO -->
+                        <HorizontalStackLayout
+                            Spacing="6"
+                            VerticalOptions="End"
+                            HorizontalOptions="End">
+
+                            <!-- Likes -->
+                            <local:IconText
+                                VerticalOptions="Center"
+                                Icon="{ x:Static local:GrialIconsFont.Heart }"
+                                Spacing="3"
+                                Text="2.356"
+                                IconColor="{ DynamicResource FavoriteColor }"
+                                TextColor="{ DynamicResource FavoriteColor }"
+                            />
+
+                            <!-- Users -->
+                            <local:IconText
+                                VerticalOptions="Center"
+                                Icon="{ x:Static local:GrialIconsFont.MessageSquare }"
+                                Spacing="3"
+                                Text="15"
+                                IconColor="{ DynamicResource InfoColor }"
+                                TextColor="{ DynamicResource InfoColor }"
+                            />
+                        </HorizontalStackLayout>
+                    </Grid>
+
+                    <!-- Separator -->
+                    <BoxView
+                        Margin="0,5"
+                        Style="{ StaticResource Horizontal1ptLineStyle }"
+                    />
+
+                    <!-- Text block 1 -->
+                    <Label Text="{ Binding Article.Body }" />
+
+                    <!-- Gallery -->
+                    <grial:Repeater
+                        Margin="-30,20"
+                        ItemsSource="{ Binding Gallery }"
+                        Orientation="Horizontal"
+                        HeightRequest="160"
+                        Spacing="25"
+                        ScrollPadding="{ DynamicResource AirSpacingNoBorder }"
+                        ScrollBarVisibility="Never">
+                        <grial:Repeater.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image
+                                        Source="{ Binding BackgroundImage }"
+                                        WidthRequest="250"
+                                        HeightRequest="160"
+                                        grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                                    />
+                                </Grid>
+                            </DataTemplate>
+                        </grial:Repeater.ItemTemplate>
+                    </grial:Repeater>
+
+                    <!-- Text block 2 -->
+                    <Label Text="{ Binding Article.Body }" />
+
+                </VerticalStackLayout>
+            </grial:CardView>
+
+            <!-- RELATED SECTION -->
+            <VerticalStackLayout
+                Grid.Row="2"
+                Spacing="25"
+                Margin="-20,0"
+                Padding="0,20,0,30">
+
+                <!-- Related title -->
+                <local:EmojiText
+                    HorizontalOptions="Start"
+                    Margin="{ DynamicResource AirSpacingNoBorder }"
+                    Text="{ grial:Translate Key=StringRelatedNews }"
+                    TextFontSize="{ StaticResource TitleFontSize }"
+                    Icon="{ x:Static local:Emojis.newspaper }"
+                    Style="{ StaticResource SocialHeaderEmojiTextStyle }"
+                    TextFontAttributes="Bold"
+                />
+
+                <!-- Related Articles -->
+                <CarouselView
+                    PeekAreaInsets="20,0"
+                    HeightRequest="120"
+                    IndicatorView="indicatorView"
+                    VerticalOptions="Center"
+                    ItemsSource="{ Binding Related }"
+                    HorizontalScrollBarVisibility="Never">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <local:RelatedArticlesCarouselItemTemplate />
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <IndicatorView
+                    x:Name="indicatorView"
+                    HorizontalOptions="Center"
+                    IndicatorColor="{ DynamicResource OverlayVariantColor }"
+                    SelectedIndicatorColor="{ DynamicResource PrimaryColor }"
+                />
+            </VerticalStackLayout>
+
+            <!-- Comments Section -->
+            <grial:ExtendedGrid
+                Grid.Row="3"
+                Margin="-20,-40,-20,-20"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Padding="{ DynamicResource AirSpacingWithBorder }"
+                TrimTopShape="InvertedRoundedCorners"
+                TrimTopHeight="40"
+                RowDefinitions="70,Auto,50">
+
+                <!-- TITLE -->
+                <HorizontalStackLayout
+                    HorizontalOptions="Start"
+                    Style="{ DynamicResource ResponsiveLandscapeMarginStyle }"
+                    grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+                    VerticalOptions="Center">
+
+                    <!-- Text Emoji -->
+                    <local:EmojiText
+                        Text="{ Binding Comments.Count, StringFormat='{0:F0} Comments' }"
+                        TextFontSize="{ StaticResource TitleFontSize }"
+                        Icon="{ x:Static local:Emojis.speech_balloon }"
+                        Style="{ StaticResource SocialHeaderEmojiTextStyle }"
+                        TextFontAttributes="Bold"
+                    />
+                </HorizontalStackLayout>
+
+                <!-- COMMENTS -->
+                <Grid
+                    Grid.Row="1"
+                    HeightRequest="{ OnPlatform
+                        Android=400,
+                        iOS=380
+                    }">
+                    <CollectionView
+                        ItemsSource="{ Binding Comments }"
+                        TranslationY="-2"
+                        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                        Margin="{ grial:OnOrientationThickness
+                            Portrait='-30,0',
+                            Landscape='70,0'
+                        }">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <local:ArticleCommentVariantItemTemplate HeightRequest="120" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+                <!-- BUTTON ROW -->
+                <Button
+                    Grid.Row="2"
+                    Clicked="OnPrimaryActionButtonClicked"
+                    VerticalOptions="Center"
+                    Text="{ grial:Translate ButtonAddComment }"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        Portrait=Fill,
+                        Landscape=Center
+                    }"
+                    WidthRequest="{ grial:OnOrientationSizeRequest
+                        LandscapePhone=200,
+                        PortraitTablet=200,
+                        LandscapeTablet=400
+                    }"
+                />
+            </grial:ExtendedGrid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.NavigationListWithImagesItemTemplate">
+
+    <grial:CardView
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        ColumnSpacing="4"
+        RowSpacing="5"
+        Margin="30,8"
+        HasShadow="False"
+        RowDefinitions="*,*">
+        <grial:CardView.ColumnDefinitions>
+            <ColumnDefinition Width="{ OnIdiom Phone=80, Tablet=100 }" />
+            <ColumnDefinition Width="*" />
+        </grial:CardView.ColumnDefinitions>
+        <grial:RoundedImage
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Grid.Row="0"
+            CornerRadius="{ DynamicResource CornerRadius-md }"
+            Size="60"
+            Source="{ Binding BackgroundImage }"
+        />
+
+        <Label
+            Grid.Column="1"
+            Grid.Row="0"
+            Text="{ Binding Name }"
+            TextColor="{ DynamicResource TextColor }"
+            HorizontalOptions="Start"
+            FontAttributes="Bold"
+            VerticalTextAlignment="End"
+        />
+
+        <Label
+            Grid.Column="1"
+            Grid.Row="1"
+            Text="{ Binding ItemCount, StringFormat='{}{0:F0} items' }"
+            FontAttributes="None"
+            TextColor="{ DynamicResource TextColor }"
+            FontSize="14"
+            Opacity=".5"
+            HorizontalOptions="Start"
+            VerticalTextAlignment="Start"
+        />
+
+    </grial:CardView>
+</ContentView>

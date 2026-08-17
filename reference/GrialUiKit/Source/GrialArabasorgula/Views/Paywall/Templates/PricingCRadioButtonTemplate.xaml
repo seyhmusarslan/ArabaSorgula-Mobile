@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.PricingCRadioButtonTemplate">
+
+    <ContentView.Resources>
+        <grial:BooleanToObjectConverter
+            x:Key="PlanIconTextConverter"
+            x:TypeArguments="x:String"
+            TrueValue="{ x:Static local:GrialIconsFont.CheckCircle }"
+            FalseValue="{ x:Static local:GrialIconsFont.Close }"
+        />
+        <grial:BooleanToObjectConverter
+            x:Key="PlanIconColorConverter"
+            x:TypeArguments="Color"
+            TrueValue="{ StaticResource SuccessTertiaryColor }"
+            FalseValue="{ StaticResource TextColor }"
+        />
+    </ContentView.Resources>
+
+    <!-- RADIO BUTTON -->
+    <RadioButton
+        Padding="0"
+        Value="{ Binding . }">
+        <RadioButton.ControlTemplate>
+            <!-- TEMPLATE -->
+            <ControlTemplate>
+                <Grid BindingContext="{ TemplateBinding BindingContext }">
+                    <!-- CONTAINER -->
+                    <Border
+                        HeightRequest="{ TemplateBinding HeightRequest }"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 10"
+                        BackgroundColor="{ grial:If
+                            Condition={TemplateBinding IsChecked},
+                            Then={DynamicResource BackgroundSecondaryColor},
+                            Else=Transparent
+                        }"
+                        Padding="12,16">
+                        <!-- CONTENT -->
+                        <VerticalStackLayout
+                            Spacing="20"
+                            VerticalOptions="End">
+                            <!-- PLAN NAME -->
+                            <Label
+                                Text="{ Binding PlanName }"
+                                HorizontalTextAlignment="Center"
+                                FontAttributes="Bold"
+                                VerticalTextAlignment="Center"
+                                LineBreakMode="NoWrap"
+                            />
+                            <!-- PLAN PRICE -->
+                            <Label
+                                Text="{ Binding PlanPrice }"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                HeightRequest="24"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                            />
+                            <!-- ICON -->
+                            <Label
+                                Text="{ Binding InlcudesFeature1, Converter={StaticResource PlanIconTextConverter} }"
+                                TextColor="{ Binding InlcudesFeature1, Converter={StaticResource PlanIconColorConverter} }"
+                                FontFamily="{ DynamicResource IconsFontFamily }"
+                                HorizontalTextAlignment="Center"
+                                FontSize="{ StaticResource TitleFontSize }"
+                            />
+                            <!-- ICON -->
+                            <Label
+                                Text="{ Binding InlcudesFeature2, Converter={StaticResource PlanIconTextConverter} }"
+                                TextColor="{ Binding InlcudesFeature2, Converter={StaticResource PlanIconColorConverter} }"
+                                FontFamily="{ DynamicResource IconsFontFamily }"
+                                HorizontalTextAlignment="Center"
+                                FontSize="{ StaticResource TitleFontSize }"
+                            />
+                            <!-- ICON -->
+                            <Label
+                                Text="{ Binding InlcudesFeature3, Converter={StaticResource PlanIconTextConverter} }"
+                                TextColor="{ Binding InlcudesFeature3, Converter={StaticResource PlanIconColorConverter} }"
+                                FontFamily="{ DynamicResource IconsFontFamily }"
+                                HorizontalTextAlignment="Center"
+                                FontSize="{ StaticResource TitleFontSize }"
+                            />
+                            <!-- ICON -->
+                            <Label
+                                Text="{ Binding InlcudesFeature4, Converter={StaticResource PlanIconTextConverter} }"
+                                TextColor="{ Binding InlcudesFeature4, Converter={StaticResource PlanIconColorConverter} }"
+                                FontFamily="{ DynamicResource IconsFontFamily }"
+                                HorizontalTextAlignment="Center"
+                                FontSize="{ StaticResource TitleFontSize }"
+                            />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </RadioButton.ControlTemplate>
+    </RadioButton>
+
+</ContentView>
+

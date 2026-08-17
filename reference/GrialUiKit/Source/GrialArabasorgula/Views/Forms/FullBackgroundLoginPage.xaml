@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.FullBackgroundLoginPage"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+    <Grid>
+        <ScrollView>
+            <Grid
+                RowDefinitions="170,Auto,*"
+                Style="{ StaticResource BaseFormsContentStyle }">
+
+                <!-- LOGO HEADER -->
+                <Grid
+                    RowSpacing="0"
+                    ColumnSpacing="0"
+                    ColumnDefinitions="140,*"
+                    RowDefinitions="*,Auto,Auto">
+
+                    <!-- Logo -->
+                    <local:BrandLogo
+                        Grid.Row="0"
+                        Grid.RowSpan="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Inverted="False"
+                    />
+
+                    <!-- Welcome -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="{ grial:Translate PageTitleWelcomeKickoff }"
+                        FontSize="22"
+                        TextColor="{ DynamicResource TextColor }"
+                        FontAttributes="Bold"
+                        VerticalOptions="End"
+                    />
+
+                    <!-- Back -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="{ grial:Translate StringWelcomeBack }"
+                        FontSize="16"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                        VerticalOptions="Start"
+                    />
+
+                </Grid>
+
+                <!-- FIELDS CONTAINER -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Spacing="20"
+                    Padding="0,20"
+                    VerticalOptions="Center">
+                    <!-- Email -->
+                    <Entry
+                        Placeholder="{ grial:Translate StringEmail }"
+                        Opacity="0.8"
+                    />
+
+                    <!-- Password -->
+                    <Entry
+                        Placeholder="{ grial:Translate StringPassword }"
+                        Opacity="0.8"
+                    />
+
+                    <!-- Remember me? -->
+                    <HorizontalStackLayout
+                        Spacing="10"
+                        HorizontalOptions="Start">
+
+                        <Switch
+                            Margin="10,0"
+                            HorizontalOptions="Start"
+                        />
+
+                        <Label
+                            Text="{ grial:Translate StringRememberMe }"
+                            VerticalOptions="Center"
+                            TextColor="{ StaticResource TextSecondaryColor }"
+                        />
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+                <!-- BUTTONS SECTION -->
+                <VerticalStackLayout
+                    Grid.Row="2"
+                    Spacing="14"
+                    VerticalOptions="End">
+                    <!-- Login -->
+                    <Button
+                        Text="{ grial:Translate StringLogin }"
+                        Style="{ StaticResource PrimaryActionButtonStyle }"
+                    />
+
+                    <!-- Line OR Line -->
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <!-- Line -->
+                        <BoxView
+                            HeightRequest="1"
+                            VerticalOptions="Center"
+                            WidthRequest="135"
+                            Color="{ DynamicResource TextSecondaryColor }"
+                        />
+
+                        <Label
+                            Text="OR"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            TextColor="{ DynamicResource TextSecondaryColor }"
+                        />
+                        <!-- Line -->
+                        <BoxView
+                            HeightRequest="1"
+                            VerticalOptions="Center"
+                            WidthRequest="135"
+                            Color="{ DynamicResource TextSecondaryColor }"
+                        />
+                    </HorizontalStackLayout>
+
+                    <!-- Google -->
+                    <local:IconButton
+                        Text="{ grial:Translate StringLoginGoogle }"
+                        ButtonStyle="{ StaticResource SecondaryActionButtonStyle }"
+                        IconText="{ x:Static local:GrialIconsFont.LogoGoogle }"
+                        IconFontSize="15"
+                        IconFontFamily="{ StaticResource IconsFontFamily }"
+                        IconColor="{ DynamicResource PrimaryColor }"
+                    />
+
+                    <!-- Facebook -->
+                    <local:IconButton
+                        Text="{ grial:Translate StringLoginFacebook }"
+                        ButtonStyle="{ StaticResource SecondaryActionButtonStyle }"
+                        IconText="{ x:Static local:GrialIconsFont.LogoFacebookSquare }"
+                        IconFontSize="15"
+                        IconFontFamily="{ StaticResource IconsFontFamily }"
+                        IconColor="{ DynamicResource PrimaryColor }"
+                    />
+
+                    <!-- Forgot password -->
+                    <Label
+                        Text="{ grial:Translate LabelForgotYourPassword }"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                    />
+
+                </VerticalStackLayout>
+
+            </Grid>
+        </ScrollView>
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            HorizontalOptions="End"
+            Style="{ StaticResource CloseIconButtonInverseStyle }"
+            Clicked="OnCloseButtonClicked"
+        />
+    </Grid>
+</ContentPage>

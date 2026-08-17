@@ -1,0 +1,405 @@
+{
+  "[grial-metadata]": "id: Grial#SmartHome.json version: 1.0.4",
+  "RoomDevices": {
+    "$id": "room-devices",
+    "Devices": [
+      {
+        "$id": "room-device-1",
+        "Icon": "",
+        "Name": "Hue Strip 1",
+        "Info": "Hue Color Light Strip",
+        "ScheduledActivity": true,
+        "IsOn": true,
+        "Intensity": 0.54,
+        "ColorScene": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/sunset.png",
+        "IsLamp": true,
+        "BackgroundColor": "",
+        "Where": "LivingRoom",
+        "DeviceColor": "#3F75FF",
+        "Schedules": [
+          {
+            "From": "10:40",
+            "To": "12:20",
+            "ColorScene": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/beach.png",
+            "Days": [
+              "Mo",
+              "Tu",
+              "Th",
+              "Fr"
+            ],
+            "Intensity": 0.3
+          },
+          {
+            "From": "18:00",
+            "To": "22:00",
+            "ColorScene": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/candles.png",
+            "When": "Weekends",
+            "Intensity": 0.93
+          }
+        ]
+      },
+      {
+        "$id": "room-device-2",
+        "Icon": "",
+        "Name": "Air Conditioner",
+        "Info": "Samsung Breeze AC9000",
+        "IsOn": true,
+        "IsAir": true,
+        "BackgroundColor": "",
+        "Where": "LivingRoom",
+        "DeviceColor": "#E3008C"
+      },
+      {
+        "$id": "room-device-3",
+        "Icon": "",
+        "Name": "Main Tv",
+        "Info": "Samsung 6000ux",
+        "ScheduledActivity": true,
+        "IsOn": false,
+        "BackgroundColor": "",
+        "Where": "LivingRoom",
+        "DeviceColor": "#FF5722"
+      },
+      {
+        "$id": "room-device-4",
+        "Icon": "",
+        "Name": "Sound System",
+        "Info": "Denon ad17000",
+        "ScheduledActivity": false,
+        "IsOn": true,
+        "BackgroundColor": "",
+        "Where": "MovieRoom",
+        "DeviceColor": "#680C97"
+      },
+      {
+        "$id": "room-device-5",
+        "Icon": "",
+        "Name": "Webcam",
+        "Info": "Smart Home Webcam",
+        "ScheduledActivity": false,
+        "IsOn": true,
+        "BackgroundColor": "",
+        "Where": "LivingRoom",
+        "DeviceColor": "#08C873"
+      },
+      {
+        "$id": "room-device-6",
+        "Icon": "",
+        "Name": "Alarm Sensor",
+        "Info": "SimpliSafe Motion Sensor ",
+        "ScheduledActivity": false,
+        "IsOn": false,
+        "BackgroundColor": "",
+        "Where": "Kitchen",
+        "DeviceColor": "#5856D6"
+      },
+      {
+        "$id": "room-device-7",
+        "Icon": "",
+        "Name": "Smart Lamp",
+        "Info": "Wemo Smart Lamp",
+        "ScheduledActivity": true,
+        "IsLamp": true,
+        "IsOn": true,
+        "ColorScene": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/starry_night.png",
+        "Intensity": 0.3,
+        "BackgroundColor": "",
+        "Where": "BathRoom",
+        "DeviceColor": "#FF602E"
+      },
+      {
+        "$id": "room-device-8",
+        "Icon": "",
+        "Name": "Alarm Clock",
+        "Info": "Sharp Digital Clock",
+        "ScheduledActivity": false,
+        "IsOn": false,
+        "BackgroundColor": "",
+        "Where": "MainHall",
+        "DeviceColor": "#3F75FF"
+      },
+      {
+        "$id": "room-device-9",
+        "Icon": "",
+        "Name": "Socket",
+        "Info": "Wemo Smart Plug",
+        "ScheduledActivity": true,
+        "IsOn": false,
+        "BackgroundColor": "",
+        "Where": "Kitchen",
+        "DeviceColor": "#9A0089"
+      }
+    ]
+  },
+  "Rooms": [
+    {
+      "$id": "room-1",
+      "Icon": "",
+      "Name": "Living Room",
+      "DeviceCount": 6
+    },
+    {
+      "$id": "room-2",
+      "Icon": "",
+      "Name": "Kitchen",
+      "DeviceCount": 5
+    },
+    {
+      "$id": "room-3",
+      "Icon": "",
+      "Name": "Movie Room",
+      "DeviceCount": 4
+    },
+    {
+      "$id": "room-4",
+      "Icon": "",
+      "Name": "Game Room",
+      "DeviceCount": 12
+    },
+    {
+      "$id": "room-5",
+      "Icon": "",
+      "Name": "Bath Room",
+      "DeviceCount": 4
+    },
+    {
+      "$id": "room-6",
+      "Icon": "",
+      "Name": "Main Bedroom",
+      "DeviceCount": 3
+    },
+    {
+      "$id": "room-7",
+      "Icon": "",
+      "Name": "Kids Bedroom",
+      "DeviceCount": 4
+    }
+  ],
+  "SmartHomeMainPage.xaml": {
+    "DeviceSummary": [
+      {
+        "Icon": "",
+        "Description": "Devices Connected",
+        "DeviceCount": 18
+      },
+      {
+        "Icon": "",
+        "Description": "Active Cameras",
+        "DeviceCount": 5
+      },
+      {
+        "Icon": "",
+        "Description": "Appliances Connected",
+        "DeviceCount": 8
+      },
+      {
+        "Icon": "",
+        "Description": "Scheduled Devices",
+        "DeviceCount": 7
+      }
+    ],
+    "DashBoardCards": [
+      {
+        "Icon": "",
+        "IconColor": "#680C97",
+        "Title": "Air Conditioner",
+        "Info": "23°",
+        "IsOn": true
+      },
+      {
+        "Icon": "",
+        "IconColor": "#3F75FF",
+        "Title": "Smart TV",
+        "Info": "1 device",
+        "IsOn": false
+      },
+      {
+        "Icon": "",
+        "IconColor": "#E3008C",
+        "Title": "WiFi Router",
+        "Info": "200 Mbps",
+        "IsOn": true
+      },
+      {
+        "Icon": "",
+        "IconColor": "#FF5722",
+        "Title": "Lamp",
+        "Info": "47%",
+        "IsOn": true
+      }
+    ],
+    "Rooms": [
+      {
+        "$ref": "room-1"
+      },
+      {
+        "$ref": "room-2"
+      },
+      {
+        "$ref": "room-3"
+      },
+      {
+        "$ref": "room-4"
+      },
+      {
+        "$ref": "room-5"
+      },
+      {
+        "$ref": "room-6"
+      },
+      {
+        "$ref": "room-7"
+      }
+    ]
+  },
+  "SmartHomeRoomPage.xaml": {
+    "Devices": [
+      {
+        "$ref": "room-device-1"
+      },
+      {
+        "$ref": "room-device-2"
+      },
+      {
+        "$ref": "room-device-3"
+      },
+      {
+        "$ref": "room-device-4"
+      },
+      {
+        "$ref": "room-device-5"
+      },
+      {
+        "$ref": "room-device-6"
+      },
+      {
+        "$ref": "room-device-7"
+      },
+      {
+        "$ref": "room-device-8"
+      },
+      {
+        "$ref": "room-device-9"
+      }
+    ],
+    "Rooms": [
+      {
+        "$ref": "room-1"
+      },
+      {
+        "$ref": "room-2"
+      },
+      {
+        "$ref": "room-3"
+      },
+      {
+        "$ref": "room-4"
+      },
+      {
+        "$ref": "room-5"
+      },
+      {
+        "$ref": "room-6"
+      },
+      {
+        "$ref": "room-7"
+      }
+    ],
+    "RecentActivity": [
+      {
+        "Value": 100,
+        "Label": "12h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 10,
+        "Label": "11h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 90,
+        "Label": "10h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 8,
+        "Label": "9h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 70,
+        "Label": "8h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 100,
+        "Label": "7h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 10,
+        "Label": "6h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 100,
+        "Label": "5h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 50,
+        "Label": "4h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 40,
+        "Label": "3h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 10,
+        "Label": "2h",
+        "ValueLabel": "."
+      },
+      {
+        "Value": 90,
+        "Label": "1h",
+        "ValueLabel": "."
+      }
+    ]
+  },
+  "SmartHomeLightSettingsPage.xaml": {
+    "ColorScenes": [
+      "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/beach.png",
+      "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/candles.png",
+      "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/lake_placid.png",
+      "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/starry_night.png",
+      "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/sunset.png",
+      "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/winter_beauty.png"
+    ]
+  },
+  "SmartHomeAirSettingsPage.xaml": {
+    "AirModes": [
+      {
+        "Icon": "",
+        "Name": "Dry"
+      },
+      {
+        "Icon": "",
+        "Name": "Cool"
+      },
+      {
+        "Icon": "",
+        "Name": "Heat"
+      },
+      {
+        "Icon": "",
+        "Name": "Fan"
+      },
+      {
+        "Icon": "",
+        "Name": "Auto"
+      }
+    ]
+  }
+}

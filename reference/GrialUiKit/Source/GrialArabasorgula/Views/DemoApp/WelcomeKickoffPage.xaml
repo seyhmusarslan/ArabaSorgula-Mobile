@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.WelcomeKickoffPage"
+    Title="{ grial:Translate PageTitleWelcomeKickoff }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <Grid
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        RowDefinitions="60*,40*"
+        TranslationY="-60">
+
+        <!-- ICON BACKGROUND -->
+        <Label
+            Grid.Row="0"
+            Style="{ StaticResource FontIcon }"
+            Text="{ x:Static local:GrialIconsFont.ShapeCircle }"
+            TextColor="{ DynamicResource PrimaryColor }"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="250"
+            Opacity="0.1"
+        />
+
+        <!-- ICON BACKGROUND -->
+        <Label
+            Grid.Row="0"
+            Style="{ StaticResource FontIcon }"
+            Text="{ x:Static local:GrialIconsFont.ShapeCircle }"
+            TextColor="{ DynamicResource PrimaryColor }"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="180"
+            Opacity="0.1"
+        />
+
+        <!-- ICON -->
+        <Label
+            Grid.Row="0"
+            Text="{ x:Static local:GrialIconsFont.Check }"
+            Style="{ StaticResource FontIcon }"
+            FontSize="100"
+            HorizontalTextAlignment="Center"
+            TextColor="{ DynamicResource PrimaryColor }"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+        />
+
+        <!-- TEXT -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            VerticalOptions="Center"
+            Padding="60,0"
+            Spacing="2">
+
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="{ grial:Translate LabelWelcomeToGrialKickoff }"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="{ DynamicResource TextColor }"
+            />
+
+            <Label
+                HorizontalTextAlignment="Center"
+                Opacity="0.8"
+                Text="{ grial:Translate LabelWelcomeToGrialKickoffDescription }"
+                FontSize="16"
+                TextColor="{ DynamicResource TextColor }"
+            />
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

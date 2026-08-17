@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.PopupsPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitlePopups }"
+    x:Name="root">
+    <!-- Main Wrapper -->
+    <Grid
+        Padding="{ DynamicResource AirSpacing }"
+        RowSpacing="16"
+        RowDefinitions="Auto,*">
+        <!-- Title -->
+        <Label
+            Text="{ grial:Translate StringPopupLibraryTitle }"
+            FontSize="{ StaticResource SmallTitleFontSize }"
+        />
+        <!-- Popup List -->
+        <ScrollView
+            Grid.Row="1"
+            VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Spacing="20">
+                <!-- New popups -->
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonClipboardLinkPopup }"
+                    Text="{ grial:Translate ButtonSubtitleClipboardLinkPopup }"
+                    Tapped="OpenClipboardLinkPopup"
+                    IsNew="True"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonSingleEntryFormPopup }"
+                    Text="{ grial:Translate ButtonSubtitleSingleEntryFormPopup }"
+                    Tapped="OpenSingleEntryFormPopup"
+                    IsNew="True"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonInteractiveNotificationPopup }"
+                    Text="{ grial:Translate ButtonSubtitleInteractiveNotificationPopup }"
+                    Tapped="OpenInteractiveNotificationPopup"
+                    IsNew="True"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonOptionsListPopup }"
+                    Text="{ grial:Translate ButtonSubtitleOptionsListPopup }"
+                    Tapped="OpenOptionsListPopup"
+                    IsNew="True"
+                />
+                <!-- - Grial Popups -->
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonSimpleDialog }"
+                    Text="{ grial:Translate ButtonSubtitleSimpleDialog }"
+                    Tapped="OpenSimpleDialog"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonSimpleDialogNoTitle }"
+                    Text="{ grial:Translate ButtonSubtitleSimpleDialogNoTitle }"
+                    Tapped="OpenSimpleDialogNoTitle"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonSimpleDialogNoTitleInverse }"
+                    Text="{ grial:Translate ButtonSubtitleSimpleDialogNoTitleInverse }"
+                    Tapped="OpenSimpleDialogNoTitleInverse"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonIrregularDialog }"
+                    Text="{ grial:Translate ButtonSubtitleIrregularDialog }"
+                    Tapped="OpenIrregularDialog"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonNotificationPopup }"
+                    Text="{ grial:Translate ButtonSubtitleNotificationPopup }"
+                    Tapped="OpenNotificationPopup"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonCustomActionSheet }"
+                    Text="{ grial:Translate ButtonSubtitleCustomActionSheet }"
+                    Tapped="OpenCustomActionSheet"
+                />
+                <!-- Grial-UXDivers Popups -->
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonFloater }"
+                    Text="{ grial:Translate ButtonSubtitleFloater }"
+                    Tapped="OpenFloater"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonToast }"
+                    Text="{ grial:Translate ButtonSubtitleToast }"
+                    Tapped="OpenToast"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonOptionsSheet }"
+                    Text="{ grial:Translate ButtonSubtitleOptionsSheet }"
+                    Tapped="OpenOptionsSheet"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonSimpleText }"
+                    Text="{ grial:Translate ButtonSubtitleSimpleText }"
+                    Tapped="OpenSimpleText"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonSimpleAction }"
+                    Text="{ grial:Translate ButtonSubtitleSimpleAction }"
+                    Tapped="OpenSimpleAction"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonImageActionSheet }"
+                    Text="{ grial:Translate ButtonSubtitleImageActionSheet }"
+                    Tapped="OpenImageActionSheet"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonIconTextPopup }"
+                    Text="{ grial:Translate ButtonSubtitleIconTextPopup }"
+                    Tapped="OpenIconTextPopup"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonListActionPopup }"
+                    Text="{ grial:Translate ButtonSubtitleListActionPopup }"
+                    Tapped="OpenListActionPopup"
+                />
+                <local:PopupsCardItemTemplate
+                    Title="{ grial:Translate ButtonFormPopup }"
+                    Text="{ grial:Translate ButtonSubtitleFormPopup }"
+                    Tapped="OpenFormPopup"
+                />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

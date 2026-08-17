@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.WelcomeVariantPage"
+    grial:GrialNavigationPage.HasNavigationBar="false"
+    Title="{ grial:Translate PageTitleWelcomeVariant }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+    <Grid
+        RowDefinitions="4*,6*"
+        grial:Effects.BackgroundGradient="{ DynamicResource PrimaryGradient }">
+        <local:BackgroundDecoration x:Name="decoration" />
+
+        <Grid
+            Grid.RowSpan="2"
+            Padding="{ DynamicResource AirSpacing }"
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+            RowDefinitions="*,Auto">
+
+            <!-- CLAIM TEXT -->
+            <VerticalStackLayout
+                Grid.Row="0"
+                Spacing="12"
+                Padding="20,0"
+                Margin="0,40,0,0"
+                VerticalOptions="Center">
+
+                <!-- LOGO -->
+                <Label
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        Portrait=Start,
+                        Landscape=Center
+                    }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    FontSize="64"
+                    Margin="-5,0,0,10"
+                    Text="{ x:Static local:GrialIconsFont.LogoGrialSquare }"
+                    Style="{ StaticResource FontIcon }"
+                />
+
+                <!-- DESCRIPTION 1 -->
+                <Label
+                    IsVisible="{ grial:OnOrientationBool
+                        Default=True,
+                        LandscapePhone=False
+                    }"
+                    LineBreakMode="WordWrap"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        Portrait=Start,
+                        Landscape=Center
+                    }"
+                    Text="{ grial:Translate StringReadyMadeUIsForXamarin }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    VerticalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    FontSize="{ OnIdiom
+                        Phone=24,
+                        Tablet=34
+                    }"
+                />
+
+                <!-- DESCRIPTION 2 -->
+                <Label
+                    LineBreakMode="WordWrap"
+                    Text="{ grial:Translate LabelTakeYourAppToNextLevel }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    VerticalTextAlignment="Center"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        Portrait=Start,
+                        Landscape=Center
+                    }"
+                    IsVisible="{ grial:OnOrientationBool
+                        Default=true,
+                        LandscapePhone=false
+                    }"
+                    FontSize="{ OnIdiom
+                        Phone=15,
+                        Tablet=25
+                    }"
+                />
+
+                <!-- VERSION TAG -->
+                <grial:RoundedLabel
+                    IsVisible="{ grial:OnOrientationBool
+                        Default=True,
+                        LandscapePhone=False
+                    }"
+                    FontSize="10"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    BackgroundColor="{ DynamicResource PrimaryColor }"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        Portrait=Start,
+                        Landscape=Center
+                    }"
+                    Text="Version 4.0"
+                    Margin="-1,10"
+                />
+            </VerticalStackLayout>
+
+            <!-- BUTTONS -->
+            <VerticalStackLayout
+                grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom"
+                Grid.Row="1"
+                VerticalOptions="End"
+                Padding="0,0,0,20"
+                HorizontalOptions="Fill"
+                Spacing="15">
+
+                <Button
+                    Clicked="OnWhatsNew"
+                    Style="{ StaticResource OutlineButtonStyle }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    BorderColor="{ DynamicResource OnSurfaceColor }"
+                    FontAttributes="Bold"
+                    Text="{ grial:Translate TakeWalkThrough }"
+                    VerticalOptions="End"
+                    WidthRequest="{ grial:OnOrientationSizeRequest LandscapeTablet=600 }"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        Portrait=Fill,
+                        LandscapePhone=Fill,
+                        LandscapeTablet=Center
+                    }"
+                />
+
+                <Button
+                    Clicked="OnClose"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    BackgroundColor="{ DynamicResource OverlayHighlightColor }"
+                    Text="{ grial:Translate StringSkip }"
+                    VerticalOptions="End"
+                    WidthRequest="{ grial:OnOrientationSizeRequest LandscapeTablet=600 }"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        Portrait=Fill,
+                        LandscapePhone=Fill,
+                        LandscapeTablet=Center
+                    }"
+                />
+
+            </VerticalStackLayout>
+
+        </Grid>
+    </Grid>
+
+</ContentPage>

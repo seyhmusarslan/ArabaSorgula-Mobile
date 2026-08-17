@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.EmployeeProfileDashboardPage"
+    Title="{ grial:Translate PageTitleEmployeeProfileDashboard }"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root">
+    <ContentPage.Resources>
+        <grial:SwitchConverter
+            x:Key="ColorConverter"
+            Case1="Online"
+            Result1="{ StaticResource SuccessColor }"
+            Case2="Busy"
+            Result2="{ StaticResource ErrorColor }"
+            Case3="Away"
+            Result3="{ StaticResource WarningColor }"
+            DefaultResult="{ StaticResource DisabledColor }"
+        />
+    </ContentPage.Resources>
+
+    <Grid
+        RowSpacing="0"
+        RowDefinitions="100,*">
+        <!-- EMPLOYEE HEADER -->
+        <grial:ExtendedGrid
+            Grid.Row="0"
+            VerticalOptions="Fill"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            ColumnDefinitions="*,Auto"
+            Padding="20,0,20,20"
+            grial:TrimmingEffects.BottomShape="RoundedCorners"
+            grial:TrimmingEffects.BottomHeight="40">
+            <!-- CARD -->
+            <local:EmployeeCardTemplate
+                Grid.Column="0"
+                VerticalOptions="Center"
+                BindingContext="{ Binding Employee }"
+                BackgroundColor="Transparent"
+                Margin="{ grial:OnOrientationThickness
+                    Landscape='100,0,0,0',
+                    PortraitPhone='0',
+                    PortraitTablet='100,0,0,0'
+                }"
+            />
+
+            <grial:RingChart
+                HeightRequest="60"
+                WidthRequest="80"
+                Grid.Column="1"
+                Color="{ DynamicResource PrimaryColor }"
+                IsAnimated="False"
+                LabelFontSize="{ StaticResource LargeFontSize }"
+                HasCurvedLineCaps="True"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                BackgroundRingColor="{ DynamicResource BackgroundTertiaryColor }"
+                BackgroundRingOpacity="0.3"
+                BackgroundRingStrokeSize="7"
+                ValueRingStrokeSize="7"
+                Value="{ Binding Employee.Score }"
+                ValueFormat="0'.'0"
+                Margin="{ grial:OnOrientationThickness
+                    Landscape='10,10,110,10',
+                    PortraitPhone='10',
+                    PortraitTablet='10,10,110,10'
+                }"
+                LabelFontColor="{ DynamicResource PrimaryColor }"
+            />
+        </grial:ExtendedGrid>
+
+        <ScrollView
+            Grid.Row="1"
+            grial:Effects.IgnoreIOSSafeAreaOnScrollView="Bottom">
+            <VerticalStackLayout>
+                <!-- TEAM ROW -->
+                <VerticalStackLayout
+                    Grid.Row="0"
+                    grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+
+                    <!-- FRIENDS HEADER -->
+                    <local:EmojiText
+                        Text="Team"
+                        TextFontSize="{ StaticResource XLargeFontSize }"
+                        Icon="{ x:Static local:Emojis.busts_in_silhouette }"
+                        Style="{ StaticResource SocialHeaderEmojiTextStyle }"
+                        HorizontalOptions="Start"
+                        Padding="{ grial:OnOrientationThickness
+                            Portrait='30,16,30,0',
+                            Landscape='130,16,130,0'
+                        }"
+                    />
+
+                    <!-- Team repeater -->
+                    <grial:Repeater
+                        Grid.Row="1"
+                        ItemsSource="{ Binding TeamMembers }"
+                        Orientation="Horizontal"
+                        ScrollBarVisibility="Never"
+                        HeightRequest="100"
+                        ScrollPadding="{ grial:OnOrientationThickness
+                            Portrait='30,16,30,0',
+                            Landscape='130,16,130,0'
+                        }"
+                        Spacing="16"
+                        ItemSize="60"
+                        Margin="0,0,0,20">
+
+                        <grial:Repeater.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowDefinitions="Auto,*,*">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{ Binding BindingContext.OpenPerformanceCommand, Source={Reference root} }"
+                                            CommandParameter="{ Binding . }"
+                                        />
+                                    </Grid.GestureRecognizers>
+
+                                    <local:AvatarWithStatus
+                                        Source="{ Binding Avatar }"
+                                        StatusIndicatorColor="{ Binding Status, Converter={StaticResource ColorConverter} }"
+                                        BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                                        IsCircular="True"
+                                        HorizontalOptions="Center"
+                                        BorderSize="2"
+                                        StatusIndicatorPosition="TopRight"
+                                        IsStatusIndicatorIcon="True"
+                                        StatusIndicatorSize="11"
+                                        StatusIndicatorAutoHide="False"
+                                        StatusIndicatorBorderSize="2"
+                                        StatusIndicatorBorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                                    />
+
+                                    <!-- Name -->
+                                    <Label
+                                        Margin="0,5,0,0"
+                                        Grid.Row="1"
+                                        Text="{ Binding FirstName }"
+                                        FontSize="{ StaticResource SmallFontSize }"
+                                        HorizontalTextAlignment="Center"
+                                        LineBreakMode="TailTruncation"
+                                    />
+
+                                    <!-- Name -->
+                                    <Label
+                                        Grid.Row="2"
+                                        Text="{ Binding LastName }"
+                                        FontSize="{ StaticResource SmallFontSize }"
+                                        HorizontalTextAlignment="Center"
+                                        LineBreakMode="TailTruncation"
+                                    />
+                                </Grid>
+                            </DataTemplate>
+                        </grial:Repeater.ItemTemplate>
+                    </grial:Repeater>
+                </VerticalStackLayout>
+
+                <!-- SEPARATOR -->
+                <BoxView
+                    VerticalOptions="End"
+                    Style="{ StaticResource Horizontal1ptLineStyle }"
+                    Margin="{ grial:OnOrientationThickness
+                        Portrait='30,0',
+                        Landscape='130,0,130,0'
+                    }"
+                />
+
+                <!-- TAGS ROW -->
+                <grial:ExtendedGrid
+                    Grid.Row="1"
+                    Margin="{ grial:OnOrientationThickness
+                        Portrait='30',
+                        Landscape='130,30,130,30'
+                    }"
+                    BackgroundColor="{ DynamicResource BackgroundColor }"
+                    BorderThickness="0,1,0,0"
+                    BorderColor="{ DynamicResource ListSeparatorColor }">
+                    <grial:WrapPanel
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+                        ItemsSource="{ Binding Employee.Tags }">
+                        <grial:WrapPanel.ItemTemplate>
+                            <DataTemplate>
+                                <local:Tag
+                                    Text="{ Binding . }"
+                                    HorizontalOptions="Start"
+                                    FontSize="{ OnIdiom
+                                        Phone=10,
+                                        Tablet=16
+                                    }"
+                                />
+                            </DataTemplate>
+                        </grial:WrapPanel.ItemTemplate>
+                    </grial:WrapPanel>
+                </grial:ExtendedGrid>
+
+                <!-- NOTES ROW -->
+                <grial:ExtendedStackLayout
+                    Grid.Row="2"
+                    Spacing="12"
+                    Padding="{ grial:OnOrientationThickness
+                        Portrait='30,50',
+                        Landscape='130,50'
+                    }"
+                    grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom"
+                    Margin="0,-40,0,0"
+                    TrimTopShape="InvertedRoundedCorners"
+                    TrimTopHeight="40"
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+                    <!-- NOTES HEADER -->
+                    <local:EmojiText
+                        Text="Notes"
+                        TextFontSize="{ StaticResource XLargeFontSize }"
+                        Margin="{ grial:OnOrientationThickness
+                            Default='0',
+                            Landscape='30,0,0,30'
+                        }"
+                        Icon="{ x:Static local:Emojis.memo }"
+                        Style="{ StaticResource SocialHeaderEmojiTextStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        Text="{ Binding Notes }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        Margin="{ grial:OnOrientationThickness
+                            Default='0,0,0,20',
+                            Landscape='30,0,0,30'
+                        }"
+                        Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+                    />
+
+                    <!-- BUTTONS GRID -->
+                    <Grid
+                        ColumnDefinitions="*,*,*,*"
+                        WidthRequest="{ grial:OnOrientationSizeRequest Landscape=370 }">
+
+                        <!-- EMAIL -->
+                        <local:IconTextButton
+                            Text="Email"
+                            Icon="{ x:Static local:GrialIconsFont.Mail }"
+                            Style="{ StaticResource IconTextToolbarButtonStyle }"
+                        />
+
+                        <!-- MOBILE -->
+                        <local:IconTextButton
+                            Grid.Column="1"
+                            Text="Mobile"
+                            Icon="{ x:Static local:GrialIconsFont.Smartphone }"
+                            Style="{ StaticResource IconTextToolbarButtonStyle }"
+                        />
+
+                        <!-- HOME -->
+                        <local:IconTextButton
+                            Grid.Column="2"
+                            Text="Home"
+                            Icon="{ x:Static local:GrialIconsFont.Phone }"
+                            Style="{ StaticResource IconTextToolbarButtonStyle }"
+                        />
+
+                        <!-- SMS -->
+                        <local:IconTextButton
+                            Grid.Column="3"
+                            Text="SMS"
+                            Icon="{ x:Static local:GrialIconsFont.MessageSquare }"
+                            Style="{ StaticResource IconTextToolbarButtonStyle }"
+                        />
+                    </Grid>
+
+                </grial:ExtendedStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="arabasorgula.WalletAlternativePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    Title="{ grial:Translate PageTitleWalletAlternative }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <ContentPage.Resources>
+        <!-- Chaert Area Gradients -->
+        <LinearGradientBrush x:Key="FirstValueGradient" EndPoint="0,1">
+            <GradientStop Offset="0.1" Color="#3346C771" />
+            <GradientStop Offset="1.0" Color="#0046C771" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="SecondValueGradient" EndPoint="0,1">
+            <GradientStop Offset="0.1" Color="#33FF2525" />
+            <GradientStop Offset="1.0" Color="#00FF2525" />
+        </LinearGradientBrush>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <!-- Main Container -->
+        <Grid RowDefinitions="Auto,*">
+            <!-- Chart container -->
+            <grial:ExtendedGrid
+                Padding="{ grial:OnOrientationThickness
+                    Landscape='100,20,100,20',
+                    PortraitPhone='30,20',
+                    PortraitTablet='100,20,100,20'
+                }"
+                BackgroundColor="{ DynamicResource BackgroundColor }"
+                RowDefinitions="Auto,Auto"
+                RowSpacing="32"
+                TrimBottomShape="RoundedCorners"
+                TrimBottomHeight="40">
+
+                <!-- CHART -->
+                <grial:CategoryChart
+                    Margin="-30,20,-30,0"
+                    AxisLinesColor="#E0E3EC"
+                    BackgroundColor="{ DynamicResource BackgroundColor }"
+                    CategoryLabels="{ Binding ChartAreaData.Labels }"
+                    DisplayLabels="True"
+                    LabelFontColor="{ DynamicResource TextSecondaryColor }"
+                    DisplayReferenceAxis="True"
+                    AxisFontColor="{ DynamicResource TextSecondaryColor }"
+                    DisplayReferenceGridLines="True"
+                    DisplayValues="True"
+                    DisplayValuesGridLines="True"
+                    GridDashPattern="0"
+                    HasSelection="False"
+                    HeightRequest="300"
+                    LabelFontSize="10">
+
+                    <grial:LineSeries
+                        AreaBrush="{ DynamicResource FirstValueGradient }"
+                        CurveFactor=".6"
+                        FillPoints="False"
+                        IsStacked="False"
+                        ItemsSource="{ Binding ChartAreaData.FirstValue }"
+                        PointSize="3"
+                        LineStrokeSize="1.5"
+                        Color="{ DynamicResource SuccessColor }"
+                    />
+
+                    <grial:LineSeries
+                        AreaBrush="{ DynamicResource SecondValueGradient }"
+                        CurveFactor=".6"
+                        FillPoints="False"
+                        IsStacked="False"
+                        ItemsSource="{ Binding ChartAreaData.SecondValue }"
+                        PointSize="3"
+                        LineStrokeSize="1.5"
+                        Color="{ DynamicResource ErrorColor }"
+                    />
+
+                </grial:CategoryChart>
+
+                <!-- INCOME / EXPENSES -->
+                <local:WalletAmountsCardItemTemplate
+                    Grid.Row="1"
+                    Margin="0,10"
+                />
+
+            </grial:ExtendedGrid>
+
+            <Grid
+                Grid.Row="1"
+                Padding="{ grial:OnOrientationThickness
+                    Landscape='100,20,100,20',
+                    PortraitPhone='30,20',
+                    PortraitTablet='100,20,100,20'
+                }"
+                RowDefinitions="Auto,*"
+                RowSpacing="24">
+                <!-- Section Title -->
+                <Label
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    HorizontalTextAlignment="Start"
+                    Text="{ grial:Translate StringTransactions }"
+                    TextColor="{ DynamicResource TextColor }"
+                    VerticalTextAlignment="Center"
+                />
+
+                <!-- Details List -->
+                <StackLayout
+                    Grid.Row="1"
+                    BindableLayout.ItemsSource="{ Binding Transactions }">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <local:WalletDetailsListItemTemplate />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

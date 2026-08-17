@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.FormStepOneTemplate"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula">
+    <VerticalStackLayout Spacing="30">
+        <!-- HEADER -->
+        <Grid RowDefinitions="Auto,Auto">
+            <!-- TITLE -->
+            <Label
+                Text="{ grial:Translate StringPersonalInfo }"
+                FontSize="{ StaticResource TitleFontSize }"
+                HorizontalTextAlignment="Center"
+            />
+            <!-- SUBTITLE -->
+            <Label
+                Grid.Row="1"
+                Text="{ grial:Translate StringComplete }"
+                FontSize="{ StaticResource SmallFontSize }"
+                HorizontalTextAlignment="Center"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+        </Grid>
+
+        <!-- FORM -->
+        <Grid
+            RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+            ColumnDefinitions="*,*"
+            RowSpacing="16"
+            ColumnSpacing="16">
+            <!-- NAME -->
+            <Entry
+                Text="{ Binding FirstName }"
+                Placeholder="{ grial:Translate StringName }"
+            />
+            <!-- LAST NAME -->
+            <Entry
+                Text="{ Binding LastName }"
+                Grid.Column="1"
+                Placeholder="{ grial:Translate StringLastName }"
+            />
+            <!-- EMAIL -->
+            <Entry
+                Text="{ Binding Email }"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Placeholder="{ grial:Translate StringEmail }"
+            />
+            <!-- COUNTRY -->
+            <Entry
+                Text="{ Binding Country }"
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Placeholder="{ grial:Translate StringCountry }"
+            />
+            <!-- ADRESS -->
+            <Entry
+                Text="{ Binding Address }"
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Placeholder="{ grial:Translate StringAddress }"
+            />
+            <!-- CITY -->
+            <Entry
+                Text="{ Binding City }"
+                Grid.Row="4"
+                Placeholder="{ grial:Translate StringCity }"
+            />
+            <!-- ZIP CODE -->
+            <Entry
+                Text="{ Binding Zip }"
+                Grid.Row="4"
+                Grid.Column="1"
+                Placeholder="{ grial:Translate StringZipCode }"
+            />
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentView>
+

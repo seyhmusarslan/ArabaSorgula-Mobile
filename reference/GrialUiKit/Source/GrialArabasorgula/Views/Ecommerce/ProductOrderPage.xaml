@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.ProductOrderPage"
+    Title="{ grial:Translate PageTitleProductOrder }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                Padding="{ DynamicResource AirSpacing }"
+                RowSpacing="20"
+                Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+                RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+
+                <!-- -NAME FIELD -->
+                <Grid
+                    Grid.Row="0"
+                    ColumnSpacing="15"
+                    ColumnDefinitions="*,*">
+
+                    <!-- NAME ENTRY -->
+                    <Entry
+                        Grid.Column="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Placeholder="{ grial:Translate StringName }"
+                    />
+
+                    <!-- LAST NAME ENTRY -->
+                    <Entry
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Placeholder="{ grial:Translate StringLastName }"
+                    />
+                </Grid>
+
+                <!-- CARD NUMBER ENTRY & CVC -->
+                <Grid
+                    Grid.Row="1"
+                    ColumnSpacing="15"
+                    ColumnDefinitions="7*,3*">
+
+                    <!-- CARD NUMBER ENTRY -->
+                    <Entry
+                        Grid.Column="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Placeholder="{ grial:Translate StringCardNumber }"
+                    />
+
+                    <!-- CVC NUMBER -->
+                    <Entry
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Placeholder="{ grial:Translate StringCVC }"
+                    />
+                </Grid>
+
+                <!-- EXPIRATION DATE -->
+                <Entry
+                    Grid.Row="2"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Fill"
+                    Placeholder="{ grial:Translate StringExpirationDate }"
+                />
+
+                <!-- ADDRESS LINE 1 -->
+                <Entry
+                    Grid.Row="3"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Fill"
+                    Placeholder="{ grial:Translate StringAddress1 }"
+                />
+
+                <!-- ADDRESS LINE 2 -->
+                <Entry
+                    Grid.Row="4"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Fill"
+                    Placeholder="{ grial:Translate StringAddress2 }"
+                />
+
+                <Grid
+                    Grid.Row="5"
+                    RowSpacing="20"
+                    ColumnSpacing="15"
+                    ColumnDefinitions="*,*"
+                    RowDefinitions="Auto,Auto">
+
+                    <!-- CITY ENTRY -->
+                    <Entry
+                        Grid.Column="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Placeholder="{ grial:Translate StringCity }"
+                    />
+
+                    <!-- STATE ENTRY -->
+                    <Entry
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Placeholder="{ grial:Translate StringState }"
+                    />
+
+                    <!-- ZIP CODE ENTRY -->
+                    <Entry
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Placeholder="{ grial:Translate StringZipCode }"
+                    />
+
+                    <!-- COUNTRY ENTRY -->
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                        Placeholder="{ grial:Translate StringCountry }"
+                    />
+                </Grid>
+
+                <!-- NOTES -->
+                <Editor
+                    Grid.Row="6"
+                    HeightRequest="200"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Fill"
+                    grial:EditorProperties.Placeholder="{ grial:Translate StringNotes }"
+                />
+
+                <!-- Buy -->
+                <Button
+                    Grid.Row="7"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    VerticalOptions="End"
+                    Text="{ grial:Translate StringBuy }"
+                    WidthRequest="{ grial:OnOrientationSizeRequest
+                        LandscapePhone=200,
+                        LandscapeTablet=400
+                    }"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        PortraitPhone=Fill,
+                        LandscapePhone=Center,
+                        PortraitTablet=Fill,
+                        LandscapeTablet=Center
+                    }"
+                />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

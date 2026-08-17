@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.NavigationCardsDescriptionListItemTemplate">
+
+    <grial:CardView
+        Padding="{ DynamicResource AirSpacing }"
+        Margin="{ DynamicResource AirSpacingSmallBorder }"
+        RowSpacing="10"
+        HasShadow="False"
+        ColumnDefinitions="22,*"
+        RowDefinitions="*,Auto">
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            FontAttributes="Bold"
+            Text="{ Binding Name }"
+            FontSize="14"
+            VerticalOptions="Center"
+        />
+
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Text="{ Binding Description }"
+            LineBreakMode="WordWrap"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            FontSize="14"
+        />
+
+    </grial:CardView>
+
+</ContentView>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.TabControlBottomPlacementSamplePage"
+    Title="{ grial:Translate PageTitleTabControlBottomPlacementSample }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="/Styles/TabControl/AndroidTabResources.xaml" />
+    </ContentPage.Resources>
+
+    <grial:TabControl
+        grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom"
+        TabStripBackgroundColor="{ DynamicResource AndroidBottomTabStripBackgroundColor }"
+        TabContentBackgroundColor="{ DynamicResource BackgroundColor }"
+        TabStripPlacement="Bottom"
+        Style="{ StaticResource AndroidTabStyle }">
+
+        <!-- FRIENDS TAB -->
+        <grial:TabItem
+            BadgeText="7"
+            IconText="{ x:Static local:GrialIconsFont.Users }"
+            Text="{ grial:Translate TabItemTextFriends }">
+
+            <!-- FRIENDS LIST -->
+            <CollectionView ItemsSource="{ Binding Chat.Messages }">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            RowDefinitions="*,1"
+                            RowSpacing="0">
+                            <local:RecentChatItemTemplate HeightRequest="{ OnIdiom Phone=80, Tablet=100 }" />
+
+                            <!-- SEPARATOR LINE -->
+                            <BoxView
+                                Grid.Row="1"
+                                IsVisible="False"
+                                Style="{ DynamicResource Horizontal1ptLineStyle }"
+                            />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </grial:TabItem>
+
+        <!-- CHAT TIMELINE TAB -->
+        <grial:TabItem
+            IconText="{ x:Static local:GrialIconsFont.Clock }"
+            Text="{ grial:Translate PageTitleChatTimeline }">
+
+            <CollectionView ItemsSource="{ Binding Timeline.TimelineList }">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local:TimelineItemTemplate Padding="{ StaticResource MainWrapperPadding }" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </grial:TabItem>
+
+    </grial:TabControl>
+
+</ContentPage>
+
+

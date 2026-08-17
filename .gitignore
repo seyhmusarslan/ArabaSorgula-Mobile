@@ -50,3 +50,5 @@ appsettings.*.local.json
 *.tmp
 *.bak
 *.log
+# Grial local license
+**/GrialLicense

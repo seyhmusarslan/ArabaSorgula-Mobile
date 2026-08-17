@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ArticleItemTemplate">
+    <Grid
+        ColumnSpacing="0"
+        RowSpacing="6"
+        Padding="{ DynamicResource AirSpacing }"
+        RowDefinitions="152,Auto,20">
+
+        <!-- ARTICLE IMAGE -->
+        <Image
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+            Margin="0"
+            Grid.RowSpan="1"
+            Source="{ Binding BackgroundImage }"
+        />
+
+        <!-- TITLE -->
+        <Label
+            Grid.Row="1"
+            FontSize="{ StaticResource TitleFontSize }"
+            FontAttributes="Bold"
+            Text="{ Binding Title }"
+            LineBreakMode="WordWrap"
+            TextColor="{ DynamicResource TextColor }"
+            VerticalOptions="End"
+        />
+
+        <!-- HEADER INFO -->
+        <Grid
+            Grid.Row="2"
+            VerticalOptions="End"
+            ColumnSpacing="6"
+            ColumnDefinitions="*, Auto, Auto">
+
+            <local:LabelList
+                HorizontalOptions="Start"
+                SeparatorHeight="20"
+                SeparatorColor="{ DynamicResource TextOnSurfaceColor }">
+                <local:LabelList.Labels>
+                    <!-- Category -->
+                    <Label
+                        Text="{ Binding Section }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Date -->
+                    <Label
+                        FontSize="14"
+                        Text="{ Binding When }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+                </local:LabelList.Labels>
+            </local:LabelList>
+
+            <!-- Users -->
+            <local:IconText
+                Grid.Column="1"
+                Icon="{ x:Static local:GrialIconsFont.Users }"
+                Spacing="3"
+                Text="77"
+                IconColor="{ DynamicResource InfoColor }"
+                TextColor="{ DynamicResource InfoColor }"
+            />
+
+            <!-- Likes -->
+            <local:IconText
+                Grid.Column="2"
+                Icon="{ x:Static local:GrialIconsFont.Heart }"
+                Spacing="3"
+                Text="22"
+                IconColor="{ DynamicResource FavoriteColor }"
+                TextColor="{ DynamicResource FavoriteColor }"
+            />
+        </Grid>
+
+        <!-- SEPARATOR -->
+        <BoxView
+            Grid.Row="2"
+            VerticalOptions="End"
+            Style="{ StaticResource Horizontal1ptLineStyle }"
+            Margin="0,0,0,-30"
+        />
+    </Grid>
+</ContentView>

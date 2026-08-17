@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.AddContactPage"
+    Title="{ Binding Title }">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <grial:BooleanToObjectConverter
+                x:Key="ColumSpanConverter"
+                x:TypeArguments="x:Int32"
+                TrueValue="1"
+                FalseValue="2"
+            />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        RowSpacing="0"
+        BackgroundColor="{ DynamicResource BackgroundColor }"
+        RowDefinitions="*,Auto">
+
+        <ScrollView
+            Padding="{ DynamicResource AirSpacing }"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Margin="0,0,0,40">
+            <Grid
+                Padding="0,0,0,30"
+                Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+                RowSpacing="20"
+                ColumnDefinitions="*"
+                RowDefinitions="Auto,54,54,54,54,54,54,54,Auto">
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Grid.RowSpan="1"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Spacing="20">
+                    <!-- IMAGE (new contact) -->
+                    <local:RoundedIconButtonWithBadge
+                        IsVisible="{ Binding IsEdit, Converter={StaticResource NegateBooleanConverter} }"
+                        IconText="{ x:Static local:GrialIconsFont.Camera }"
+                        Clicked="OnImage"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Style="{ StaticResource AvatarPlaceholderIcon }"
+                        StatusIndicatorIconAttribute="Fill"
+                        IconPadding="0"
+                        StatusIndicatorShift="-12"
+                        StatusIndicatorSize="15"
+                        StatusIndicatorFontSize="10"
+                        WidthRequest="80"
+                        HeightRequest="80"
+                    />
+
+                    <!-- IMAGE (edit contact) -->
+                    <local:AvatarWithStatus
+                        IsVisible="{ Binding IsEdit }"
+                        Source="{ Binding Contact.Avatar }"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Margin="20,0"
+                        Size="80"
+                        Style="{ StaticResource AvatarRoundedWithIconBadge }">
+                        <local:AvatarWithStatus.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImage" />
+                        </local:AvatarWithStatus.GestureRecognizers>
+                    </local:AvatarWithStatus>
+
+                    <!-- NAME ENTRY -->
+                    <Entry
+                        Placeholder="{ grial:Translate StringFullName }"
+                        Text="{ Binding Contact.Name, Mode=TwoWay }"
+                        grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+                        grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                        grial:EntryProperties.BorderWidth="1"
+                    />
+                </VerticalStackLayout>
+
+                <!-- ORGANIZATION -->
+                <Entry
+                    Grid.Row="1"
+                    Placeholder="{ grial:Translate StringOrganizationName }"
+                    Text="{ Binding Contact.Organization, Mode=TwoWay }"
+                    grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+                    grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                    grial:EntryProperties.BorderWidth="1"
+                />
+
+                <!-- ADDRESS LINE 1 -->
+                <Entry
+                    Grid.Row="2"
+                    Grid.ColumnSpan="1"
+                    Placeholder="{ grial:Translate StringAddress1 }"
+                    Text="{ Binding Contact.Address1, Mode=TwoWay }"
+                    grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+                    grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                    grial:EntryProperties.BorderWidth="1"
+                />
+
+                <!-- ADDRESS LINE 2 -->
+                <Entry
+                    Grid.Row="3"
+                    Grid.ColumnSpan="1"
+                    Placeholder="{ grial:Translate StringAddress2 }"
+                    Text="{ Binding Contact.Address2, Mode=TwoWay }"
+                    grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+                    grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                    grial:EntryProperties.BorderWidth="1"
+                />
+
+                <!-- COUNTRY -->
+                <Entry
+                    Grid.Row="4"
+                    Grid.ColumnSpan="1"
+                    Placeholder="{ grial:Translate StringCountry }"
+                    Text="{ Binding Contact.Country, Mode=TwoWay }"
+                    grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+                    grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                    grial:EntryProperties.BorderWidth="1"
+                />
+
+                <Grid
+                    Grid.Row="5"
+                    Grid.ColumnSpan="1"
+                    ColumnSpacing="20"
+                    ColumnDefinitions="*,*">
+
+                    <!-- CITY CITY -->
+                    <Entry
+                        Grid.Column="0"
+                        Placeholder="{ grial:Translate StringCity }"
+                        Text="{ Binding Contact.City, Mode=TwoWay }"
+                        grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+                        grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                        grial:EntryProperties.BorderWidth="1"
+                    />
+
+                    <!-- ZIP CODE ENTRY -->
+                    <Entry
+                        Grid.Column="1"
+                        Placeholder="{ grial:Translate StringZipCode }"
+                        Text="{ Binding Contact.Zip, Mode=TwoWay }"
+                        grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+                        grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                        grial:EntryProperties.BorderWidth="1"
+                    />
+
+                </Grid>
+
+                <Grid
+                    Grid.Row="6"
+                    Grid.ColumnSpan="1"
+                    RowSpacing="0"
+                    ColumnSpacing="20"
+                    ColumnDefinitions="60,*">
+
+                    <!-- PREFIX -->
+                    <Entry
+                        Grid.Column="0"
+                        Placeholder="+1"
+                        Text="{ Binding PhoneCode, Mode=TwoWay }"
+                    />
+
+                    <!-- NUMBER -->
+                    <Entry
+                        Grid.Column="1"
+                        Placeholder="999-9999 9999"
+                        Text="{ Binding Phone, Mode=TwoWay }"
+                    />
+
+                </Grid>
+
+                <!-- EMAIL -->
+                <Entry
+                    Grid.Row="7"
+                    Grid.ColumnSpan="1"
+                    Placeholder="{ grial:Translate StringEmail }"
+                    Text="{ Binding Contact.Email, Mode=TwoWay }"
+                    grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+                    grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                    grial:EntryProperties.BorderWidth="1"
+                />
+
+                <!-- NOTES -->
+                <Editor
+                    Grid.Row="8"
+                    HeightRequest="200"
+                    Grid.ColumnSpan="1"
+                    grial:EditorProperties.Placeholder="Notes"
+                    Text="{ Binding Contact.Notes, Mode=TwoWay }"
+                />
+            </Grid>
+        </ScrollView>
+
+        <Grid
+            Grid.Row="1"
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+            BackgroundColor="{ DynamicResource BackgroundColor }">
+            <!-- SCROLLVIEW BOTTOM GRADIENT MASK -->
+            <BoxView
+                VerticalOptions="Start"
+                HeightRequest="30"
+                TranslationY="-30"
+            />
+
+            <Button
+                Margin="{ OnIdiom
+                    Phone='30,0,30,20',
+                    Tablet='120,0,120,20'
+                }"
+                Text="{ grial:Translate StringSave }"
+                Style="{ StaticResource PrimaryActionButtonStyle }"
+                Clicked="OnSave"
+                WidthRequest="{ grial:OnOrientationSizeRequest
+                    LandscapePhone=200,
+                    LandscapeTablet=400
+                }"
+                HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                    PortraitPhone=Fill,
+                    LandscapePhone=Center,
+                    PortraitTablet=Fill,
+                    LandscapeTablet=Center
+                }"
+            />
+        </Grid>
+    </Grid>
+</ContentPage>

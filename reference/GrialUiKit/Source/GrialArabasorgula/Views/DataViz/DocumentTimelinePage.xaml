@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.DocumentTimelinePage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleDocumentTimeline }">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <grial:BoolMemberTemplateSelector
+                x:Key="Selector"
+                MemberName="IsInbound">
+
+                <grial:BoolMemberTemplateSelector.TrueDataTemplate>
+                    <DataTemplate>
+                        <local:DocumentTimelineRightItemTemplate />
+                    </DataTemplate>
+                </grial:BoolMemberTemplateSelector.TrueDataTemplate>
+
+                <grial:BoolMemberTemplateSelector.FalseDataTemplate>
+                    <DataTemplate>
+                        <local:DocumentTimelineLeftItemTemplate />
+                    </DataTemplate>
+                </grial:BoolMemberTemplateSelector.FalseDataTemplate>
+
+            </grial:BoolMemberTemplateSelector>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <CollectionView
+            ItemsSource="{ Binding DocumentTimelineList }"
+            BackgroundColor="Transparent"
+            VerticalOptions="Fill"
+            ItemTemplate="{ StaticResource Selector }"
+        />
+    </ContentPage.Content>
+
+</ContentPage>

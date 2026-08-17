@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.ArticleBrowserCardItemTemplate">
+    <ContentView.Content>
+        <grial:CardView
+            VerticalOptions="Fill"
+            BackgroundColor="{ DynamicResource SecondaryCardBackgroundColor }"
+            RowDefinitions="*,Auto">
+            <!-- ARTICLE IMAGE -->
+            <Image
+                Grid.Row="0"
+                grial:Effects.CornerRadius="{ DynamicResource CardViewContentCornerRadius }"
+                Source="{ Binding BackgroundImage }"
+            />
+
+            <Grid
+                Grid.Row="1"
+                VerticalOptions="End"
+                RowSpacing="10"
+                RowDefinitions="Auto,Auto"
+                Padding="14,10">
+
+                <!-- TITLE -->
+                <Label
+                    Grid.Row="0"
+                    Text="{ Binding Title }"
+                    FontSize="{ StaticResource BaseFontSize }"
+                    FontAttributes="Bold"
+                    TextColor="{ OnPlatform Default={StaticResource TextColor} }"
+                />
+
+                <!-- CATEGORY -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ Binding Section }"
+                    FontSize="{ StaticResource SmallFontSize }"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    TextColor="{ grial:Colorize
+                        Key='ArticlesSections',
+                        Value={Binding Section}
+                    }"
+                />
+
+                <!-- DATE -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ Binding When }"
+                    FontSize="{ StaticResource SmallFontSize }"
+                    VerticalOptions="Start"
+                    HorizontalOptions="End"
+                />
+
+            </Grid>
+        </grial:CardView>
+    </ContentView.Content>
+</ContentView>

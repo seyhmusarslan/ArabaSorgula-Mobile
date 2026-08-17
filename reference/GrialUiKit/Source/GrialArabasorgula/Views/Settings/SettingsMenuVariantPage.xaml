@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.SettingsMenuVariantPage"
+    x:Name="root"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:Effects.ApplyIOSSafeAreaAsPadding="Top"
+    grial:GrialNavigationPage.BarBackgroundColor="Transparent"
+    grial:GrialNavigationPage.BarType="Transparent"
+    grial:GrialNavigationPage.BarTextColor="{ DynamicResource BackgroundSecondaryColor }">
+    <!-- CONTENT CONTAINER -->
+    <Grid
+        Padding="0,30,0,0"
+        RowDefinitions="Auto,*">
+        <!-- HEADER -->
+        <Grid
+            RowDefinitions="Auto,Auto"
+            ColumnDefinitions="Auto,*,Auto"
+            ColumnSpacing="16"
+            RowSpacing="4"
+            BindingContext="{ Binding UserData }"
+            Padding="{ DynamicResource AirSpacingNoTop }"
+            Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+            <!-- USER IMAGE -->
+            <grial:CircleImage
+                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                HeightRequest="56"
+                WidthRequest="56"
+                Source="{ Binding Image }"
+                Grid.RowSpan="2"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+            />
+            <!-- USER NAME -->
+            <Label
+                Grid.Column="1"
+                Text="{ Binding Name }"
+                FontSize="{ StaticResource SmallTitleFontSize }"
+                FontFamily="{ StaticResource AppSemiBoldFamily }"
+                VerticalOptions="End"
+            />
+            <!-- USER EMAIL -->
+            <Label
+                Grid.Column="1"
+                Grid.Row="1"
+                Text="{ Binding Email }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                FontSize="{ StaticResource SmallFontSize }"
+                VerticalOptions="Start"
+            />
+            <!-- CLOSE ICON -->
+            <local:RoundedIconButton
+                Grid.Column="2"
+                Grid.RowSpan="2"
+                HorizontalOptions="End"
+                Style="{ StaticResource CloseIconButtonInverseStyle }"
+                Command="{ Binding BindingContext.CloseCommand, Source={x:Reference root} }"
+                VerticalOptions="Start"
+                Margin="0"
+            />
+        </Grid>
+
+        <!-- SETTINGS LIST -->
+        <CollectionView
+            ItemsSource="{ Binding Settings }"
+            SelectionMode="None"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            Grid.Row="1"
+            VerticalScrollBarVisibility="Never">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <local:MenuVariantItemTemplate />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

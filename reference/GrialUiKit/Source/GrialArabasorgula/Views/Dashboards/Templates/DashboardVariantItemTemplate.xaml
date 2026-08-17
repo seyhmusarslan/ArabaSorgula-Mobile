@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardVariantItemTemplate"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    x:Name="Root">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer
+            Command="{ Binding Command, Source={x:Reference Root} }"
+            CommandParameter="{ Binding CommandParameter, Source={x:Reference Root} }"
+        />
+    </ContentView.GestureRecognizers>
+
+    <ContentView.Content>
+        <Grid
+            Padding="0"
+            RowDefinitions="*,40">
+
+            <!-- BACKGROUND IMAGE -->
+            <Image
+                Grid.RowSpan="2"
+                Source="{ Binding BackgroundImage }"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+                IsVisible="{ Binding ShowBackgroundImage, Source={x:Reference Root} }"
+            />
+
+            <!-- BACKGROUND -->
+            <BoxView
+                Grid.RowSpan="2"
+                Color="{ Binding BackgroundColorColor }"
+                IsVisible="{ Binding ShowBackgroundColor, Source={x:Reference Root} }"
+            />
+
+            <!-- ICON -->
+            <local:RoundedIconWithBadge
+                Grid.RowSpan="2"
+                Margin="0,-20,0,0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HeightRequest="{ OnIdiom
+                    Phone=75,
+                    Tablet=90
+                }"
+                WidthRequest="{ OnIdiom
+                    Phone=75,
+                    Tablet=90
+                }"
+                IconText="{ Binding Icon }"
+                BackgroundColor="Transparent"
+                IconBackgroundColor="Transparent"
+                IconColor="{ DynamicResource TextOnSurfaceColor }"
+                IconFontSize="{ OnIdiom
+                    Phone=70,
+                    Tablet=85
+                }"
+                StatusIndicatorText="{ Binding Badge }"
+                StatusIndicatorTextColor="#FFF"
+                StatusIndicatorBorderColor="#FFF"
+                StatusIndicatorColor="{ DynamicResource SuccessColor }"
+                StatusIndicatorBorderSize="1"
+                StatusIndicatorSize="22"
+                StatusIndicatorShift="4"
+            />
+
+            <Label
+                Grid.Row="1"
+                Margin="15,0"
+                Text="{ Binding Title }"
+                TextColor="{ Binding TextColor, Source={x:Reference Root} }"
+                VerticalOptions="Center"
+                FontSize="{ OnIdiom
+                    Phone=16,
+                    Tablet=18
+                }"
+            />
+        </Grid>
+    </ContentView.Content>
+
+</ContentView>

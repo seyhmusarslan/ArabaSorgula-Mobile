@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.FlatDashboardPage"
+    Title="{ grial:Translate PageTitleFlatDashboard }"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="PageRoot">
+
+    <ContentPage.Content>
+        <grial:GridView
+            ColumnCount="3"
+            ColumnSpacing="10"
+            RowSpacing="10"
+            Padding="10"
+            VerticalOptions="Fill"
+            ItemsSource="{ Binding Items }">
+            <grial:GridView.ItemTemplate>
+                <DataTemplate>
+                    <local:DashboardItemTemplate
+                        ShowBackgroundImage="false"
+                        ShowBackgroundColor="true"
+                        ShowiconBackground="false"
+                        Command="{ Binding BindingContext.TapCommand, Source={x:Reference PageRoot} }"
+                        CommandParameter="{ Binding . }"
+                        TextColor="{ DynamicResource OnSurfaceColor }"
+                        grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }"
+                    />
+                </DataTemplate>
+            </grial:GridView.ItemTemplate>
+        </grial:GridView>
+    </ContentPage.Content>
+</ContentPage>

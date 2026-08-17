@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.MainMenuPage"
+    grial:GrialNavigationPage.HasNavigationBar="false"
+    IconImageSource="{ StaticResource HamburguerIcon }"
+    BackgroundColor="{ DynamicResource MainMenuBackgroundColor }"
+    Title="{ grial:Translate PageTitleMainMenu }">
+
+    <Grid
+        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+        RowSpacing="0"
+        VerticalOptions="Fill"
+        RowDefinitions="Auto,*">
+
+        <!-- LOGO -->
+        <Grid
+            Margin="30,60,20,30"
+            HorizontalOptions="Start"
+            RowDefinitions="Auto,Auto"
+            RowSpacing="15">
+
+            <local:BrandLogo
+                HorizontalOptions="Start"
+                Inverted="False"
+            />
+
+            <Label
+                HorizontalOptions="Start"
+                Grid.Row="1"
+                FontSize="24"
+                Text="{ grial:Translate StringGrialUIKit }"
+                FontAttributes="Bold"
+            />
+        </Grid>
+
+        <!-- MENU ENTRIES -->
+        <CollectionView
+            Margin="0,0,0,10"
+            Grid.Row="1"
+            x:Name="sampleListView"
+            SelectionMode="Single"
+            SelectedItem="{ Binding MainMenuSelectedItem, Mode=TwoWay }"
+            ItemsSource="{ Binding MainMenuEntries }"
+            VerticalOptions="Fill"
+            Style="{ StaticResource MainMenuListViewStyle }">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <local:MainMenuItemTemplate HeightRequest="50" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

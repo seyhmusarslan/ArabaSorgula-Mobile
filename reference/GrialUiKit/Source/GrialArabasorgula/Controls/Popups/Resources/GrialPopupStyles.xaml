@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:popups="clr-namespace:UXDivers.Popups.Maui.Controls;assembly=UXDivers.Popups.Maui"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    x:Class="arabasorgula.GrialPopupStyles">
+    <ResourceDictionary.MergedDictionaries>
+        <popups:PopupStyles />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- ################ UXDIVERS POPUPS TUNNING ######################## -->
+
+    <!-- CLOSE AND CHECK ICONS -->
+    <x:Static
+        x:Key="UXDPopupsCloseIconButton"
+        Member="local:GrialIconsFont.Close"
+    />
+    <x:Static
+        x:Key="UXDPopupsCheckCircleIconButton"
+        Member="local:GrialIconsFont.CheckCircle"
+    />
+
+    <!-- - SUBTITLE STYLE -->
+    <Style x:Key="MainSubTitleStyle" TargetType="Label" BasedOn="{ StaticResource LabelDefaultStyle }">
+        <Setter Property="TextColor" Value="{ DynamicResource TextTertiaryColor }" />
+        <Setter Property="FontSize" Value="{ DynamicResource BaseFontSize }" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+    </Style>
+
+    <Style TargetType="popups:ListActionPopup" BasedOn="{ StaticResource DefaultListActionPopupStyle }">
+        <Setter Property="ItemDataTemplate">
+            <DataTemplate>
+                <RadioButton
+                    x:DataType="local:ListActionItem"
+                    IsChecked="{ Binding IsSelected }">
+                    <RadioButton.ControlTemplate>
+                        <ControlTemplate>
+                            <Grid
+                                ColumnDefinitions="*, Auto"
+                                ColumnSpacing="{ DynamicResource SpacingSmall }">
+
+                                <ContentPresenter />
+
+                                <!-- Selection -->
+                                <Border
+                                    x:Name="check"
+                                    Grid.Column="2"
+                                    Grid.RowSpan="2"
+                                    StrokeShape="RoundRectangle 10"
+                                    BackgroundColor="{ StaticResource PrimaryColor }"
+                                    HeightRequest="20"
+                                    WidthRequest="20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    IsVisible="{ Binding IsChecked, Source={RelativeSource TemplatedParent}, x:DataType=RadioButton }">
+                                    <!-- Icon -->
+                                    <Label
+                                        WidthRequest="12"
+                                        HeightRequest="12"
+                                        Text="{ x:Static local:GrialIconsFont.Check }"
+                                        FontFamily="{ DynamicResource IconsFontFamily }"
+                                        TextColor="{ DynamicResource BackgroundSecondaryColor }"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                    />
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </RadioButton.ControlTemplate>
+                    <RadioButton.Content>
+                        <Grid
+                            ColumnDefinitions="Auto,*"
+                            RowDefinitions="*,*"
+                            ColumnSpacing="{ DynamicResource SpacingSmall }"
+                            BindingContext="{ Binding BindingContext, Source={RelativeSource AncestorType={x:Type RadioButton}}, x:DataType=RadioButton }">
+
+                            <!-- Image -->
+                            <grial:RoundedImage
+                                Source="{ Binding UserImage }"
+                                Size="{ OnIdiom
+                                    Phone=42,
+                                    Tablet=54
+                                }"
+                                CornerRadius="{ OnIdiom
+                                    Phone=21,
+                                    Tablet=27
+                                }"
+                                Grid.RowSpan="2"
+                            />
+                            <!-- User Name -->
+                            <Label
+                                Grid.Column="1"
+                                Text="{ Binding User }"
+                                Style="{ DynamicResource TitleStyle }"
+                                FontSize="{ DynamicResource BaseFontSize }"
+                                VerticalTextAlignment="End"
+                            />
+                            <!-- User Info -->
+                            <Label
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Text="{ Binding UserActivity }"
+                                Style="{ DynamicResource SubTitleStyle }"
+                            />
+                        </Grid>
+                    </RadioButton.Content>
+                </RadioButton>
+            </DataTemplate>
+        </Setter>
+    </Style>
+
+    <!-- - CUSTOM FILE LINK POPUP STYLE -->
+    <Style TargetType="local:InteractiveNotificationPopup" BasedOn="{ StaticResource PopupBaseStyle }">
+        <Setter Property="AppearingAnimation" Value="{ uxd:MoveInPopupAnimation MoveDirection=Bottom, Duration=300, Easing=BounceIn }" />
+        <Setter Property="DisappearingAnimation" Value="{ uxd:MoveOutPopupAnimation MoveDirection=Bottom, Duration=300, Easing=BounceIn }" />
+        <Setter Property="IconColor" Value="{ DynamicResource SuccessColor }" />
+    </Style>
+
+    <!-- - CUSTOM FILE LINK POPUP STYLE -->
+    <Style TargetType="local:ClipboardLinkPopup" BasedOn="{ StaticResource PopupBaseStyle }">
+        <Setter Property="AppearingAnimation" Value="{ uxd:FadeInPopupAnimation Duration=300, Easing=CubicIn }" />
+        <Setter Property="DisappearingAnimation" Value="{ uxd:FadeOutPopupAnimation Duration=300, Easing=CubicOut }" />
+        <Setter Property="PopupBackground" Value="{ DynamicResource BackgroundColor }" />
+        <Setter Property="PopupCornerRadius" Value="{ DynamicResource CornerRadiusXBig }" />
+    </Style>
+
+    <!-- - FORMPOPUP STYLE -->
+    <Style TargetType="popups:FormPopup" BasedOn="{ StaticResource DefaultFormPopupStyle }">
+        <Setter Property="AppearingAnimation" Value="{ uxd:FadeInPopupAnimation Duration=300, Easing=CubicIn }" />
+        <Setter Property="DisappearingAnimation" Value="{ uxd:FadeOutPopupAnimation Duration=300, Easing=CubicIn }" />
+        <Setter Property="ItemDataTemplate">
+            <uxd:TypeTemplateSelector>
+                <uxd:TypeTemplateSelector.Items>
+                    <!-- Replace this value with an item for every entry type -->
+                    <uxd:TypeTemplateSelectorItem TargetType="{ x:Type popups:FormField }">
+                        <DataTemplate>
+                            <Grid
+                                x:DataType="popups:FormField"
+                                ColumnDefinitions="Auto,*"
+                                ColumnSpacing="{ DynamicResource SpacingSmall }">
+                                <!-- Icon -->
+                                <Label
+                                    Text="{ Binding Icon }"
+                                    TextColor="{ Binding IconColor }"
+                                    FontFamily="{ DynamicResource IconsFontFamily }"
+                                    FontSize="{ OnIdiom
+                                        Phone=16,
+                                        Tablet=22,
+                                        Desktop=22
+                                    }"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                />
+                                <!-- Entry -->
+                                <Entry
+                                    Grid.Column="1"
+                                    Placeholder="{ Binding Placeholder }"
+                                    Text="{ Binding Value, Mode=TwoWay }"
+                                    IsPassword="{ Binding IsPassword }"
+                                />
+                            </Grid>
+                        </DataTemplate>
+                    </uxd:TypeTemplateSelectorItem>
+                </uxd:TypeTemplateSelector.Items>
+            </uxd:TypeTemplateSelector>
+        </Setter>
+    </Style>
+
+    <!-- OPTION SHEET STYLE -->
+    <Style TargetType="popups:OptionSheetPopup" BasedOn="{ StaticResource PopupBaseStyle }">
+        <Setter Property="CloseWhenBackgroundIsClicked" Value="True" />
+        <Setter Property="BackgroundInputTransparent" Value="False" />
+        <Setter Property="BackgroundColor" Value="{ DynamicResource PopupBackdropColor }" />
+        <Setter Property="AppearingAnimation" Value="{ uxd:MoveInPopupAnimation MoveDirection=Bottom, Duration=300, Easing=CubicOut }" />
+        <Setter Property="DisappearingAnimation" Value="{ uxd:MoveOutPopupAnimation MoveDirection=Bottom, Duration=400, Easing=CubicIn }" />
+        <Setter Property="CloseButtonIconText" Value="{ DynamicResource UXDPopupsCloseIconButton }" />
+        <Setter Property="CloseButtonIconColor" Value="{ DynamicResource TextColor }" />
+        <Setter Property="PopupBackground" Value="{ DynamicResource BackgroundColor }" />
+        <Setter Property="PopupCornerRadius" Value="{ DynamicResource CornerRadiusXBig }" />
+        <Setter Property="ItemDataTemplate">
+            <uxd:TypeTemplateSelector>
+                <uxd:TypeTemplateSelector.Items>
+                    <uxd:TypeTemplateSelectorItem TargetType="{ x:Type popups:OptionSheetItem }">
+                        <DataTemplate>
+                            <HorizontalStackLayout
+                                x:DataType="popups:OptionSheetItem"
+                                Spacing="{ DynamicResource SpacingSmall }">
+                                <HorizontalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{ Binding Command }"
+                                        CommandParameter="{ Binding CommandParameter }"
+                                    />
+                                </HorizontalStackLayout.GestureRecognizers>
+                                <!-- Icon -->
+                                <Label
+                                    Text="{ Binding Icon }"
+                                    TextColor="{ Binding IconColor, TargetNullValue={StaticResource PrimaryColor} }"
+                                    Style="{ DynamicResource ListIconStyle }"
+                                />
+                                <!-- Text -->
+                                <Label
+                                    Text="{ Binding Text }"
+                                    Style="{ DynamicResource ListTextStyle }"
+                                />
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </uxd:TypeTemplateSelectorItem>
+                </uxd:TypeTemplateSelector.Items>
+            </uxd:TypeTemplateSelector>
+        </Setter>
+        <Setter Property="ControlTemplate">
+            <ControlTemplate>
+                <!-- Content -->
+                <Grid
+                    SafeAreaEdges="none"
+                    x:DataType="popups:OptionSheetPopup"
+                    WidthRequest="{ OnIdiom
+                        Default=-1,
+                        Tablet=400,
+                        Desktop=400
+                    }"
+                    VerticalOptions="{ OnIdiom
+                        Default=End,
+                        Tablet=Center,
+                        Desktop=Center
+                    }"
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="{ DynamicResource SpacingMedium }"
+                    Padding="{ DynamicResource PopupAirSpacing }">
+                    <!-- Popup Background -->
+                    <Border
+                        Background="{ Binding PopupBackground, Source={RelativeSource TemplatedParent} }"
+                        Stroke="{ Binding PopupBorderBrush, Source={RelativeSource TemplatedParent} }"
+                        StrokeShape="{ Binding PopupCornerRadius, Source={RelativeSource TemplatedParent}, Converter={StaticResource PopupCornerRadiusToStrokeShapeConverter} }"
+                        StrokeThickness="{ Binding PopupBorderThickness, Source={RelativeSource TemplatedParent} }"
+                        Grid.RowSpan="2"
+                        Margin="-24"
+                        HorizontalOptions="Fill"
+                    />
+                    <!-- Popup Title -->
+                    <Label
+                        Text="{ Binding Title, Source={RelativeSource TemplatedParent} }"
+                        Style="{ DynamicResource TitleStyle }"
+                        FontSize="{ DynamicResource SmallTitleFontSize }"
+                        HorizontalTextAlignment="Center"
+                    />
+                    <!-- Close Button -->
+                    <Label
+                        Style="{ DynamicResource CloseButtonStyle }"
+                        Text="{ Binding CloseButtonIconText, Source={RelativeSource TemplatedParent} }"
+                        TextColor="{ Binding CloseButtonIconColor, Source={RelativeSource TemplatedParent}, TargetNullValue={StaticResource TextColor} }">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{ Binding CloseButtonCommand, Source={RelativeSource TemplatedParent} }" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <!-- Item List -->
+                    <CollectionView
+                        Grid.Row="1"
+                        ItemsSource="{ Binding Groups, Source={RelativeSource TemplatedParent} }">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    x:DataType="popups:OptionSheetGroup"
+                                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="16,12"
+                                    Margin="0,0,0,16">
+                                    <VerticalStackLayout
+                                        Spacing="{ DynamicResource SpacingMedium }"
+                                        BindableLayout.ItemsSource="{ Binding Items }"
+                                        uxd:BindableLayoutProperties.FlexibleItemTemplate="{ Binding ItemDataTemplate, Source={RelativeSource TemplatedParent}, x:DataType=local:OptionSheetPopup }"
+                                    />
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- FLOATER STYLE -->
+    <Style TargetType="popups:FloaterPopup" BasedOn="{ StaticResource DefaultFloaterPopupStyle }" ApplyToDerivedTypes="True">
+        <Setter Property="PopupBackground" Value="{ DynamicResource BackgroundSecondaryColor }" />
+        <Setter Property="IconColor" Value="{ DynamicResource PrimaryColor }" />
+    </Style>
+
+    <!-- TOAST STYLE -->
+    <Style TargetType="popups:Toast" BasedOn="{ StaticResource DefaultToastStyle }" ApplyToDerivedTypes="True">
+        <Setter Property="PopupBackground" Value="{ DynamicResource BackgroundSecondaryColor }" />
+        <Setter Property="IconColor" Value="{ DynamicResource PrimaryColor }" />
+    </Style>
+</ResourceDictionary>

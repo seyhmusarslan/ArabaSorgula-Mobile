@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.PricingARadioButtonTemplate">
+
+    <RadioButton
+        Padding="0"
+        Value="{ Binding . }">
+        <RadioButton.ControlTemplate>
+
+            <!-- TEMPLATE -->
+            <ControlTemplate>
+                <Grid
+                    BindingContext="{ TemplateBinding BindingContext }"
+                    Padding="{ OnPlatform Android='15,0,0,0' }">
+                    <!-- CONTAINER -->
+                    <Border
+                        HeightRequest="{ TemplateBinding HeightRequest }"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 10"
+                        BackgroundColor="{ grial:If
+                            Condition={TemplateBinding IsChecked},
+                            Then={DynamicResource PrimaryColor},
+                            Else={DynamicResource BackgroundColor}
+                        }"
+                        Stroke="{ DynamicResource PrimaryColor }">
+                        <!-- CONTENT -->
+                        <Grid
+                            Padding="24"
+                            ColumnDefinitions="*,Auto"
+                            RowDefinitions="Auto,Auto,Auto"
+                            RowSpacing="6"
+                            ColumnSpacing="10">
+                            <!-- PLAN TYPE -->
+                            <HorizontalStackLayout Spacing="10">
+                                <Label
+                                    Text="{ Binding PlanType }"
+                                    FontSize="{ StaticResource SmallTitleFontSize }"
+                                    TextColor="{ grial:If
+                                        Condition={TemplateBinding IsChecked},
+                                        Then={DynamicResource OnSurfaceColor},
+                                        Else={DynamicResource TextColor}
+                                    }"
+                                    FontAttributes="Bold"
+                                />
+                                <!-- VALUE TAG -->
+                                <grial:RoundedLabel
+                                    Text="{ Binding PlanTag }"
+                                    IsVisible="{ Binding PlanTag, Converter={StaticResource IsNotEmptyStringConverter} }"
+                                    FontSize="{ StaticResource SmallFontSize }"
+                                    Padding="8,4"
+                                />
+                            </HorizontalStackLayout>
+                            <!-- SAVINGS -->
+                            <Label
+                                Grid.Row="1"
+                                Text="{ Binding Savings, StringFormat='• Save {0:F0}' }"
+                                TextColor="{ grial:If
+                                    Condition={TemplateBinding IsChecked},
+                                    Then={DynamicResource OnSurfaceColor},
+                                    Else={DynamicResource TextColor}
+                                }"
+                            />
+                            <!-- TRIAL DURATION -->
+                            <Label
+                                x:Name="Trial"
+                                Grid.Row="2"
+                                IsVisible="{ Binding FreeTrial, Converter={StaticResource IsNotEmptyStringConverter} }"
+                                TextColor="{ grial:If
+                                    Condition={TemplateBinding IsChecked},
+                                    Then={DynamicResource OnSurfaceColor},
+                                    Else={DynamicResource TextColor}
+                                }">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="• " />
+                                        <Span Text="Get " />
+                                        <Span
+                                            Text="{ Binding FreeTrial }"
+                                            FontAttributes="Bold"
+                                        />
+                                        <Span Text=" Free" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <!-- PRICING -->
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Grid.RowSpan="3"
+                                VerticalOptions="Center">
+                                <!-- ORIGINAL PRICE -->
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{ Binding OriginalPrice }"
+                                    TextDecorations="Strikethrough"
+                                    HorizontalOptions="Center"
+                                    TextColor="{ grial:If
+                                        Condition={TemplateBinding IsChecked},
+                                        Then={DynamicResource OnSurfaceColor},
+                                        Else={DynamicResource TextColor}
+                                    }"
+                                />
+                                <!-- OFFER PRICE -->
+                                <Label
+                                    Text="{ Binding PriceOffer }"
+                                    FontSize="{ StaticResource LargeTitleFontSize }"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"
+                                    TextColor="{ grial:If
+                                        Condition={TemplateBinding IsChecked},
+                                        Then={DynamicResource OnSurfaceColor},
+                                        Else={DynamicResource PrimaryColor}
+                                    }"
+                                />
+                                <!-- BILLING FRECUENCY -->
+                                <Label
+                                    Text="{ Binding PlanBilling }"
+                                    FontSize="{ StaticResource SmallFontSize }"
+                                    HorizontalOptions="Center"
+                                    TextColor="{ grial:If
+                                        Condition={TemplateBinding IsChecked},
+                                        Then={DynamicResource OnSurfaceColor},
+                                        Else={DynamicResource TextColor}
+                                    }"
+                                />
+
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
+                    <!-- CHECK ICON -->
+                    <!-- Background -->
+                    <Border
+                        IsVisible="{ TemplateBinding IsChecked }"
+                        Stroke="{ DynamicResource PrimaryVariantColor }"
+                        StrokeThickness="1"
+                        BackgroundColor="{ DynamicResource OnSurfaceColor }"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        StrokeShape="RoundRectangle 15"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                        Margin="-15,20,0,0">
+                        <!-- Icon -->
+                        <Label
+                            Text="{ x:Static local:GrialIconsFont.Check }"
+                            FontFamily="{ DynamicResource GrialIconsFill }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontSize="18"
+                        />
+                    </Border>
+
+                </Grid>
+            </ControlTemplate>
+        </RadioButton.ControlTemplate>
+    </RadioButton>
+
+</ContentView>
+

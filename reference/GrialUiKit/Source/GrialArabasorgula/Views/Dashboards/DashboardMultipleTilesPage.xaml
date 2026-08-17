@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardMultipleTilesPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleDashboardMultipleTiles }"
+    x:Name="PageRoot">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <grial:BoolMemberTemplateSelector
+                x:Key="Selector"
+                MemberName="IsNotification">
+
+                <grial:BoolMemberTemplateSelector.TrueDataTemplate>
+                    <DataTemplate>
+                        <local:DashboardAppNotificationItemTemplate
+                            WidthRequest="145"
+                            HeightRequest="145"
+                            Command="{ Binding BindingContext.TapCommand, Source={x:Reference PageRoot} }"
+                            CommandParameter="{ Binding . }"
+                            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                        />
+                    </DataTemplate>
+                </grial:BoolMemberTemplateSelector.TrueDataTemplate>
+
+                <grial:BoolMemberTemplateSelector.FalseDataTemplate>
+                    <DataTemplate>
+                        <local:DashboardVariantItemTemplate
+                            ShowBackgroundImage="true"
+                            ShowBackgroundColor="true"
+                            TextColor="{ DynamicResource TextOnSurfaceColor }"
+                            WidthRequest="145"
+                            HeightRequest="145"
+                            Command="{ Binding BindingContext.TapCommand, Source={x:Reference PageRoot} }"
+                            CommandParameter="{ Binding . }"
+                            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                        />
+                    </DataTemplate>
+                </grial:BoolMemberTemplateSelector.FalseDataTemplate>
+
+            </grial:BoolMemberTemplateSelector>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <grial:GridView
+            Padding="{ DynamicResource AirSpacing }"
+            ColumnSpacing="15"
+            RowSpacing="15"
+            ColumnCount="2"
+            ItemsSource="{ Binding Items }"
+            ItemTemplate="{ StaticResource Selector }"
+        />
+    </ScrollView>
+</ContentPage>

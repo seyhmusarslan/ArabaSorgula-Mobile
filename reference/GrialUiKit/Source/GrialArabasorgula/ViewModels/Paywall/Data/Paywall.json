@@ -1,0 +1,193 @@
+{
+    "[grial-metadata]": "id: Grial#Paywall.json version: 1.0.3",
+    "PricingPlanAPage.xaml": {
+        "Plans": [
+            {
+                "PlanType": "Yearly",
+                "PlanTag": "BEST VALUE",
+                "Savings": "40%",
+                "FreeTrial": "14 Days",
+                "OriginalPrice": "$200",
+                "PriceOffer": "$120",
+                "PlanBilling": "Yearly"
+            },
+            {
+                "PlanType": "3 Months",
+                "PlanTag": "MOST POPULAR",
+                "Savings": "20%",
+                "FreeTrial": "7 Days",
+                "OriginalPrice": "$80",
+                "PriceOffer": "$60",
+                "PlanBilling": "Quarterly"
+            },
+            {
+                "PlanType": "1 Month",
+                "PlanTag": "",
+                "Savings": "10%",
+                "FreeTrial": "",
+                "OriginalPrice": "$30",
+                "PriceOffer": "$27",
+                "PlanBilling": "Monthly"
+            }
+        ]
+    },
+
+    "PricingPlanBPage.xaml": {
+        "Plans": [
+            {
+                "PlanType": "Yearly",
+                "PlanCost": "125.98",
+                "MonthlyCost": "10.49",
+                "SavingsAmount": "42",
+                "HasSavings": true,
+                "Benefits":  [
+                    {
+                        "Icon": "\ue96d",
+                        "IconBackground": "#46C771",
+                        "Description": "Unlimited Apps Integration"
+                    },
+                    {
+                        "Icon": "\ue9ff",
+                        "IconBackground": "#AF52DE",
+                        "Description": "Priority Customer Support"
+                    },
+                    {
+                        "Icon": "\ue9aa",
+                        "IconBackground": "#5AC8FA",
+                        "Description": "Early Access to Updates"
+                    },
+                    {
+                        "Icon": "\ue920",
+                        "IconBackground": "#3F75FF",
+                        "Description": "Exclusive Content Access"
+                    },
+                    {
+                        "Icon": "\uea4b",
+                        "IconBackground": "#FF7134",
+                        "Description": "App Development Personalized Support"
+                    },
+                    {
+                        "Icon": "\uea1b",
+                        "IconBackground": "#FF2525",
+                        "Description": "Cancel Anytime"
+                    }
+                ],
+                "AdditionalBenefits": [
+                    "Enhanced Features",
+                    "Offline Access",
+                    "Ad-Free Experience"
+                ]
+            },
+            {
+                "PlanType": "Monthly",
+                "PlanCost": "13.98",
+                "MonthlyCost": "13.98",
+                "HasSavings": false,
+                "Benefits": [
+                    {
+                        "Icon": "\ue96d",
+                        "IconBackground": "#46C771",
+                        "Description": "Up To 20 Apps Integration"
+                    },
+                    {
+                        "Icon": "\ue9ff",
+                        "IconBackground": "#AF52DE",
+                        "Description": "Customer Support"
+                    },
+                    {
+                        "Icon": "\ue9aa",
+                        "IconBackground": "#5AC8FA",
+                        "Description": "Access to Updates"
+                    },
+                    {
+                        "Icon": "\ue920",
+                        "IconBackground": "#3F75FF",
+                        "Description": "Late Exclusive Content Access"
+                    },
+                    {
+                        "Icon": "\uea4b",
+                        "IconBackground": "#FF7134",
+                        "Description": "App Development Docs"
+                    },
+                    {
+                        "Icon": "\uea1b",
+                        "IconBackground": "#FF2525",
+                        "Description": "Cancel Anytime"
+                    }
+                ],
+                "AdditionalBenefits": [
+                    "Enhanced Features",
+                    "Offline Access",
+                    "Ad-Free Experience"
+                ]
+            }
+        ]
+    },
+
+    "PricingPlanCPage.xaml": {
+        "Plans": [
+            {
+                "PlanName": "Lifetime",
+                "PlanPrice": "299.98",
+                "InlcudesFeature1": true,
+                "InlcudesFeature2": true,
+                "InlcudesFeature3": true,
+                "InlcudesFeature4": true
+            },
+            {
+                "PlanName": "Yearly",
+                "PlanPrice": "69.98",
+                "InlcudesFeature1": true,
+                "InlcudesFeature2": true,
+                "InlcudesFeature3": false,
+                "InlcudesFeature4": false
+            },
+            {
+                "PlanName": "Monthly",
+                "PlanPrice": "13.98",
+                "InlcudesFeature1": false,
+                "InlcudesFeature2": true,
+                "InlcudesFeature3": false,
+                "InlcudesFeature4": false
+            }
+        ],
+
+        "Features": [
+            "Cost",
+            "Offline acces",
+            "Ad-Free",
+            "24/7 Support",
+            "Customization "
+        ]
+
+    },
+
+    "PricingPlanDPage.xaml": {
+        "Reviews": "19k+ reviews",
+        "Rating": 4.5,
+        "Plans": [
+            {
+                "PlanType": "Monthly",
+                "PlanCost": "6.99",
+                "BillingDescription": "per month",
+                "Benefit": " ",
+                "IsBestDeal": false
+            },
+            {
+                "PlanType": "Yearly",
+                "PlanCost": "59.99",
+                "BillingDescription": "per year ($5.00/month)",
+                "Benefit": "Try 7 days free",
+                "IsBestDeal": true
+            },
+            {
+                "PlanType": "Lifetime",
+                "PlanCost": "199.99",
+                "BillingDescription": "One-time payment",
+                "Benefit": "Own premium forever",
+                "IsBestDeal": false
+            }
+        ]               
+    }
+}
+   

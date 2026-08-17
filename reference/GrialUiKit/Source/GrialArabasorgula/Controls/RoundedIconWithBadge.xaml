@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:RoundedIcon
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.RoundedIconWithBadge"
+    x:Name="root">
+    <Grid
+        HorizontalOptions="{ Binding IconHorizontalOptions, Source={x:Reference root} }"
+        VerticalOptions="{ Binding IconVerticalOptions, Source={x:Reference root} }">
+
+        <!-- Background -->
+        <BoxView
+            x:Name="background"
+            Color="{ Binding IconBackgroundColor, Source={x:Reference root} }"
+            Opacity="{ Binding IconBackgroundOpacity, Source={x:Reference root} }"
+            IsVisible="{ Binding IsIconBackgroundVisible, Source={x:Reference root} }"
+        />
+
+        <!-- Icon -->
+        <Label
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="{ Binding IconPadding, Source={x:Reference root} }"
+            FontSize="{ Binding IconFontSize, Source={x:Reference root} }"
+            FontFamily="{ Binding IconFontFamily, Source={x:Reference root} }"
+            Text="{ Binding IconText, Source={x:Reference root} }"
+            TextColor="{ Binding IconColor, Source={x:Reference root} }"
+            LineHeight="1"
+        />
+
+        <!-- Indicator -->
+        <local:Badge
+            x:Name="indicator"
+            IsVisible="false"
+            AutoHide="{ Binding StatusIndicatorAutoHide, Source={x:Reference root} }"
+            Size="{ Binding StatusIndicatorSize, Source={x:Reference root} }"
+            BackgroundColor="{ Binding StatusIndicatorColor, Source={x:Reference root} }"
+            FontSize="{ Binding StatusIndicatorFontSize, Source={x:Reference root} }"
+            Text="{ Binding StatusIndicatorText, Source={x:Reference root} }"
+            TextColor="{ Binding StatusIndicatorTextColor, Source={x:Reference root} }"
+            BorderColor="{ Binding StatusIndicatorBorderColor, Source={x:Reference root} }"
+            BorderSize="{ Binding StatusIndicatorBorderSize, Source={x:Reference root} }"
+        />
+
+    </Grid>
+</local:RoundedIcon>

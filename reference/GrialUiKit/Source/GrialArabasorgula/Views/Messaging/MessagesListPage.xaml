@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.MessagesListPage"
+    Title="{ grial:Translate PageTitleMessagesList }"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+    <CollectionView ItemsSource="{ Binding Messages }">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <SwipeView>
+                    <SwipeView.RightItems>
+                        <SwipeItem
+                            Clicked="OnDelete"
+                            BackgroundColor="Red"
+                            Text="{ grial:Translate Key=ButtonDelete, Mode=OneTime }"
+                            IsDestructive="True"
+                        />
+                        <SwipeItem
+                            Clicked="OnMore"
+                            BackgroundColor="Gray"
+                            Text="{ grial:Translate Key=ButtonMore, Mode=OneTime }"
+                        />
+
+                    </SwipeView.RightItems>
+
+                    <local:MessageItemTemplate
+                        BackgroundColor="{ DynamicResource BackgroundColor }"
+                        HeightRequest="{ OnIdiom
+                            Phone=120,
+                            Tablet=160
+                        }">
+                        <View.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnItemTapped" />
+                        </View.GestureRecognizers>
+                    </local:MessageItemTemplate>
+                </SwipeView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

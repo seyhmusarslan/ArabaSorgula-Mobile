@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.PricingPlanDPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitlePricingPlanD }">
+
+    <ScrollView
+        grial:Effects.IgnoreIOSSafeAreaOnScrollView="All"
+        VerticalScrollBarVisibility="Never">
+        <!-- CONTAINER -->
+        <VerticalStackLayout
+            Padding="{ DynamicResource AirSpacing }"
+            Spacing="30">
+
+            <!-- REVIEWS -->
+            <Label
+                Text="{ Binding Reviews }"
+                FontSize="{ StaticResource LargeFontSize }"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Margin="0,0,0,-26"
+            />
+            <!-- RATING -->
+            <grial:Rating
+                IconFontSize="16"
+                IconColor="{ DynamicResource RatingColor }"
+                UnselectedIconText="{ x:Static local:GrialIconsFont.StarFill }"
+                HorizontalOptions="Center"
+                Value="{ Binding Rating }"
+            />
+            <!-- RESTORE PURCHASE/TERMS BUTTONS -->
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                Spacing="4">
+                <Button
+                    Command="{ Binding RestorePurchaseCommand }"
+                    Text="{ grial:Translate StringRestorePurchase }"
+                    Style="{ DynamicResource LinkButtonStyle }"
+                />
+                <!-- SEPARATOR -->
+                <Ellipse
+                    HeightRequest="4"
+                    WidthRequest="4"
+                    BackgroundColor="{ DynamicResource PrimaryColor }"
+                />
+                <Button
+                    Command="{ Binding GoToTermsAndCondsCommand }"
+                    Text="{ grial:Translate StringTermsConditions }"
+                    Style="{ DynamicResource LinkButtonStyle }"
+                />
+            </HorizontalStackLayout>
+
+            <!-- PRICING OPTIONS -->
+            <VerticalStackLayout
+                Grid.Row="1"
+                Spacing="20"
+                RadioButtonGroup.GroupName="pricing"
+                RadioButtonGroup.SelectedValue="{ Binding SelectedPlan, Mode=TwoWay }"
+                BindableLayout.ItemsSource="{ Binding Plans }">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <local:PricingDRadioButtonTemplate />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <!-- SELECTED PLAN INFO -->
+            <VerticalStackLayout
+                Grid.Row="2"
+                VerticalOptions="End"
+                Spacing="20">
+                <!-- PLAN BENEFITS -->
+                <Label
+                    HorizontalOptions="Center"
+                    Margin="0,24,0,0"
+                    Text="{ Binding SelectedPlan.Benefit }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    FontSize="{ StaticResource LargeFontSize }"
+                />
+                <!-- PLAN COST/BILLING -->
+                <Label
+                    HorizontalTextAlignment="Center"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    Margin="0,-20,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                Text="{ Binding SelectedPlan.PlanCost }"
+                                FontAttributes="Bold"
+                            />
+                            <Span Text=" " />
+                            <Span
+                                Text="{ Binding SelectedPlan.BillingDescription }"
+                                FontAttributes="Bold"
+                            />
+                            <Span Text=" " />
+                            <Span
+                                Text="{ Binding SelectedPlan.MonthlyCost }"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                            />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!-- CONTINUE BUTTON -->
+                <Button
+                    Command="{ Binding ContinueCommand }"
+                    Text="{ grial:Translate StringContinue }"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                />
+                <!-- TRIAL BUTTON -->
+                <Button
+                    Command="{ Binding StartTrialCommand }"
+                    Text="{ grial:Translate StringStartTrial }"
+                    Style="{ DynamicResource PrimaryActionOutlineButtonStyle }"
+                />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

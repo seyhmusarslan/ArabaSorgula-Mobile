@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.PricingPlanCPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitlePricingPlanC }">
+
+    <ScrollView
+        grial:Effects.IgnoreIOSSafeAreaOnScrollView="Top,Left,Right"
+        VerticalScrollBarVisibility="Never">
+        <!-- CONTAINER -->
+        <Grid
+            RowDefinitions="Auto,Auto,*,Auto"
+            Padding="{ DynamicResource AirSpacing }">
+
+            <!-- TITLE -->
+            <Label
+                Grid.Row="0"
+                Text="{ grial:Translate StringPricing }"
+                TextTransform="Uppercase"
+                TextColor="{ DynamicResource PrimaryColor }"
+                FontSize="{ StaticResource SmallFontSize }"
+            />
+            <Label
+                Grid.Row="1"
+                Text="{ grial:Translate LabelComparePlans }"
+                FontSize="{ StaticResource TitleFontSize }"
+            />
+
+            <Grid
+                Grid.Row="2"
+                ColumnDefinitions="Auto,*"
+                ColumnSpacing="10"
+                VerticalOptions="Center">
+
+                <!-- PLAN FEATURES -->
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Spacing="20"
+                    VerticalOptions="End"
+                    Margin="0,0,0,16"
+                    BindableLayout.ItemsSource="{ Binding Features }">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Label
+                                Text="{ Binding . }"
+                                HorizontalTextAlignment="Start"
+                                LineBreakMode="TailTruncation"
+                                VerticalTextAlignment="Center"
+                                HeightRequest="24"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                            />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+
+                <!-- PLAN OPTIONS -->
+                <HorizontalStackLayout
+                    Grid.Column="1"
+                    RadioButtonGroup.GroupName="plans"
+                    RadioButtonGroup.SelectedValue="{ Binding SelectedPlan, Mode=TwoWay }"
+                    BindableLayout.ItemsSource="{ Binding Plans }">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <local:PricingCRadioButtonTemplate />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <!-- BOTTOM SECTION CONTAINER -->
+            <VerticalStackLayout
+                Grid.Row="3"
+                Spacing="20"
+                VerticalOptions="End">
+                <!-- GENRAL INFO -->
+                <Label
+                    Text="{ grial:Translate LabelGeneralInfo }"
+                    HorizontalTextAlignment="Center"
+                    FontSize="{ StaticResource SmallFontSize }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                />
+                <!-- TRIAL BUTTON -->
+                <Button
+                    Command="{ Binding StartTrialCommand }"
+                    Text="{ grial:Translate StringStartTrial }"
+                    Style="{ DynamicResource PrimaryActionOutlineButtonStyle }"
+                />
+                <!-- CONTINUE BUTTON -->
+                <Button
+                    Command="{ Binding ContinueCommand }"
+                    Text="{ grial:Translate StringContinue }"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                />
+                <!-- TERMS BUTTON -->
+                <Button
+                    Command="{ Binding GoToTermsOfServiceCommand }"
+                    Text="{ grial:Translate StringTerms }"
+                    Style="{ DynamicResource LinkButtonStyle }"
+                    TextColor="{ DynamicResource TextTertiaryColor }"
+                />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

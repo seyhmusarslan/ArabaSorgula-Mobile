@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SegmentedTabResources">
+    <ControlTemplate x:Key="TabItemTemplate">
+        <grial:CardView
+            Margin="5"
+            ShadowOpacity="0.6"
+            VerticalOptions="Fill"
+            ShadowSize="10"
+            CornerRadius="{ DynamicResource CornerRadius-md }">
+
+            <!-- DISABLED TAB -->
+            <VisualElement.Triggers>
+                <DataTrigger
+                    TargetType="grial:CardView"
+                    Binding="{ TemplateBinding IsEnabled }"
+                    Value="False">
+                    <Setter Property="Opacity" Value="0.4" />
+                </DataTrigger>
+                <DataTrigger
+                    TargetType="grial:CardView"
+                    Binding="{ TemplateBinding IsSelected }"
+                    Value="true">
+                    <Setter Property="BackgroundColor" Value="{ DynamicResource BackgroundSecondaryColor }" />
+                    <Setter Property="HasShadow" Value="True" />
+                    <Setter Property="ShadowOpacity" Value="{ OnPlatform iOS=0.2, Android=0.4 }" />
+                </DataTrigger>
+                <DataTrigger
+                    TargetType="grial:CardView"
+                    Binding="{ TemplateBinding IsSelected }"
+                    Value="false">
+                    <Setter Property="BackgroundColor" Value="Transparent" />
+                    <Setter Property="HasShadow" Value="False" />
+                </DataTrigger>
+            </VisualElement.Triggers>
+
+            <Grid
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Padding="0,13"
+                ColumnSpacing="0"
+                ColumnDefinitions="Auto,Auto">
+
+                <!-- IMAGE ICON -->
+                <Image
+                    Grid.Column="0"
+                    WidthRequest="20"
+                    HeightRequest="20"
+                    VerticalOptions="Center"
+                    IsVisible="{ TemplateBinding
+                        CurrentIconImage,
+                        Converter={StaticResource IsNotNullConverter}
+                    }"
+                    Source="{ TemplateBinding CurrentIconImage }">
+                    <Image.Triggers>
+                        <DataTrigger
+                            TargetType="Image"
+                            Binding="{ TemplateBinding IsSelected }"
+                            Value="false">
+                            <Setter Property="Opacity" Value="0.7" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+
+                <!-- FONT ICON -->
+                <Label
+                    Grid.Column="0"
+                    WidthRequest="20"
+                    VerticalOptions="Center"
+                    IsVisible="{ TemplateBinding
+                        CurrentIconText,
+                        Converter={StaticResource IsNotEmptyStringConverter}
+                    }"
+                    Margin="6,0,6,0"
+                    Text="{ TemplateBinding CurrentIconText }"
+                    TextColor="{ TemplateBinding CurrentIconTextColor }"
+                    FontSize="{ TemplateBinding IconTextFontSize }"
+                    FontFamily="{ TemplateBinding IconTextFontFamily }"
+                />
+
+                <!-- TEXT -->
+                <Label
+                    Grid.Column="1"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    IsVisible="{ TemplateBinding
+                        Text,
+                        Converter={StaticResource IsNotEmptyStringConverter}
+                    }"
+                    Text="{ TemplateBinding Text }"
+                    TextColor="{ TemplateBinding CurrentTextColor }"
+                    FontSize="{ TemplateBinding FontSize }"
+                />
+
+                <!-- BADGE -->
+                <local:Badge
+                    Grid.Column="1"
+                    Scale=".6"
+                    Text="{ TemplateBinding BadgeText }"
+                    BackgroundColor="{ TemplateBinding BadgeBackgroundColor }"
+                    TextColor="{ TemplateBinding BadgeTextColor }"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    TranslationY="-6"
+                    TranslationX="22"
+                />
+
+            </Grid>
+        </grial:CardView>
+    </ControlTemplate>
+
+    <Style x:Key="TabItemStyle" TargetType="grial:TabItem">
+        <Setter Property="FontSize" Value="{ StaticResource BaseFontSize }" />
+        <Setter Property="TextColor" Value="{ DynamicResource TextSecondaryColor }" />
+        <Setter Property="TextColorSelected" Value="{ DynamicResource PrimaryColor }" />
+        <Setter Property="IconTextFontFamily" Value="{ StaticResource IconsFontFamily }" />
+        <Setter Property="IconTextFontSize" Value="{ StaticResource BaseFontSize }" />
+        <Setter Property="IconTextColor" Value="{ DynamicResource TextSecondaryColor }" />
+        <Setter Property="IconTextColorSelected" Value="{ DynamicResource PrimaryColor }" />
+        <Setter Property="BadgeTextColor" Value="White" />
+        <Setter Property="BadgeBackgroundColor" Value="Red" />
+    </Style>
+
+    <Style x:Key="SegmentedTabStyle" TargetType="grial:TabControl">
+        <Setter Property="TabItemControlTemplate" Value="{ StaticResource TabItemTemplate }" />
+        <Setter Property="TabItemStyle" Value="{ StaticResource TabItemStyle }" />
+        <Setter Property="TabStripHeight" Value="56" />
+        <Setter Property="TabStripBackgroundColor" Value="{ DynamicResource BackgroundColor }" />
+        <Setter Property="TabStripBackgroundCornerRadius" Value="{ DynamicResource CornerRadius-big }" />
+        <Setter Property="TabStripMargin" Value="{ grial:OnOrientationThickness Portrait='20,18', Landscape='120,18' }" />
+        <Setter Property="TabContentBackgroundColor" Value="#FFFFFF" />
+        <Setter Property="AnimateTransition" Value="False" />
+
+        <Setter Property="TabStripStyle">
+            <Setter.Value>
+                <Style TargetType="Grid">
+                    <Setter Property="grial:Effects.CornerRadius" Value="{ DynamicResource CornerRadius-big }" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
+

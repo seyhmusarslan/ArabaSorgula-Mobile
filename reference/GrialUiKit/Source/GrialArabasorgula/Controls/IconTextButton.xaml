@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.IconTextButton">
+
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+
+            <Frame
+                HasShadow="False"
+                BorderColor="{ TemplateBinding BorderColor }"
+                CornerRadius="{ DynamicResource CornerRadiusFloat-md }"
+                Padding="{ TemplateBinding IconTextPadding }"
+                BackgroundColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{ TemplateBinding Command }"
+                        CommandParameter="{ TemplateBinding CommandParameter }"
+                    />
+                </Frame.GestureRecognizers>
+
+                <local:IconText
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Icon="{ TemplateBinding Icon }"
+                    Text="{ TemplateBinding Text }"
+                    IconFontSize="20"
+                    TextFontSize="12"
+                    Orientation="Vertical"
+                    Spacing="8"
+                    TextColor="{ DynamicResource TextColor }"
+                    IconColor="{ TemplateBinding IconColor }"
+                    Style="{ TemplateBinding StyleIconText }"
+                />
+
+            </Frame>
+
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+
+</ContentView>

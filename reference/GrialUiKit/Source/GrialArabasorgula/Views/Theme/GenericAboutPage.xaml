@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.GenericAboutPage"
+    Title="{ grial:Translate PageTitleAbout }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <ScrollView Padding="{ DynamicResource AirSpacing }">
+        <VerticalStackLayout
+            Spacing="30"
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }">
+            <!-- LOGO -->
+            <Image
+                HeightRequest="40"
+                WidthRequest="180"
+                Aspect="AspectFit"
+                Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/microsoft_logo.png"
+                HorizontalOptions="Start"
+            />
+
+            <VerticalStackLayout>
+                <!-- TITLE -->
+                <Label
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Text="{ grial:Translate StringAboutUs }"
+                    HorizontalTextAlignment="Start"
+                />
+
+                <!-- TEXT -->
+                <Label
+                    Text="{ grial:Translate RichAboutPageDescriptionString }"
+                    HorizontalTextAlignment="Start"
+                />
+            </VerticalStackLayout>
+
+            <!-- LOGO -->
+            <Image
+                WidthRequest="50"
+                HeightRequest="50"
+                Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/maui_logo.png"
+                HorizontalOptions="Start"
+            />
+
+            <VerticalStackLayout>
+                <!-- TITLE -->
+                <Label
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Text="{ grial:Translate StringOurMission }"
+                    HorizontalTextAlignment="Start"
+                />
+                <!-- TEXT -->
+                <Label
+                    Text="{ grial:Translate RichAboutPageMissionString }"
+                    HorizontalTextAlignment="Start"
+                />
+            </VerticalStackLayout>
+
+            <!-- TEAM -->
+            <HorizontalStackLayout
+                Spacing="1"
+                HorizontalOptions="Start">
+                <grial:CircleImage
+                    Margin="6,6"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg"
+                    Style="{ StaticResource AvatarXSmall }"
+                />
+
+                <grial:CircleImage
+                    Margin="6,6"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_02.jpg"
+                    Style="{ StaticResource AvatarXSmall }"
+                />
+
+                <grial:CircleImage
+                    Margin="6,6"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg"
+                    Style="{ StaticResource AvatarXSmall }"
+                />
+
+                <grial:CircleImage
+                    Margin="6,6"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_04.jpg"
+                    Style="{ StaticResource AvatarXSmall }"
+                />
+
+                <grial:CircleImage
+                    Margin="6,6"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg"
+                    Style="{ StaticResource AvatarXSmall }"
+                />
+            </HorizontalStackLayout>
+
+            <VerticalStackLayout>
+                <!-- TITLE -->
+                <Label
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Text="{ grial:Translate StringOurTeam }"
+                    HorizontalTextAlignment="Start"
+                />
+
+                <!-- TEXT -->
+                <Label
+                    Text="{ grial:Translate RichAboutPageMission2String }"
+                    HorizontalTextAlignment="Start"
+                />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

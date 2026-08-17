@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.SmartHomeDeviceCardItemTemplate">
+
+    <grial:CardView
+        RowDefinitions="Auto,*,Auto"
+        ColumnDefinitions="Auto,*"
+        HasShadow="False"
+        CornerRadius="{ DynamicResource CornerRadius-md }"
+        ColumnSpacing="10"
+        RowSpacing="5"
+        Padding="20"
+        Margin="0,5">
+
+        <!-- Device Icon -->
+        <Label
+            Text="{ Binding Icon }"
+            FontFamily="lucide"
+            FontSize="24"
+            VerticalOptions="Center"
+            TextColor="{ Binding DeviceColorColor }"
+        />
+
+        <!-- On / Off Switch -->
+        <Switch
+            Grid.Column="1"
+            HorizontalOptions="End"
+            VerticalOptions="Center"
+            Scale="{ OnPlatform iOS=0.8 }"
+            Margin="{ OnPlatform iOS='0,0,-6,0' }"
+            IsToggled="{ Binding IsOn }"
+            OnColor="{ Binding DeviceColorColor }"
+            ThumbColor="{ Binding DeviceColorColor }"
+        />
+
+        <!-- Device Name -->
+        <Label
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="0,25,0,0"
+            Text="{ Binding Name }"
+            VerticalTextAlignment="Center"
+        />
+        <!-- Where -->
+        <HorizontalStackLayout
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Opacity=".8"
+            Spacing="4">
+            <Label
+                Text="{ x:Static local:GrialIconsFont.MapPin }"
+                FontFamily="{ StaticResource IconsFontFamily }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+            <Label
+                Text="{ Binding Where }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                FontSize="10"
+                VerticalTextAlignment="Center"
+            />
+        </HorizontalStackLayout>
+
+    </grial:CardView>
+</ContentView>
+

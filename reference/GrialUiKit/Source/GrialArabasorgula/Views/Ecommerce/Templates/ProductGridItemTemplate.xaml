@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ProductGridItemTemplate"
+    HeightRequest="200">
+
+    <View.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnProductTapped" />
+    </View.GestureRecognizers>
+
+    <Grid
+        RowSpacing="0"
+        RowDefinitions="*,Auto">
+        <Image
+            Source="{ Binding Image }"
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+            Aspect="AspectFill"
+        />
+
+        <VerticalStackLayout
+            Grid.Row="1"
+            Padding="5,10"
+            Spacing="1"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+            <Label
+                Text="{ Binding Manufacturer, StringFormat='BY {0:F0}' }"
+                FontSize="{ OnIdiom
+                    Phone=12,
+                    Tablet=10
+                }"
+                HorizontalOptions="Start"
+                TextColor="{ DynamicResource PrimaryColor }"
+            />
+
+            <Label
+                Text="{ Binding Name }"
+                FontSize="{ OnIdiom
+                    Phone=16,
+                    Tablet=18
+                }"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                TextColor="{ DynamicResource TextColor }"
+            />
+
+            <Label
+                Text="{ Binding Price }"
+                FontAttributes="Bold"
+                FontSize="{ OnIdiom
+                    Phone=15,
+                    Tablet=17
+                }"
+                HorizontalOptions="Start"
+                TextColor="{ DynamicResource SuccessColor }"
+            />
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentView>

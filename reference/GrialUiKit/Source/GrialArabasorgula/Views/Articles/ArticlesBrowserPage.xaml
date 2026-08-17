@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    Title="{ grial:Translate Key=PageTitleArticlesBrowser }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    x:Class="arabasorgula.ArticlesBrowserPage"
+    grial:GrialNavigationPage.BarBackgroundColor="Transparent"
+    grial:GrialNavigationPage.BarType="Transparent"
+    grial:GrialNavigationPage.BarTextColor="{ DynamicResource BackgroundSecondaryColor }">
+
+    <ScrollView
+        VerticalScrollBarVisibility="Never"
+        grial:Effects.IgnoreIOSSafeAreaOnScrollView="All"
+        grial:SolidNavBarOnScrollBehavior.Attached="True"
+        grial:SolidNavBarOnScrollBehavior.EndBarBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        grial:SolidNavBarOnScrollBehavior.EndBarTextColor="{ DynamicResource TextColor }">
+
+        <Grid
+            RowSpacing="0"
+            RowDefinitions="350,*">
+
+            <grial:Carousel
+                Loop="False"
+                HeightRequest="350"
+                IndicatorView="indicatorView"
+                Margin="0"
+                VerticalOptions="Center"
+                ItemsSource="{ Binding Articles }">
+                <grial:Carousel.ItemTemplate>
+                    <DataTemplate>
+                        <local:ArticlesBrowserHeaderItemTemplate />
+                    </DataTemplate>
+                </grial:Carousel.ItemTemplate>
+            </grial:Carousel>
+
+            <IndicatorView
+                x:Name="indicatorView"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="{ OnPlatform
+                    Android='0,0,0,15',
+                    iOS='-60,0,0,15'
+                }"
+                IndicatorColor="#4DFFFFFF"
+                SelectedIndicatorColor="{ DynamicResource OnSurfaceColor }">
+                <IndicatorView.IndicatorTemplate>
+                    <DataTemplate>
+                        <!-- TODO: height = 1/2 Cornerradius -->
+                        <BoxView
+                            Margin="2,0"
+                            HeightRequest="3"
+                            WidthRequest="26"
+                            CornerRadius="1.5"
+                        />
+                    </DataTemplate>
+                </IndicatorView.IndicatorTemplate>
+            </IndicatorView>
+
+            <grial:ExtendedStackLayout
+                Grid.Row="1"
+                Margin="0,-40,0,0"
+                TrimTopHeight="40"
+                TrimTopShape="InvertedRoundedCorners"
+                Padding="0,30,0,0"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+
+                <!-- CARDS -->
+                <grial:Repeater
+                    ItemsSource="{ Binding Related }"
+                    ItemSize="220"
+                    Orientation="Horizontal"
+                    HeightRequest="220"
+                    ScrollBarVisibility="Never"
+                    ScrollPadding="{ DynamicResource AirSpacingNoBorder }">
+                    <grial:Repeater.ItemTemplate>
+                        <DataTemplate>
+                            <Grid WidthRequest="220">
+                                <local:ArticleBrowserCardItemTemplate Padding="0,0,25,30" />
+                            </Grid>
+                        </DataTemplate>
+                    </grial:Repeater.ItemTemplate>
+                </grial:Repeater>
+
+                <!-- CARDS -->
+                <grial:Repeater
+                    ItemsSource="{ Binding Featured }"
+                    ItemSize="220"
+                    Orientation="Horizontal"
+                    HeightRequest="220"
+                    ScrollBarVisibility="Never"
+                    ScrollPadding="{ DynamicResource AirSpacingNoBorder }">
+                    <grial:Repeater.ItemTemplate>
+                        <DataTemplate>
+                            <Grid WidthRequest="220">
+                                <local:ArticleBrowserCardItemTemplate Padding="0,0,25,30" />
+                            </Grid>
+                        </DataTemplate>
+                    </grial:Repeater.ItemTemplate>
+                </grial:Repeater>
+
+            </grial:ExtendedStackLayout>
+
+        </Grid>
+
+    </ScrollView>
+
+</ContentPage>

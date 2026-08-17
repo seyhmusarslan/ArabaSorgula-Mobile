@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.QuizResultsPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:GrialNavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <!-- CONTENT -->
+        <Grid
+            Padding="{ DynamicResource AirSpacing }"
+            BackgroundColor="{ DynamicResource BackgroundColor }"
+            RowDefinitions="Auto, Auto"
+            Margin="{ OnIdiom
+                Phone='0,0,0,20',
+                Tablet='0,0,0,30'
+            }">
+            <!-- HEADER -->
+            <Grid
+                RowDefinitions="2*,*"
+                Margin="{ OnIdiom
+                    Phone={OnPlatform
+                        Android='0,0,0,20',
+                        Default='0,30'
+                    },
+                    Tablet='0,40'
+                }">
+                <!-- TITLE -->
+                <Label
+                    Text="{ Binding QuizTitle }"
+                    FontSize="{ DynamicResource TitleFontSize }"
+                    FontFamily="{ DynamicResource AppSemiBoldFamily }"
+                    VerticalOptions="End"
+                />
+                <!-- SUBTITLE -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ grial:Translate LabeTrueOrFalse }"
+                    TextColor="{ DynamicResource TextTertiaryColor }"
+                    VerticalOptions="Start"
+                />
+            </Grid>
+
+            <!-- CARD -->
+            <grial:CardView
+                Grid.Row="1"
+                HasShadow="False"
+                RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                Padding="{ DynamicResource AirSpacing }"
+                RowSpacing="{ grial:OnOrientationDouble
+                    Default='20',
+                    PortraitTablet='80'
+                }"
+                Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                <!-- CHART -->
+                <grial:RingChart
+                    IsAnimated="True"
+                    HasCurvedLineCaps="True"
+                    DisplayLabels="True"
+                    BackgroundColor="Transparent"
+                    BackgroundRingColor="{ DynamicResource BackgroundColor }"
+                    BackgroundRingOpacity="1"
+                    Color="{ DynamicResource SuccessColor }"
+                    Value="{ Binding CompletionValue }"
+                    LabelFontColor="{ DynamicResource TextColor }"
+                    LabelFontSize="{ DynamicResource LargeTitleFontSize }"
+                    ValueFormat="0'%"
+                    ValueRingStrokeSize="26"
+                    BackgroundRingStrokeSize="26"
+                    WidthRequest="200"
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    Margin="{ OnPlatform
+                        Android='0,10',
+                        Default='0,20'
+                    }"
+                />
+
+                <!-- TITLE -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ grial:Translate LabelQuizCompleted }"
+                    FontSize="{ DynamicResource TitleFontSize }"
+                    FontFamily="{ DynamicResource AppSemiBoldFamily }"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Start"
+                />
+
+                <!-- SUBTITLE -->
+                <Label
+                    Grid.Row="2"
+                    Text="{ grial:Translate LabelQuizStats }"
+                    TextColor="{ DynamicResource TextTertiaryColor }"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Start"
+                />
+
+                <!-- RESULTS INFO -->
+                <HorizontalStackLayout
+                    Grid.Row="3"
+                    BindableLayout.ItemsSource="{ Binding ResultsData }"
+                    Spacing="40"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="42,Auto,*">
+                                <!-- ICON -->
+                                <local:Emoji
+                                    Unicode="{ Binding Icon }"
+                                    WidthRequest="32"
+                                    HeightRequest="32"
+                                    VerticalOptions="Start"
+                                    HorizontalOptions="Center"
+                                />
+                                <!-- VALUE -->
+                                <Label
+                                    Grid.Row="1"
+                                    Text="{ Binding Value }"
+                                    FontSize="{ DynamicResource SmallTitleFontSize }"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                />
+                                <!-- TEXT -->
+                                <Label
+                                    Grid.Row="2"
+                                    Text="{ Binding Label }"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                    HorizontalTextAlignment="Center"
+                                />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+
+                <!-- FINISH BUTTON -->
+                <Button
+                    Grid.Row="4"
+                    Command="{ Binding FinishCommand }"
+                    Text="{ grial:Translate ButtonFinish }"
+                    Style="{ DynamicResource PrimaryActionButtonStyle }"
+                    VerticalOptions="End"
+                />
+            </grial:CardView>
+        </Grid>
+    </ScrollView>
+</ContentPage>

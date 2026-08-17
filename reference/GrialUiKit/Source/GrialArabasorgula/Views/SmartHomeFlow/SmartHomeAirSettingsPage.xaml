@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.SmartHomeAirSettingsPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:GrialNavigationPage.BarBackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleACSetup }"
+    x:Name="root">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:NumberToPercentageConverter x:Key="NumberToPercentageConverter" />
+            <local:ListJoinConverter x:Key="ScheduleStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- MAIN GRID -->
+    <Grid BackgroundColor="{ DynamicResource BackgroundColor }">
+
+        <ScrollView VerticalScrollBarVisibility="Never">
+
+            <!-- CONTENT -->
+            <VerticalStackLayout
+                Spacing="20"
+                Padding="{ DynamicResource AirSpacing }"
+                Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                <!-- STATUS CONTAINER -->
+                <Grid
+                    ColumnDefinitions="*,*"
+                    RowDefinitions="Auto,Auto"
+                    VerticalOptions="Center"
+                    RowSpacing="15"
+                    ColumnSpacing="20">
+
+                    <!-- STATUS -->
+                    <!-- Title -->
+                    <Label Text="{ grial:Translate LabelStatus }" />
+
+                    <!-- Card Wrapper -->
+                    <grial:CardView
+                        Grid.Row="1"
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="10"
+                        HasShadow="False"
+                        HeightRequest="60"
+                        Padding="20,0"
+                        BackgroundColor="{ grial:If
+                            Condition={Binding
+                                IsToggled,
+                                Source={x:Reference statusSwitch}
+                            },
+                            Then={DynamicResource PrimaryColor},
+                            Else={DynamicResource BackgroundSecondaryColor}
+                        }">
+
+                        <Switch
+                            x:Name="statusSwitch"
+                            Scale="0.8"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            IsToggled="{ Binding SelectedDevice.IsOn, Mode=TwoWay }"
+                            OnColor="#33FFFFFF"
+                        />
+
+                        <!-- On/Off Label -->
+                        <Label
+                            Grid.Column="1"
+                            Text="{ grial:If
+                                Condition={Binding
+                                    IsToggled,
+                                    Source={x:Reference statusSwitch}
+                                },
+                                Then='on',
+                                Else='off'
+                            }"
+                            TextColor="{ grial:If
+                                Condition={Binding
+                                    IsToggled,
+                                    Source={x:Reference statusSwitch}
+                                },
+                                Then={DynamicResource OnSurfaceColor},
+                                Else={DynamicResource TextSecondaryColor}
+                            }"
+                            FontAttributes="Bold"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="End"
+                        />
+
+                    </grial:CardView>
+
+                    <!-- OUTDOOR STATUS -->
+                    <!-- Title -->
+                    <Label
+                        Grid.Column="1"
+                        Text="{ grial:Translate LabelOutdoorStatus }"
+                    />
+
+                    <!-- Card Wrapper -->
+                    <grial:CardView
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="10"
+                        HasShadow="False"
+                        HeightRequest="60"
+                        Padding="20,0"
+                        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+                        <!-- Temp Icon Label -->
+                        <Label
+                            Text="{ x:Static local:GrialIconsFont.WeatherSun }"
+                            FontFamily="{ DynamicResource IconsFontFamily }"
+                            FontSize="{ StaticResource SmallTitleFontSize }"
+                            VerticalTextAlignment="Center"
+                        />
+
+                        <!-- Temp Label -->
+                        <Label
+                            Grid.Column="1"
+                            Text="{ Binding SelectedDevice.OutdoorTemp, StringFormat='{0}°F' }"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="End"
+                        />
+                    </grial:CardView>
+                </Grid>
+
+                <!-- ROOM TEMPERATURE -->
+                <grial:CircularSlider
+                    Margin="0,10,0,4"
+                    BackgroundColor="Transparent"
+                    InnerBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    ActiveColor="{ DynamicResource PrimaryColor }"
+                    InactiveColor="{ DynamicResource PrimaryVariantColor }"
+                    ActiveThickness="16"
+                    InactiveThickness="16"
+                    HeightRequest="{ OnIdiom
+                        Phone='204',
+                        Tablet='304'
+                    }"
+                    WidthRequest="{ OnIdiom
+                        Phone='204',
+                        Tablet='304'
+                    }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    TextFontSize="{ OnIdiom
+                        Phone='36',
+                        Tablet='48'
+                    }"
+                    MinValue="60"
+                    MaxValue="90"
+                    StartAngle="225"
+                    EndAngle="315"
+                    TrackColor="Transparent"
+                    Value="{ Binding SelectedDevice.RoomTemp, Mode=TwoWay }"
+                    ValueFormat="{}{0:F0}°F">
+                    <grial:CircularSlider.ThumbControlTemplate>
+                        <ControlTemplate>
+                            <!-- TODO: height = 1/2 Cornerradius -->
+                            <BoxView
+                                Color="{ DynamicResource OnSurfaceColor }"
+                                WidthRequest="28"
+                                CornerRadius="14"
+                                HeightRequest="28">
+                                <BoxView.Shadow>
+                                    <Shadow
+                                        Brush="Black"
+                                        Offset="0,0"
+                                        Opacity="0.1"
+                                    />
+                                </BoxView.Shadow>
+                            </BoxView>
+                        </ControlTemplate>
+                    </grial:CircularSlider.ThumbControlTemplate>
+                </grial:CircularSlider>
+
+                <!-- AIR CONDITIONER MODES -->
+                <FlexLayout
+                    BindableLayout.ItemsSource="{ Binding AirModes }"
+                    RadioButtonGroup.SelectedValue="{ Binding SelectedAirMode, Mode=TwoWay }"
+                    RadioButtonGroup.GroupName="modes"
+                    HorizontalOptions="Fill"
+                    JustifyContent="SpaceBetween"
+                    AlignContent="Start"
+                    AlignItems="Start"
+                    Direction="Row">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <local:SmartHomeACSettingsRadioButtonTemplate />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+
+                <!-- FAN SPEED SETTINGS -->
+                <Grid
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="15">
+
+                    <!-- Title -->
+                    <Label Text="{ grial:Translate LabelFanSpeed }" />
+
+                    <!-- Speed Selection -->
+                    <grial:SelectableWrapPanel
+                        Grid.Row="1"
+                        ItemsSource="{ Binding AirSpeeds }"
+                        SelectedItem="{ Binding SelectedDevice.Speed, Mode=TwoWay }"
+                        SelectionMode="Single"
+                        HorizontalOptions="Fill"
+                        ColumnSpacing="10">
+
+                        <grial:SelectableWrapPanel.ItemTemplate>
+                            <DataTemplate>
+                                <grial:RoundedLabel
+                                    Text="{ Binding . }"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                    HeightRequest="{ OnPlatform Android=30 }"
+                                    FontSize="14"
+                                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                                    Padding="8,6"
+                                />
+                            </DataTemplate>
+                        </grial:SelectableWrapPanel.ItemTemplate>
+
+                        <grial:SelectableWrapPanel.SelectedItemTemplate>
+                            <DataTemplate>
+                                <grial:RoundedLabel
+                                    Text="{ Binding . }"
+                                    TextColor="{ DynamicResource PrimaryActionButtonTextColor }"
+                                    HeightRequest="{ OnPlatform Android=30 }"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="{ DynamicResource PrimaryColor }"
+                                    Padding="8,6"
+                                />
+                            </DataTemplate>
+                        </grial:SelectableWrapPanel.SelectedItemTemplate>
+                    </grial:SelectableWrapPanel>
+
+                </Grid>
+
+                <!-- SCHEDULE -->
+                <VerticalStackLayout
+                    Margin="0,10,0,0"
+                    Spacing="20">
+
+                    <!-- Schedule Header -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <local:IconText
+                            Grid.Column="0"
+                            Icon="{ x:Static local:GrialIconsFont.Clock }"
+                            IconFontSize="28"
+                            Text="{ grial:Translate LabelSchedule }"
+                            TextFontSize="{ StaticResource LargeFontSize }"
+                            Spacing="5"
+                            VerticalOptions="Center"
+                        />
+
+                        <!-- Add Schedule Button -->
+                        <local:RoundedIconButton
+                            Grid.Column="1"
+                            IconText="{ x:Static local:GrialIconsFont.Plus }"
+                            IconFontFamily="{ DynamicResource IconsFontFamily }"
+                            Command="{ Binding AddScheduleCommand }"
+                            CornerRadius="{ DynamicResource CornerRadius-md }"
+                            IconFontSize="20"
+                            HeightRequest="36"
+                            WidthRequest="36"
+                            VerticalOptions="Center"
+                            IconBackgroundColor="{ DynamicResource PrimaryColor }"
+                            IconColor="{ DynamicResource TextOnSurfaceColor }"
+                        />
+
+                    </Grid>
+
+                    <!-- SCHEDULED ITEMS -->
+                    <VerticalStackLayout
+                        grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                        BindableLayout.ItemsSource="{ Binding SelectedDevice.Schedules }">
+
+                        <BindableLayout.EmptyView>
+                            <Label
+                                Margin="6,0"
+                                Text="No programed schedules."
+                            />
+                        </BindableLayout.EmptyView>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <local:SmartHomeScheduleCardTemplate
+                                    EditScheduleCommand="{ Binding BindingContext.EditScheduleCommand, Source={x:Reference root} }"
+                                    DeleteScheduleCommand="{ Binding BindingContext.DeleteScheduleCommand, Source={x:Reference root} }">
+
+                                    <local:SmartHomeScheduleCardTemplate.SecondaryContent>
+                                        <VerticalStackLayout Spacing="10">
+                                            <!-- AC Mode -->
+                                            <HorizontalStackLayout
+                                                VerticalOptions="Center"
+                                                Spacing="10">
+                                                <Label
+                                                    Text="{ grial:Translate LabelACMode }"
+                                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                                />
+
+                                                <Label
+                                                    Text="{ Binding Mode }"
+                                                    VerticalOptions="Center"
+                                                    VerticalTextAlignment="Center"
+                                                />
+                                            </HorizontalStackLayout>
+
+                                            <!-- Separator -->
+                                            <BoxView Style="{ DynamicResource Horizontal1ptLineStyle }" />
+
+                                            <!-- Room Temperature -->
+                                            <HorizontalStackLayout
+                                                VerticalOptions="Center"
+                                                Spacing="10">
+                                                <Label
+                                                    VerticalOptions="Center"
+                                                    Text="{ grial:Translate LabelRoomTemperature }"
+                                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                                />
+
+                                                <Label
+                                                    Text="{ Binding Temperature, StringFormat='{0:F0} °F' }"
+                                                    VerticalOptions="Center"
+                                                    VerticalTextAlignment="Center"
+                                                />
+                                            </HorizontalStackLayout>
+                                            <!-- Separator -->
+                                            <BoxView Style="{ DynamicResource Horizontal1ptLineStyle }" />
+                                        </VerticalStackLayout>
+                                    </local:SmartHomeScheduleCardTemplate.SecondaryContent>
+
+                                </local:SmartHomeScheduleCardTemplate>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

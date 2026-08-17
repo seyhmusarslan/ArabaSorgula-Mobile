@@ -1,0 +1,299 @@
+{
+  "[grial-metadata]": "id: Grial#Settings.json version: 1.0.4",
+  "MySettingsPage.xaml": {
+    "UserData": {
+      "NickName": "grial_ito",
+      "Email": "hello@uxdivers.com",
+      "Image": "avatar_placeholder",
+      "IsPro": true
+    },
+    "MainCategories": [
+      {
+        "Category": "Appearance",
+        "Icon": ""
+      },
+      {
+        "Category": "Privacy",
+        "Icon": ""
+      },
+      {
+        "Category": "Integrations",
+        "Icon": ""
+      },
+      {
+        "Category": "Notifications",
+        "Icon": ""
+      }
+    ],
+    "Categories": [
+      {
+        "Category": "Pricing Plans",
+        "Icon": "",
+        "IsLink": true,
+        "IsSpacing": true
+      },
+      {
+        "Category": "Dark Mode",
+        "Icon": "",
+        "IsToggle": true
+      },
+      {
+        "Category": "Share Settings",
+        "Icon": ""
+      },
+      {
+        "Category": "Report a Problem",
+        "Icon": "",
+        "IsLink": true,
+        "IsSpacing": true
+      },
+      {
+        "Category": "Support",
+        "Icon": ""
+      },
+      {
+        "Category": "Social media",
+        "Icon": "",
+        "IsLink": true
+      },
+      {
+        "Category": "About",
+        "Icon": "",
+        "IsLink": true
+      },
+      {
+        "Category": "Help",
+        "Icon": ""
+      },
+      {
+        "Category": "Sign out",
+        "Icon": "",
+        "IsSpacing": true,
+        "IsSignOut": true
+      }
+    ]
+  },
+  "ProfileSettingsPage.xaml": {
+    "UserData": {
+      "Name": "Grial Ito",
+      "Email": "hello@uxdivers.com",
+      "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/user_01.jpg"
+    },
+    "Settings": [
+      {
+        "Header": "Account Information",
+        "Category": "Personal information",
+        "IsLink": true,
+        "IsHeader": true
+      },
+      {
+        "Category": "Account Plan",
+        "Description": "Your trial ends in 28 days",
+        "IsLink": true,
+        "HasDescription": true
+      },
+      {
+        "Header": "Notifications",
+        "Category": "Push Notifications",
+        "IsToggle": true,
+        "IsHeader": true
+      },
+      {
+        "Category": "Reminders",
+        "IsLink": true
+      },
+      {
+        "Category": "Scheduled Summary",
+        "Description": "Bundle non-urgent notifications and receive them in a summary.",
+        "IsToggle": true,
+        "IsToggled": true,
+        "HasDescription": true
+      },
+      {
+        "Header": "Privacy",
+        "Category": "Location Services",
+        "IsLink": true,
+        "IsHeader": true
+      },
+      {
+        "Category": "Tracking",
+        "IsLink": true
+      },
+      {
+        "Header": "Support",
+        "Category": "Help Center",
+        "IsLink": true,
+        "IsHeader": true
+      },
+      {
+        "Category": "Contact a human",
+        "IsLink": true
+      },
+      {
+        "Category": "FAQ",
+        "IsLink": true
+      }
+    ]
+  },
+  "AppPreferencesPage.xaml": {
+    "General": [
+      {
+        "Header": "General",
+        "Category": "Appearance",
+        "Description": "System Default",
+        "IsLink": true,
+        "IsHeader": true,
+        "HasDescription": true
+      },
+      {
+        "Category": "Lock Sound",
+        "IsToggle": true
+      },
+      {
+        "Category": "Haptics",
+        "Description": "Haptics will be activated for interactions with the screen elements",
+        "IsToggle": true,
+        "IsToggled": true,
+        "HasDescription": true
+      }
+    ],
+    "Alerts": [
+      {
+        "Header": "Alerts",
+        "Category": "Allow Pop-up Messages",
+        "Description": "Allow messages to automatically display when new products are found or new features are available",
+        "IsToggle": true,
+        "IsToggled": true,
+        "IsHeader": true,
+        "HasDescription": true
+      },
+      {
+        "Category": "Snooza Alerts",
+        "IsToggle": true,
+        "IsToggled": true
+      },
+      {
+        "Category": "Alerts Setup",
+        "IsLink": true
+      },
+      {
+        "Header": "Version",
+        "Category": "Version",
+        "Description": "4.3.1",
+        "IsHeader": true,
+        "HasDescription": true
+      },
+      {
+        "Category": "Build",
+        "Description": "420420",
+        "HasDescription": true
+      },
+      {
+        "Category": "Reset Settings"
+      }
+    ]
+  },
+  "SettingsMenuVariantPage.xaml": {
+    "UserData": {
+      "Name": "Grial Ito",
+      "Email": "hello@uxdivers.com",
+      "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/user_01.jpg"
+    },
+    "Settings": [
+      {
+        "Header": "User Settings",
+        "Category": "Account",
+        "Icon": "",
+        "IconColor": "#46C771",
+        "IsHeader": true
+      },
+      {
+        "Category": "Integration",
+        "Icon": "",
+        "IconColor": "#AF52DE"
+      },
+      {
+        "Header": "App Settings",
+        "Category": "Cellular",
+        "Icon": "",
+        "IconColor": "#5AC8FA",
+        "IsHeader": true
+      },
+      {
+        "Category": "VPN",
+        "Icon": "",
+        "IconColor": "#FF7134"
+      },
+      {
+        "Category": "Notifications",
+        "Icon": "",
+        "IconColor": "#F9B300"
+      },
+      {
+        "Category": "Display & Brightness",
+        "Icon": "",
+        "IconColor": "#3F75FF"
+      },
+      {
+        "Category": "Privacy",
+        "Icon": "",
+        "IconColor": "#FB4D96"
+      },
+      {
+        "Category": "Log out",
+        "Icon": "",
+        "IconColor": "#FF2525"
+      }
+    ]
+  },
+  "SettingsMenuPage.xaml": {
+    "PromoData": {
+      "Header": "Grial Pro 50% OFF",
+      "Description": "Get a special discount on your next license of Grial UI Kit.",
+      "LightColor": "#FFFB4FFF",
+      "DarkColor": "#FFA43FD3"
+    },
+    "Settings": [
+      {
+        "Category": "Account",
+        "Description": "Your information",
+        "Icon": "1f464"
+      },
+      {
+        "Category": "Services",
+        "Description": "Music, podcast, video",
+        "Icon": "1f39b"
+      },
+      {
+        "Category": "Preferences",
+        "Description": "Safeguard your digital footprint",
+        "Icon": "1f4f1"
+      },
+      {
+        "Category": "System",
+        "Description": "Global configurations",
+        "Icon": "2699"
+      },
+      {
+        "Category": "Privacy",
+        "Description": "User Settings",
+        "Icon": "1f575"
+      },
+      {
+        "Category": "Inbox & Messages",
+        "Description": "Messages and offers",
+        "Icon": "1f5c3"
+      },
+      {
+        "Category": "FAQ’s",
+        "Description": "Community questions",
+        "Icon": "1f4d4"
+      },
+      {
+        "Category": "Support",
+        "Description": "Tell us whats going on",
+        "Icon": "2754"
+      }
+    ]
+  }
+}

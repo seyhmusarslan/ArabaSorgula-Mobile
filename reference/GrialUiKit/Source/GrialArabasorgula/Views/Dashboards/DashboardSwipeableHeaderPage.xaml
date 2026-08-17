@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    x:Class="arabasorgula.DashboardSwipeableHeaderPage"
+    Title="{ grial:Translate PageTitleDashboardSwipeableHeader }">
+
+    <ScrollView
+        grial:Effects.IgnoreIOSSafeAreaOnScrollView="All"
+        VerticalScrollBarVisibility="Never">
+        <!-- MAIN CONTAINER -->
+        <Grid RowDefinitions="250,*">
+            <!-- SWIPEABLE LAYOUT -->
+            <grial:SwipeableLayout
+                Loop="True"
+                ItemsSource="{ Binding Headers }"
+                Animation="RotateDown"
+                MoveEndedCommand="{ Binding MoveEndedCommand }"
+                Padding="20,0"
+                Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+                <grial:SwipeableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <!-- CARD TEMPLATE -->
+                        <local:DashboardCarouselHeaderItemTemplate />
+                    </DataTemplate>
+                </grial:SwipeableLayout.ItemTemplate>
+            </grial:SwipeableLayout>
+
+            <!-- ITEMS LIST -->
+            <grial:ExtendedStackLayout
+                Grid.Row="1"
+                BackgroundColor="{ DynamicResource BackgroundColor }"
+                TrimTopHeight="20"
+                TrimTopShape="InvertedRoundedCorners"
+                BindableLayout.ItemsSource="{ Binding Items }"
+                Spacing="16"
+                Padding="{ DynamicResource AirSpacing }">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <!-- ITEM TEMPLATE -->
+                        <local:DashboardSwipeableHeaderMainItemTemplate />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </grial:ExtendedStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

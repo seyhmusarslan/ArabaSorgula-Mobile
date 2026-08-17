@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.LoginPage"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    Title="{ grial:Translate PageTitleLogin }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+    <Grid>
+        <ScrollView>
+            <!-- MAIN CONTAINER -->
+            <Grid
+                Style="{ StaticResource BaseFormsContentStyle }"
+                ColumnSpacing="0"
+                RowSpacing="0"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                RowDefinitions="120,Auto,*,Auto">
+
+                <!-- Logo -->
+                <local:BrandLogo
+                    VerticalOptions="End"
+                    HorizontalOptions="Start"
+                    Grid.Row="0"
+                    Inverted="False"
+                />
+
+                <!-- CLAIM TEXT -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Spacing="10"
+                    Padding="0,10"
+                    VerticalOptions="Center">
+                    <Label
+                        LineBreakMode="WordWrap"
+                        Text="{ grial:Translate LabelLoginOrRegisterUsinMailOrPass }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        FontSize="{ OnIdiom
+                            Phone=24,
+                            Tablet=34
+                        }"
+                    />
+
+                    <Label
+                        LineBreakMode="WordWrap"
+                        Text="{ grial:Translate LabelLoginOrRegisterUsinMailOrPass }"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                        VerticalTextAlignment="Center"
+                        FontSize="{ OnIdiom
+                            Phone=18,
+                            Tablet=26
+                        }"
+                    />
+                </VerticalStackLayout>
+
+                <!-- FIELDS CONTAINER -->
+                <Grid
+                    Grid.Row="2"
+                    ColumnSpacing="0"
+                    Margin="0,20,0,0"
+                    RowSpacing="20"
+                    VerticalOptions="Fill"
+                    RowDefinitions="Auto,Auto">
+                    <VerticalStackLayout
+                        Grid.Row="0"
+                        Spacing="4"
+                        VerticalOptions="Start">
+                        <!-- EMAIL ENTRY -->
+                        <Entry Placeholder="{ grial:Translate StringEmail }">
+                            <Entry.Behaviors>
+                                <grial:EmailValidatorBehavior x:Name="emailValidator" />
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <grial:RoundedLabel
+                            Text="{ grial:Translate ErrorPleaseEnterValidEmail }"
+                            IsVisible="false"
+                            HeightRequest="22"
+                            Style="{ StaticResource ValidationEntryErrorStyle }">
+                            <grial:RoundedLabel.Triggers>
+                                <DataTrigger
+                                    TargetType="grial:RoundedLabel"
+                                    Binding="{ Binding IsValid, Source={x:Reference emailValidator} }"
+                                    Value="false">
+                                    <Setter Property="IsVisible" Value="true" />
+                                </DataTrigger>
+                            </grial:RoundedLabel.Triggers>
+                        </grial:RoundedLabel>
+
+                    </VerticalStackLayout>
+
+                    <!-- PASSWORD FIELD -->
+                    <Entry
+                        Grid.Row="1"
+                        Placeholder="{ grial:Translate StringPassword }"
+                        IsPassword="true"
+                        VerticalOptions="Start"
+                    />
+
+                </Grid>
+
+                <!-- FOOTER -->
+                <VerticalStackLayout
+                    HorizontalOptions="Fill"
+                    VerticalOptions="End"
+                    Padding="0"
+                    Margin="0,40,0,0"
+                    Spacing="14"
+                    Grid.Row="3">
+                    <local:IconButton
+                        ButtonStyle="{ StaticResource SecondaryActionButtonStyle }"
+                        VerticalOptions="End"
+                        Text="{ grial:Translate StringFacebook }"
+                        WidthRequest="{ grial:OnOrientationSizeRequest
+                            LandscapePhone=200,
+                            LandscapeTablet=400
+                        }"
+                        HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                            Portrait=Fill,
+                            Landscape=Center
+                        }"
+                        IconText="{ x:Static local:GrialIconsFont.LogoFacebookSquare }"
+                        IconFontSize="15"
+                        IconFontFamily="{ StaticResource IconsFontFamily }"
+                        IconColor="{ DynamicResource PrimaryColor }"
+                    />
+
+                    <Button
+                        Style="{ StaticResource PrimaryActionButtonStyle }"
+                        VerticalOptions="End"
+                        Text="{ grial:Translate StringLogin }"
+                        WidthRequest="{ grial:OnOrientationSizeRequest
+                            LandscapePhone=200,
+                            LandscapeTablet=400
+                        }"
+                        HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                            Portrait=Fill,
+                            Landscape=Center
+                        }"
+                    />
+
+                    <!-- Forgot password -->
+                    <Label
+                        Text="{ grial:Translate LabelForgotYourPassword }"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                    />
+
+                </VerticalStackLayout>
+            </Grid>
+
+        </ScrollView>
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            HorizontalOptions="End"
+            Style="{ StaticResource CloseIconButtonInverseStyle }"
+            Clicked="OnCloseButtonClicked"
+        />
+    </Grid>
+</ContentPage>

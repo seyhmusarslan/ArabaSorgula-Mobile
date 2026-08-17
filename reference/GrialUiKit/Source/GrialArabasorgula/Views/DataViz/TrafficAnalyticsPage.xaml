@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="arabasorgula.TrafficAnalyticsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    Title="{ grial:Translate PageTitleTrafficAnalytics }">
+
+    <ScrollView BackgroundColor="{ DynamicResource BackgroundColor }">
+
+        <!-- GRID WRAPPER -->
+        <Grid
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+            RowDefinitions="Auto,*">
+
+            <!-- Top Grid -->
+            <grial:ExtendedGrid
+                Grid.Row="0"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                TrimBottomShape="RoundedCorners"
+                TrimBottomHeight="40"
+                Padding="{ DynamicResource AirSpacingWithBorder }">
+
+                <Grid
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="24"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                    <!-- Section Title -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource LargeFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate StringTraffic }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                    />
+
+                    <!-- Filter -->
+                    <local:DataVizFilterTemplate
+                        Options="{ Binding Periods }"
+                        SelectedOption="{ Binding SelectedPeriod, Mode=TwoWay }"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- BAR CHART -->
+                    <grial:CategoryChart
+                        Grid.Row="1"
+                        Margin="-20,0,-10,0"
+                        AxisFontColor="{ DynamicResource TextSecondaryColor }"
+                        AxisLinesColor="#E0E3EC"
+                        AxisLinesStrokeSize="1"
+                        BackgroundColor="Transparent"
+                        CategorySeparation="{ Binding SelectedPeriodData.CategorySeparation }"
+                        DisplayLabels="True"
+                        DisplayReferenceAxis="True"
+                        DisplayReferenceGridLines="True"
+                        GridDashPattern="0"
+                        HasSelection="False"
+                        HeightRequest="240"
+                        ItemSeparation="{ Binding SelectedPeriodData.ItemSeparation }"
+                        LabelFontColor="{ DynamicResource TextSecondaryColor }"
+                        LabelFontSize="9"
+                        ValueLabelFontColor="{ DynamicResource TextSecondaryColor }">
+
+                        <grial:BarSeries
+                            ItemsSource="{ Binding SelectedPeriodData.FirstSeries }"
+                            LabelPath="Label"
+                            ValuePath="Value"
+                            Color="{ DynamicResource SuccessColor }"
+                            Style="{ DynamicResource TrafficAnalyticsPage_BarSeriesStyle }"
+                        />
+                        <grial:BarSeries
+                            ItemsSource="{ Binding SelectedPeriodData.SecondSeries }"
+                            LabelPath="Label"
+                            ValuePath="Value"
+                            Color="#B176FD"
+                            Style="{ DynamicResource TrafficAnalyticsPage_BarSeriesStyle }"
+                        />
+
+                    </grial:CategoryChart>
+                </Grid>
+
+            </grial:ExtendedGrid>
+
+            <!-- Bottom grid -->
+            <Grid
+                Grid.Row="1"
+                Padding="{ DynamicResource AirSpacing }"
+                RowDefinitions="Auto,Auto"
+                RowSpacing="16">
+
+                <!-- TOP CARD -->
+                <grial:CardView
+                    Padding="16"
+                    BindingContext="{ Binding SelectedPeriodData.Organic }"
+                    ColumnDefinitions="4,Auto,Auto,Auto"
+                    ColumnSpacing="28"
+                    HasShadow="False"
+                    RowDefinitions="46,Auto,Auto"
+                    RowSpacing="8"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                    <!-- Dot -->
+                    <!-- TODO: height = 1/2 Cornerradius -->
+                    <BoxView
+                        Margin="0,11,-20,0"
+                        CornerRadius="5"
+                        HeightRequest="10"
+                        VerticalOptions="Start"
+                        WidthRequest="10"
+                        Color="{ DynamicResource SuccessColor }"
+                    />
+
+                    <!-- Title -->
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="4"
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource TitleFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate StringOrganic }"
+                        TextColor="{ DynamicResource SuccessColor }"
+                        VerticalTextAlignment="Start"
+                    />
+
+                    <!-- Views -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="10"
+                        Text="{ grial:Translate StringViews }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Products -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontSize="10"
+                        Text="{ grial:Translate StringSold }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Overtime -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        FontSize="10"
+                        Text="{ grial:Translate StringOvertime }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Views Value -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource XLargeFontSize }"
+                        Text="{ Binding Views }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Products Value -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource XLargeFontSize }"
+                        Text="{ Binding Sold }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Overtime Value -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource XLargeFontSize }"
+                        Text="{ Binding Overtime }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalOptions="Center"
+                    />
+
+                </grial:CardView>
+
+                <!-- BOTTOM CARD -->
+                <grial:CardView
+                    Grid.Row="1"
+                    Padding="16"
+                    BindingContext="{ Binding SelectedPeriodData.Paid }"
+                    ColumnDefinitions="4,Auto,Auto,Auto"
+                    ColumnSpacing="28"
+                    HasShadow="False"
+                    RowDefinitions="46,Auto,Auto"
+                    RowSpacing="8"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                    <!-- Dot -->
+                    <!-- TODO: height = 1/2 Cornerradius -->
+                    <BoxView
+                        Margin="0,11,-20,0"
+                        CornerRadius="5"
+                        HeightRequest="10"
+                        VerticalOptions="Start"
+                        WidthRequest="10"
+                        Color="#B176FD"
+                    />
+
+                    <!-- Title -->
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="4"
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource TitleFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate StringPaid }"
+                        TextColor="#B176FD"
+                        VerticalTextAlignment="Start"
+                    />
+
+                    <!-- Views -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="10"
+                        Text="{ grial:Translate StringViews }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Products -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontSize="10"
+                        Text="{ grial:Translate StringSold }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Overtime -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        FontSize="10"
+                        Text="{ grial:Translate StringOvertime }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Views Value -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource XLargeFontSize }"
+                        Text="{ Binding Views }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Products Value -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource XLargeFontSize }"
+                        Text="{ Binding Sold }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Overtime Value -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource XLargeFontSize }"
+                        Text="{ Binding Overtime }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalOptions="Center"
+                    />
+
+                </grial:CardView>
+
+            </Grid>
+        </Grid>
+
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.PopupsCardItemTemplate"
+    x:Name="root">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnTapped" />
+    </ContentView.GestureRecognizers>
+    <grial:CardView
+        Padding="20,16"
+        HasShadow="False"
+        RowDefinitions="Auto,Auto">
+        <!-- TAG -->
+        <local:Tag
+            IsVisible="{ Binding IsNew, Source={x:Reference root}} }"
+            Grid.Column="1"
+            Text="New"
+            Padding="6,0"
+            CornerRadius="8"
+            FontSize="9"
+            TranslationX="8"
+            HorizontalOptions="End"
+        />
+
+        <Label
+            Text="{ Binding Title, Source={x:Reference root} }"
+            FontFamily="{ DynamicResource AppSemiBoldFamily }"
+        />
+        <Label
+            Grid.Row="1"
+            Text="{ Binding Text, Source={x:Reference root} }"
+            FontSize="{ DynamicResource SmallFontSize }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+        />
+    </grial:CardView>
+</ContentView>

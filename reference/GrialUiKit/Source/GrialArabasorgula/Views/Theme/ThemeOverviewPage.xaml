@@ -1,0 +1,707 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ThemeOverviewPage"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <ContentPage.Resources>
+        <FileImageSource x:Key="ThemeAvatarSample1Image">https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg</FileImageSource>
+    </ContentPage.Resources>
+    <Grid>
+        <ScrollView>
+            <Grid
+                RowSpacing="20"
+                BackgroundColor="{ DynamicResource BackgroundColor }"
+                RowDefinitions="Auto,*">
+
+                <!-- THEME OVERVIEW -->
+                <VerticalStackLayout
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    Padding="{ DynamicResource AirSpacingNoBorder }"
+                    Spacing="30"
+                    grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+                    <!-- BRANDING -->
+                    <Grid
+                        ColumnSpacing="10"
+                        ColumnDefinitions="Auto,*"
+                        RowDefinitions="Auto">
+
+                        <!-- Icon -->
+                        <Label
+                            Grid.Column="0"
+                            VerticalOptions="Center"
+                            FontSize="60"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            Text="{ x:Static local:GrialIconsFont.LogoGrialSquare }"
+                            Style="{ StaticResource FontIcon }"
+                        />
+
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            Spacing="0"
+                            VerticalOptions="Center">
+
+                            <Label
+                                Text="Grial UI Kit"
+                                FontSize="18"
+                                TextColor="{ DynamicResource TextColor }"
+                                FontAttributes="None"
+                            />
+
+                            <Label
+                                Text="Theme Preview"
+                                FontSize="18"
+                                TextColor="{ DynamicResource TextColor }"
+                                FontAttributes="None"
+                            />
+
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+                    <!-- CUSTOM PICKER -->
+                    <Grid
+                        Padding="0,0,12,0"
+                        BackgroundColor="Transparent"
+                        grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }"
+                        HeightRequest="44">
+                        <!-- LABEL -->
+                        <Label
+                            Text="{ grial:Translate TasksPerformance }"
+                            FontSize="14"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            TextColor="{ DynamicResource TextColor }"
+                            InputTransparent="true"
+                        />
+
+                        <!-- CUSTOM PICKER -->
+                        <Grid
+                            HorizontalOptions="Fill"
+                            ColumnDefinitions="*,Auto,Auto">
+                            <!-- PICKER -->
+                            <Picker
+                                Grid.ColumnSpan="3"
+                                HorizontalOptions="Fill"
+                                x:Name="CalendarPicker"
+                                FontSize="14"
+                                Margin="-50,0"
+                                grial:PickerProperties.BorderStyle="None"
+                                TextColor="Transparent"
+                                BackgroundColor="Transparent">
+                                <Picker.Items>
+                                    <x:String>I</x:String>
+                                    <x:String>Love</x:String>
+                                    <x:String>Grial! :)</x:String>
+                                </Picker.Items>
+                            </Picker>
+
+                            <!-- BG -->
+                            <BoxView
+                                Margin="-20,0"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Color="{ DynamicResource PrimaryVariantColor }"
+                                CornerRadius="{ DynamicResource CornerRadius-big }"
+                                InputTransparent="True"
+                                IsVisible="{ Binding SelectedItem, Source={x:Reference CalendarPicker}, Converter={StaticResource IsNotNullConverter} }"
+                            />
+
+                            <!-- PSEUDO PICKER -->
+                            <Label
+                                Grid.Column="1"
+                                InputTransparent="true"
+                                BindingContext="{ x:Reference Name=CalendarPicker }"
+                                Text="{ Binding Path=SelectedItem }"
+                                FontSize="14"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                TextColor="{ DynamicResource PrimaryColor }"
+                                BackgroundColor="Transparent"
+                                FontAttributes="None"
+                            />
+
+                            <!-- ICON -->
+                            <Label
+                                Grid.Column="2"
+                                VerticalOptions="Center"
+                                TextColor="{ DynamicResource PrimaryColor }"
+                                Text="{ x:Static local:GrialIconsFont.Calendar }"
+                                Style="{ StaticResource FontIcon }"
+                                InputTransparent="true"
+                                FontSize="18"
+                            />
+                        </Grid>
+                    </Grid>
+
+                    <!-- SEARCH BAR -->
+                    <local:CustomSearchBar
+                        Placeholder="{ grial:Translate StringSearch }"
+                        Style="{ StaticResource CustomSearchBarStyle }"
+                    />
+
+
+                    <!-- SINGLE LINE ENTRY -->
+                    <Entry
+                        PlaceholderColor="{ DynamicResource TextSecondaryColor }"
+                        grial:EntryProperties.BorderColor="{ DynamicResource TextSecondaryColor }"
+                        Placeholder="{ grial:Translate StringTypeHere }"
+                        Style="{ DynamicResource SingleLineEntryStyle }"
+                        Opacity="0.7"
+                        FontSize="14"
+                        HeightRequest="44"
+                    />
+
+                    <!-- TITLE LABEL -->
+                    <Label
+                        Text="Title label"
+                        FontAttributes="None"
+                        FontSize="14"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- LABEL -->
+                    <Label
+                        Margin="0,-20,0,0"
+                        Text="{ grial:Translate StringThemeOverviewLabelText }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- OVER IMAGE BUTTON -->
+                    <Grid Margin="{ DynamicResource RemoveParentAirSpacing }">
+                        <!-- Background Image -->
+                        <Image
+                            Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/over_image_button_sample.png"
+                            HeightRequest="175"
+                        />
+
+                        <!-- Translucid BG -->
+                        <!-- TODO: height = 1/2 Cornerradius -->
+                        <BoxView
+                            Color="{ DynamicResource OnSurfaceColor }"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            CornerRadius="27"
+                            Opacity=".14"
+                            HeightRequest="54"
+                            WidthRequest="260"
+                        />
+
+                        <!-- OVER IMAGE BUTTON -->
+                        <Button
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Text="Over Image Button"
+                            BorderColor="Transparent"
+                            FontAttributes="Bold"
+                            Style="{ StaticResource OutlineInverseButtonStyle }"
+                        />
+                    </Grid>
+                </VerticalStackLayout>
+
+
+                <!-- CONTROLS -->
+                <VerticalStackLayout
+                    Margin="{ DynamicResource AirSpacingNoBorder }"
+                    Grid.Row="1"
+                    Spacing="0">
+
+                    <!-- PICKER LOCATION -->
+                    <Grid
+                        Margin="0"
+                        HeightRequest="54"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+                        ColumnDefinitions="*,*,Auto">
+
+                        <!-- Title -->
+                        <Label
+                            Grid.Column="0"
+                            Text="Picker"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Fill"
+                            TextColor="{ DynamicResource TextSecondaryColor }"
+                        />
+
+                        <!-- Option -->
+                        <Picker
+                            Grid.Column="1"
+                            Style="{ StaticResource SingleLinePickerStyle }"
+                            x:Name="locationPicker"
+                            BackgroundColor="Transparent"
+                            Title="{ grial:Translate StringPickLocation }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            HorizontalTextAlignment="End"
+                            VerticalOptions="Center">
+                            <Picker.Items>
+                                <x:String>I</x:String>
+                                <x:String>Love</x:String>
+                                <x:String>Grial! :)</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <!-- Icon -->
+                        <Label
+                            Grid.Column="2"
+                            HorizontalOptions="End"
+                            FontSize="24"
+                            VerticalOptions="Center"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            Text="{ x:Static local:GrialIconsFont.ChevronDown }"
+                            Style="{ StaticResource FontIcon }"
+                            IsVisible="{ Binding SelectedItem, Source={x:Reference locationPicker}, Converter={StaticResource IsEmptyStringConverter} }"
+                        />
+                    </Grid>
+
+
+                    <!-- SWITCH -->
+                    <Grid
+                        Margin="0"
+                        Padding="0"
+                        HeightRequest="54"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+                        ColumnDefinitions="*">
+
+                        <!-- Title -->
+                        <Label
+                            Grid.Column="0"
+                            Text="Switch"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            TextColor="{ DynamicResource TextSecondaryColor }"
+                        />
+
+                        <!-- Switch -->
+                        <Switch
+                            Grid.Column="0"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"
+                        />
+                    </Grid>
+
+
+                    <!-- ENTRY -->
+                    <Grid
+                        Margin="0,20"
+                        Padding="0"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+
+                        <!-- Bg -->
+                        <BoxView
+                            Margin="-20,-20,-20,-20"
+                            Color="{ DynamicResource BackgroundColor }"
+                        />
+
+                        <VerticalStackLayout
+                            Spacing="20"
+                            HorizontalOptions="Fill">
+
+                            <!-- Picker -->
+                            <Picker
+                                TitleColor="Red"
+                                Title="{ grial:Translate PickerTitleSample }"
+                                Style="{ StaticResource PickerBaseStyle }">
+                                <Picker.Items>
+                                    <x:String>I</x:String>
+                                    <x:String>Love</x:String>
+                                    <x:String>Grial! :)</x:String>
+                                </Picker.Items>
+                            </Picker>
+
+                            <!-- Date picker -->
+                            <DatePicker Style="{ StaticResource PickerBaseStyle }" />
+
+                            <!-- Time picker -->
+                            <TimePicker Style="{ StaticResource PickerBaseStyle }" />
+
+                            <!-- Entry -->
+                            <Entry
+                                VerticalOptions="Center"
+                                HorizontalOptions="Fill"
+                                Placeholder="{ grial:Translate StringSimpleTextBox }"
+                            />
+
+                            <!-- Entry validations -->
+                            <VerticalStackLayout>
+                                <Entry
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Fill"
+                                    Placeholder="{ grial:Translate StringSomethingWrongHere }"
+                                />
+
+                                <VerticalStackLayout
+                                    Spacing="4"
+                                    Margin="0"
+                                    Padding="0,5,0,0">
+                                    <!-- Validation Error -->
+                                    <grial:RoundedLabel
+                                        Padding="10,5"
+                                        HeightRequest="25"
+                                        Style="{ StaticResource ValidationEntryErrorStyle }"
+                                        Text="{ grial:Translate ErrorPleaseEnterValidEmail }"
+                                    />
+
+                                    <!-- Validation Warning -->
+                                    <grial:RoundedLabel
+                                        Padding="10,5"
+                                        HeightRequest="25"
+                                        Style="{ StaticResource ValidationEntryWarningStyle }"
+                                        Text="{ grial:Translate ValidationWarningOops }"
+                                    />
+                                </VerticalStackLayout>
+
+                                <!-- - VALIDATION MESSAGES SAMPLE USAGE -->
+                                <!--
+                                <Entry
+                                    Placeholder="{ grial:Translate StringEmail }"
+                                >
+                                    <Entry.Behaviors>
+                                        <grial:EmailValidatorBehavior x:Name="emailValidator"/>
+                                    </Entry.Behaviors>
+                                </Entry>
+
+                                <grial:RoundedLabel
+                                    Margin="10,10,0,10"
+                                    Text="{ grial:Translate Key=ErrorPleaseEnterValidEmail }"
+                                    IsVisible="{ Binding IsValid, Source={x:Reference emailValidator}, Converter={StaticResource NegateBooleanConverter} }"
+                                    Style="{ StaticResource ValidationEntryErrorStyle }"
+                                />
+                                -->
+
+                            </VerticalStackLayout>
+
+
+                            <!-- Editor -->
+                            <Editor grial:EditorProperties.Placeholder="{ grial:Translate TypeYourMessage }" />
+
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+
+                    <!-- CHECKBOX -->
+                    <Grid
+                        HeightRequest="54"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+
+                        <grial:Checkbox
+                            Margin="11,0,0,0"
+                            VerticalOptions="Center"
+                            IsChecked="true"
+                            HorizontalOptions="Start">
+                            <Label
+                                Margin="8,0,0,0"
+                                Text="Grial Checkbox Control"
+                                VerticalOptions="Center"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                            />
+                        </grial:Checkbox>
+
+                        <!-- Separator -->
+                        <BoxView
+                            VerticalOptions="End"
+                            Style="{ StaticResource Horizontal1ptLineStyle }"
+                        />
+                    </Grid>
+
+                    <!-- RADIO -->
+                    <Grid
+                        HeightRequest="54"
+                        VerticalOptions="Center"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+
+                        <grial:Repeater
+                            SelectionMode="Single"
+                            InitialSelection="First"
+                            ScrollPadding="0"
+                            ItemSize="90"
+                            Orientation="Horizontal"
+                            HorizontalOptions="Start">
+                            <grial:Repeater.ItemsSource>
+                                <x:Array Type="{ x:Type x:String }">
+                                    <x:String>Grial</x:String>
+                                    <x:String>Radio</x:String>
+                                    <x:String>Button</x:String>
+                                </x:Array>
+                            </grial:Repeater.ItemsSource>
+                            <grial:Repeater.ItemTemplate>
+                                <DataTemplate>
+                                    <grial:Checkbox
+                                        IsChecked="false"
+                                        Margin="0"
+                                        InputTransparent="True">
+                                        <Label
+                                            VerticalOptions="Center"
+                                            Margin="8,0,0,0"
+                                            Text="{ Binding . }"
+                                            TextColor="{ DynamicResource TextSecondaryColor }"
+                                        />
+                                    </grial:Checkbox>
+                                </DataTemplate>
+                            </grial:Repeater.ItemTemplate>
+                            <grial:Repeater.SelectedItemTemplate>
+                                <DataTemplate>
+                                    <grial:Checkbox
+                                        IsChecked="true"
+                                        InputTransparent="true">
+                                        <Label
+                                            VerticalOptions="Center"
+                                            Margin="8,0,0,0"
+                                            Text="{ Binding . }"
+                                        />
+                                    </grial:Checkbox>
+                                </DataTemplate>
+                            </grial:Repeater.SelectedItemTemplate>
+
+                        </grial:Repeater>
+
+                        <!-- Separator -->
+                        <BoxView
+                            VerticalOptions="End"
+                            Style="{ StaticResource Horizontal1ptLineStyle }"
+                        />
+                    </Grid>
+
+                    <VerticalStackLayout
+                        Spacing="20"
+                        Margin="0,20,0,0"
+                        Padding="0"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+
+                        <!-- Circle Avatars -->
+                        <HorizontalStackLayout
+                            Spacing="10"
+                            Margin="0,0,0,20"
+                            HorizontalOptions="Start">
+                            <!-- Image -->
+                            <grial:RoundedImage
+                                Source="{ StaticResource ThemeAvatarSample1Image }"
+                                Size="64"
+                                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                                VerticalOptions="Center"
+                                BorderSize="2"
+                                Style="{ StaticResource ThemeOverviewPage-AvatarStyle_64 }"
+                            />
+
+                            <!-- Image -->
+                            <grial:RoundedImage
+                                Source="{ StaticResource ThemeAvatarSample1Image }"
+                                Size="54"
+                                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                                VerticalOptions="Center"
+                                BorderSize="2"
+                                Style="{ StaticResource ThemeOverviewPage-AvatarStyle_54 }"
+                            />
+
+                            <!-- Image -->
+                            <grial:RoundedImage
+                                Source="{ StaticResource ThemeAvatarSample1Image }"
+                                Size="44"
+                                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                                VerticalOptions="Center"
+                                BorderSize="2"
+                                Style="{ StaticResource ThemeOverviewPage-AvatarStyle_44 }"
+                            />
+
+                            <!-- Image -->
+                            <grial:RoundedImage
+                                Source="{ StaticResource ThemeAvatarSample1Image }"
+                                Size="34"
+                                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                                VerticalOptions="Center"
+                                BorderSize="2"
+                                Style="{ StaticResource ThemeOverviewPage-AvatarStyle_34 }"
+                            />
+
+                            <!-- Image -->
+                            <grial:RoundedImage
+                                Source="{ StaticResource ThemeAvatarSample1Image }"
+                                Size="24"
+                                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                                VerticalOptions="Center"
+                                BorderSize="2"
+                                Style="{ StaticResource ThemeOverviewPage-AvatarStyle_24 }"
+                            />
+
+                        </HorizontalStackLayout>
+
+                        <!-- Slider -->
+                        <grial:Slider
+                            Value="0.2"
+                            MinValue="0"
+                            MaxValue="1"
+                        />
+
+                        <!-- Progress -->
+                        <ProgressBar
+                            Margin="{ OnPlatform Android='15,0' }"
+                            Progress=".4"
+                        />
+
+                    </VerticalStackLayout>
+
+                    <!-- TAGS -->
+                    <Grid
+                        Padding="0"
+                        HeightRequest="84"
+                        VerticalOptions="Center"
+                        BackgroundColor="{ DynamicResource BackgroundColor }">
+
+                        <HorizontalStackLayout
+                            Spacing="0"
+                            HorizontalOptions="Center">
+
+                            <grial:RoundedLabel
+                                Text="Tag item"
+                                VerticalOptions="Center"
+                            />
+
+                            <local:Tag
+                                Icon="{ x:Static local:GrialIconsFont.Umbrella }"
+                                Text="Tag icon item"
+                            />
+
+                            <local:Tag
+                                Image="{ StaticResource ThemeAvatarSample1Image }"
+                                Text="Laura"
+                            />
+
+                        </HorizontalStackLayout>
+
+                    </Grid>
+
+                    <Grid
+                        Padding="0"
+                        ColumnDefinitions="*,*,*,*,*"
+                        Margin="0,0,0,20"
+                        HorizontalOptions="Fill">
+
+                        <!-- INSTAGRAM -->
+                        <Button
+                            Style="{ DynamicResource ThemeOverviewPage_SocialMediaButtonStyle }"
+                            Text="{ x:Static local:GrialIconsFont.LogoInstagram }"
+                            FontFamily="{ StaticResource IconsFontFamily }">
+                            <grial:Effects.BackgroundGradient>
+                                <grial:LinearGradient Angle="160">
+                                    <grial:GradientColor Position="0" Color="#D356D6" />
+                                    <grial:GradientColor Position="100" Color="#FF2D55" />
+                                </grial:LinearGradient>
+                            </grial:Effects.BackgroundGradient>
+                        </Button>
+
+                        <!-- LINKEDIN -->
+                        <Button
+                            Grid.Column="1"
+                            Style="{ DynamicResource ThemeOverviewPage_SocialMediaButtonStyle }"
+                            Text="{ x:Static local:GrialIconsFont.LogoLinkedin }"
+                            FontFamily="{ StaticResource IconsFontFamily }">
+                            <grial:Effects.BackgroundGradient>
+                                <grial:LinearGradient Angle="160">
+                                    <grial:GradientColor Position="0" Color="#38A5D4" />
+                                    <grial:GradientColor Position="100" Color="#108BCF" />
+                                </grial:LinearGradient>
+                            </grial:Effects.BackgroundGradient>
+                        </Button>
+
+                        <!-- TWITTER -->
+                        <Button
+                            Grid.Column="2"
+                            Style="{ DynamicResource ThemeOverviewPage_SocialMediaButtonStyle }"
+                            Text="{ x:Static local:GrialIconsFont.LogoTwitter }"
+                            FontFamily="{ StaticResource GrialIconsFill }">
+                            <grial:Effects.BackgroundGradient>
+                                <grial:LinearGradient Angle="160">
+                                    <grial:GradientColor Position="0" Color="#5AC8FA" />
+                                    <grial:GradientColor Position="100" Color="#268EFF" />
+                                </grial:LinearGradient>
+                            </grial:Effects.BackgroundGradient>
+                        </Button>
+
+                        <!-- FACEBOOK -->
+                        <Button
+                            Grid.Column="3"
+                            Style="{ DynamicResource ThemeOverviewPage_SocialMediaButtonStyle }"
+                            BackgroundColor="#3b5998"
+                            Text="{ x:Static local:GrialIconsFont.LogoFacebook }"
+                            FontFamily="{ StaticResource IconsFontFamily }">
+                            <grial:Effects.BackgroundGradient>
+                                <grial:LinearGradient Angle="160">
+                                    <grial:GradientColor Position="0" Color="#5A90E2" />
+                                    <grial:GradientColor Position="100" Color="#2247C9" />
+                                </grial:LinearGradient>
+                            </grial:Effects.BackgroundGradient>
+                        </Button>
+
+                        <!-- WHATSAPP -->
+                        <Button
+                            Grid.Column="4"
+                            Style="{ DynamicResource ThemeOverviewPage_SocialMediaButtonStyle }"
+                            Text="{ x:Static local:GrialIconsFont.LogoWhatsapp }"
+                            FontFamily="{ StaticResource IconsFontFamily }">
+                            <grial:Effects.BackgroundGradient>
+                                <grial:LinearGradient Angle="160">
+                                    <grial:GradientColor Position="0" Color="#8BE0A1" />
+                                    <grial:GradientColor Position="100" Color="#13B53B" />
+                                </grial:LinearGradient>
+                            </grial:Effects.BackgroundGradient>
+                        </Button>
+
+                    </Grid>
+
+
+                    <!-- BUTTONS -->
+                    <VerticalStackLayout
+                        Padding="0"
+                        Margin="0,20"
+                        Spacing="20"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+                        <!-- Primary -->
+                        <Button
+                            Text="{ grial:Translate ButtonPrimary }"
+                            Style="{ StaticResource PrimaryActionButtonStyle }"
+                        />
+                        <!-- Seconday -->
+                        <Button
+                            Text="{ grial:Translate ButtonSecondary }"
+                            Style="{ StaticResource SecondaryActionButtonStyle }"
+                        />
+                        <!-- Outline -->
+                        <Button
+                            Text="{ grial:Translate ButtonOutline }"
+                            Style="{ StaticResource OutlineButtonStyle }"
+                        />
+                        <!-- OK - Cancel -->
+                        <Grid
+                            ColumnSpacing="10"
+                            HorizontalOptions="Fill"
+                            ColumnDefinitions="*,*">
+
+                            <!-- Cancel -->
+                            <Button
+                                Grid.Column="0"
+                                Text="{ grial:Translate StringCancel }"
+                                HorizontalOptions="Fill"
+                                Style="{ StaticResource DeleteButtonStyle }"
+                            />
+                            <!-- Ok -->
+                            <Button
+                                Grid.Column="1"
+                                Text="{ grial:Translate ButtonSave }"
+                                HorizontalOptions="Fill"
+                                Style="{ StaticResource SaveButtonStyle }"
+                            />
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Grid>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

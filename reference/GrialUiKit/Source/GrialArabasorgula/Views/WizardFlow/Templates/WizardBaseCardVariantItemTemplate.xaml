@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.WizardBaseCardVariantItemTemplate"
+    x:Name="root">
+
+    <!-- MAIN CONTAINER -->
+    <Grid
+        grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }"
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        Style="{ DynamicResource OnIdiomResponsiveMarginStyle }"
+        RowDefinitions="Auto,Auto,*"
+        Padding="20,40">
+
+        <!-- MAIN TEXT -->
+        <Label
+            Text="{ Binding Title }"
+            FontSize="24"
+            VerticalOptions="FillAndExpand"
+            Margin="0,0,0,40"
+        />
+
+        <!-- VARIABLE CONTENT -->
+        <grial:DataPresenter
+            Grid.Row="1"
+            Data="{ Binding . }"
+        />
+
+        <!-- ERROR MESSAGE -->
+        <Label
+            Grid.Row="2"
+            Margin="10,10,0,10"
+            VerticalOptions="Start"
+            Text="{ Binding ErrorMessage }"
+            IsVisible="{ grial:Not Condition={Binding IsValid} }"
+            TextColor="{ DynamicResource ErrorColor }"
+        />
+    </Grid>
+</ContentView>
+

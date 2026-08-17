@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.SurveyListItemTemplate">
+    <!-- CONTENT CONTAINER -->
+    <Grid
+        ColumnDefinitions="Auto,*,Auto"
+        RowDefinitions="Auto,Auto,Auto"
+        ColumnSpacing="16"
+        RowSpacing="4">
+
+        <!-- IMAGE -->
+        <Image
+            Grid.RowSpan="2"
+            Source="{ Binding Image }"
+            HeightRequest="80"
+            WidthRequest="80"
+            Aspect="AspectFill"
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+        />
+        <!-- TITLE -->
+        <Label
+            Grid.Column="1"
+            Text="{ Binding Title }"
+            FontSize="{ StaticResource LargeFontSize }"
+            FontFamily="{ StaticResource AppSemiBoldFamily }"
+            VerticalTextAlignment="End"
+        />
+        <!-- STEPS COMPLETED / TOTAL STEPS -->
+        <Label
+            Grid.Column="2"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            VerticalTextAlignment="End">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{ Binding StepsCompleted }" />
+                    <Span Text="/" />
+                    <Span Text="{ Binding TotalSteps }" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <!-- DESCRIPTION -->
+        <Label
+            Grid.Column="1"
+            Grid.Row="1"
+            Text="{ Binding Description }"
+            FontSize="{ StaticResource SmallFontSize }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            VerticalTextAlignment="Start"
+        />
+        <!-- PROGRESS -->
+        <ProgressBar
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Progress="{ Binding Progress }"
+        />
+        <!-- SEPARATOR -->
+        <BoxView
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            VerticalOptions="End"
+            Style="{ DynamicResource Horizontal1ptLineStyle }"
+            Margin="0,0,0,-24"
+        />
+    </Grid>
+
+</ContentView>
+

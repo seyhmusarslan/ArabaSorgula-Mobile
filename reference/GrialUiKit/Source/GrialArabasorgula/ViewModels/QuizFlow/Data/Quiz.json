@@ -1,0 +1,327 @@
+{
+  "[grial-metadata]": "id: Grial#Quiz.json version: 1.0.4",
+  "Categories": {
+    "$id": "categories",
+    "List": [
+      {
+        "$id": "category-1",
+        "Name": "Music",
+        "Icon": "1f3bc",
+        "ListData": [
+          {
+            "Title": "90s Hip-Hop",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_music_01.png"
+          },
+          {
+            "Title": "Madonna",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_music_02.png"
+          },
+          {
+            "Title": "Funk",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_music_03.png"
+          },
+          {
+            "Title": "R&B",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_music_04.png"
+          },
+          {
+            "Title": "Jazz",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_music_05.png"
+          }
+        ]
+      },
+      {
+        "$id": "category-2",
+        "Name": "Movies",
+        "Icon": "1f3ac",
+        "ListData": [
+          {
+            "Title": "Harry Potter",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_movies_01.png"
+          },
+          {
+            "Title": "Marvel Universe",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_movies_02.png"
+          },
+          {
+            "Title": "Batman",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_movies_03.png"
+          },
+          {
+            "Title": "Star Wars",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_movies_04.png"
+          },
+          {
+            "Title": "Matrix",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_movies_05.png"
+          }
+        ]
+      },
+      {
+        "$id": "category-3",
+        "Name": "Science",
+        "Icon": "1f52c",
+        "ListData": [
+          {
+            "Title": "Physics",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_science_01.png"
+          },
+          {
+            "Title": "Biology",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_science_02.png"
+          },
+          {
+            "Title": "Astronomy",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_science_03.png"
+          },
+          {
+            "Title": "Chemistry",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_science_04.png"
+          },
+          {
+            "Title": "History",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_science_05.png"
+          }
+        ]
+      },
+      {
+        "$id": "category-4",
+        "Name": "Books",
+        "Icon": "1f4da",
+        "ListData": [
+          {
+            "Title": "The Hobbit",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_books_01.png"
+          },
+          {
+            "Title": "Angels & Demons",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_books_02.png"
+          },
+          {
+            "Title": "Hunger Games",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_books_03.png"
+          },
+          {
+            "Title": "Harry Potter",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_books_04.png"
+          },
+          {
+            "Title": "Game of Thrones",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_books_05.png"
+          }
+        ]
+      },
+      {
+        "$id": "category-5",
+        "Name": "Tv",
+        "Icon": "1f4fa",
+        "ListData": [
+          {
+            "Title": "Mandalorian",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_tv_01.png"
+          },
+          {
+            "Title": "The Office",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_tv_02.png"
+          },
+          {
+            "Title": "Fresh Prince",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_tv_03.png"
+          },
+          {
+            "Title": "House of Dragons",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_tv_04.png"
+          },
+          {
+            "Title": "Friends",
+            "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_tv_05.png"
+          }
+        ]
+      }
+    ]
+  },
+  "QuizDashboardPage.xaml": {
+    "GameName": "Grialpedia",
+    "GameProgress": 70,
+    "GameMaxProgress": 235,
+    "GameLevel": 4,
+    "CategoriesList": [
+      {
+        "$ref": "category-1"
+      },
+      {
+        "$ref": "category-2"
+      },
+      {
+        "$ref": "category-3"
+      },
+      {
+        "$ref": "category-4"
+      },
+      {
+        "$ref": "category-5"
+      }
+    ]
+  },
+  "QuizProfileAchievementsPage.xaml": {
+    "QuizTitle": "Grial Padawan",
+    "QuizLevel": "4.0",
+    "QuizProgress": 0.72,
+    "UserStats": [
+      {
+        "Icon": "1f44a",
+        "Value": "15",
+        "Area": "Max\nCombo"
+      },
+      {
+        "Icon": "23f0",
+        "Value": "4:20",
+        "Area": "Avg\nTime"
+      },
+      {
+        "Icon": "1f3af",
+        "Value": "75%",
+        "Area": "Hit\nRate"
+      },
+      {
+        "Icon": "1f5d3",
+        "Value": "32",
+        "Area": "Days\nRow"
+      }
+    ],
+    "DailyTasks": [
+      {
+        "Title": "Earn 45 points",
+        "Icon": "1f516",
+        "Value": 12,
+        "MaxValue": 45,
+        "BackgroundColor": "#46C771"
+      },
+      {
+        "Title": "Hit 10 correct in a row",
+        "Icon": "1f929",
+        "Value": 6,
+        "MaxValue": 10,
+        "BackgroundColor": "#AF52DE"
+      },
+      {
+        "Title": "Score 90% or more",
+        "Icon": "1f3c1",
+        "Value": 2,
+        "MaxValue": 5,
+        "BackgroundColor": "#5AC8FA"
+      }
+    ],
+    "ChartSeries": {
+      "MaxValue": 15,
+      "Labels": [
+        "Mo",
+        "Tu",
+        "We",
+        "Th",
+        "Fr",
+        "Sa",
+        "Su"
+      ],
+      "Accuracy": [
+        0,
+        5,
+        3,
+        2,
+        4,
+        1,
+        4
+      ],
+      "Activity": [
+        0,
+        14,
+        6,
+        8,
+        6,
+        2,
+        5
+      ]
+    }
+  },
+  "QuizGamePage.xaml": {
+    "QuizTitle": "Hip-Hop Facts",
+    "HipHopFacts": [
+      {
+        "Fact": "False",
+        "Title": "Wu-Tan Clan",
+        "Url": "https://ideogram.ai/api/images/direct/oUY7c25NSy6ard-6VtdLIQ.png",
+        "Description": "Contrary to common belief, the influential hip hop group Wu-Tang Clan originated from Staten Island, New York City, not from Los Angeles."
+      },
+      {
+        "Fact": "True",
+        "Title": "Gangsta Rap",
+        "Url": "https://ideogram.ai/api/images/direct/8Nu4KuayQRK3tkryHJgmDg.png",
+        "Description": "The 90s witnessed the emergence of West Coast gangsta rap with artists like Dr. Dre and Snoop Dogg, defining the genre with their smooth yet hardcore sound."
+      },
+      {
+        "Fact": "True",
+        "Title": "Poetic Rap",
+        "Url": "https://ideogram.ai/api/images/direct/0CkQDU5PSqiiPIh2MsKm0w.png",
+        "Description": "East Coast hip hop flourished in the 90s, with acts like Notorious B.I.G. and Nas gaining fame for their intricate storytelling and poetic verses."
+      },
+      {
+        "Fact": "True",
+        "Title": "Hip Hop Females",
+        "Url": "https://ideogram.ai/api/images/direct/Jjs3jHosRmK1rJwyYGSy9Q.png",
+        "Description": "Female MCs like Queen Latifah and Lauryn Hill broke barriers in the male-dominated hip hop scene of the 90s, showcasing diverse perspectives and lyrical prowess."
+      },
+      {
+        "Fact": "False",
+        "Title": "Sampling",
+        "Url": "https://ideogram.ai/api/images/direct/-PE7HtVmRL-NsYGUozjnLw.jpg",
+        "Description": "In the 90s, hip hop artists faced no legal challenges or controversies regarding sampling, and they freely sampled music without any copyright concerns."
+      },
+      {
+        "Fact": "False",
+        "Title": "Hip Hop Fashion",
+        "Url": "https://ideogram.ai/api/images/direct/uRAdKCnrS3yxnTCoS-8I-A.png",
+        "Description": "Baggy clothing was not a significant trend in 90s hip hop fashion, with most artists opting for tight-fitting attire."
+      },
+      {
+        "Fact": "True",
+        "Title": "East vs West",
+        "Url": "https://ideogram.ai/api/images/direct/kYFrxN_GTsK92jtUYDtyNg.png",
+        "Description": "The beef between East Coast and West Coast hip hop escalated in the 90s, culminating tragically in the deaths of Tupac Shakur and The Notorious B.I.G."
+      },
+      {
+        "Fact": "True",
+        "Title": "Mainstream Artist",
+        "Url": "https://ideogram.ai/api/images/direct/gI_AULLnRvieqCNkgCugfw.png",
+        "Description": "The 90s saw the commercialization of hip hop, with artists like MC Hammer and Vanilla Ice achieving mainstream success but facing criticism for their perceived lack of authenticity."
+      },
+      {
+        "Fact": "True",
+        "Title": "Independent Labels",
+        "Url": "https://ideogram.ai/api/images/direct/CNX-p2E3TLWpAAVnumiG2w.png",
+        "Description": "The 90s hip hop scene fostered the growth of independent record labels like Def Jam and Bad Boy Records, providing platforms for emerging artists and shaping the industry's landscape."
+      },
+      {
+        "Fact": "False",
+        "Title": "Culture Influence",
+        "Url": "https://ideogram.ai/api/images/direct/xo6V81bhQped75I31O37yA.jpg",
+        "Description": "In the 90s, hip hop culture had minimal influence on mainstream media, fashion, and language, remaining largely confined to underground circles."
+      }
+    ]
+  },
+  "QuizResultsPage.xaml": {
+    "QuizTitle": "Hip-Hop Facts",
+    "CompletionValue": 60,
+    "ResultsData": [
+      {
+        "Icon": "1f516",
+        "Value": "150",
+        "Label": "Points"
+      },
+      {
+        "Icon": "23f0",
+        "Value": "4:20",
+        "Label": "Time"
+      }
+    ]
+  }
+}

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.EmployeeFormPage"
+    Title="{ grial:Translate PageTitleEmployeeForm }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <ScrollView>
+        <Grid
+            Style="{ StaticResource BaseFormsContentStyle }"
+            RowSpacing="0"
+            RowDefinitions="*,54,54,Auto">
+
+            <!-- FIELD BLOCK 1 -->
+            <VerticalStackLayout
+                Spacing="20"
+                Margin="0,0,0,20">
+                <Grid
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="14">
+                    <!-- Name -->
+                    <Entry
+                        Grid.Column="0"
+                        Placeholder="{ grial:Translate StringName }"
+                    />
+
+                    <!-- Last Name -->
+                    <Entry
+                        Grid.Column="1"
+                        Placeholder="{ grial:Translate StringLastName }"
+                    />
+                </Grid>
+
+                <!-- Email -->
+                <Entry
+                    Placeholder="{ grial:Translate StringEmail }"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Fill"
+                />
+
+                <Grid
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="14">
+
+                    <!-- Country Code -->
+                    <Entry
+                        Grid.Column="0"
+                        Placeholder="+354"
+                        WidthRequest="80"
+                    />
+
+                    <!-- Phone -->
+                    <Entry
+                        Grid.Column="1"
+                        Placeholder="{ grial:Translate StringPhone }"
+                    />
+                </Grid>
+
+                <!-- Country -->
+                <Entry
+                    Placeholder="{ grial:Translate StringCountry }"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Fill"
+                />
+
+                <!-- Address -->
+                <Entry
+                    Placeholder="{ grial:Translate StringAddress }"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Fill"
+                />
+
+                <Grid
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="14">
+
+                    <!-- City -->
+                    <Entry
+                        Grid.Column="0"
+                        Placeholder="{ grial:Translate StringCity }"
+                    />
+
+                    <!-- Zip -->
+                    <Entry
+                        Grid.Column="1"
+                        Placeholder="{ grial:Translate StringZipCode }"
+                    />
+                </Grid>
+
+                <Editor grial:EditorProperties.Placeholder="{ grial:Translate StringNotes }" />
+
+            </VerticalStackLayout>
+
+            <!-- ACTION 1 -->
+            <Grid Grid.Row="1">
+
+                <!-- Title -->
+                <Label
+                    Text="{ grial:Translate StringTeam }"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                />
+
+                <HorizontalStackLayout
+                    Spacing="10"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+
+                    <!-- Option -->
+                    <Label
+                        Text="{ grial:Translate StringMarketing }"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                    />
+
+                    <!-- Chevron -->
+                    <Label
+                        FontSize="24"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        FontFamily="GrialIconsLine"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                        Text="{ x:Static local:GrialIconsFont.ChevronDown }"
+                    />
+
+                </HorizontalStackLayout>
+            </Grid>
+
+
+            <!-- ACTION 2 -->
+            <Grid Grid.Row="2">
+
+                <!-- Title -->
+                <Label
+                    Text="{ grial:Translate StringTrackHours }"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                />
+
+                <!-- Switch -->
+                <Switch
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                />
+            </Grid>
+
+            <!-- Primary Button -->
+            <Button
+                Grid.Row="3"
+                VerticalOptions="Center"
+                Text="{ grial:Translate ButtonSave }"
+                Style="{ StaticResource PrimaryActionButtonStyle }"
+                Padding="15"
+                Margin="0,30,0,0"
+            />
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

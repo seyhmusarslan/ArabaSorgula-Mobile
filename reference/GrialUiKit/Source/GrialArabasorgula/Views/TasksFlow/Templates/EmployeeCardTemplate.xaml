@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.EmployeeCardTemplate"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <ContentView.Resources>
+        <grial:SwitchConverter
+            x:Key="ColorConverter"
+            Case1="Online"
+            Result1="{ StaticResource SuccessColor }"
+            Case2="Busy"
+            Result2="{ StaticResource ErrorColor }"
+            Case3="Away"
+            Result3="{ StaticResource WarningColor }"
+            DefaultResult="{ StaticResource DisabledColor }"
+        />
+    </ContentView.Resources>
+
+    <Grid
+        RowDefinitions="28,22"
+        ColumnDefinitions="Auto,*"
+        ColumnSpacing="15"
+        Padding="15">
+        <!-- AVATAR -->
+        <local:AvatarWithStatus
+            Grid.RowSpan="2"
+            Source="{ Binding Avatar }"
+            StatusIndicatorColor="{ Binding Status, Converter={StaticResource ColorConverter} }"
+            Style="{ StaticResource TaskFlow-AvatarStatusStyle }"
+            Size="50"
+            StatusIndicatorPosition="TopRight"
+            StatusIndicatorBorderSize="2"
+            StatusIndicatorBorderColor="{ DynamicResource BackgroundSecondaryColor }"
+            StatusIndicatorShift="3"
+            StatusIndicatorSize="11"
+            HorizontalOptions="Center"
+        />
+
+        <!-- Name -->
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="{ Binding Name }"
+            FontSize="{ StaticResource LargeFontSize }"
+            FontAttributes="Bold"
+            VerticalOptions="End"
+        />
+
+        <!-- Title -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="{ Binding Team, Converter={StaticResource ToUpperConverter} }"
+            TextColor="{ DynamicResource TextTertiaryColor }"
+            FontSize="{ StaticResource SmallFontSize }"
+            VerticalOptions="Start"
+        />
+    </Grid>
+</ContentView>

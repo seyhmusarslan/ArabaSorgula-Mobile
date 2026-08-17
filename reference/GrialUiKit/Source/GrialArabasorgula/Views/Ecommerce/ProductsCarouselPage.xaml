@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ProductsCarouselPage"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="Root"
+    Title="{ Binding CurrentItem.Product.Name, Source={x:Reference carousel} }">
+    <grial:Carousel
+        x:Name="carousel"
+        ItemsSource="{ Binding . }">
+        <grial:Carousel.ItemTemplate>
+            <DataTemplate>
+                <local:ProductItemViewItemTemplate />
+            </DataTemplate>
+        </grial:Carousel.ItemTemplate>
+    </grial:Carousel>
+</ContentPage>

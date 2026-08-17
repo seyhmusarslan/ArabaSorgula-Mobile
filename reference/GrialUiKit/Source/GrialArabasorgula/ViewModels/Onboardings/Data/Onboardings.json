@@ -1,0 +1,381 @@
+{
+  "[grial-metadata]": "id: Grial#Onboardings.json version: 1.1.5",
+  "WalkthroughHeaderWelcome": "Welcome",
+  "WalkthroughTextWelcome": "To a new world of posibilities,\nwelcome to Grial UI Kit.",
+  "WalkthroughHeaderSaveTime": "Save Time",
+  "WalkthroughTextSaveTime": "Save countless hours of UI design.\nFocus on what you do best.",
+  "WalkthroughHeaderLearn": "Learn",
+  "WalkthroughTextLearn": "Learn while you do.\nGrial has tons of examples for you to play.",
+  "StringNext": "Next",
+  "StringFinish": "Finish!",
+  "VideoCarouselHighlightsPage.xaml": {
+    "BackgroundVideo": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/local_video.mp4",
+    "Highlights": [
+      {
+        "Title": "More Content",
+        "Description": "Grial UI Kit Flows, more themes, more pages, more layouts, more icons.",
+        "Icon": "",
+        "Color": "#48B5BA"
+      },
+      {
+        "Title": "Richer Content",
+        "Description": "Fluid animations, flexible layouts, gradient support, more custom controls.",
+        "Icon": "",
+        "Color": "#CD195E"
+      },
+      {
+        "Title": "Faster Kickstart",
+        "Description": "Setup your project and create your own themes with Grial Customizer.",
+        "Icon": "",
+        "Color": "#0C60AF"
+      },
+      {
+        "Title": "Grial 4.0",
+        "Description": "The best UI Kit for Xamarin Forms",
+        "Icon": "",
+        "Color": "#833AB4"
+      }
+    ]
+  },
+  "WalkthroughFlatPage.xaml": {
+    "Items": [
+      {
+        "BackgroundColor": "#D40081",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderWelcome"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextWelcome"
+        },
+        "IconText": "",
+        "IconColor": "#FFF",
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        },
+        "ButtonBackgroundColor": "#D5004E"
+      },
+      {
+        "BackgroundColor": "#A33ACA",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderSaveTime"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextSaveTime"
+        },
+        "IconText": "",
+        "IconColor": "#FFF",
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        },
+        "ButtonBackgroundColor": "#9C27B0"
+      },
+      {
+        "BackgroundColor": "#5E87FF",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderLearn"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextLearn"
+        },
+        "IconText": "",
+        "IconColor": "#FFF",
+        "ButtonText": {
+          "$ref": "$.StringFinish"
+        },
+        "ButtonBackgroundColor": "#536DFE"
+      }
+    ]
+  },
+  "WalkthroughGradientPage.xaml": {
+    "Items": [
+      {
+        "BackgroundColor": "#EC3679",
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_gradient_01.png",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderWelcome"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextWelcome"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        }
+      },
+      {
+        "BackgroundColor": "#BC42D1",
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_gradient_02.png",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderSaveTime"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextSaveTime"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        }
+      },
+      {
+        "BackgroundColor": "#7A8FFF",
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_gradient_03.png",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderLearn"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextLearn"
+        },
+        "ButtonText": {
+          "$ref": "$.StringFinish"
+        }
+      }
+    ]
+  },
+  "WalkthroughIllustrationPage.xaml": {
+    "Items": [
+      {
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_illustration_01.png",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderWelcome"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextWelcome"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        }
+      },
+      {
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_illustration_02.png",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderSaveTime"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextSaveTime"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        }
+      },
+      {
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_illustration_03.png",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderLearn"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextLearn"
+        },
+        "ButtonText": {
+          "$ref": "$.StringFinish"
+        }
+      }
+    ]
+  },
+  "WalkthroughImagePage.xaml": {
+    "Items": [
+      {
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthroughimage_1.jpg",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderWelcome"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextWelcome"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        }
+      },
+      {
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthroughimage_2.jpg",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderSaveTime"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextSaveTime"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        }
+      },
+      {
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthroughimage_3.jpg",
+        "Header": {
+          "$ref": "$.WalkthroughHeaderLearn"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextLearn"
+        },
+        "ButtonText": {
+          "$ref": "$.StringFinish"
+        }
+      }
+    ]
+  },
+  "WalkthroughMinimalPage.xaml": {
+    "Items": [
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderWelcome"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextWelcome"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        },
+        "IconText": "",
+        "IconColor": "#7ED321"
+      },
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderSaveTime"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextSaveTime"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        },
+        "IconText": "",
+        "IconColor": "#F5A623"
+      },
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderLearn"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextLearn"
+        },
+        "ButtonText": {
+          "$ref": "$.StringFinish"
+        },
+        "IconText": "",
+        "IconColor": "#D0021B"
+      }
+    ]
+  },
+  "WalkthroughVariantPage.xaml": {
+    "Items": [
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderWelcome"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextWelcome"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        },
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/device_white.png",
+        "BackgroundColor": "#EC0086",
+        "IconText": "",
+        "IconColor": "Lime",
+        "ButtonBackgroundColor": "#BF004B"
+      },
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderSaveTime"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextSaveTime"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        },
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/device_white.png",
+        "BackgroundColor": "#CB4FD8",
+        "IconText": "",
+        "IconColor": "#FFFFFF",
+        "ButtonBackgroundColor": "#7B1FA2"
+      },
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderLearn"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextLearn"
+        },
+        "ButtonText": {
+          "$ref": "$.StringFinish"
+        },
+        "StepBackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/device_white.png",
+        "BackgroundColor": "#8BA6FF",
+        "IconText": "",
+        "IconColor": "#FFFFFF",
+        "ButtonBackgroundColor": "#3D5AFE"
+      }
+    ]
+  },
+  "WalkthroughPage.xaml": {
+    "Items": [
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderWelcome"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextWelcome"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        },
+        "IconText": "",
+        "IconColor": "#5F7DD4",
+        "ButtonBackgroundColor": "#5F7DD4"
+      },
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderSaveTime"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextSaveTime"
+        },
+        "ButtonText": {
+          "$ref": "$.StringNext"
+        },
+        "IconText": "",
+        "IconColor": "#7C4ECD",
+        "ButtonBackgroundColor": "#7C4ECD"
+      },
+      {
+        "Header": {
+          "$ref": "$.WalkthroughHeaderLearn"
+        },
+        "Text": {
+          "$ref": "$.WalkthroughTextLearn"
+        },
+        "ButtonText": {
+          "$ref": "$.StringFinish"
+        },
+        "IconText": "",
+        "IconColor": "#E51E61",
+        "ButtonBackgroundColor": "#E51E61"
+      }
+    ]
+  },
+  "PreferencesOnboardingPage.xaml": {
+    "PermissionsData": [
+      {
+        "Emoji": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/emoji_shopping_bags.png",
+        "Title": "Personalised Ads",
+        "Info": "Share your email address with our partners, so we can personalise ads based on your interests.",
+        "PrimaryActionText": "Personalise",
+        "PrimaryActionOutlineText": "I would rather not do it",
+        "StepIcon": ""
+      },
+      {
+        "Emoji": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/emoji_bar_chart.png",
+        "Title": "Share analytics",
+        "Info": "Help us improve the app sharing how you use it and knowing issues that you could have.",
+        "PrimaryActionText": "Share data",
+        "PrimaryActionOutlineText": "Keep it private",
+        "StepIcon": ""
+      },
+      {
+        "Emoji": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/emoji_bookmark_tabs.png",
+        "Title": "Cookies",
+        "Info": "We use cookies to gather information about your device.",
+        "PrimaryActionText": "Accept all",
+        "PrimaryActionOutlineText": "Reject all",
+        "StepIcon": ""
+      }
+    ]
+  }
+}

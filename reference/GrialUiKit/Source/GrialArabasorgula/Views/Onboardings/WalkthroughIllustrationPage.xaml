@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.WalkthroughIllustrationPage"
+    grial:GrialNavigationPage.HasNavigationBar="False">
+
+    <grial:Carousel
+        x:Name="carousel"
+        VerticalOptions="Fill"
+        Loop="False"
+        Position="{ Binding Position, Mode=TwoWay }"
+        ItemsSource="{ Binding Items }"
+        MoveNextCommand="{ Binding MoveNextCommand }">
+        <grial:Carousel.ItemTemplate>
+            <DataTemplate>
+                <local:WalkthroughIllustrationItemTemplate
+                    Header="{ Binding Header }"
+                    Text="{ Binding Text }"
+                    ButtonText="{ Binding ButtonText }"
+                    StepBackgroundImage="{ Binding StepBackgroundImage }"
+                    CloseCommand="{ Binding BindingContext.CloseCommand, Source={x:Reference carousel} }"
+                    ActionButtonCommand="{ Binding BindingContext.ActionButtonCommand, Source={x:Reference carousel} }"
+                />
+            </DataTemplate>
+        </grial:Carousel.ItemTemplate>
+    </grial:Carousel>
+</ContentPage>

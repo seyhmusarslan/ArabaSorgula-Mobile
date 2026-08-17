@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.QuizDetailItemTemplate">
+    <!-- CONTAINER -->
+    <grial:CardView
+        RowDefinitions="*,Auto,Auto"
+        ShadowOpacity=".5"
+        Padding="24"
+        Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+        <!-- BACKGROUND IMAGE -->
+        <Image
+            Grid.RowSpan="3"
+            Source="{ Binding Url }"
+            Aspect="AspectFill"
+            Margin="-24"
+        />
+        <!-- OVERLAY GRADIENT -->
+        <BoxView
+            Grid.RowSpan="3"
+            Margin="-24"
+            grial:Effects.BackgroundGradient="{ DynamicResource OverlayImageGradient }"
+        />
+        <!-- TITLE -->
+        <Label
+            Grid.Row="1"
+            Text="{ Binding Title }"
+            FontSize="{ StaticResource TitleFontSize }"
+            TextColor="{ DynamicResource OnSurfaceColor }"
+            FontFamily="{ StaticResource AppSemiBoldFamily }"
+        />
+        <!-- COPY -->
+        <Label
+            Grid.Row="2"
+            Text="{ Binding Description }"
+            TextColor="{ DynamicResource OnSurfaceColor }"
+            FontFamily="{ StaticResource AppSemiBoldFamily }"
+        />
+    </grial:CardView>
+</ContentView>
+

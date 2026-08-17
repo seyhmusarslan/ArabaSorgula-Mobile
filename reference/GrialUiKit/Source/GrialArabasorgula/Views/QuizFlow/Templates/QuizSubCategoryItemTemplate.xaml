@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.QuizSubCategoryItemTemplate"
+    x:Name="root">
+
+    <!-- CONTAINER -->
+    <Grid RowDefinitions="Auto,Auto">
+        <!-- MAIN CATEGORY NAME -->
+        <Label
+            Text="{ Binding Name }"
+            FontSize="{ StaticResource SmallTitleFontSize }"
+            VerticalOptions="End"
+            Margin="{ DynamicResource AirSpacingNoBorder }"
+        />
+        <!-- SUB CATEGORIES -->
+        <grial:Repeater
+            x:Name="cats"
+            Grid.Row="1"
+            VerticalOptions="Center"
+            ItemSize="170"
+            ItemsSource="{ Binding ListData }"
+            Spacing="16"
+            ScrollPadding="{ DynamicResource AirSpacingNoBorder }"
+            ScrollBarVisibility="Never"
+            HeightRequest="180"
+            Orientation="Horizontal">
+            <grial:Repeater.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{ Binding ItemTappedCommand, Source={x:Reference root} }"
+                                CommandParameter="{ Binding . }"
+                            />
+                        </Grid.GestureRecognizers>
+
+                        <!-- BACKGROUND IMAGE -->
+                        <Image
+                            Source="{ Binding Image }"
+                            grial:Effects.CornerRadius="{ DynamicResource CornerRadius-big }"
+                            WidthRequest="170"
+                            HeightRequest="150"
+                            Aspect="AspectFill"
+                        />
+                        <!-- Over Image Effect Gradient -->
+                        <Border
+                            HeightRequest="80"
+                            WidthRequest="170"
+                            VerticalOptions="End"
+                            grial:Effects.CornerRadius="{ DynamicResource BottomCornerRadius-big }"
+                            StrokeThickness="0">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0,1">
+                                    <GradientStop Color="#00000000" Offset="0.1" />
+                                    <GradientStop Color="#000" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <!-- SUB CATEGORY TITLE/NAME -->
+                        <Label
+                            Margin="16"
+                            Text="{ Binding Title }"
+                            TextColor="{ DynamicResource OnSurfaceColor }"
+                            VerticalOptions="End"
+                        />
+                    </Grid>
+                </DataTemplate>
+            </grial:Repeater.ItemTemplate>
+        </grial:Repeater>
+    </Grid>
+
+</ContentView>
+

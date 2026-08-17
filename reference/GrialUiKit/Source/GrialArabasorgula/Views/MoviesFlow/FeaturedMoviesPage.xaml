@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.FeaturedMoviesPage"
+    grial:GrialNavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Grid.Behaviors>
+            <grial:AnimatedBackgroundColor
+                IsSymmetric="true"
+                Start="{ Binding CurrentAnimatedItem.ColorColor, Source={x:Reference carousel} }"
+                End="{ Binding NextAnimatedItem.ColorColor, Source={x:Reference carousel} }"
+                Progress="{ Binding ScrollProgress, Source={x:Reference carousel} }"
+            />
+        </Grid.Behaviors>
+
+        <grial:Effects.BackgroundGradient>
+            <grial:RadialGradient Radius="300" RadiusType="Absolute" CenterX="0.2" CenterY="0.2">
+                <grial:GradientColor Color="#11000000" Position="0" />
+                <grial:GradientColor Color="#33000000" Position="0.6" />
+                <grial:GradientColor Color="#66000000" Position="1" />
+            </grial:RadialGradient>
+        </grial:Effects.BackgroundGradient>
+
+
+        <!-- EXIT BACKGROUND -->
+        <Grid
+            ZIndex="2"
+            VerticalOptions="Start"
+            RowDefinitions="Auto"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Top, Left, Right">
+            <Grid
+                Margin="{ OnPlatform
+                    Default='12,15',
+                    iOS='15,10'
+                }"
+                HeightRequest="35"
+                WidthRequest="35"
+                grial:Effects.CornerRadius="5"
+                BackgroundColor="{ DynamicResource OverlayHighlightColor }"
+                HorizontalOptions="End">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapped" />
+                </Grid.GestureRecognizers>
+                <Label
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    TextColor="{ DynamicResource TextColor }"
+                    Text="{ x:Static local:GrialIconsFont.Close }"
+                    FontSize="24"
+                    Style="{ StaticResource FontIcon }"
+                />
+            </Grid>
+        </Grid>
+
+        <local:ExtendedCarouselView
+            x:Name="carousel"
+            IsScrollAnimated="False"
+            VerticalOptions="Fill"
+            ItemsSource="{ Binding Movies }"
+            Position="{ Binding Position, Mode=TwoWay }"
+            HorizontalScrollBarVisibility="Never">
+            <local:ExtendedCarouselView.ItemTemplate>
+                <DataTemplate>
+                    <local:FeaturedMovieItemTemplate />
+                </DataTemplate>
+            </local:ExtendedCarouselView.ItemTemplate>
+        </local:ExtendedCarouselView>
+    </Grid>
+
+</ContentPage>

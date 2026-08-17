@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.SmartHomeACSettingsRadioButtonTemplate">
+
+    <RadioButton Value="{ Binding . }">
+        <RadioButton.ControlTemplate>
+            <ControlTemplate>
+                <Grid
+                    BindingContext="{ TemplateBinding BindingContext }"
+                    x:Name="checked"
+                    RowDefinitions="Auto,Auto"
+                    Padding="14"
+                    RowSpacing="4"
+                    BackgroundColor="Transparent">
+                    <!-- Background -->
+                    <BoxView
+                        HeightRequest="80"
+                        WidthRequest="58"
+                        Margin="-14"
+                        Grid.RowSpan="2"
+                        CornerRadius="{ DynamicResource CornerRadius-big }"
+                        Color="{ DynamicResource BackgroundSecondaryColor }"
+                    />
+
+                    <!-- Checked Background -->
+                    <BoxView
+                        x:Name="check"
+                        HeightRequest="80"
+                        WidthRequest="58"
+                        Margin="-14"
+                        Grid.RowSpan="2"
+                        CornerRadius="{ DynamicResource CornerRadius-big }"
+                        Color="{ DynamicResource PrimaryColor }"
+                    />
+
+                    <!-- Icon -->
+                    <Label
+                        Text="{ Binding Icon }"
+                        FontFamily="{ StaticResource IconsFontFamily }"
+                        FontSize="26"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Label.Triggers>
+                            <DataTrigger
+                                TargetType="Label"
+                                Binding="{ Binding Path=IsChecked, Source={x:RelativeSource AncestorType={x:Type RadioButton}} }"
+                                Value="True">
+                                <Setter Property="TextColor" Value="{ DynamicResource OnSurfaceColor }" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+
+                    <!-- Bottom Text -->
+                    <Label
+                        Grid.Row="1"
+                        Text="{ Binding Name }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End">
+                        <Label.Triggers>
+                            <DataTrigger
+                                TargetType="Label"
+                                Binding="{ Binding Path=IsChecked, Source={x:RelativeSource AncestorType={x:Type RadioButton}} }"
+                                Value="True">
+                                <Setter Property="TextColor" Value="{ DynamicResource OnSurfaceColor }" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CheckedStates">
+                                <VisualState x:Name="Checked">
+                                    <VisualState.Setters>
+                                        <Setter TargetName="check" Property="IsVisible" Value="True" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked">
+                                    <VisualState.Setters>
+                                        <Setter TargetName="check" Property="IsVisible" Value="False" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Grid>
+            </ControlTemplate>
+        </RadioButton.ControlTemplate>
+    </RadioButton>
+
+</ContentView>

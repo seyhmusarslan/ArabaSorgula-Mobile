@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardCarouselHeaderItemTemplate"
+    x:Name="root">
+    <Grid Margin="0,10">
+        <Grid
+            Margin="10"
+            RowSpacing="0"
+            Padding="20"
+            grial:Effects.CornerRadius="{ DynamicResource CornerRadius-lg }"
+            RowDefinitions="Auto,*">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{ Binding TapCommand }" />
+            </Grid.GestureRecognizers>
+            <grial:Effects.BackgroundGradient>
+                <grial:LinearGradient>
+                    <grial:GradientColor Color="{ Binding BindingContext.DarkColorColor, Source={x:Reference root} }" />
+                    <grial:GradientColor Color="{ Binding BindingContext.LightColorColor, Source={x:Reference root} }" />
+                </grial:LinearGradient>
+            </grial:Effects.BackgroundGradient>
+
+            <!-- TITLE AND ICON -->
+            <Grid
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                RowDefinitions="Auto,Auto"
+                ColumnDefinitions="*"
+                ColumnSpacing="0"
+                RowSpacing="15">
+
+                <!-- ICON BG -->
+                <BoxView
+                    Color="#12141B"
+                    Opacity=".1"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    HeightRequest="56"
+                    WidthRequest="56"
+                    CornerRadius="{ DynamicResource CornerRadius-big }"
+                />
+
+                <!-- ICON -->
+                <Label
+                    Text="{ Binding Icon }"
+                    TextColor="{ DynamicResource TextOnSurfaceColor }"
+                    FontFamily="{ StaticResource IconsFontFamily }"
+                    FontSize="32"
+                    VerticalOptions="Center"
+                    Margin="12,0,0,0"
+                    VerticalTextAlignment="Center"
+                />
+
+                <!-- TITLE -->
+                <Label
+                    Text="{ Binding Name }"
+                    Padding="2,0,0,0"
+                    Grid.Row="1"
+                    FontAttributes="Bold"
+                    FontFamily="{ StaticResource AppFontFamily }"
+                    TextColor="{ DynamicResource TextOnSurfaceColor }"
+                    FontSize="24"
+                    VerticalOptions="End"
+                    VerticalTextAlignment="End"
+                    LineBreakMode="TailTruncation"
+                />
+
+            </Grid>
+
+            <!-- BG DECORATION -->
+            <local:BackgroundDecoration Grid.RowSpan="2" />
+
+            <!-- BODY -->
+            <Label
+                Text="{ Binding Description }"
+                Grid.Row="1"
+                VerticalTextAlignment="Start"
+                TextColor="{ DynamicResource TextOnSurfaceColor }"
+                FontSize="13"
+            />
+        </Grid>
+    </Grid>
+</ContentView>

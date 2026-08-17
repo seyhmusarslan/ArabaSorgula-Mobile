@@ -1,0 +1,1811 @@
+{
+  "[grial-metadata]": "id: Grial#DataViz.json version: 1.2.6",
+  "ShippingDetailPage.xaml": {
+    "All": [
+      {
+        "$id": "order-1",
+        "Id": "#45453",
+        "Progress": 0.5,
+        "Time": "5 days",
+        "Weight": 2,
+        "Price": 399.9
+      },
+      {
+        "$id": "order-2",
+        "Id": "#45443",
+        "Progress": 1,
+        "Time": "-",
+        "Weight": 1,
+        "Price": 125.9
+      },
+      {
+        "$id": "order-3",
+        "Id": "#45236",
+        "Progress": 0.5,
+        "Time": "2 days",
+        "Weight": 4,
+        "Price": 112.9
+      },
+      {
+        "$id": "order-4",
+        "Id": "#45918",
+        "Progress": 0.3,
+        "Time": "3 days",
+        "Weight": 2,
+        "Price": 231.9
+      },
+      {
+        "$id": "order-5",
+        "Id": "#45401",
+        "Progress": 1,
+        "Time": "-",
+        "Weight": 6,
+        "Price": 41.9
+      },
+      {
+        "$id": "order-6",
+        "Id": "#45418",
+        "Progress": 0.1,
+        "Time": "5 days",
+        "Weight": 4,
+        "Price": 14.9
+      },
+      {
+        "$id": "order-7",
+        "Id": "#45462",
+        "Progress": 0.5,
+        "Time": "2 days",
+        "Weight": 1,
+        "Price": 99.9
+      },
+      {
+        "$id": "order-8",
+        "Id": "#45422",
+        "Progress": 0.5,
+        "Time": "2 days",
+        "Weight": 3,
+        "Price": 890.9
+      },
+      {
+        "$id": "order-9",
+        "Id": "#45431",
+        "Progress": 0.7,
+        "Time": "1 days",
+        "Weight": 5,
+        "Price": 599.9
+      },
+      {
+        "$id": "order-10",
+        "Id": "#45416",
+        "Progress": 0.6,
+        "Time": "4 days",
+        "Weight": 1,
+        "Price": 12.9
+      }
+    ],
+    "InTransit": [
+      {
+        "$ref": "order-1"
+      },
+      {
+        "$ref": "order-3"
+      },
+      {
+        "$ref": "order-4"
+      },
+      {
+        "$ref": "order-6"
+      },
+      {
+        "$ref": "order-7"
+      },
+      {
+        "$ref": "order-8"
+      },
+      {
+        "$ref": "order-9"
+      },
+      {
+        "$ref": "order-10"
+      }
+    ],
+    "Closed": [
+      {
+        "$ref": "order-2"
+      },
+      {
+        "$ref": "order-5"
+      }
+    ]
+  },
+  "DocumentTimelinePage.xaml": {
+    "DocumentTimelineList": [
+      {
+        "$id": "timeline-document-1",
+        "Title": "Document Added",
+        "Author": "Andrew Reynolds",
+        "Icon": "",
+        "When": "Jul 7",
+        "IsInbound": true
+      },
+      {
+        "$id": "timeline-document-2",
+        "Title": "Document Edited",
+        "Author": "Tony Kamo",
+        "Icon": "",
+        "When": "Jul 7",
+        "IsInbound": false
+      },
+      {
+        "Title": "Document Edited",
+        "Author": "Elissa Steamer",
+        "Icon": "",
+        "When": "Jul 8",
+        "IsInbound": true
+      },
+      {
+        "Title": "I've added comments on policy section. Need to discuss about this first.",
+        "Author": "Gershon Mosley",
+        "Icon": "",
+        "When": "Jul 9",
+        "IsInbound": false
+      },
+      {
+        "Title": "Looks great!",
+        "Author": "Ingrid Davies",
+        "Icon": "",
+        "When": "Jul 9",
+        "IsInbound": true
+      },
+      {
+        "Title": "Approved!",
+        "Author": "Patrick Rampsey",
+        "Icon": "",
+        "When": "Jul 9",
+        "IsInbound": false
+      },
+      {
+        "Title": "Document signed",
+        "Author": "Ingrid Davies",
+        "Icon": "",
+        "When": "Jul 11",
+        "IsInbound": true
+      },
+      {
+        "Title": "Document Added",
+        "Author": "Chris Duff",
+        "Icon": "",
+        "When": "Jul 7",
+        "IsInbound": true
+      },
+      {
+        "Title": "Document Edited",
+        "Author": "Tony Kamo",
+        "Icon": "",
+        "When": "Aug 7",
+        "IsInbound": false
+      },
+      {
+        "Title": "Document Added",
+        "Author": "Chris Duff",
+        "Icon": "",
+        "When": "Aug 7",
+        "IsInbound": true
+      },
+      {
+        "Title": "Document Edited",
+        "Author": "Tony Kamo",
+        "Icon": "",
+        "When": "Aug 8",
+        "IsInbound": false
+      }
+    ]
+  },
+  "TaskBrowserPage.xaml": {
+    "Date": "Oct 16, 2018",
+    "Workspaces": [
+      {
+        "$id": "task-browser-group-1",
+        "Name": "Design Space",
+        "Completed": 29,
+        "Remaining": 12,
+        "RemainingTasks": "12 task remaining",
+        "Activity": [
+          0,
+          180,
+          90,
+          170,
+          400,
+          200
+        ]
+      },
+      {
+        "Name": "Development Space",
+        "Completed": 10,
+        "Remaining": 2,
+        "RemainingTasks": "2 task remaining",
+        "Activity": [
+          180,
+          190,
+          170,
+          40,
+          200,
+          90
+        ]
+      },
+      {
+        "Name": "Personal Space",
+        "Completed": 8,
+        "Remaining": 9,
+        "RemainingTasks": "9 task remaining",
+        "Activity": [
+          100,
+          180,
+          90,
+          170,
+          400,
+          200
+        ]
+      },
+      {
+        "Name": "Admin Space",
+        "Completed": 12,
+        "Remaining": 22,
+        "RemainingTasks": "22 task remaining",
+        "Activity": [
+          180,
+          190,
+          170,
+          40,
+          0,
+          90
+        ]
+      }
+    ],
+    "Projects": [
+      {
+        "Name": "BankSur",
+        "Completed": 15,
+        "Remaining": 2,
+        "RemainingTasks": "2 task remaining",
+        "Activity": [
+          180,
+          190,
+          170,
+          40,
+          200,
+          90
+        ]
+      },
+      {
+        "Name": "Live & Play",
+        "Completed": 18,
+        "Remaining": 9,
+        "RemainingTasks": "9 task remaining",
+        "Activity": [
+          100,
+          180,
+          90,
+          170,
+          400,
+          200
+        ]
+      },
+      {
+        "Name": "Real state App",
+        "Completed": 2,
+        "Remaining": 22,
+        "RemainingTasks": "22 task remaining",
+        "Activity": [
+          180,
+          190,
+          170,
+          40,
+          0,
+          90
+        ]
+      }
+    ]
+  },
+  "TaskOverviewPage.xaml": {
+    "Urgent": {
+      "$id": "task-overview",
+      "Title": "Urgent",
+      "Total": 45,
+      "Evolution": [
+        100,
+        120,
+        190,
+        170,
+        100,
+        150,
+        200,
+        200
+      ]
+    },
+    "Maintenance": {
+      "Title": "Maintenance",
+      "Total": 145,
+      "Evolution": [
+        120,
+        130,
+        190,
+        170,
+        40,
+        80,
+        40,
+        20,
+        60,
+        30
+      ]
+    },
+    "Closed": {
+      "Title": "Closed",
+      "Total": 345,
+      "Evolution": [
+        180,
+        200,
+        100,
+        100,
+        240,
+        80,
+        40,
+        20,
+        60,
+        30
+      ]
+    },
+    "Period": "This month",
+    "People": [
+      {
+        "Name": "Donald Davies",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+        "Division": "Support",
+        "Change": -0.87,
+        "Evolution": [
+          180,
+          200,
+          190,
+          170,
+          40,
+          80,
+          40,
+          0,
+          60,
+          30
+        ]
+      },
+      {
+        "Name": "Janis Spector",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_02.jpg",
+        "Division": "Support",
+        "Change": 0.54,
+        "Evolution": [
+          70,
+          60,
+          0,
+          40,
+          80,
+          40,
+          170,
+          190,
+          200,
+          180
+        ]
+      },
+      {
+        "Name": "Regina Joplin",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg",
+        "Division": "Marketing",
+        "Change": -0.12,
+        "Evolution": [
+          100,
+          120,
+          190,
+          170,
+          40,
+          80,
+          40,
+          0,
+          60,
+          30
+        ]
+      },
+      {
+        "Name": "Jaco Morrison",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_04.jpg",
+        "Division": "Sales",
+        "Change": 0.103,
+        "Evolution": [
+          10,
+          60,
+          0,
+          40,
+          80,
+          40,
+          170,
+          190,
+          200,
+          180
+        ]
+      },
+      {
+        "Name": "Margaret Whites",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg",
+        "Division": "Sales",
+        "Change": 0.45,
+        "Evolution": [
+          30,
+          60,
+          0,
+          140,
+          80,
+          140,
+          170,
+          190,
+          200,
+          180
+        ]
+      },
+      {
+        "Name": "Skyler Harrisson",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg",
+        "Division": "IT",
+        "Change": 0.11,
+        "Evolution": [
+          30,
+          40,
+          50,
+          40,
+          60
+        ]
+      },
+      {
+        "Name": "Alison Pastorius",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_07.jpg",
+        "Division": "IT",
+        "Change": 0.23,
+        "Evolution": [
+          30,
+          40,
+          30,
+          40,
+          80
+        ]
+      }
+    ]
+  },
+  "UsersAnalyticsPage.xaml": {
+    "Periods": [
+      "Last Week",
+      "Last Month",
+      "Last Year"
+    ],
+    "ChartData": {
+      "LastWeek": {
+        "MaxValue": 60,
+        "Europe": [
+          42
+        ],
+        "Latam": [
+          22
+        ],
+        "Asia": [
+          38
+        ],
+        "Uk": [
+          16
+        ]
+      },
+      "LastMonth": {
+        "MaxValue": 60,
+        "Europe": [
+          50
+        ],
+        "Latam": [
+          20
+        ],
+        "Asia": [
+          31
+        ],
+        "Uk": [
+          12
+        ]
+      },
+      "LastYear": {
+        "MaxValue": 60,
+        "Europe": [
+          48
+        ],
+        "Latam": [
+          21
+        ],
+        "Asia": [
+          37
+        ],
+        "Uk": [
+          14
+        ]
+      }
+    },
+    "ChartAreaData": {
+      "Labels": [
+        "12 AM",
+        "4 AM",
+        "8 AM",
+        "12 PM",
+        "4 PM",
+        "8 PM"
+      ],
+      "LastWeek": {
+        "MaxValue": 15,
+        "FirstTime": [
+          0,
+          2,
+          7,
+          2,
+          4,
+          3
+        ],
+        "Recurring": [
+          0,
+          4,
+          3,
+          5,
+          1,
+          4
+        ]
+      },
+      "LastMonth": {
+        "MaxValue": 15,
+        "FirstTime": [
+          4,
+          3,
+          8,
+          3,
+          5,
+          9
+        ],
+        "Recurring": [
+          1,
+          5,
+          4,
+          6,
+          2,
+          5
+        ]
+      },
+      "LastYear": {
+        "MaxValue": 15,
+        "FirstTime": [
+          2,
+          4,
+          3,
+          4,
+          1,
+          5
+        ],
+        "Recurring": [
+          2,
+          6,
+          5,
+          7,
+          3,
+          6
+        ]
+      }
+    }
+  },
+  "TrafficAnalyticsPage.xaml": {
+    "Periods": [
+      "Last Week",
+      "Last Month",
+      "Last Year"
+    ],
+    "TrafficChartData": {
+      "LastWeek": {
+        "ItemSeparation": 12,
+        "CategorySeparation": 40,
+        "Organic": {
+          "Views": 1074,
+          "Sold": 871,
+          "Overtime": 60
+        },
+        "Paid": {
+          "Views": 1224,
+          "Sold": 991,
+          "Overtime": 40
+        },
+        "FirstSeries": [
+          {
+            "Label": "Jul 21",
+            "Value": 25
+          },
+          {
+            "Label": "Jul 23",
+            "Value": 45
+          },
+          {
+            "Label": "Jul 25",
+            "Value": 120
+          },
+          {
+            "Label": "Jul 27",
+            "Value": 105
+          },
+          {
+            "Label": "Jul 29",
+            "Value": 225
+          }
+        ],
+        "SecondSeries": [
+          {
+            "Label": "Jul 21",
+            "Value": 50
+          },
+          {
+            "Label": "Jul 23",
+            "Value": 75
+          },
+          {
+            "Label": "Jul 25",
+            "Value": 60
+          },
+          {
+            "Label": "Jul 27",
+            "Value": 150
+          },
+          {
+            "Label": "Jul 29",
+            "Value": 160
+          }
+        ]
+      },
+      "LastMonth": {
+        "ItemSeparation": 4,
+        "CategorySeparation": 10,
+        "Organic": {
+          "Views": 2134,
+          "Sold": 1121,
+          "Overtime": 50
+        },
+        "Paid": {
+          "Views": 2004,
+          "Sold": 1098,
+          "Overtime": 20
+        },
+        "FirstSeries": [
+          {
+            "Value": 130,
+            "Label": "1"
+          },
+          {
+            "Value": 166,
+            "Label": "3"
+          },
+          {
+            "Value": 121,
+            "Label": "5"
+          },
+          {
+            "Value": 90,
+            "Label": "7"
+          },
+          {
+            "Value": 114,
+            "Label": "9"
+          },
+          {
+            "Value": 124,
+            "Label": "11"
+          },
+          {
+            "Value": 170,
+            "Label": "13"
+          },
+          {
+            "Value": 150,
+            "Label": "15"
+          },
+          {
+            "Value": 166,
+            "Label": "17"
+          },
+          {
+            "Value": 80,
+            "Label": "19"
+          },
+          {
+            "Value": 130,
+            "Label": "21"
+          },
+          {
+            "Value": 166,
+            "Label": "23"
+          },
+          {
+            "Value": 121,
+            "Label": "25"
+          },
+          {
+            "Value": 142,
+            "Label": "27"
+          },
+          {
+            "Value": 142,
+            "Label": "29"
+          }
+        ],
+        "SecondSeries": [
+          {
+            "Value": 120,
+            "Label": "1"
+          },
+          {
+            "Value": 156,
+            "Label": "3"
+          },
+          {
+            "Value": 141,
+            "Label": "5"
+          },
+          {
+            "Value": 52,
+            "Label": "7"
+          },
+          {
+            "Value": 134,
+            "Label": "9"
+          },
+          {
+            "Value": 104,
+            "Label": "11"
+          },
+          {
+            "Value": 150,
+            "Label": "13"
+          },
+          {
+            "Value": 180,
+            "Label": "15"
+          },
+          {
+            "Value": 176,
+            "Label": "17"
+          },
+          {
+            "Value": 61,
+            "Label": "19"
+          },
+          {
+            "Value": 170,
+            "Label": "21"
+          },
+          {
+            "Value": 146,
+            "Label": "23"
+          },
+          {
+            "Value": 101,
+            "Label": "25"
+          },
+          {
+            "Value": 152,
+            "Label": "27"
+          },
+          {
+            "Value": 172,
+            "Label": "29"
+          }
+        ]
+      },
+      "LastYear": {
+        "ItemSeparation": 4,
+        "CategorySeparation": 10,
+        "Organic": {
+          "Views": 3344,
+          "Sold": 2451,
+          "Overtime": 80
+        },
+        "Paid": {
+          "Views": 4324,
+          "Sold": 3211,
+          "Overtime": 99
+        },
+        "FirstSeries": [
+          {
+            "Value": 280,
+            "Label": "Jan"
+          },
+          {
+            "Value": 380,
+            "Label": "Feb"
+          },
+          {
+            "Value": 220,
+            "Label": "Mar"
+          },
+          {
+            "Value": 278,
+            "Label": "Apr"
+          },
+          {
+            "Value": 377,
+            "Label": "May"
+          },
+          {
+            "Value": 100,
+            "Label": "Jun"
+          },
+          {
+            "Value": 140,
+            "Label": "Jul"
+          },
+          {
+            "Value": 240,
+            "Label": "Ago"
+          },
+          {
+            "Value": 220,
+            "Label": "Sep"
+          },
+          {
+            "Value": 310,
+            "Label": "Oct"
+          },
+          {
+            "Value": 430,
+            "Label": "Nov"
+          },
+          {
+            "Value": 203,
+            "Label": "Dec"
+          }
+        ],
+        "SecondSeries": [
+          {
+            "Value": 260,
+            "Label": "Jan"
+          },
+          {
+            "Value": 300,
+            "Label": "Feb"
+          },
+          {
+            "Value": 320,
+            "Label": "Mar"
+          },
+          {
+            "Value": 208,
+            "Label": "Apr"
+          },
+          {
+            "Value": 357,
+            "Label": "May"
+          },
+          {
+            "Value": 170,
+            "Label": "Jun"
+          },
+          {
+            "Value": 170,
+            "Label": "Jul"
+          },
+          {
+            "Value": 200,
+            "Label": "Ago"
+          },
+          {
+            "Value": 220,
+            "Label": "Sep"
+          },
+          {
+            "Value": 360,
+            "Label": "Oct"
+          },
+          {
+            "Value": 400,
+            "Label": "Nov"
+          },
+          {
+            "Value": 250,
+            "Label": "Dec"
+          }
+        ]
+      }
+    }
+  },
+  "WalletPiePage.xaml": {
+    "CardBackgroundColor": "#00FFFFFF",
+    "Periods": [
+      "Last Week",
+      "Last Month",
+      "Last Year"
+    ],
+    "WalletChartData": {
+      "LastWeek": {
+        "Remaining": "$2,421.80",
+        "Income": "$3.759,45",
+        "Expenses": "$2.842,61",
+        "Transactions": [
+          {
+            "Icon": "",
+            "BackgroundColor": "#F9B300",
+            "Item": "Rent",
+            "Category": "Home",
+            "Value": 521.02,
+            "ValueDifference": -1
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#FF602E",
+            "Item": "Phone Line",
+            "Category": "Home",
+            "Value": 62.56,
+            "ValueDifference": -1
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#B146C2",
+            "Item": "Client payment",
+            "Category": "Work",
+            "Value": 245.52,
+            "ValueDifference": 0
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#5AC8FA",
+            "Item": "Groceries",
+            "Category": "Home",
+            "Value": 33.26,
+            "ValueDifference": -1
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#46C771",
+            "Item": "Gift",
+            "Category": "Extra",
+            "Value": 33.26,
+            "ValueDifference": -1
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#3F75FF",
+            "Item": "Crypto",
+            "Category": "Investments",
+            "Value": 78.95,
+            "ValueDifference": 0
+          }
+        ]
+      },
+      "LastMonth": {
+        "Remaining": "$3,427.66",
+        "Income": "$4.459,40",
+        "Expenses": "$3.322,71",
+        "Transactions": [
+          {
+            "$id": "transaction-1",
+            "Icon": "",
+            "BackgroundColor": "#F9B300",
+            "Item": "Car Insurance",
+            "Category": "Home",
+            "Value": 91.0,
+            "ValueDifference": -1
+          },
+          {
+            "$id": "transaction-2",
+            "Icon": "",
+            "BackgroundColor": "#FF602E",
+            "Item": "Mobile Phone",
+            "Category": "Home",
+            "Value": 32.56,
+            "ValueDifference": -1
+          },
+          {
+            "$id": "transaction-3",
+            "Icon": "",
+            "BackgroundColor": "#B146C2",
+            "Item": "Production Bonus",
+            "Category": "Work",
+            "Value": 435.55,
+            "ValueDifference": 0
+          },
+          {
+            "$id": "transaction-4",
+            "Icon": "",
+            "BackgroundColor": "#5AC8FA",
+            "Item": "Groceries",
+            "Category": "Home",
+            "Value": 83.45,
+            "ValueDifference": -1
+          },
+          {
+            "$id": "transaction-5",
+            "Icon": "",
+            "BackgroundColor": "#46C771",
+            "Item": "Annie's Birthday",
+            "Category": "Extra",
+            "Value": 87.99,
+            "ValueDifference": -1
+          },
+          {
+            "$id": "transaction-6",
+            "Icon": "",
+            "BackgroundColor": "#3F75FF",
+            "Item": "Crypto",
+            "Category": "Investments",
+            "Value": 95.43,
+            "ValueDifference": 0
+          }
+        ]
+      },
+      "LastYear": {
+        "Remaining": "$4,333.00",
+        "Income": "$5.099,22",
+        "Expenses": "$1.478,91",
+        "Transactions": [
+          {
+            "Icon": "",
+            "BackgroundColor": "#F9B300",
+            "Item": "Rent",
+            "Category": "Home",
+            "Value": 1451.02,
+            "ValueDifference": -1
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#FF602E",
+            "Item": "Contractors",
+            "Category": "Home",
+            "Value": 1862.56,
+            "ValueDifference": -1
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#B146C2",
+            "Item": "Yearly Bonus",
+            "Category": "Work",
+            "Value": 3114.8,
+            "ValueDifference": 0
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#5AC8FA",
+            "Item": "Groceries",
+            "Category": "Home",
+            "Value": 984.12,
+            "ValueDifference": -1
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#46C771",
+            "Item": "Gifts",
+            "Category": "Extra",
+            "Value": 156.99,
+            "ValueDifference": -1
+          },
+          {
+            "Icon": "",
+            "BackgroundColor": "#3F75FF",
+            "Item": "Crypto",
+            "Category": "Investments",
+            "Value": 33.23,
+            "ValueDifference": 0
+          }
+        ]
+      }
+    }
+  },
+  "WalletAlternativePage.xaml": {
+    "Income": "$3.759,45",
+    "Expenses": "$2.842,61",
+    "Transactions": [
+      {
+        "$ref": "transaction-1"
+      },
+      {
+        "$ref": "transaction-2"
+      },
+      {
+        "$ref": "transaction-3"
+      },
+      {
+        "$ref": "transaction-4"
+      },
+      {
+        "$ref": "transaction-5"
+      },
+      {
+        "$ref": "transaction-6"
+      }
+    ],
+    "ChartAreaData": {
+      "Labels": [
+        "S",
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S"
+      ],
+      "FirstValue": [
+        430,
+        950,
+        800,
+        1510,
+        1300,
+        2000,
+        1850
+      ],
+      "SecondValue": [
+        640,
+        490,
+        1250,
+        980,
+        1060,
+        570,
+        900
+      ]
+    }
+  },
+  "PowerUsagePage.xaml": {
+    "MaxValue": 300,
+    "Amount": {
+      "Value": "871 kWh",
+      "Percentage": "23%",
+      "Difference": 0
+    },
+    "Cost": {
+      "Value": "$176.89",
+      "Percentage": "15%",
+      "Difference": -1
+    },
+    "ElectricitySeries": [
+      {
+        "Label": "Cooling",
+        "Value": 300
+      },
+      {
+        "Label": "Lighting",
+        "Value": 250
+      },
+      {
+        "Label": "Heating",
+        "Value": 190
+      },
+      {
+        "Label": "Washing",
+        "Value": 150
+      },
+      {
+        "Label": "Cooking",
+        "Value": 80
+      }
+    ],
+    "DeviceUsage": [
+      {
+        "Icon": "",
+        "Name": "Smart TV",
+        "Duration": "2h 30m",
+        "Amount": "6kWh"
+      },
+      {
+        "Icon": "",
+        "Name": "Alarm Sensor",
+        "Duration": "All Day",
+        "Amount": "1kWh"
+      },
+      {
+        "Icon": "",
+        "Name": "Sound System",
+        "Duration": "1h 45m",
+        "Amount": "9kWh"
+      },
+      {
+        "Icon": "",
+        "Name": "Air Conditioner",
+        "Duration": "6h 12m",
+        "Amount": "12kWh"
+      },
+      {
+        "Icon": "",
+        "Name": "Termostat",
+        "Duration": "All Day",
+        "Amount": "1.1kWh"
+      }
+    ]
+  },
+  "WebsiteTrafficReportPage.xaml": {
+    "MaxValue": 600,
+    "Total": "10.8k",
+    "Users": {
+      "Icon": "",
+      "ID": "USERS",
+      "Value": "20.8L",
+      "Percentage": "12%",
+      "Difference": 0
+    },
+    "Sessions": {
+      "Icon": "",
+      "ID": "SESSIONS",
+      "Value": "26.4K",
+      "Percentage": "2%",
+      "Difference": -1
+    },
+    "WebSiteSeries": [
+      {
+        "Label": "US",
+        "RecurringValue": 310,
+        "NonRecurringValue": 210
+      },
+      {
+        "Label": "CANADA",
+        "RecurringValue": 220,
+        "NonRecurringValue": 185
+      },
+      {
+        "Label": "UK",
+        "RecurringValue": 190,
+        "NonRecurringValue": 150
+      },
+      {
+        "Label": "AUSTRALIA",
+        "RecurringValue": 150,
+        "NonRecurringValue": 70
+      },
+      {
+        "Label": "INDIA",
+        "RecurringValue": 80,
+        "NonRecurringValue": 45
+      }
+    ],
+    "Acquisition": [
+      {
+        "Label": "Direct",
+        "Value": 310
+      },
+      {
+        "Label": "Search",
+        "Value": 60
+      },
+      {
+        "Label": "Social Media",
+        "Value": 240
+      },
+      {
+        "Label": "Referral",
+        "Value": 40
+      },
+      {
+        "Label": "Other",
+        "Value": 120
+      }
+    ]
+  },
+  "SurveyListPage.xaml": {
+    "SurveyCategories": [
+      {
+        "Icon": "",
+        "IconColor": "#46C771"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#AF52DE"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#5AC8FA"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#3F75FF"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#F9B300"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#FF7134"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#FF2525"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#FB4D96"
+      }
+    ],
+    "SurveyList": [
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_01.jpg",
+        "Title": "United by Friendship",
+        "Description": "Donec augue ex, pharetra a iaculis eget, tristique vitae neque.",
+        "StepsCompleted": "4",
+        "TotalSteps": "20",
+        "Progress": 0.2
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_02.jpg",
+        "Title": "Olimpic Dream",
+        "Description": "Donec augue ex, pharetra a iaculis eget, tristique vitae neque.",
+        "StepsCompleted": "2",
+        "TotalSteps": "20",
+        "Progress": 0.1
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_03.jpg",
+        "Title": "Last Adenture",
+        "Description": "Donec augue ex, pharetra a iaculis eget, tristique vitae neque.",
+        "StepsCompleted": "12",
+        "TotalSteps": "16",
+        "Progress": 0.75
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_04.jpg",
+        "Title": "Wheels of Fortune",
+        "Description": "Donec augue ex, pharetra a iaculis eget, tristique vitae neque.",
+        "StepsCompleted": "4",
+        "TotalSteps": "8",
+        "Progress": 0.5
+      }
+    ]
+  },
+  "SocialRankingPage.xaml": {
+    "UserData": {
+      "UserImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/user_01.jpg",
+      "UserName": "Robert Stainford",
+      "MemberSince": "April 2012",
+      "Subscription": "Premium"
+    },
+    "SocialData": [
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/tiktok.png",
+        "Name": "TikTok",
+        "Views": "512K",
+        "Likes": "120M",
+        "Subs": "12M"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/instagram.png",
+        "Name": "Instagram",
+        "Views": "320K",
+        "Likes": "91M",
+        "Subs": "1.3M"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/youtube.png",
+        "Name": "Youtube",
+        "Views": "1.5M",
+        "Likes": "312K",
+        "Subs": "51K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/x.png",
+        "Name": "X",
+        "Views": "210K",
+        "Likes": "120K",
+        "Subs": "31K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/facebook.png",
+        "Name": "Facebook",
+        "Views": "512K",
+        "Likes": "500K",
+        "Subs": "64K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/twitch.png",
+        "Name": "Twitch",
+        "Views": "31K",
+        "Likes": "112K",
+        "Subs": "12K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/linkedin.png",
+        "Name": "Linkedin",
+        "Views": "212K",
+        "Likes": "24K",
+        "Subs": "5K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/snapchat.png",
+        "Name": "Snapchat",
+        "Views": "512K",
+        "Likes": "332K",
+        "Subs": "12K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/tumblr.png",
+        "Name": "Tumblr",
+        "Views": "65K",
+        "Likes": "56M",
+        "Subs": "42K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/reddit.png",
+        "Name": "Reddit",
+        "Views": "22K",
+        "Likes": "12K",
+        "Subs": "3K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/blogger.png",
+        "Name": "Blogger",
+        "Views": "36K",
+        "Likes": "13K",
+        "Subs": "12K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/medium.png",
+        "Name": "Medium",
+        "Views": "12K",
+        "Likes": "12K",
+        "Subs": "5K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/dribbble.png",
+        "Name": "Dribbble",
+        "Views": "25K",
+        "Likes": "31K",
+        "Subs": "3K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/pinterest.png",
+        "Name": "Pinterest",
+        "Views": "11K",
+        "Likes": "19K",
+        "Subs": "1.5K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/vimeo.png",
+        "Name": "Vimeo",
+        "Views": "512K",
+        "Likes": "42K",
+        "Subs": "24K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/soundcloud.png",
+        "Name": "Soundcloud",
+        "Views": "391K",
+        "Likes": "41K",
+        "Subs": "2K"
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/spotify.png",
+        "Name": "Spotify",
+        "Views": "1.2M",
+        "Likes": "28K",
+        "Subs": "12K"
+      }
+    ]
+  },
+  "MediaRankingPage.xaml": {
+    "Movies": [
+      {
+        "Id": 1,
+        "Name": "The Shawshank Redemption",
+        "Director": "Frank Darabont",
+        "Year": "1994",
+        "RatingLabel": "9.3",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_shawshank_redemption.jpg"
+      },
+      {
+        "Id": 2,
+        "Name": "The Godfather",
+        "Director": "Francis Ford Coppola",
+        "Year": "1972",
+        "RatingLabel": "9.2",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_godfather.jpg"
+      },
+      {
+        "Id": 3,
+        "Name": "The Dark Knight",
+        "Director": "Christopher Nolan",
+        "Year": "2008",
+        "RatingLabel": "9.0",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_dark_knight.jpg"
+      },
+      {
+        "Id": 4,
+        "Name": "The Godfather Part II",
+        "Director": "Francis Ford Coppola",
+        "Year": "1974",
+        "RatingLabel": "9.0",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_godfather_part_ii.jpg"
+      },
+      {
+        "Id": 5,
+        "Name": "12 Angry Men",
+        "Director": "Sidney Lumet",
+        "Year": "1957",
+        "RatingLabel": "9.0",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_12_angry_men.jpg"
+      },
+      {
+        "Id": 6,
+        "Name": "Schindler's List",
+        "Director": "Steven Spielberg",
+        "Year": "1993",
+        "RatingLabel": "9.0",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_schindler_s_list.jpg"
+      },
+      {
+        "Id": 7,
+        "Name": "The Lord of the Rings: The Return of the King",
+        "Director": "Peter Jackson",
+        "Year": "2003",
+        "RatingLabel": "9.0",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_lord_of_the_rings_the_return_of_the_king.jpg"
+      },
+      {
+        "Id": 8,
+        "Name": "Pulp Fiction",
+        "Director": "Quentin Tarantino",
+        "Year": "1994",
+        "RatingLabel": "8.9",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_pulp_fiction.jpg"
+      },
+      {
+        "Id": 9,
+        "Name": "The Good, the Bad and the Ugly",
+        "Director": "Sergio Leone",
+        "Year": "1966",
+        "RatingLabel": "8.8",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_good_the_bad_and_the_ugly.jpg"
+      },
+      {
+        "Id": 10,
+        "Name": "Fight Club",
+        "Director": "David Fincher",
+        "Year": "1999",
+        "RatingLabel": "8.8",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_fight_club.jpg"
+      },
+      {
+        "Id": 11,
+        "Name": "The Lord of the Rings: The Fellowship of the Ring",
+        "Director": "Peter Jackson",
+        "Year": "2001",
+        "RatingLabel": "8.9",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_lord_of_the_rings_the_fellowship_of_the_ring.jpg"
+      },
+      {
+        "Id": 12,
+        "Name": "Forrest Gump",
+        "Director": "Robert Zemeckis",
+        "Year": "1994",
+        "RatingLabel": "8.8",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_forrest_gump.jpg"
+      },
+      {
+        "Id": 13,
+        "Name": "Inception",
+        "Director": "Christopher Nolan",
+        "Year": "2010",
+        "RatingLabel": "8.8",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_inception.jpg"
+      },
+      {
+        "Id": 14,
+        "Name": "The Lord of the Rings: The Two Towers",
+        "Director": "Peter Jackson",
+        "Year": "2002",
+        "RatingLabel": "8.8",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_lord_of_the_rings_the_two_towers.jpg"
+      },
+      {
+        "Id": 15,
+        "Name": "Star Wars: Episode V - The Empire Strikes Back",
+        "Director": "Irvin Kershner",
+        "Year": "1980",
+        "RatingLabel": "8.7",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_star_wars_episode_v_the_empire_strikes_back.jpg"
+      },
+      {
+        "Id": 16,
+        "Name": "The Matrix",
+        "Director": "Lana Wachowski, Lilly Wachowski",
+        "Year": "1999",
+        "RatingLabel": "8.7",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_the_matrix.jpg"
+      },
+      {
+        "Id": 17,
+        "Name": "Goodfellas",
+        "Director": "Martin Scorsese",
+        "Year": "1990",
+        "RatingLabel": "8.7",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_goodfellas.jpg"
+      },
+      {
+        "Id": 18,
+        "Name": "One Flew Over the Cuckoo's Nest",
+        "Director": "Milos Forman",
+        "Year": "1975",
+        "RatingLabel": "8.7",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_one_flew_over_the_cuckoo_s_nest.jpg"
+      },
+      {
+        "Id": 19,
+        "Name": "Seven Samurai",
+        "Director": "Akira Kurosawa",
+        "Year": "1954",
+        "RatingLabel": "8.6",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_seven_samurai.jpg"
+      },
+      {
+        "Id": 20,
+        "Name": "Se7en",
+        "Director": "David Fincher",
+        "Year": "1995",
+        "RatingLabel": "8.6",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_se7en.jpg"
+      }
+    ],
+    "TvShows": [
+      {
+        "Id": 1,
+        "Name": "Game of Thrones",
+        "Director": "N/A",
+        "Year": "2011–2019",
+        "RatingLabel": "9.2",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_game_of_thrones.jpg"
+      },
+      {
+        "Id": 2,
+        "Name": "Breaking Bad",
+        "Director": "N/A",
+        "Year": "2008–2013",
+        "RatingLabel": "9.5",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_breaking_bad.jpg"
+      },
+      {
+        "Id": 3,
+        "Name": "Stranger Things",
+        "Director": "N/A",
+        "Year": "2016–2025",
+        "RatingLabel": "8.7",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_stranger_things.jpg"
+      },
+      {
+        "Id": 4,
+        "Name": "Sherlock",
+        "Director": "N/A",
+        "Year": "2010–2017",
+        "RatingLabel": "9.1",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_sherlock.jpg"
+      },
+      {
+        "Id": 5,
+        "Name": "Rick and Morty",
+        "Director": "N/A",
+        "Year": "2013–",
+        "RatingLabel": "9.1",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_rick_and_morty.jpg"
+      },
+      {
+        "Id": 6,
+        "Name": "Firefly",
+        "Director": "N/A",
+        "Year": "2002–2003",
+        "RatingLabel": "8.9",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_firefly.jpg"
+      },
+      {
+        "Id": 7,
+        "Name": "Lost",
+        "Director": "N/A",
+        "Year": "2004–2010",
+        "RatingLabel": "8.3",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_lost.jpg"
+      },
+      {
+        "Id": 8,
+        "Name": "Chernobyl",
+        "Director": "N/A",
+        "Year": "2019",
+        "RatingLabel": "9.3",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_chernobyl.jpg"
+      },
+      {
+        "Id": 9,
+        "Name": "Peaky Blinders",
+        "Director": "N/A",
+        "Year": "2013–2022",
+        "RatingLabel": "8.8",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_peaky_blinders.jpg"
+      },
+      {
+        "Id": 10,
+        "Name": "Attack on Titan",
+        "Director": "N/A",
+        "Year": "2013–2023",
+        "RatingLabel": "9.1",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_attack_on_titan.jpg"
+      },
+      {
+        "Id": 11,
+        "Name": "Squid Game",
+        "Director": "N/A",
+        "Year": "2021–2025",
+        "RatingLabel": "8.0",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_squid_game.jpg"
+      },
+      {
+        "Id": 12,
+        "Name": "Black Swan",
+        "Director": "Darren Aronofsky",
+        "Year": "2010",
+        "RatingLabel": "8.0",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_black_swan.jpg"
+      },
+      {
+        "Id": 13,
+        "Name": "Cosmos: A Spacetime Odyssey",
+        "Director": "N/A",
+        "Year": "2014",
+        "RatingLabel": "9.2",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_cosmos_a_spacetime_odyssey.jpg"
+      },
+      {
+        "Id": 14,
+        "Name": "Friends",
+        "Director": "N/A",
+        "Year": "1994–2004",
+        "RatingLabel": "8.9",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_friends.jpg"
+      },
+      {
+        "Id": 15,
+        "Name": "Narcos",
+        "Director": "N/A",
+        "Year": "2015–2017",
+        "RatingLabel": "8.8",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_narcos.jpg"
+      },
+      {
+        "Id": 16,
+        "Name": "Community",
+        "Director": "N/A",
+        "Year": "2009–2015",
+        "RatingLabel": "8.5",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_community.jpg"
+      },
+      {
+        "Id": 17,
+        "Name": "Ozark",
+        "Director": "N/A",
+        "Year": "2017–2022",
+        "RatingLabel": "8.5",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_ozark.jpg"
+      },
+      {
+        "Id": 18,
+        "Name": "Grey's Anatomy",
+        "Director": "N/A",
+        "Year": "2005–",
+        "RatingLabel": "7.6",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_grey_s_anatomy.jpg"
+      },
+      {
+        "Id": 19,
+        "Name": "Blue Planet II",
+        "Director": "N/A",
+        "Year": "2017",
+        "RatingLabel": "9.3",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_blue_planet_ii.jpg"
+      },
+      {
+        "Id": 20,
+        "Name": "Behzat Ç: An Ankara Detective Story",
+        "Director": "N/A",
+        "Year": "2010–2019",
+        "RatingLabel": "8.9",
+        "PosterImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/ranking_behzat_an_ankara_detective_story.jpg"
+      }
+    ]
+  }
+}

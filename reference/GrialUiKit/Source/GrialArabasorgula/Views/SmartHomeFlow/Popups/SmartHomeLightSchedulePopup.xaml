@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    x:Class="arabasorgula.SmartHomeLightSchedulePopup"
+    Background="{ DynamicResource OverlayColor }"
+    CloseWhenBackgroundIsClicked="True">
+
+    <uxd:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <Grid
+        Margin="20"
+        Style="{ StaticResource BlurredShadow }"
+        VerticalOptions="{ DynamicResource DialogsVerticalPositioning }">
+        <Grid
+            RowSpacing="0"
+            Padding="{ DynamicResource AirSpacing }"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            grial:Effects.CornerRadius="{ StaticResource DialogsCornerRadius }"
+            RowDefinitions="*,Auto">
+
+            <!-- CONTENT -->
+            <VerticalStackLayout
+                Margin="0"
+                Grid.Row="0"
+                Spacing="20">
+
+                <!-- TITLE -->
+                <Label
+                    HorizontalOptions="Start"
+                    Text="{ grial:Translate LabelDeviceSchedule }"
+                    FontSize="{ OnPlatform
+                        iOS=20,
+                        Android=18
+                    }"
+                />
+
+                <!-- SCHEDULE -->
+                <Label
+                    Text="{ grial:Translate LabelIntensity }"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                />
+
+                <!-- Schedule Name -->
+                <grial:Slider
+                    Style="{ StaticResource TallSliderStyle }"
+                    Margin="0,-10,0,0"
+                    Value="{ Binding Intensity }"
+                />
+
+                <Label
+                    Text="{ grial:Translate LabelColorScene }"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                />
+
+                <!-- Scene Colors -->
+                <ScrollView
+                    Orientation="Horizontal"
+                    HorizontalScrollBarVisibility="Never"
+                    Margin="{ DynamicResource RemoveParentAirSpacing }">
+                    <HorizontalStackLayout
+                        Margin="{ DynamicResource AirSpacingNoBorder }"
+                        Spacing="8"
+                        VerticalOptions="Start"
+                        RadioButtonGroup.GroupName="single"
+                        RadioButtonGroup.SelectedValue="{ Binding SelectedScene, Mode=TwoWay }"
+                        BindableLayout.ItemsSource="{ Binding ColorScenes }">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <local:SmartHomeImageRadioButtonTemplate />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+                <!-- Schedule Settings -->
+                <Grid
+                    ColumnDefinitions="*,*"
+                    RowDefinitions="*,Auto"
+                    ColumnSpacing="20"
+                    RowSpacing="10">
+
+                    <Label
+                        Text="{ grial:Translate LabelFrom }"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Center"
+                    />
+                    <TimePicker
+                        Grid.Row="1"
+                        Time="{ Binding From }"
+                    />
+
+                    <Label
+                        Grid.Column="1"
+                        Text="{ grial:Translate LabelTo }"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Center"
+                    />
+                    <TimePicker
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Time="{ Binding To }"
+                    />
+                </Grid>
+
+                <!-- When -->
+                <VerticalStackLayout Spacing="15">
+                    <Label
+                        Text="{ grial:Translate LabelWhen }"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- FREQUENCY SELECTION -->
+                    <!-- Day Groups -->
+                    <grial:SelectableWrapPanel
+                        x:Name="wrap"
+                        ItemsSource="{ Binding FrequencyMulti }"
+                        SelectedItem="{ Binding When, Mode=TwoWay }"
+                        SelectionMode="Single"
+                        HorizontalOptions="Start"
+                        ColumnSpacing="0">
+
+                        <grial:SelectableWrapPanel.ItemTemplate>
+                            <DataTemplate>
+                                <grial:RoundedLabel
+                                    Text="{ Binding . }"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                    HeightRequest="{ OnPlatform Android=30 }"
+                                    FontSize="14"
+                                    BackgroundColor="{ DynamicResource BackgroundColor }"
+                                    Padding="8,6"
+                                />
+                            </DataTemplate>
+                        </grial:SelectableWrapPanel.ItemTemplate>
+
+                        <grial:SelectableWrapPanel.SelectedItemTemplate>
+                            <DataTemplate>
+                                <grial:RoundedLabel
+                                    Text="{ Binding . }"
+                                    TextColor="{ DynamicResource PrimaryActionButtonTextColor }"
+                                    HeightRequest="{ OnPlatform Android=30 }"
+                                    FontSize="14"
+                                    BackgroundColor="{ DynamicResource PrimaryColor }"
+                                    Padding="8,6"
+                                />
+                            </DataTemplate>
+                        </grial:SelectableWrapPanel.SelectedItemTemplate>
+                    </grial:SelectableWrapPanel>
+
+                    <!-- Single Days -->
+                    <grial:SelectableWrapPanel
+                        ItemsSource="{ Binding FrequencySingle }"
+                        SelectedItems="{ Binding Days, Mode=TwoWay }"
+                        SelectionMode="Multiple"
+                        HorizontalOptions="Start"
+                        ColumnSpacing="0">
+
+                        <grial:SelectableWrapPanel.ItemTemplate>
+                            <DataTemplate>
+                                <grial:RoundedLabel
+                                    Text="{ Binding . }"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                    HeightRequest="{ OnPlatform Android=30 }"
+                                    FontSize="14"
+                                    BackgroundColor="{ DynamicResource BackgroundColor }"
+                                    Padding="8,6"
+                                />
+                            </DataTemplate>
+                        </grial:SelectableWrapPanel.ItemTemplate>
+                        <grial:SelectableWrapPanel.SelectedItemTemplate>
+                            <DataTemplate>
+                                <grial:RoundedLabel
+                                    Text="{ Binding . }"
+                                    TextColor="{ DynamicResource PrimaryActionButtonTextColor }"
+                                    HeightRequest="{ OnPlatform Android=30 }"
+                                    FontSize="14"
+                                    BackgroundColor="{ DynamicResource PrimaryColor }"
+                                    Padding="8,6"
+                                />
+                            </DataTemplate>
+                        </grial:SelectableWrapPanel.SelectedItemTemplate>
+                    </grial:SelectableWrapPanel>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- FOOTER -->
+            <Button
+                Grid.Row="1"
+                Margin="0,20,0,0"
+                VerticalOptions="Start"
+                HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                    Portrait=Fill,
+                    Landscape=Center
+                }"
+                WidthRequest="300"
+                Style="{ StaticResource PrimaryActionButtonStyle }"
+                Text="{ grial:Translate StringAddSchedule }"
+                Command="{ Binding SaveCommand }"
+            />
+        </Grid>
+    </Grid>
+</uxd:PopupPage>

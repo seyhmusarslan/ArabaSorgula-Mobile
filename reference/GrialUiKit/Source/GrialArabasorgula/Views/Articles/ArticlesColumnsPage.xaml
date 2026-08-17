@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ArticlesColumnsPage"
+    Title="{ grial:Translate PageTitleArticlesColumns }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+    <ContentPage.Resources />
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowDefinitions="360,*">
+
+                <!-- HEADER TEMPLATE -->
+                <local:ArticleColumnsHeaderItemTemplate
+                    BindingContext="{ Binding Main }"
+                    Grid.Row="0">
+                    <View.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnItemTapped" />
+                    </View.GestureRecognizers>
+                </local:ArticleColumnsHeaderItemTemplate>
+
+                <!-- ARTICLE LIST -->
+                <grial:GridView
+                    Grid.Row="1"
+                    Margin="0"
+                    ColumnSpacing="15"
+                    RowSpacing="0"
+                    Padding="0"
+                    ColumnCount="{ grial:OnOrientationInt
+                        PortraitPhone=1,
+                        LandscapePhone=2,
+                        PortraitTablet=2,
+                        LandscapeTablet=2,
+                        PortraitDesktop=3,
+                        LandscapeDesktop=3
+                    }"
+                    VerticalOptions="Fill"
+                    ItemsSource="{ Binding Secondary.List }">
+                    <grial:GridView.ItemTemplate>
+                        <DataTemplate>
+                            <local:ArticleColumnItemTemplate>
+                                <View.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnItemTapped" />
+                                </View.GestureRecognizers>
+                            </local:ArticleColumnItemTemplate>
+                        </DataTemplate>
+                    </grial:GridView.ItemTemplate>
+
+                </grial:GridView>
+            </Grid>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>

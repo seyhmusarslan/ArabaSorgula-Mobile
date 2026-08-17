@@ -1,0 +1,1371 @@
+{
+    "[grial-metadata]": "id: Grial#MoviesFlow.json version: 1.0.1",
+    "FeaturedMovies": {
+        "$id": "featured-movies",
+        "Movies": [
+          {
+            "$id": "featured-movie-1",
+            "Name": "Doctor Strange 2",
+            "Director": "Sam Raimi",
+            "Year": "May 2022",
+            "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_1_poster_image.jpg",
+            "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_1_backdrop_image.jpg",
+            "Color": "#b02d1f",
+            "Overview": "After the events of Avengers: Endgame, Dr. Stephen Strange continues his research on the Time Stone. But an old friend turned enemy seeks to destroy every sorcerer on Earth, messing with Strange's plan, causing him to unleash an unspeakable evil.",
+            "TrailerVideo": "https://www.youtube.com/watch?v=Rf8LAYJSOL8",
+            "Rating": 95,
+            "RatingLabel": "9.5",
+            "Genres": [
+              "ACTION",
+              "ADVENTURE",
+              "FANTASY",
+              "SCI-FI"
+            ],
+            "Crew": [
+              {
+                "Name": "Michael Waldron",
+                "Role": "Screenplay"
+              },
+              {
+                "Name": "Jade Halley Bartlett",
+                "Role": "Screenplay"
+              }
+            ],
+            "Cast": [
+              {
+                "Name": "Benedict Cumberbatch",
+                "Character": "Dr. Stephen Strange"
+              },
+              {
+                "Name": "Elizabeth Olsen",
+                "Character": "Wanda Maximoff"
+              },
+              {
+                "Name": "Rachel McAdams",
+                "Character": "Dr. Christine Palmer"
+              },
+              {
+                "Name": "Chiswetel Ejiofor",
+                "Character": "Mordor"
+              },
+              {
+                "Name": "Benedict Wong",
+                "Character": "Wong"
+              }
+            ]
+          },
+          {
+              "$id": "featured-movie-2",
+              "Name": "Morbius",
+              "Director": "Daniel Espinosa",
+              "Year": "April 2022",
+              "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_2_poster_image.jpg",
+              "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_2_backdrop_image.jpg",  
+              "Color": "#08373d",
+              "Overview": "Dangerously ill with a rare blood disorder, and determined to save others suffering his same fate, Dr. Morbius attempts a desperate gamble. What at first appears to be a radical success soon reveals itself to be a remedy potentially worse than the disease.",
+              "TrailerVideo": "https://www.youtube.com/watch?v=SQK-QxxtE8Y",
+              "Rating": 83,
+              "RatingLabel": "8.3",
+              "Genres": [
+                "ACTION",
+                "ADVENTURE",
+                "DRAMA",
+                "SUSPENSE"
+              ],
+              "Crew": [
+                {
+                  "Name": "Matt Sazama",
+                  "Role": "Screenplay"
+                },
+                {
+                  "Name": "Burk Sharpless",
+                  "Role": "Screenplay"
+                }
+              ],
+              "Cast": [
+                {
+                  "Name": "Jared Leto",
+                  "Character": "Dr. Michael Morbius"
+                },
+                {
+                  "Name": "Michael Keaton",
+                  "Character": "Adrian Toomes / Vulture"
+                },
+                {
+                  "Name": "Adria Arjona",
+                  "Character": "Martine Bancroft"
+                },
+                {
+                  "Name": "Jared Harris",
+                  "Character": "Emil Nikols"
+                },
+                {
+                  "Name": "Matt Smith",
+                  "Character": "Loxias Crown"
+                }
+              ]
+          },
+          {
+              "$id": "featured-movie-3",
+              "Name": "The Batman",
+              "Director": "Matt Reeves",
+              "Year": "March 2022",
+              "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_3_poster_image.jpg",
+              "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_3_backdrop_image.jpg",  
+              "Color": "#e57c1f",
+              "Overview": "When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
+              "TrailerVideo": "https://www.youtube.com/watch?v=mqqft2x_Aa4",
+              "Rating": 73,
+              "RatingLabel": "7.3",
+              "Genres": [
+                "ACTION",
+                "CRIME",
+                "DRAMA"
+              ],
+              "Crew": [
+                {
+                  "Name": "Matt Reeves",
+                  "Role": "Screenplay"
+                },
+                {
+                  "Name": "Peter Craig",
+                  "Role": "Screenplay"
+                }
+              ],
+              "Cast": [
+                {
+                  "Name": "Robert Pattinson",
+                  "Character": "Bruce Wayne / Batman"
+                },
+                {
+                  "Name": "Zoë Kravitz",
+                  "Character": "Selina Kyle / Catwoman"
+                },
+                {
+                  "Name": "Paul Dano",
+                  "Character": "Edward Nashton / The Riddler"
+                },
+                {
+                  "Name": "Colin Farrell",
+                  "Character": "Oswald Cobblepot / The Penguin"
+                },
+                {
+                  "Name": "Jeffrey Wright",
+                  "Character": "James Gordon"
+                }
+              ]
+          },
+          {
+            "$id": "featured-movie-4",
+            "Name": "Black Adam",
+            "Director": "Jaume Collet-Serra",
+            "Year": "July 2022",
+            "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_4_poster_image.jpg",
+            "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_4_backdrop_image.jpg",
+            "Color": "#27282d",
+            "Overview": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods-and imprisoned just as quickly-Black Adam (Johnson) is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
+            "TrailerVideo": "https://www.youtube.com/watch?v=p99rer0DiCo",
+            "Rating": 90,
+            "RatingLabel": "9.0",
+            "Genres": [
+              "ACTION",
+              "FANTASY",
+              "SCI-FI"
+            ],
+            "Crew": [
+              {
+                "Name": "Adam Sztykiel",
+                "Role": "Screenplay"
+              },
+              {
+                "Name": "Rory Haines",
+                "Role": "Screenplay"
+              },
+              {
+                "Name": "Sohrab Noshirvani",
+                "Role": "Screenplay"
+              }
+            ],
+            "Cast": [
+              {
+                "Name": "Dwayne Johnson",
+                "Character": "Black Adam"
+              },
+              {
+                "Name": "Sarah Shahi",
+                "Character": "Adrianna Tomaz / Isis"
+              },
+              {
+                "Name": "Pierce Brosnan",
+                "Character": "Dr. Fate / Kent Nelson"
+              },
+              {
+                "Name": "Noah Centineo",
+                "Character": "Al Rothstein / Atom Smasher"
+              },
+              {
+                "Name": "Quintessa Swindell",
+                "Character": "Cyclone"
+              }
+            ]
+          },
+          {
+            "$id": "featured-movie-5",
+            "Name": "Ant-Man and the Wasp",
+            "Director": "Peyton Reed",
+            "Year": "August 2018",
+            "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_5_poster_image.jpg",
+            "BackgroundImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_5_background_image.jpg",
+            "Color": "#c22c2d",
+            "Overview": "As Scott Lang balances being both a superhero and a father, Hope van Dyne and Dr. Hank Pym present an urgent new mission that finds the Ant-Man fighting alongside the Wasp to uncover secrets from their past.",
+            "TrailerVideo": "https://www.youtube.com/watch?v=8_rTIAOohas",
+            "Rating": 80,
+            "RatingLabel": "8.0",
+            "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_5_backdrop_image.jpg",
+            "Genres": [
+              "ACTION",
+              "ADVENTURE",
+              "FANTASY",
+              "COMEDY"
+            ],
+            "Crew": [
+              {
+                "Name": "Gabriel Ferrari",
+                "Role": "Screenplay"
+              },
+              {
+                "Name": "Erik Sommers",
+                "Role": "Screenplay"
+              },
+              {
+                "Name": "Chris McKenna",
+                "Role": "Screenplay"
+              },
+              {
+                "Name": "Andrew Barrer",
+                "Role": "Screenplay"
+              },
+              {
+                "Name": "Peyton Reed",
+                "Role": "Director"
+              },
+              {
+                "Name": "Paul Rudd",
+                "Role": "Screenplay"
+              }
+            ],
+            "Cast": [
+              {
+                "Name": "Paul Rudd",
+                "Character": "Scott Lang / Ant-Man"
+              },
+              {
+                "Name": "Michael Peña",
+                "Character": "Luis"
+              },
+              {
+                "Name": "Evangeline Lilly",
+                "Character": "Hope van Dyne / The Wasp"
+              },
+              {
+                "Name": "Walton Goggins",
+                "Character": "Sonny Burch"
+              },
+              {
+                "Name": "Bobby Cannavale",
+                "Character": "Jim Paxton"
+              }
+            ]
+          },
+          {
+            "$id": "featured-movie-6",
+            "Name": "Wonder Woman",
+            "Director": "Patty Jenkins",
+            "Year": "May 2017",
+            "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_6_poster_image.jpg",
+            "BackgroundImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_6_background_image.jpg",
+            "TrailerVideo": "https://www.youtube.com/watch?v=INLzqh7rZ-U",
+            "Color": "#bb6300",
+            "Overview": "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict.",
+            "Rating": 72,
+            "RatingLabel": "7.2",
+            "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_6_backdrop_image.jpg",
+            "Genres": [
+              "ACTION",
+              "ADVENTURE",
+              "FANTASY",
+              "WAR",
+              "SCIENCE FICTION"
+            ],
+            "Crew": [
+              {
+                "Name": "Allan Heinberg",
+                "Role": "Screenplay, Story"
+              },
+              {
+                "Name": "Geoff Johns",
+                "Role": "Writer"
+              },
+              {
+                "Name": "Jason Fuchs",
+                "Role": "Story"
+              },
+              {
+                "Name": "Zack Snyder",
+                "Role": "Story"
+              },
+              {
+                "Name": "Patty Jenkins",
+                "Role": "Director"
+              }
+            ],
+            "Cast": [
+              {
+                "Name": "Gal Gadot",
+                "Character": "Diana Prince / Wonder Woman"
+              },
+              {
+                "Name": "Chris Pine",
+                "Character": "Steve Trevor"
+              },
+              {
+                "Name": "Robin Wright",
+                "Character": "Antiope"
+              },
+              {
+                "Name": "Connie Nielsen",
+                "Character": "Hippolyta"
+              },
+              {
+                "Name": "Danny Huston",
+                "Character": "Erich Ludendorff"
+              }
+            ]
+          },
+          {
+            "$id": "featured-movie-7",
+            "Name": "Spider-Man: Homecoming",
+            "Director": "Jon Watts",
+            "Year": "June 2017",
+            "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_7_poster_image.jpg",
+            "BackgroundImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_7_background_image.jpg",
+            "Color": "#1d4f66",
+            "TrailerVideo": "https://www.youtube.com/watch?v=xrzXIaTt99U",
+            "Overview": "Following the events of Captain America: Civil War, Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in Queens, New York City, with fighting crime as his superhero alter ego Spider-Man as a new threat, the Vulture, emerges.",
+            "Rating": 63,
+            "RatingLabel": "6.3",
+            "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_7_backdrop_image.jpg",
+            "Genres": [
+              "new york",
+              "high school",
+              "superhero",
+              "comics",
+              "teenager",
+              "reboot"
+            ],
+            "Crew": [
+              {
+                "Name": "Jon Watts",
+                "Role": "Director, Writer"
+              },
+              {
+                "Name": "Erik Sommers",
+                "Role": "Writer"
+              },
+              {
+                "Name": "Chris McKenna",
+                "Role": "Writer"
+              },
+              {
+                "Name": "Jonathan M. Goldstein",
+                "Role": "Writer"
+              },
+              {
+                "Name": "Christopher D. Ford",
+                "Role": "Writer"
+              },
+              {
+                "Name": "Steve Ditko",
+                "Role": "Characters"
+              },
+              {
+                "Name": "John Francis Daley",
+                "Role": "Writer"
+              },
+              {
+                "Name": "Stan Lee",
+                "Role": "Characters"
+              }
+            ],
+            "Cast": [
+              {
+                "Name": "Tom Holland",
+                "Character": "Peter Parker / Spider-Man"
+              },
+              {
+                "Name": "Michael Keaton",
+                "Character": "Adrian Toomes / Vulture"
+              },
+              {
+                "Name": "Jon Favreau",
+                "Character": "Harold Happy Hogan"
+              },
+              {
+                "Name": "Zendaya",
+                "Character": "Michelle 'MJ' Jones"
+              },
+              {
+                "Name": "Donald Glover",
+                "Character": "Aaron Davis"
+              }
+            ]
+          },
+          {
+            "$id": "featured-movie-8",
+            "Name": "Thor: Ragnarok",
+            "Director": "Taika Waititi",
+            "Year": "October 2017",
+            "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_8_poster_image.jpg",
+            "BackgroundImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_8_background_image.jpg",
+            "Color": "#306C2D",
+            "Overview": "Thor is on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the prophecy of destruction to his homeworld and the end of Asgardian civilization, at the hands of the ruthless Hela.",
+            "TrailerVideo": "https://www.youtube.com/watch?v=ue80QwXMRHg",
+            "Rating": 75,
+            "RatingLabel": "7.5",
+            "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_8_backdrop_image.jpg",
+            "Genres": [
+              "action",
+              "adventure",
+              "superhero",
+              "comic",
+              "femail villain"
+            ],
+            "Crew": [
+              {
+                "Name": "Taika Waititi",
+                "Role": "Director"
+              },
+              {
+                "Name": "Eric Pearson",
+                "Role": "Writer"
+              },
+              {
+                "Name": "Christopher Yost",
+                "Role": "Writer"
+              },
+              {
+                "Name": "Stephany Folsom",
+                "Role": "Story"
+              },
+              {
+                "Name": "Craig Kyle",
+                "Role": "Writer"
+              }
+            ],
+            "Cast": [
+              {
+                "Name": "Chris Hemsworth",
+                "Character": "Thor Odinson"
+              },
+              {
+                "Name": "Tom Hiddleston",
+                "Character": "Loki"
+              },
+              {
+                "Name": "Cate Blanchett",
+                "Character": "Hela"
+              },
+              {
+                "Name": "Mark Ruffalo",
+                "Character": "Bruce Banner / The Hulk"
+              }
+            ]
+          }
+        ]
+    },
+    "MoviesMainPage.xaml": {
+        "Sections": [
+            {
+                "$id": "movie-section-1",
+                "Title": "Actor of the Month",
+                "Movies": [
+                    {
+                        "$id": "movie-1",
+                        "Title": "Inception",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=66TuSJo4dZM",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_inception.jpg",
+                        "Seasons": "2010",
+                        "RatingValue": 4.4,
+                        "RatingMax": 5.0,
+                        "Director": "Christopher Nolan",
+                        "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.\"",
+                        "Cast": [
+                            "Leonardo DiCaprio",
+                            "Joseph Gordon-Levitt",
+                            "Ellen Page"
+                        ],
+                        "Genres": [
+                            "ACTION",
+                            "THRILLER",
+                            "SCIENCE FICTION",
+                            "MYSTERY",
+                            "ADVENTURE"
+                        ]
+                    },
+                    {
+                        "$id": "movie-2",
+                        "Title": "Django Unchained",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=_iH0UBYDI4g",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_django_unchained.jpg",
+                        "Seasons": "2012",
+                        "RatingValue": 4.25,
+                        "RatingMax": 5.0,
+                        "Director": "Quentin Tarantino",
+                        "Plot": "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
+                        "Cast": [
+                            "Jamie Foxx",
+                            "Christoph Waltz",
+                            "Leonardo DiCaprio"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "WESTERN"
+                        ]
+                    },
+                    {
+                        "$id": "movie-3",
+                        "Title": "The Revenant",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=LoebZZ8K5N0",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_the_revenant.jpg",
+                        "Seasons": "2015",
+                        "RatingValue": 4.05,
+                        "RatingMax": 5.0,
+                        "Director": "Alejandro G. I\u00f1\u00e1rritu",
+                        "Plot": "A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.",
+                        "Cast": [
+                            "Leonardo DiCaprio",
+                            "Tom Hardy",
+                            "Will Poulter"
+                        ],
+                        "Genres": [
+                            "WESTERN",
+                            "DRAMA",
+                            "ADVENTURE",
+                            "THRILLER"
+                        ]
+                    },
+                    {
+                        "$id": "movie-4",
+                        "Title": "The Departed",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=iojhqm0JTW4",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_the_departed.jpg",
+                        "Seasons": "2006",
+                        "RatingValue": 4.25,
+                        "RatingMax": 5.0,
+                        "Director": "Martin Scorsese",
+                        "Plot": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.",
+                        "Cast": [
+                            "Leonardo DiCaprio",
+                            "Matt Damon",
+                            "Jack Nicholson"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "THRILLER",
+                            "CRIME"
+                        ]
+                    },
+                    {
+                        "$id": "movie-5",
+                        "Title": "Titanic",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=2e-eXJ6HgkQ",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_titanic.jpg",
+                        "Seasons": "1997",
+                        "RatingValue": 3.85,
+                        "RatingMax": 5.0,
+                        "Director": "James Cameron",
+                        "Plot": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+                        "Cast": [
+                            "Leonardo DiCaprio",
+                            "Kate Winslet",
+                            "Billy Zane"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "ROMANCE",
+                            "THRILLER"
+                        ]
+                    },
+                    {
+                        "$id": "movie-6",
+                        "Title": "The Audition",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=xzHpM07ljRo",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_the_audition.jpg",
+                        "Seasons": "2015",
+                        "RatingValue": 3.7,
+                        "RatingMax": 5.0,
+                        "Director": "Martin Scorsese",
+                        "Plot": "A short film promoting the opening of Melco-Crown's movie-themed resort and casino in Macau.",
+                        "Cast": [
+                            "Robert De Niro",
+                            "Leonardo DiCaprio",
+                            "Brad Pitt"
+                        ],
+                        "Genres": [
+                            "DRAMA"
+                        ]
+                    },
+                    {
+                        "$id": "movie-7",
+                        "Title": "Gatsby",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=rARN6agiW7o",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_gatsby.jpg",
+                        "Seasons": "2013",
+                        "RatingValue": 3.65,
+                        "RatingMax": 5.0,
+                        "Director": "Baz Luhrmann",
+                        "Plot": "A writer and wall street trader, Nick, finds himself drawn to the past and lifestyle of his millionaire neighbor, Jay Gatsby.",
+                        "Cast": [
+                            "Leonardo DiCaprio",
+                            "Carey Mulligan",
+                            "Joel Edgerton"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "ROMANCE"
+                        ]
+                    },
+                    {
+                        "$id": "movie-8",
+                        "Title": "Shutter Island",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=YDGldPitxic",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_shutter_island.jpg",
+                        "Seasons": "2010",
+                        "RatingValue": 4.05,
+                        "RatingMax": 5.0,
+                        "Director": "Martin Scorsese",
+                        "Plot": "In 1954, a U.S. marshal investigates the disappearance of a murderess who escaped from a hospital for the criminally insane.",
+                        "Cast": [
+                            "Leonardo DiCaprio",
+                            "Emily Mortimer",
+                            "Mark Ruffalo"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "THRILLER",
+                            "mystery"
+                        ]
+                    },
+                    {
+                        "$id": "movie-9",
+                        "Title": "Blood Diamond",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=yknIZsvQjG4",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_blood_diamond.jpg",
+                        "Seasons": "2016",
+                        "RatingValue": 4.0,
+                        "RatingMax": 5.0,
+                        "Director": "Edward Zwick",
+                        "Plot": "A fisherman, a smuggler, and a syndicate of businessmen match wits over the possession of a priceless diamond.",
+                        "Cast": [
+                            "Leonardo DiCaprio",
+                            "Djimon Hounsou",
+                            "Jennifer Connelly"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "THRILLER",
+                            "action"
+                        ]
+                    }
+                ]
+            },
+            {
+                "Title": "Latest Best Picture-Winning Titles",
+                "Movies": [
+                    {
+                        "Title": "Spotlight",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=EwdCIpbTN5g",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_spotlight.jpg",
+                        "Seasons": "2015",
+                        "RatingValue": 4.05,
+                        "RatingMax": 5.0,
+                        "Director": "Tom McCarthy",
+                        "Plot": "The true story of how the Boston Globe uncovered the massive scandal of child molestation and cover-up within the local Catholic Archdiocese, shaking the entire Catholic Church to its core.",
+                        "Cast": [
+                            "Mark Ruffalo",
+                            "Michael Keaton",
+                            "Rachel McAdams"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "THRILLER",
+                            "history"
+                        ]
+                    },
+                    {
+                        "Title": "Birdman",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=uJfLoE6hanc",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_birdman.jpg",
+                        "Seasons": "2014",
+                        "RatingValue": 3.9,
+                        "RatingMax": 5.0,
+                        "Director": "Alejandro G. I\u00f1\u00e1rritu",
+                        "Plot": "Illustrated upon the progress of his latest Broadway play, a former popular actor's struggle to cope with his current life as a wasted actor is shown.",
+                        "Cast": [
+                            "Alejandro G. I\u00f1\u00e1rritu",
+                            "Nicol\u00e1s Giacobone"
+                        ],
+                        "Genres": [
+                            "DRAMA"
+                        ]
+                    },
+                    {
+                        "Title": "12 Years As A Slave",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=z02Ie8wKKRg",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_12_years_as_a_slave.jpg",
+                        "Seasons": "2013",
+                        "RatingValue": 4.05,
+                        "RatingMax": 5.0,
+                        "Director": "Steve McQueen",
+                        "Plot": "In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.",
+                        "Cast": [
+                            "Chiwetel Ejiofor",
+                            "Michael Kenneth Williams",
+                            "Michael Fassbender"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "comedy"
+                        ]
+                    },
+                    {
+                        "Title": "Argo",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=JW3WfSFgrVY",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_argo.jpg",
+                        "Seasons": "2012",
+                        "RatingValue": 3.85,
+                        "RatingMax": 5.0,
+                        "Director": "Ben Affleck",
+                        "Plot": "Acting under the cover of a Hollywood producer scouting a location for a science fiction film, a CIA agent launches a dangerous operation to rescue six Americans in Tehran during the U.S. hostage crisis in Iran in 1980.",
+                        "Cast": [
+                            "Ben Affleck",
+                            "Bryan Cranston",
+                            "John Goodman"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "THRILLER"
+                        ]
+                    },
+                    {
+                        "Title": "The Artist",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=YB9Oq0hn5KY",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_the_artist.jpg",
+                        "Seasons": "2010",
+                        "RatingValue": 4.0,
+                        "RatingMax": 5.0,
+                        "Director": "Michel Hazanavicius",
+                        "Plot": "A silent movie star meets a young dancer, but the arrival of talking pictures sends their careers in opposite directions.",
+                        "Cast": [
+                            "Jean Dujardin",
+                            "B\u00e9r\u00e9nice Bejo",
+                            "John Goodman"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "comedy",
+                            "action"
+                        ]
+                    },
+                    {
+                        "Title": "The King's Speech",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=EcxBrTvLbBM",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_the_kings_speech.jpg",
+                        "Seasons": "2010",
+                        "RatingValue": 4.0,
+                        "RatingMax": 5.0,
+                        "Director": "Tom Hooper",
+                        "Plot": "The story of King George VI of the United Kingdom of Great Britain and Northern Ireland, his impromptu ascension to the throne and the speech therapist who helped the unsure monarch become worthy of it.",
+                        "Cast": [
+                            "Colin Firth",
+                            "Geoffrey Rush",
+                            "Helena Bonham Carter"
+                        ],
+                        "Genres": [
+                            "documentary",
+                            "history"
+                        ]
+                    },
+                    {
+                        "Title": "The Hurt Locker",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=AIbFvqFYRT4",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_the_hurt_locker.jpg",
+                        "Seasons": "2008",
+                        "RatingValue": 2.5,
+                        "RatingMax": 5.0,
+                        "Director": "Kathryn Bigelow",
+                        "Plot": "During the Iraq War, a Sergeant recently assigned to an army bomb squad is put at odds with his squad mates due to his maverick way of handling his work.",
+                        "Cast": [
+                            "Jeremy Renner",
+                            "Anthony Mackie",
+                            "Brian Geraghty",
+                            "Guy Pearce",
+                            "Sergeant Matt Thompson",
+                            "Ralph Fiennes"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "THRILLER",
+                            "war"
+                        ]
+                    },
+                    {
+                        "Title": "Slumdog Millionaire",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=AIzbwV7on6Q",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_slumdog_millionaire.jpg",
+                        "Seasons": "2008",
+                        "RatingValue": 4.0,
+                        "RatingMax": 5.0,
+                        "Director": "Danny Boyle, Loveleen Tandan",
+                        "Plot": "A Mumbai teen reflects on his upbringing in the slums when he is accused of cheating on the Indian Version of \"Who Wants to be a Millionaire?\"",
+                        "Cast": [
+                            "Dev Patel",
+                            "Freida Pinto",
+                            "Saurabh Shukla"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "romance"
+                        ]
+                    },
+                    {
+                        "Title": "No Country For Old Men",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=38A__WT3-o0",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_no_country_for_old_men.jpg",
+                        "Seasons": "2007",
+                        "RatingValue": 1.05,
+                        "RatingMax": 5.0,
+                        "Director": "Ethan Coen, Joel Coen",
+                        "Plot": "Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash near the Rio Grande.",
+                        "Cast": [
+                            "Tommy Lee Jones",
+                            "Javier Bardem",
+                            "Josh Brolin"
+                        ],
+                        "Genres": [
+                            "DRAMA",
+                            "crime",
+                            "thriller"
+                        ]
+                    }
+                ]
+            },
+            {
+                "Title": "Sci-Fi Classic Titles",
+                "Movies": [
+                    {
+                        "Title": "Blade Runner",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=eogpIG53Cis",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_blade_runner.jpg",
+                        "Seasons": "1982",
+                        "RatingValue": 4.1,
+                        "RatingMax": 5.0,
+                        "Director": "Ridley Scott",
+                        "Plot": "A blade runner must pursue and try to terminate four replicants who stole a ship in space and have returned to Earth to find their creator.",
+                        "Cast": [
+                            "Harrison Ford",
+                            "Rutger Hauer",
+                            "Sean Young"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "thriller"
+                        ]
+                    },
+                    {
+                        "Title": "Back to the Future",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=qvsgGtivCgs",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_back_to_the_future.jpg",
+                        "Seasons": "1985",
+                        "RatingValue": 4.25,
+                        "RatingMax": 5.0,
+                        "Director": "Robert Zemeckis",
+                        "Plot": "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
+                        "Cast": [
+                            "Michael J. Fox",
+                            "Christopher Lloyd",
+                            "Lea Thompson"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "COMEDY",
+                            "adventure"
+                        ]
+                    },
+                    {
+                        "Title": "Back to the Future Part II",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=MdENmefJRpw",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_back_to_the_future_2.jpg",
+                        "Seasons": "1989",
+                        "RatingValue": 3.9,
+                        "RatingMax": 5.0,
+                        "Director": "Robert Zemeckis",
+                        "Plot": "After visiting 2015, Marty McFly must repeat his visit to 1955 to prevent disastrous changes to 1985...without interfering with his first trip.",
+                        "Cast": [
+                            "Michael J. Fox",
+                            "Christopher Lloyd",
+                            "Lea Thompson"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "adventure",
+                            "comedy",
+                            "family"
+                        ]
+                    },
+                    {
+                        "Title": "Back to the Future Part III",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=3C8c3EoEfw4",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_back_to_the_future_3.jpg",
+                        "Seasons": "1990",
+                        "RatingValue": 3.7,
+                        "RatingMax": 5.0,
+                        "Director": "Robert Zemeckis",
+                        "Plot": "Enjoying a peaceable existence in 1885, Doctor Emmet Brown is about to be killed by Buford \"Mad Dog\" Tannen. Marty McFly travels back in time to save his friend.",
+                        "Cast": [
+                            "Michael J. Fox",
+                            "Christopher Lloyd",
+                            "Mary Steenburgen"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "adventure",
+                            "comedy",
+                            "family"
+                        ]
+                    },
+                    {
+                        "Title": "The Terminator",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=k64P4l2Wmeg",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_the_terminator.jpg",
+                        "Seasons": "1984",
+                        "RatingValue": 4.5,
+                        "RatingMax": 5.0,
+                        "Director": "James Cameron",
+                        "Plot": "A human-looking indestructible cyborg is sent from 2029 to 1984 to assassinate a waitress, whose unborn son will lead humanity in a war against the machines, while a soldier from that war is sent to protect her at all costs.",
+                        "Cast": [
+                            "Arnold Schwarzenegger",
+                            "Linda Hamilton",
+                            "Michael Biehn"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "thriller"
+                        ]
+                    },
+                    {
+                        "Title": "Terminator 2: Judgment Day",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=-W8CegO_Ixw",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_terminator2.jpg",
+                        "Seasons": "1991",
+                        "RatingValue": 4.05,
+                        "RatingMax": 5.0,
+                        "Director": "James Cameron",
+                        "Plot": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son, John Connor, from a more advanced cyborg.",
+                        "Cast": [
+                            "Arnold Schwarzenegger",
+                            "Linda Hamilton",
+                            "Michael Biehn"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "thriller"
+                        ]
+                    }
+                ]
+            },
+            {
+                "Title": "Sci-Fi Titles",
+                "Movies": [
+                    {
+                        "Title": "Mad Max: Fury Road",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=hEJnMQG9ev8",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_mad_max_fury_road.jpg",
+                        "Seasons": "2015",
+                        "RatingValue": 4.05,
+                        "RatingMax": 5.0,
+                        "Director": "George Miller",
+                        "Plot": "A woman rebels against a tyrannical ruler in postapocalyptic Australia in search for her home-land with the help of a group of female prisoners, a psychotic worshipper, and a drifter named Max.",
+                        "Cast": [
+                            "Tom Hardy",
+                            "Charlize Theron",
+                            "Nicholas Hoult"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "thriller",
+                            "adventure"
+                        ]
+                    },
+                    {
+                        "Title": "The Martian",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=ej3ioOneTy8",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_the_martian.jpg",
+                        "Seasons": "2015",
+                        "RatingValue": 4.0,
+                        "RatingMax": 5.0,
+                        "Director": "Ridley Scott",
+                        "Plot": "An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.",
+                        "Cast": [
+                            "Matt Damon",
+                            "Jessica Chastain",
+                            "Kristen Wiig"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "adventure",
+                            "drama"
+                        ]
+                    },
+                    {
+                        "Title": "Limitless",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=4TLppsfzQH8",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_limitless.jpg",
+                        "Seasons": "2011",
+                        "RatingValue": 3.7,
+                        "RatingMax": 5.0,
+                        "Director": "Neil Burger",
+                        "Plot": "With the help of a mysterious pill that enables the user to access 100 percent of his brain abilities, a struggling writer becomes a financial wizard, but it also puts him in a new world with lots of dangers.",
+                        "Cast": [
+                            "Bradley Cooper",
+                            "Anna Friel",
+                            "Abbie Cornish"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "mystery",
+                            "thriller"
+                        ]
+                    },
+                    {
+                        "Title": "TRON: Legacy",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=L9szn1QQfas",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_tron_legacy.jpg",
+                        "Seasons": "2010",
+                        "RatingValue": 3.4,
+                        "RatingMax": 5.0,
+                        "Director": "Joseph Kosinski",
+                        "Plot": "The son of a virtual world designer goes looking for his father and ends up inside the digital world that his father designed. He meets his father's corrupted creation and a unique ally who was born inside the digital world.",
+                        "Cast": [
+                            "Jeff Bridges",
+                            "Garrett Hedlund",
+                            "Olivia Wilde"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "adventure"
+                        ]
+                    },
+                    {
+                        "Title": "Gravity",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=OiTiKOy59o4",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_gravity.jpg",
+                        "Seasons": "2013",
+                        "RatingValue": 3.9,
+                        "RatingMax": 5.0,
+                        "Director": "Alfonso Cuar\u00f3n",
+                        "Plot": "A medical engineer and an astronaut work together to survive after an accident leaves them adrift in space.",
+                        "Cast": [
+                            "Sandra Bullock",
+                            "George Clooney",
+                            "Ed Harris"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "drama"
+                        ]
+                    },
+                    {
+                        "Title": "Oblivion",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=XmIIgE7eSak",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_oblivion.jpg",
+                        "Seasons": "2013",
+                        "RatingValue": 3.5,
+                        "RatingMax": 5.0,
+                        "Director": "Joseph Kosinski",
+                        "Plot": "A veteran assigned to extract Earth's remaining resources begins to question what he knows about his mission and himself.",
+                        "Cast": [
+                            "Tom Cruise",
+                            "Morgan Freeman",
+                            "Andrea Riseborough"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "drama",
+                            "thriller"
+                        ]
+                    },
+                    {
+                        "Title": "Ghost In The Shell",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=G4VmJcZR0Yg",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_ghost_in_the_shell.jpg",
+                        "Seasons": "2017",
+                        "RatingValue": 3.5,
+                        "RatingMax": 5.0,
+                        "Director": "Rupert Sanders",
+                        "Plot": "A cyborg policewoman attempts to bring down a nefarious computer hacker.",
+                        "Cast": [
+                            "Jonathan Herman",
+                            "Jamie Moss"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "thriller",
+                            "drama"
+                        ]
+                    },
+                    {
+                        "Title": "Elysium",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=oIBtePb-dGY",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_elysium.jpg",
+                        "Seasons": "2013",
+                        "RatingValue": 3.3,
+                        "RatingMax": 5.0,
+                        "Director": "Neill Blomkamp",
+                        "Plot": "In the year 2154, the very wealthy live on a man-made space station while the rest of the population resides on a ruined Earth. A man takes on a mission that could bring equality to the polarized worlds.",
+                        "Cast": [
+                            "Matt Damon",
+                            "Jodie Foster",
+                            "Sharlto Copley"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "thriller",
+                            "drama"
+                        ]
+                    },
+                    {
+                        "Title": "Terminator Genisys",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=62E4FJTwSuc",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_terminator_genisys.jpg",
+                        "Seasons": "2015",
+                        "RatingValue": 3.3,
+                        "RatingMax": 5.0,
+                        "Director": "Alan Taylor",
+                        "Plot": "When John Connor, leader of the human resistance, sends Sgt. Kyle Reese back to 1984 to protect Sarah Connor and safeguard the future, an unexpected turn of events creates a fractured timeline.",
+                        "Cast": [
+                            "Arnold Schwarzenegger",
+                            "Jason Clarke",
+                            "Emilia Clarke"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "thriller",
+                            "adventure"
+                        ]
+                    }
+                ]
+            },
+            {
+                "Title": "Marvel Universe Titles",
+                "Movies": [
+                    {
+                        "Title": "Avengers Endgame",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=TcMBFSGVi1c",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_avengers_endgame.jpg",
+                        "Seasons": "2019",
+                        "RatingValue": 4.4,
+                        "RatingMax": 5.0,
+                        "Director": "Anthony Russo, Joe Russo",
+                        "Plot": "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...",
+                        "Cast": [
+                            "Robert Downey Jr.",
+                            "Chris Evans",
+                            "Scarlett Johansson",
+                            "Chris Hemsworth"
+                        ],
+                        "Genres": [
+                            "thriller",
+                            "science fiction",
+                            "action",
+                            "adventure"
+                        ]
+                    },
+                    {
+                        "Title": "Black Widow",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=ybji16u608U",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_black_widow.jpg",
+                        "Seasons": "2021",
+                        "RatingValue": 3.7,
+                        "RatingMax": 5.0,
+                        "Director": "Cate Shortland",
+                        "Plot": "In Marvel Studios' action-packed spy thriller 'Black Widow', Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
+                        "Cast": [
+                            "Scarlett Johansson",
+                            "Florence Pugh",
+                            "David Harbour",
+                            "Rachel Weisz"
+                        ],
+                        "Genres": [
+                            "thriller",
+                            "adventure",
+                            "action"
+                        ]
+                    },
+                    {
+                        "Title": "Shang-Chi",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=8YjFbMbfXaQ",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_shang_chi.jpg",
+                        "Seasons": "2021",
+                        "RatingValue": 3.2,
+                        "RatingMax": 5.0,
+                        "Director": "Destin Daniel Cretton",
+                        "Plot": "Shang-Chi, the master of weaponry-based Kung Fu, is forced to confront his past after being drawn into the Ten Rings organization.",
+                        "Cast": [
+                            "Simu Liu",
+                            "Awkwafina",
+                            "Tony Chiu-Wai Leung",
+                            "Ben Kingsley"
+                        ],
+                        "Genres": [
+                            "fantasy",
+                            "action",
+                            "adventure"
+                        ]
+                    },
+                    {
+                        "Title": "Eternals",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=x_me3xsvDgk",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_eternals.jpg",
+                        "Seasons": "2021",
+                        "RatingValue": 2.8,
+                        "RatingMax": 5.0,
+                        "Director": "Chloé Zhao",
+                        "Plot": "Following the events of 'Avengers: Endgame', an unexpected tragedy forces the Eternals, ancient aliens who have been living on Earth in secret for thousands of years, out of the shadows to reunite against mankind's most ancient enemy, the Deviants.",
+                        "Cast": [
+                            "Gemma Chan",
+                            "Richard Madden",
+                            "Angelina Jolie",
+                            "Salma Hayek"
+                        ],
+                        "Genres": [
+                            "fantasy",
+                            "action",
+                            "adventure"
+                        ]
+                    },
+                    {
+                        "Title": "Iron Man",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=8hYlB38asDY",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_iron_man.jpg",
+                        "Seasons": "2008",
+                        "RatingValue": 3.95,
+                        "RatingMax": 5.0,
+                        "Director": "Jon Favreau",
+                        "Plot": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+                        "Cast": [
+                            "Robert Downey Jr.",
+                            "Gwyneth Paltrow",
+                            "Terrence Howard"
+                        ],
+                        "Genres": [
+                            "thriller",
+                            "science fiction",
+                            "action"
+                        ]
+                    },
+                    {
+                        "Title": "Iron Man 2",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=BoohRoVA9WQ",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_iron_man_2.jpg",
+                        "Seasons": "2010",
+                        "RatingValue": 3.5,
+                        "RatingMax": 5.0,
+                        "Director": "Jon Favreau",
+                        "Plot": "With the world now aware of his identity as Iron Man, Tony Stark must contend with both his declining health and a vengeful mad man with ties to his father's legacy.",
+                        "Cast": [
+                            "Robert Downey Jr.",
+                            "Mickey Rourke",
+                            "Gwyneth Paltrow"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "adventure"
+                        ]
+                    },
+                    {
+                        "Title": "Iron Man 3",
+                        "TrailerVideo": "https://www.youtube.com/watch?v=Ke1Y3P9D0Bc",
+                        "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_iron_man_3.jpg",
+                        "Seasons": "2013",
+                        "RatingValue": 3.6,
+                        "RatingMax": 5.0,
+                        "Director": "Shane Black",
+                        "Plot": "When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution.",
+                        "Cast": [
+                            "Robert Downey Jr.",
+                            "Guy Pearce",
+                            "Gwyneth Paltrow"
+                        ],
+                        "Genres": [
+                            "science fiction",
+                            "action",
+                            "thriller"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Featured": {
+            "$ref": "featured-movies"
+        }
+    },
+    "MovieDetailPage.xaml": {
+        "Movie": {
+            "Title": "Django Unchained",
+            "TrailerVideo": "https://www.youtube.com/watch?v=_iH0UBYDI4g",
+            "Source": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/movie_django_unchained.jpg",
+            "Seasons": "2012",
+            "RatingValue": 4.25,
+            "RatingMax": 5.0,
+            "Director": "Quentin Tarantino",
+            "Plot": "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
+            "Cast": [
+                "Jamie Foxx",
+                "Christoph Waltz",
+                "Leonardo DiCaprio"
+            ],
+            "Genres": [
+                "DRAMA",
+                "WESTERN"
+            ],
+            "Section": {
+                "$ref": "movie-section-1"
+            }
+        }
+    },
+    "FeaturedMoviesPage.xaml": {
+      "Movies": [
+        {
+          "$ref": "featured-movie-1"
+        },
+        {
+          "$ref": "featured-movie-2"
+        },
+        {
+          "$ref": "featured-movie-3"
+        },
+        {
+          "$ref": "featured-movie-4"
+        }
+      ]
+    }
+}

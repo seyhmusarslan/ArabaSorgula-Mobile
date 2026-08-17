@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ArticleFeedItemTemplate">
+    <Grid
+        Padding="{ DynamicResource AirSpacingWithBorder }"
+        RowSpacing="0"
+        ColumnSpacing="13"
+        ColumnDefinitions="42,*"
+        RowDefinitions="Auto,Auto,*">
+        <!-- LEFT COL -->
+        <!-- Avatar -->
+        <grial:RoundedImage
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="3"
+            Source="{ Binding Avatar }"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            Size="38"
+            Style="{ StaticResource AvatarImageStyle }"
+        />
+
+
+        <!-- RIGHT COL -->
+        <!-- Author -->
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="{ Binding Author }"
+            FontAttributes="Bold"
+            TextColor="{ DynamicResource TextColor }"
+        />
+
+        <!-- Title -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            FontSize="{ StaticResource SmallFontSize }"
+            Text="{ Binding Title }"
+            LineBreakMode="WordWrap"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+        />
+
+        <!-- Image -->
+        <Image
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="0,20,0,10"
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+            Source="{ Binding BackgroundImage }"
+            VerticalOptions="Start"
+            HeightRequest="{ grial:OnOrientationSizeRequest
+                Default=154,
+                PortraitPhone=154,
+                LandscapePhone=154,
+                PortraitTablet=244,
+                LandscapeTablet=244
+            }"
+        />
+
+        <!-- Date -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            VerticalOptions="End"
+            HorizontalTextAlignment="End"
+            HorizontalOptions="Fill"
+            Text="{ Binding When }"
+            FontSize="{ StaticResource SmallFontSize }"
+            Opacity="1"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+        />
+
+    </Grid>
+</ContentView>

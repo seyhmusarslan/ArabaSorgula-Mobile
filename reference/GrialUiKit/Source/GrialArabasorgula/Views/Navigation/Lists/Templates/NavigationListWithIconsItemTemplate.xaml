@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.NavigationListWithIconsItemTemplate">
+
+    <Grid
+        ColumnSpacing="20"
+        RowSpacing="0"
+        Margin="{ DynamicResource AirSpacingNoBorder }"
+        ColumnDefinitions="Auto,*,65"
+        RowDefinitions="*,1">
+
+        <!-- ICON -->
+        <local:RoundedIcon
+            Margin="0,10"
+            HeightRequest="50"
+            WidthRequest="50"
+            Grid.Column="0"
+            IconText="{ Binding Icon }"
+            IconColor="{ Binding BackgroundColorColor }"
+            VerticalOptions="Center"
+            IconBackgroundCornerRadius="{ DynamicResource CornerRadius-md }"
+            IconBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            IconPadding="14"
+            IconFontSize="{ OnIdiom
+                Phone=20,
+                Tablet=30
+            }"
+        />
+
+        <!-- NAME -->
+        <Label
+            Grid.Column="1"
+            Text="{ Binding Name }"
+            HorizontalOptions="Fill"
+            VerticalOptions="Center"
+            FontAttributes="Bold"
+            FontSize="{ StaticResource LargeFontSize }"
+        />
+
+        <!-- ITEM COUNT -->
+        <local:Badge
+            Grid.Column="2"
+            Text="{ Binding ItemCount }"
+            TextColor="#FFF"
+            BackgroundColor="{ DynamicResource TextTertiaryColor }"
+            VerticalOptions="Center"
+            HorizontalOptions="Start"
+            Margin="0"
+        />
+
+        <!-- CHEVRON -->
+        <Label
+            Grid.Column="3"
+            WidthRequest="20"
+            TextColor="{ DynamicResource TextTertiaryColor }"
+            HorizontalOptions="End"
+            Style="{ StaticResource NavigationListWithIconsItemTemplateChevronStyle }"
+        />
+
+        <!-- BOTTOM SEPARATOR LINE -->
+        <BoxView
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Color="{ DynamicResource ListSeparatorColor }"
+            HeightRequest="1"
+            VerticalOptions="End"
+        />
+    </Grid>
+</ContentView>

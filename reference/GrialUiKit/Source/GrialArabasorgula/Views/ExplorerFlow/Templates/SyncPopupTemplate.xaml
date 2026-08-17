@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    x:Class="arabasorgula.SyncPopupTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    BackgroundColor="{ DynamicResource OverlayColor }"
+    CloseWhenBackgroundIsClicked="False"
+    AppearingAnimation="{ uxd:ScaleInPopupAnimation
+        Duration=400,
+        ScaleFrom=1.2,
+        Easing=SinOut
+    }"
+    DisappearingAnimation="{ uxd:ScaleOutPopupAnimation
+        Duration=300,
+        ScaleTo=0.8,
+        Easing=SinIn
+    }">
+
+    <!-- CONTENT -->
+    <StackLayout
+        Padding="{ DynamicResource AirSpacing }"
+        WidthRequest="280"
+        grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        Spacing="20"
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+        <!-- TITLE -->
+        <Label
+            Text="Sync"
+            HorizontalOptions="Center"
+            FontSize="{ StaticResource TitleFontSize }"
+        />
+
+        <!-- PROGRESS BAR -->
+        <grial:ProgressBar
+            x:Name="progressBar"
+            Progress="0"
+            ProgressChanged="OnProgressChanged"
+        />
+
+        <!-- TEXT -->
+        <Label
+            HorizontalTextAlignment="End"
+            FontSize="14"
+            Text="{ grial:Eval
+                'A * 100',
+                A={Binding
+                    AnimatedProgress,
+                    Source={x:Reference progressBar}
+                },
+                StringFormat='{0:0}% completed'
+            }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+        />
+    </StackLayout>
+</uxd:PopupPage>

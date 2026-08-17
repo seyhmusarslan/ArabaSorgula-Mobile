@@ -1,0 +1,414 @@
+{
+  "[grial-metadata]": "id: Grial#Articles.json version: 1.0.1",
+  "Articles": {
+    "$id": "articles",
+    "List": [
+      {
+        "$id": "article-1",
+        "Title": "Petri lights",
+        "Subtitle": "Northern friends",
+        "Body": "We met Petri back in 2016, and have been working together since. This is a small tribute to him. Thank you Petri! You’ve been such an incredible partner on this journey. While I’m writing these lines I can imagine you laughing, and that’s enough reward. Thank you my Finnish friend.",
+        "Section": "LIFE",
+        "Author": "Sky Dirson",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_01.jpg",
+        "Quote": "The world is a mirror, forever reflecting what you are doing, within yourself.",
+        "QuoteAuthor": "Carla Z.",
+        "When": "SEP 22, 2022",
+        "Followers": "235",
+        "Likes": "4.7K"
+      },
+      {
+        "$id": "article-2",
+        "Title": "Best museums",
+        "Subtitle": "Extraordinary exhibitions and collections of modern and contemporary art ",
+        "Body": "The 20th and 21st centuries have witnessed an amazing amount of development in art, artistic movements rising, staking out their place, and then stepping to the side to make way for something new.",
+        "Section": "ART",
+        "Author": "Janis Spector",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_02.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_02.jpg",
+        "Quote": "Today,museums are busier and more exciting and attractive",
+        "QuoteAuthor": "Janis Spector",
+        "When": "JUL 13, 2022",
+        "Followers": "340",
+        "Likes": "12K"
+      },
+      {
+        "$id": "article-3",
+        "Title": "Traveling matters",
+        "Subtitle": "The happier you are, the healthier you are",
+        "Body": "The UN’s World Tourism Organization established that the happiest people on earth travel more. Travel makes us happy, here’s why.\nStudies have shown that we value our experiences more than any material possessions we may own.\n\nThrough trips, you get to meet new people, people that you otherwise would never have met, which contributes to your happiness in life.",
+        "Section": "TRAVEL",
+        "Author": "Regina Joplin",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_03.jpg",
+        "Quote": "Traveling – it leaves you speechless, then turns you into a storyteller",
+        "QuoteAuthor": "Ibn Battuta",
+        "When": "AUG 21, 2022",
+        "Followers": "120",
+        "Likes": "798"
+      },
+      {
+        "$id": "article-4",
+        "Title": "A peaceful home",
+        "Subtitle": "Make your place a Stress-Free Sanctuary",
+        "Body": "Certain decorating choices can help you to feel this sense of peace, and have a huge impact while you're in it. And yet, stress is a defining feature of contemporary life—this past year, 55% of Americans reported experiencing a lot of stress on a daily basis.\n\nGood design might not be able to intervene in a cultural existential crisis, but it can help build spaces that calm and restore us. ",
+        "Section": "HOME",
+        "Author": "Ivy Zeroth",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_04.jpg",
+        "Quote": "“Your home either nurtures and supports you or depletes your energy and leaves you exhausted,",
+        "QuoteAuthor": "Jane Queen",
+        "When": "JUN 26, 2022",
+        "Followers": "112",
+        "Likes": "2.1k"
+      },
+      {
+        "$id": "article-5",
+        "Title": "Family quality time",
+        "Subtitle": "Establish a fun, frequent and meaningful family time routine",
+        "Body": "Any time spent together is good, but the most effective time together is meaningful time. Time without distractions and taking part in activities enjoyable for all family. It also includes sincere conversations and genuine praise.\n\nSpend the time relaxing and talking with each other. You might be surprised by the things you learn about your kids on your special night or how you connect as a family. ",
+        "Section": "FAMILY",
+        "Author": "Steve Stone",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_05.jpg",
+        "Quote": "The memories we make with our family is everything",
+        "QuoteAuthor": "Candace Cameron Bure",
+        "When": "JUN 17, 2022",
+        "Followers": "2K",
+        "Likes": "92"
+      },
+      {
+        "$id": "article-6",
+        "Title": "A tea with yourself?",
+        "Subtitle": "How Tea Benefits Your Self-Care Routine",
+        "Body": "A cup of tea has surprising benefits that can improve your emotional health, help you sleep, calm your anxiety, and settle your tummy.\n\nThe pace to make a tea is slow, calm and tranquil and the beverage at the end should be soothing and nurturing",
+        "Section": "HEALTH",
+        "Author": "Sky Dirson",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_06.jpg",
+        "Quote": "Sometimes all you need is a good cup of Tea",
+        "QuoteAuthor": "Carla Z.",
+        "When": "SEP 22, 2022",
+        "Followers": "235",
+        "Likes": "4.7K"
+      },
+      {
+        "$id": "article-7",
+        "Title": "United by friendship",
+        "Subtitle": "Friendship beyond everything",
+        "Body": "I always go to sea as a sailor, that's when beatiful design happens to me.\nHere is an artist. He desires to paint you the dreamiest, shadiest, quietest, most enchanting bit of romantic landscape in all the valley. There stand his trees and wisdom.\n\nSeeing, now, that there were no curtains to the window, and that the street being very open, the fountain opposite commanded a superb view on the chirping birds dancing freely, impervious to their surroundings. The best view one could ask for.",
+        "Section": "TRAVEL",
+        "Author": "UXDIVERS",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_07.jpg",
+        "Quote": "The function of design is letting design function. Make it simple, but significant.",
+        "QuoteAuthor": "Jaco Morrison",
+        "When": "Jan 6, 2021",
+        "Followers": "112",
+        "Likes": "2.1k"
+      },
+      {
+        "$id": "article-8",
+        "Title": "Olympic dream",
+        "Subtitle": "The way to the podium",
+        "Body": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample.",
+        "Section": "SPORTS",
+        "Author": "Janis Spector",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_02.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_08.jpg",
+        "Quote": "The function of design is letting design function. Make it simple, but significant.",
+        "QuoteAuthor": "Janis Spector",
+        "When": "FEB 13, 2021",
+        "Followers": "340",
+        "Likes": "12K"
+      },
+      {
+        "$id": "article-9",
+        "Title": "Wheels of fortune",
+        "Subtitle": "And the wind cries mary",
+        "Body": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample.",
+        "Section": "FREE TIME",
+        "Author": "Regina Joplin",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_09.jpg",
+        "Quote": "The function of design is letting design function. Make it simple, but significant.",
+        "QuoteAuthor": "Regina Joplin",
+        "When": "FEB 21, 2021",
+        "Followers": "120",
+        "Likes": "798"
+      },
+      {
+        "$id": "article-10",
+        "Title": "Last adventure",
+        "Subtitle": "The conquest of space",
+        "Body": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample.",
+        "Section": "SCIENCE",
+        "Author": "UXDIVERS",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_04.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_10.jpg",
+        "Quote": "The function of design is letting design function. Make it simple, but significant.",
+        "QuoteAuthor": "Janis Spector",
+        "When": "MAR 9, 2021",
+        "Followers": "327",
+        "Likes": "921"
+      },
+      {
+        "$id": "article-11",
+        "Title": "Sweet leaf",
+        "Subtitle": "The rainforest newest hope",
+        "Body": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample.",
+        "Section": "NATURE",
+        "Author": "Margaret Whites",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_11.jpg",
+        "Quote": "The function of design is letting design function. Make it simple, but significant.",
+        "QuoteAuthor": "Donald Davies",
+        "When": "JUN 17, 2021",
+        "Followers": "2K",
+        "Likes": "92"
+      },
+      {
+        "$id": "article-12",
+        "Title": "Smoke kills",
+        "Subtitle": "The war against tabacco",
+        "Body": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample.",
+        "Section": "HEALTH",
+        "Author": "Skyler Harrisson",
+        "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_12.jpg",
+        "Quote": "The function of design is letting design function. Make it simple, but significant.",
+        "QuoteAuthor": "Skyler Harrisson",
+        "When": "JUN 12, 2021",
+        "Followers": "235",
+        "Likes": "4.7K"
+      }
+    ]
+  },
+  "ArticlesBrowserPage.xaml": {
+    "Articles": [
+      {
+        "$ref": "article-1"
+      },
+      {
+        "$ref": "article-3"
+      },
+      {
+        "$ref": "article-5"
+      }
+    ],
+    "Related": [
+      {
+        "$ref": "article-2"
+      },
+      {
+        "$ref": "article-4"
+      },
+      {
+        "$ref": "article-6"
+      }
+    ],
+    "Featured": [
+      {
+        "$ref": "article-7"
+      },
+      {
+        "$ref": "article-9"
+      },
+      {
+        "$ref": "article-11"
+      }
+    ]
+  },
+  "ArticlesListPage.xaml": {
+    "$ref": "articles"
+  },
+  "ArticlesFeedPage.xaml": {
+    "$ref": "articles"
+  },
+  "ArticlesListVariantPage.xaml": {
+    "$ref": "articles"
+  },
+  "ArticlesClassicViewPage.xaml": {
+    "$ref": "articles"
+  },
+  "ArticlesColumnsPage.xaml": {
+    "Main": {
+      "$ref": "article-5"
+    },
+    "Secondary": {
+      "$ref": "articles"
+    }
+  },
+  "ArticleDetailPage.xaml": {
+    "Article": {
+      "$ref": "article-1"
+    },
+    "Comments": [
+      {
+        "$id": "article-comment-1",
+        "From": {
+          "Name": "Jaco Morrison",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg"
+        },
+        "Title": "Artina is awesome...you\"ll love it",
+        "Body": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors.",
+        "HasAttachment": true,
+        "ThreadCount": 2,
+        "When": "July 7",
+        "IsStared": false,
+        "IsRead": false
+      },
+      {
+        "$id": "article-comment-2",
+        "From": {
+          "Name": "Margaret Whites",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_02.jpg"
+        },
+        "Title": "Artina is awesome...you\"ll love it",
+        "Body": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors.",
+        "HasAttachment": false,
+        "ThreadCount": 10,
+        "When": "3 minutes ago",
+        "IsStared": true,
+        "IsRead": false
+      },
+      {
+        "$id": "article-comment-3",
+        "From": {
+          "Name": "Regina Joplin",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg"
+        },
+        "Title": "Artina is awesome...you\"ll love it",
+        "Body": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors.",
+        "HasAttachment": false,
+        "ThreadCount": 5,
+        "When": "July 7",
+        "IsStared": true,
+        "IsRead": true
+      }
+    ]
+  },
+  "CardArticlePage.xaml": {
+    "Article": {
+      "$ref": "article-1"
+    },
+    "Gallery": [
+      {
+        "$ref": "article-5"
+      },
+      {
+        "$ref": "article-4"
+      },
+      {
+        "$ref": "article-3"
+      },
+      {
+        "$ref": "article-2"
+      }
+    ],
+    "Related": [
+      {
+        "$ref": "article-2"
+      },
+      {
+        "$ref": "article-3"
+      },
+      {
+        "$ref": "article-4"
+      },
+      {
+        "$ref": "article-5"
+      }
+    ],
+    "Comments": [
+      {
+        "$ref": "article-comment-1"
+      },
+      {
+        "$ref": "article-comment-2"
+      },
+      {
+        "$ref": "article-comment-3"
+      }
+    ]
+  },
+  "CurvedHeaderArticlePage.xaml": {
+    "Article": {
+      "$ref": "article-1"
+    },
+    "Related": [
+      {
+        "$ref": "article-2"
+      },
+      {
+        "$ref": "article-5"
+      }
+    ],
+    "Comments": [
+      {
+        "$ref": "article-comment-1"
+      },
+      {
+        "$ref": "article-comment-2"
+      },
+      {
+        "$ref": "article-comment-3"
+      }
+    ]
+  },
+  "ParallaxHeaderArticlePage.xaml": {
+    "Article": {
+      "$ref": "article-1"
+    },
+    "Related": [
+      {
+        "$ref": "article-2"
+      },
+      {
+        "$ref": "article-3"
+      },
+      {
+        "$ref": "article-4"
+      },
+      {
+        "$ref": "article-5"
+      },
+      {
+        "$ref": "article-6"
+      }
+    ],
+    "Cards": [
+      {
+        "$id": "article-card-1",
+        "Icon": "",
+        "Emoji": "26fd",
+        "Value": "3844",
+        "Description": "Km driven"
+      },
+      {
+        "Icon": "",
+        "Emoji": "23f0",
+        "Value": "14hr",
+        "Description": "Time spent"
+      },
+      {
+        "Icon": "",
+        "Emoji": "1f525",
+        "Value": "$235",
+        "Description": "Gas expense"
+      }
+    ],
+    "Comments": [
+      {
+        "$ref": "article-comment-1"
+      },
+      {
+        "$ref": "article-comment-2"
+      },
+      {
+        "$ref": "article-comment-3"
+      }
+    ]
+  }
+}

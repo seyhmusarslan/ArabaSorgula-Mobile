@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.StartVariantPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    grial:GrialNavigationPage.HasNavigationBar="false"
+    Title="{ grial:Translate PageTitleStartVariant }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <Grid
+        RowDefinitions="3*,7*"
+        grial:Effects.BackgroundGradient="{ DynamicResource PrimaryGradient }">
+
+        <!-- BACKGROUND DECORATION -->
+        <local:BackgroundDecoration Margin="{ grial:OnOrientationThickness LandscapePhone='0', PortraitPhone='100,0,0,50' }" />
+
+        <Grid
+            Grid.RowSpan="2"
+            Padding="{ DynamicResource AirSpacing }"
+            Style="{ StaticResource OnIdiomResponsiveMarginStyle }">
+
+            <!-- CARD -->
+            <grial:CardView
+                HasShadow="False"
+                RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                Padding="{ DynamicResource AirSpacing }"
+                VerticalOptions="Center">
+
+                <!-- LOGO -->
+                <local:BrandLogo
+                    Grid.Row="0"
+                    HorizontalOptions="Start"
+                    Inverted="False"
+                />
+
+                <!-- TITLE -->
+                <Label
+                    Margin="0,40,0,25"
+                    Grid.Row="1"
+                    Text="{ grial:Translate StartHeader }"
+                    FontAttributes="Bold"
+                    FontSize="{ OnIdiom
+                        Phone=24,
+                        Tablet=34
+                    }"
+                />
+
+                <!-- RELEASE TITLE -->
+                <Label
+                    Grid.Row="2"
+                    Text="{ grial:Translate StartLastReleaseTitle }"
+                    FontAttributes="Bold"
+                    FontSize="{ OnIdiom
+                        Phone=13,
+                        Tablet=20
+                    }"
+                />
+
+                <!-- DESCRIPTION -->
+                <Label
+                    Grid.Row="3"
+                    Margin="0,10,0,0"
+                    Text="{ grial:Translate StartLastReleaseDescription }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    FontSize="{ OnIdiom
+                        Phone=15,
+                        Tablet=20
+                    }"
+                />
+
+                <!-- CONTINUE BUTTON -->
+                <Button
+                    Margin="0,40,0,0"
+                    Grid.Row="4"
+                    Clicked="OnClose"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    Text="{ grial:Translate StringContinue }"
+                />
+            </grial:CardView>
+
+
+        </Grid>
+    </Grid>
+</ContentPage>

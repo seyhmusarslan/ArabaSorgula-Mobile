@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.LightTheme">
+    <ResourceDictionary.MergedDictionaries>
+        <local:ThemesSharedValues />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- TODO: REMOVE -->
+
+    <!-- ############################## DESIGN SYSTEM ############################## -->
+
+    <!-- PRIMARY COLORS -->
+    <Color x:Key="PrimaryColor">#3F74FF</Color>
+    <Color x:Key="PrimaryHighlightColor">#6590FF</Color>
+    <Color x:Key="PrimaryVariantColor">#D9E3FF</Color>
+
+    <!-- BACKGROUND COLORS -->
+    <Color x:Key="BackgroundColor">#F1F3F8</Color>
+    <Color x:Key="BackgroundSecondaryColor">#FFFFFF</Color>
+    <Color x:Key="BackgroundTertiaryColor">#DBE0ED</Color>
+
+    <!-- TEXT COLORS -->
+    <Color x:Key="TextColor">#12141B</Color>
+    <Color x:Key="TextSecondaryColor">#6F7A8F</Color>
+    <Color x:Key="TextTertiaryColor">#A2AECC</Color>
+
+    <!-- SUCCESS COLORS -->
+    <Color x:Key="SuccessColor">#46C771</Color>
+    <Color x:Key="SuccessSecondaryColor">#E8F1EB</Color>
+    <Color x:Key="SuccessTertiaryColor">#1DAB52</Color>
+
+    <!-- WARNING COLORS -->
+    <Color x:Key="WarningColor">#F9B300</Color>
+    <Color x:Key="WarningSecondaryColor">#FFF8D4</Color>
+    <Color x:Key="WarningTertiaryColor">#CC9C07</Color>
+
+    <!-- ERROR COLORS -->
+    <Color x:Key="ErrorColor">#FF2525</Color>
+    <Color x:Key="ErrorSecondaryColor">#FFE3E3</Color>
+    <Color x:Key="ErrorTertiaryColor">#BD3636</Color>
+
+    <!-- INFO COLORS -->
+    <Color x:Key="InfoColor">#3F75FF</Color>
+    <Color x:Key="InfoSecondaryColor">#D9E3FF</Color>
+    <Color x:Key="InfoTertiaryColor">#6590FF</Color>
+
+    <!-- DISABLED COLORS -->
+    <Color x:Key="DisabledColor">#A2AECC</Color>
+    <Color x:Key="DisabledSecondaryColor">#DCE1EE</Color>
+    <Color x:Key="DisabledTertiaryColor">#F1F3F8</Color>
+
+    <!-- OVERLAY COLORS -->
+    <Color x:Key="OverlayColor">#CC000000</Color>
+    <Color x:Key="OverlayVariantColor">#55000000</Color>
+    <Color x:Key="OverlayHighlightColor">#33FFFFFF</Color>
+
+    <!-- ADITIONAL COLORS -->
+    <Color x:Key="RatingColor">#FF602E</Color>
+    <Color x:Key="OnSurfaceColor">#FFFFFF</Color>
+    <Color x:Key="FavoriteColor">#FF2525</Color>
+
+    <!-- GRADIENTS -->
+    <grial:LinearGradient x:Key="PrimaryGradient">
+        <grial:GradientColor Color="{ StaticResource PrimaryColor }" />
+        <grial:GradientColor Color="#3F97FF" />
+    </grial:LinearGradient>
+
+    <grial:LinearGradient x:Key="OverlayImageGradient">
+        <grial:GradientColor Color="#B218222C" />
+        <grial:GradientColor Color="#001C2833" />
+    </grial:LinearGradient>
+
+    <!-- PALETTES -->
+    <grial:ColorizePalette x:Key="VariantPalette">
+        <Color>#E8F1EB</Color>
+        <Color>#F1E4F7</Color>
+        <Color>#E8F8FF</Color>
+        <Color>#D9E3FF</Color>
+        <Color>#FFF8D4</Color>
+        <Color>#FFE4D9</Color>
+        <Color>#FFD9D9</Color>
+        <Color>#FBE4EE</Color>
+    </grial:ColorizePalette>
+
+    <grial:ColorizePalette x:Key="DefaultPalette">
+        <Color>#46C771</Color>
+        <Color>#AF52DE</Color>
+        <Color>#5AC8FA</Color>
+        <Color>#3F75FF</Color>
+        <Color>#F9B300</Color>
+        <Color>#FF7134</Color>
+        <Color>#FF2525</Color>
+        <Color>#FB4D96</Color>
+    </grial:ColorizePalette>
+
+    <!-- ########################################################################### -->
+
+    <!-- ############################# ADVANCED COLORS ############################# -->
+
+    <!-- GENERAL COLORS -->
+    <grial:XamlColorAlias x:Key="TextOnSurfaceColor" Value="{ StaticResource OnSurfaceColor }" />
+    <grial:XamlColorAlias x:Key="SecondaryCardBackgroundColor" Value="{ StaticResource BackgroundColor }" />
+    <grial:XamlColorAlias x:Key="WalkthroughSkipButtonColor" Value="{ StaticResource BackgroundTertiaryColor }" />
+    <grial:XamlColorAlias x:Key="PrimaryActionButtonTextColor" Value="{ StaticResource TextOnSurfaceColor }" />
+    <grial:XamlColorAlias x:Key="TagItemUnselectedBackgroundColor" Value="{ StaticResource DisabledSecondaryColor }" />
+    <grial:XamlColorAlias x:Key="SplashBackgroundColor" Value="{ StaticResource PrimaryColor }" />
+    <grial:XamlColorAlias x:Key="NavigationBarTextColor" Value="{ StaticResource TextOnSurfaceColor }" />
+    <grial:XamlColorAlias x:Key="RatingsUnselectedColor" Value="{ StaticResource DisabledSecondaryColor }" />
+
+    <!-- POPUPS -->
+    <grial:XamlColorAlias x:Key="CustomActionSheetBackgroundColor" Value="{ StaticResource BackgroundColor }" />
+    <grial:XamlColorAlias x:Key="CustomActionSheetTextColor" Value="{ StaticResource TextSecondaryColor }" />
+
+    <!-- TAGS -->
+    <grial:XamlColorAlias x:Key="TagItemBackgroundColor" Value="{ StaticResource PrimaryVariantColor }" />
+    <grial:XamlColorAlias x:Key="TagItemTextColor" Value="{ StaticResource PrimaryColor }" />
+
+    <!-- BUTTONS -->
+    <grial:XamlColorAlias x:Key="SecondaryActionButtonColor" Value="{ StaticResource PrimaryVariantColor }" />
+    <grial:XamlColorAlias x:Key="SecondaryActionButtonTextColor" Value="{ StaticResource PrimaryColor }" />
+
+    <grial:XamlColorAlias x:Key="CircleActionButtonFlatBackgroundColor" Value="{ StaticResource PrimaryColor }" />
+    <grial:XamlColorAlias x:Key="CircleActionButtonFlatBorderColor" Value="{ StaticResource BackgroundSecondaryColor }" />
+    <grial:XamlColorAlias x:Key="CircleActionButtonFlatIconColor" Value="{ StaticResource TextOnSurfaceColor }" />
+
+    <grial:XamlColorAlias x:Key="SaveButtonColor" Value="{ StaticResource SuccessColor }" />
+    <grial:XamlColorAlias x:Key="DeleteButtonColor" Value="{ StaticResource ErrorColor }" />
+
+    <!-- DATA GRIDS -->
+    <grial:XamlColorAlias x:Key="DataGridHeaderRowBackgroundColor" Value="{ StaticResource BackgroundColor }" />
+    <grial:XamlColorAlias x:Key="DataGridHeaderTextColor" Value="{ StaticResource TextSecondaryColor }" />
+    <grial:XamlColorAlias x:Key="DataGridBackgroundColor" Value="{ StaticResource BackgroundColor }" />
+    <grial:XamlColorAlias x:Key="DataGridCellTextColor" Value="{ StaticResource TextSecondaryColor }" />
+    <grial:XamlColorAlias x:Key="EvenRowsBackgroundColor" Value="{ StaticResource BackgroundColor }" />
+    <grial:XamlColorAlias x:Key="OddRowsBackgroundColor" Value="{ StaticResource BackgroundSecondaryColor }" />
+
+    <!-- ENTRY AND EDITORS -->
+    <grial:XamlColorAlias x:Key="EntryAndEditorsBackgroundColor" Value="{ StaticResource BackgroundTertiaryColor }" />
+    <grial:XamlColorAlias x:Key="EntryAndEditorsBorderColor" Value="{ StaticResource BackgroundTertiaryColor }" />
+
+    <!-- MAIN MENU -->
+    <grial:XamlColorAlias x:Key="MainMenuBackgroundColor" Value="{ StaticResource BackgroundSecondaryColor }" />
+    <grial:XamlColorAlias x:Key="MainMenuTextColor" Value="{ StaticResource TextColor }" />
+    <grial:XamlColorAlias x:Key="MainMenuIconColor" Value="{ StaticResource TextColor }" />
+
+    <!-- SEPARATOR COLORS -->
+    <grial:XamlColorAlias x:Key="ListSeparatorColor" Value="{ StaticResource DisabledSecondaryColor }" />
+    <grial:XamlColorAlias x:Key="BaseSeparatorColor" Value="{ StaticResource TextSecondaryColor }" />
+
+    <!-- TAB CONTROL COLORS -->
+    <grial:XamlColorAlias x:Key="AndroidTabStripBackgroundColor" Value="{ StaticResource BackgroundSecondaryColor }" />
+    <grial:XamlColorAlias x:Key="AndroidBottomTabStripBackgroundColor" Value="{ StaticResource BackgroundSecondaryColor }" />
+    <grial:XamlColorAlias x:Key="AndroidTabItemDefaultTextColor" Value="{ StaticResource PrimaryColor }" />
+    <grial:XamlColorAlias x:Key="AndroidTabItemSelectedTextColor" Value="{ StaticResource PrimaryColor }" />
+    <grial:XamlColorAlias x:Key="AndroidSelectedBackgroundColor" Value="{ StaticResource PrimaryColor }" />
+    <grial:XamlColorAlias x:Key="SimpleTabDefaultStateTextColor" Value="{ StaticResource TextSecondaryColor }" />
+
+    <!-- CHAT -->
+    <grial:XamlColorAlias x:Key="ChatRightBalloonBackgroundColor" Value="{ StaticResource PrimaryColor }" />
+    <grial:XamlColorAlias x:Key="ChatRightTextColor" Value="{ StaticResource TextOnSurfaceColor }" />
+    <grial:XamlColorAlias x:Key="ChatLeftTextColor" Value="{ StaticResource TextOnSurfaceColor }" />
+    <grial:XamlColorAlias x:Key="ChatLeftBalloonBackgroundColor" Value="{ StaticResource TextSecondaryColor }" />
+
+    <!-- ########################################################################### -->
+
+    <!-- ############################### FINE-TUNING ############################### -->
+
+    <!-- MAIN MENU -->
+    <x:Double x:Key="MainMenuLabelFontsize">19</x:Double>
+    <x:Double x:Key="MainMenuIconFontsize">22</x:Double>
+
+    <!-- BUTTONS -->
+    <x:Double x:Key="BaseButtonHeight">54</x:Double>
+
+    <x:Int32 x:Key="BaseButtonCornerRadius">16</x:Int32>
+    <!--<grial:XamlDoubleAlias x:Key="BaseButtonCornerRadius" Value="{ StaticResource CornerRadius-big }" />-->
+    <x:Double x:Key="BaseButtonBorderWith">0</x:Double>
+
+    <!-- DIALOGS & POPUPS -->
+    <!--<x:Double x:Key="DialogsCornerRadius">15</x:Double>-->
+    <grial:XamlCornerRadiusAlias x:Key="DialogsCornerRadius" Value="{ StaticResource CornerRadius-big }" />
+
+    <!--<x:Int32 x:Key="DialogsButtonCornerRadius">16</x:Int32>-->
+    <grial:XamlDoubleAlias x:Key="DialogsButtonCornerRadius" Value="{ StaticResource CornerRadius-big }" />
+    <x:Double x:Key="DialogsButtonWidthRequest">265</x:Double>
+    <x:Double x:Key="DialogsButtonHeightRequest">54</x:Double>
+    <Thickness x:Key="DialogsButtonMargin">5,0</Thickness>
+
+    <!-- TAGS -->
+    <Thickness x:Key="TagItemMargin">4,0</Thickness>
+    <Thickness x:Key="TagItemPadding">10,0</Thickness>
+    <!--<x:Double x:Key="TagItemCornerRadius">8</x:Double>-->
+    <grial:XamlDoubleAlias x:Key="TagItemCornerRadius" Value="{ StaticResource CornerRadius-x-sm }" />
+    <x:Double x:Key="TagItemFontSize">12</x:Double>
+    <x:Double x:Key="TagItemIconSize">12</x:Double>
+    <x:Double x:Key="TagItemImageSize">18</x:Double>
+    <x:Double x:Key="TagItemImageBorderSize">1</x:Double>
+
+    <!-- ENTRY AND EDITORS -->
+    <x:Single x:Key="EntryAndEditorsBorderWidth">1</x:Single>
+    <x:Single x:Key="EntryAndEditorsHorizontalPadding">12</x:Single>
+    <x:Double x:Key="EntryHeightRequest">54</x:Double>
+    <!--<x:Single x:Key="EntryBorderCornerRadius">16</x:Single>-->
+    <grial:XamlCornerRadiusAlias x:Key="EntryBorderCornerRadius" Value="{ StaticResource CornerRadius-big }" />
+    <grial:BorderStyle x:Key="EntryBorderStyle">None</grial:BorderStyle>
+
+    <x:Double x:Key="EditorHeightRequest">100</x:Double>
+    <!--<x:Single x:Key="EditorBorderCornerRadius">16</x:Single>-->
+    <grial:XamlFloatAlias
+        x:Key="EditorBorderCornerRadius"
+        Value="{ StaticResource CornerRadiusFloat-big }"
+    />
+    <grial:BorderStyle x:Key="EditorBorderStyle">RoundRect</grial:BorderStyle>
+    <x:Double x:Key="EditorFontSize">13</x:Double>
+
+    <grial:BorderStyle x:Key="PickerBorderStyle">RoundRect</grial:BorderStyle>
+
+    <!-- Popup Specific COLORS -->
+    <grial:XamlColorAlias x:Key="PopupBorderColor" Value="{ StaticResource BackgroundSecondaryColor }" />
+    <Color x:Key="EntryPlaceholderColor">#5D5D5D</Color>
+</ResourceDictionary>

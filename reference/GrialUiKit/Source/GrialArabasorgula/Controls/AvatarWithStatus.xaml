@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.AvatarWithStatus"
+    x:Name="root">
+
+    <Grid>
+        <!-- Square Image Border -->
+        <Grid
+            x:Name="borderBoxView"
+            BackgroundColor="{ Binding BorderColor, Source={x:Reference root} }"
+        />
+
+        <!-- Square Image -->
+        <Image
+            x:Name="image"
+            Margin="{ Binding BorderSize, Source={x:Reference root} }"
+            grial:Effects.CornerRadius="{ Binding CornerRadius, Source={x:Reference root} }"
+            Source="{ Binding Source, Source={x:Reference root} }"
+            Aspect="{ Binding Aspect, Source={x:Reference root} }"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            grial:Effects.DropShadow="{ Binding DropShadow, Source={x:Reference root} }"
+        />
+
+        <!-- Indicator -->
+        <local:Badge
+            x:Name="indicator"
+            IsVisible="false"
+            AutoHide="{ Binding StatusIndicatorAutoHide, Source={x:Reference root} }"
+            Size="{ Binding StatusIndicatorSize, Source={x:Reference root} }"
+            BackgroundColor="{ Binding StatusIndicatorColor, Source={x:Reference root} }"
+            FontSize="{ Binding StatusIndicatorFontSize, Source={x:Reference root} }"
+            Text="{ Binding StatusIndicatorText, Source={x:Reference root} }"
+            TextColor="{ Binding StatusIndicatorTextColor, Source={x:Reference root} }"
+            BorderColor="{ Binding StatusIndicatorBorderColor, Source={x:Reference root} }"
+            BorderSize="{ Binding StatusIndicatorBorderSize, Source={x:Reference root} }"
+        />
+
+    </Grid>
+
+</ContentView>

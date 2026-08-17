@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.AppPreferencesPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitlePreferences }">
+
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <!-- MAIN CONTAINER -->
+        <VerticalStackLayout
+            Padding="{ DynamicResource AirSpacingNoTop }"
+            Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+            <!-- GENERAL SECTION -->
+            <VerticalStackLayout
+                BindableLayout.ItemsSource="{ Binding General }"
+                Spacing="8">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <local:PreferencesItemTemplate />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+            <!-- VOLUME SECTION -->
+            <Grid
+                Grid.Row="1"
+                Padding="0,24,0,16"
+                RowDefinitions="*,Auto"
+                ColumnDefinitions="Auto,*,Auto">
+                <!-- CATEGORY -->
+                <Label
+                    Grid.ColumnSpan="3"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="0,0,0,10"
+                    Text="{ Binding Volume, StringFormat='Volume {0:0}%' }"
+                    VerticalTextAlignment="Center"
+                />
+                <!-- ICON -->
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Text="{ x:Static local:GrialIconsFont.Volume }"
+                    FontFamily="{ DynamicResource IconsFontFamily }"
+                    FontSize="22"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                />
+                <!-- SLIDER -->
+                <grial:Slider
+                    Value="{ Binding Volume }"
+                    MinValue="0"
+                    MaxValue="100"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    VerticalOptions="Center"
+                    Text="{ x:Static local:GrialIconsFont.Volume2 }"
+                    FontFamily="{ DynamicResource IconsFontFamily }"
+                    FontSize="22"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                />
+                <!-- LINE SEPARATOR -->
+                <BoxView
+                    Grid.Row="1"
+                    Grid.ColumnSpan="3"
+                    VerticalOptions="End"
+                    Style="{ StaticResource Horizontal1ptLineStyle }"
+                    Margin="0,20,0,-12"
+                />
+            </Grid>
+            <!-- ALERTS/VERSION SECTION -->
+            <VerticalStackLayout
+                BindableLayout.ItemsSource="{ Binding Alerts }"
+                Spacing="8"
+                Margin="0,0,0,30">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <local:PreferencesItemTemplate />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    x:Class="arabasorgula.DeleteConfirmationPopupTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    BackgroundColor="{ DynamicResource OverlayColor }"
+    CloseWhenBackgroundIsClicked="False"
+    AppearingAnimation="{ uxd:ScaleInPopupAnimation
+        Duration=400,
+        ScaleFrom=1.2,
+        Easing=SinOut
+    }"
+    DisappearingAnimation="{ uxd:ScaleOutPopupAnimation
+        Duration=300,
+        ScaleTo=0.8,
+        Easing=SinIn
+    }">
+
+    <!-- CONTENT -->
+    <StackLayout
+        Padding="{ DynamicResource AirSpacing }"
+        WidthRequest="280"
+        grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        Spacing="20"
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+        <!-- TITLE -->
+        <Label
+            Text="Delete File"
+            HorizontalOptions="Center"
+            FontSize="{ StaticResource TitleFontSize }"
+        />
+
+        <!-- TEXT -->
+        <Label
+            HorizontalTextAlignment="Center"
+            FontSize="14"
+            Text="Are you sure you want   to delete this file?"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+        />
+
+        <!-- DELETE BUTTON -->
+        <Button
+            Margin="0,10,0,0"
+            Text="Delete"
+            Style="{ StaticResource PrimaryActionButtonStyle }"
+            Command="{ Binding DeleteCommand }"
+        />
+
+        <!-- CANCEL -->
+        <Button
+            Margin="0,-10,0,0"
+            Text="Cancel"
+            BorderColor="Transparent"
+            Style="{ DynamicResource PrimaryActionOutlineButtonStyle }"
+            Command="{ Binding CancelCommand }"
+        />
+    </StackLayout>
+</uxd:PopupPage>

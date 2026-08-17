@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupResultPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:TypeArguments="x:String"
+    x:Class="arabasorgula.SingleEntryFormPopup"
+    x:Name="root"
+    Background="{ DynamicResource PopupBackdropColor }"
+    AppearingAnimation="{ uxd:FadeInPopupAnimation
+        Duration=300,
+        Easing=CubicIn
+    }"
+    DisappearingAnimation="{ uxd:FadeOutPopupAnimation
+        Duration=300,
+        Easing=CubicOut
+    }">
+    <Grid
+        RowDefinitions="Auto,Auto,Auto,Auto"
+        Margin="{ DynamicResource AirSpacing }"
+        RowSpacing="{ DynamicResource SpacingBig }"
+        Padding="{ DynamicResource PopupAirSpacing }"
+        VerticalOptions="Center"
+        WidthRequest="{ OnIdiom
+            Default=-1,
+            Tablet=400,
+            Desktop=400
+        }"
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        grial:Effects.CornerRadius="{ DynamicResource CornerRadius-x-big }">
+        <!-- HEADER -->
+        <VerticalStackLayout>
+            <!-- Title -->
+            <Label
+                Text="{ Binding Title, Source={x:Reference root} }"
+                Style="{ DynamicResource MainTitleStyle }"
+                VerticalTextAlignment="End"
+                HorizontalTextAlignment="Center"
+            />
+
+            <!-- Text -->
+            <Label
+                Text="{ Binding Text, Source={x:Reference root} }"
+                Style="{ DynamicResource MainSubTitleStyle }"
+                HorizontalTextAlignment="Center"
+            />
+        </VerticalStackLayout>
+        <!-- EMAIL -->
+        <Entry
+            x:Name="entry"
+            Grid.Row="1"
+            Placeholder="{ Binding Placeholder, Source={x:Reference root} }"
+        />
+
+        <!-- CONFIRM BUTTON -->
+        <Button
+            Grid.Row="2"
+            Style="{ DynamicResource PrimaryActionButtonStyle }"
+            Text="{ Binding ActionButtonText, Source={x:Reference root} }"
+            Clicked="Button_Clicked"
+        />
+    </Grid>
+</uxd:PopupResultPage>

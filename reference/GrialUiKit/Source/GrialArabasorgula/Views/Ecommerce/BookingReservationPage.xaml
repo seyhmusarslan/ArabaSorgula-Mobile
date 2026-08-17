@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.BookingReservationPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <ScrollView grial:Effects.IgnoreIOSSafeAreaOnScrollView="All">
+
+        <!-- Main Container -->
+        <Grid
+            RowDefinitions="Auto,*"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom">
+
+            <!-- Image Container -->
+            <Grid
+                RowDefinitions="*,Auto,Auto"
+                RowSpacing="10"
+                Padding="{ DynamicResource AirSpacing }"
+                HeightRequest="{ OnIdiom
+                    Phone='300',
+                    Tablet='500'
+                }"
+                grial:Effects.CornerRadius="{ DynamicResource BaseBottomCornerRadius }">
+                <Image
+                    Margin="-30"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/calendar_01.jpg"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Grid.RowSpan="3"
+                />
+                <!-- Title -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ Binding HotelBooking.Name }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    FontSize="{ StaticResource TitleFontSize }"
+                    FontAttributes="Bold"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }"
+                />
+                <!-- INFO -->
+                <HorizontalStackLayout
+                    Grid.Row="2"
+                    Spacing="16"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+                    <!-- Rating -->
+                    <local:IconText
+                        VerticalOptions="Center"
+                        Icon="{ x:Static local:GrialIconsFont.Star }"
+                        IconFontFamily="{ DynamicResource IconsFontFamily }"
+                        Spacing="3"
+                        Text="{ Binding HotelBooking.Rating }"
+                        IconColor="{ DynamicResource OnSurfaceColor }"
+                        TextColor="{ DynamicResource OnSurfaceColor }"
+                    />
+
+                    <!-- Likes -->
+                    <local:IconText
+                        VerticalOptions="Center"
+                        Icon="{ x:Static local:GrialIconsFont.Heart }"
+                        IconFontFamily="{ DynamicResource IconsFontFamily }"
+                        Spacing="3"
+                        Text="{ Binding HotelBooking.Likes }"
+                        IconColor="{ DynamicResource OnSurfaceColor }"
+                        TextColor="{ DynamicResource OnSurfaceColor }"
+                    />
+
+                    <!-- Users -->
+                    <local:IconText
+                        VerticalOptions="Center"
+                        Icon="{ x:Static local:GrialIconsFont.MessageSquare }"
+                        IconFontFamily="{ DynamicResource IconsFontFamily }"
+                        Spacing="3"
+                        Text="{ Binding HotelBooking.Comments }"
+                        IconColor="{ DynamicResource OnSurfaceColor }"
+                        TextColor="{ DynamicResource OnSurfaceColor }"
+                    />
+                </HorizontalStackLayout>
+            </Grid>
+
+            <!-- Bottom Container -->
+            <VerticalStackLayout
+                Grid.Row="1"
+                Spacing="16"
+                Padding="{ DynamicResource AirSpacing }"
+                Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+                <Grid ColumnDefinitions="*,Auto">
+                    <!-- Location -->
+                    <local:IconText
+                        VerticalOptions="Center"
+                        Icon="{ x:Static local:GrialIconsFont.MapPin }"
+                        IconFontFamily="{ DynamicResource IconsFontFamily }"
+                        IconFontSize="{ StaticResource LargeFontSize }"
+                        Spacing="3"
+                        Text="{ Binding HotelBooking.Location }"
+                        IconColor="{ DynamicResource PrimaryColor }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        TextFontSize="{ StaticResource LargeFontSize }"
+                    />
+                    <!-- Price -->
+                    <Label
+                        Grid.Column="1"
+                        VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    Text="{ Binding HotelBooking.Cost }"
+                                    TextColor="{ DynamicResource PrimaryColor }"
+                                    FontSize="20"
+                                />
+                                <Span />
+                                <Span
+                                    Text=" /"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                    FontSize="{ StaticResource XLargeFontSize }"
+                                />
+                                <Span />
+                                <Span
+                                    Text="night"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                />
+                                <Span />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+
+                <!-- Check In /Out Card Container -->
+                <Grid
+                    ColumnDefinitions="*,1,*"
+                    ColumnSpacing="12"
+                    grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    Padding="16">
+
+                    <!-- CHECK IN -->
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        RowDefinitions="*,Auto"
+                        ColumnSpacing="10">
+                        <!-- Icon -->
+                        <Label
+                            VerticalOptions="Start"
+                            Text="{ x:Static local:GrialIconsFont.Calendar }"
+                            FontFamily="{ DynamicResource IconsFontFamily }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            FontSize="20"
+                        />
+                        <!-- Check in Label -->
+                        <Label
+                            Grid.Column="1"
+                            Text="{ grial:Translate LabelCheckIn }"
+                            TextColor="{ DynamicResource TextSecondaryColor }"
+                        />
+                        <!-- Date -->
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            MaxLines="1"
+                            VerticalOptions="Start"
+                            Text="{ Binding RangeStart, StringFormat='{0: MMM dd, yyyy}', TargetNullValue='N/D' }"
+                            FontSize="{ StaticResource LargeFontSize }"
+                        />
+                    </Grid>
+
+                    <!-- SEPARATOR -->
+                    <BoxView
+                        Grid.Column="1"
+                        VerticalOptions="Fill"
+                        WidthRequest="1"
+                        Color="{ DynamicResource BackgroundTertiaryColor }"
+                    />
+
+                    <!-- CHECK OUT -->
+                    <Grid
+                        Grid.Column="2"
+                        ColumnDefinitions="Auto,*"
+                        RowDefinitions="*,Auto"
+                        ColumnSpacing="10">
+                        <!-- Icon -->
+                        <Label
+                            VerticalOptions="Center"
+                            Text="{ x:Static local:GrialIconsFont.Calendar }"
+                            FontFamily="{ DynamicResource IconsFontFamily }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            FontSize="20"
+                        />
+                        <!-- Check out Label -->
+                        <Label
+                            Grid.Column="2"
+                            Text="{ grial:Translate LabelCheckOut }"
+                            TextColor="{ DynamicResource TextSecondaryColor }"
+                        />
+                        <!-- Date -->
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            MaxLines="1"
+                            VerticalOptions="Start"
+                            Text="{ Binding RangeEnd, StringFormat='{0: MMM dd, yyyy}', TargetNullValue='N/D' }"
+                            FontSize="{ StaticResource LargeFontSize }"
+                        />
+                    </Grid>
+                </Grid>
+
+                <!-- CALENDAR -->
+                <grial:Calendar
+                    DisablePastDates="True"
+                    StartDate="{ Binding StartDate, Mode=OneTime }"
+                    EndDate="{ Binding EndDate, Mode=OneTime }"
+                    SelectedDate="{ Binding SelectedDate, Mode=TwoWay }"
+                    SelectedRange="{ Binding SelectedRange, Mode=TwoWay }"
+                    ControlTemplate="{ DynamicResource CalendarTemplate }"
+                />
+
+                <!-- BOOKING BUTTON -->
+                <Button
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    Text="{ grial:Translate StringBookingNow }"
+                    VerticalOptions="End"
+                    Command="{ Binding BookCommand }"
+                />
+            </VerticalStackLayout>
+
+            <!-- CLOSE ICON -->
+            <local:RoundedIconButton
+                Style="{ StaticResource CloseIconButtonInverseStyle }"
+                Command="{ Binding CloseCommand }"
+            />
+        </Grid>
+
+    </ScrollView>
+</ContentPage>

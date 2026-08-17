@@ -1,0 +1,30 @@
+/* [grial-metadata] id: Grial#MessagesListViewModel.cs version: 1.0.1 */
+using System.Collections.ObjectModel;
+using System.Globalization;
+using UXDivers.Grial;
+
+namespace arabasorgula
+{
+    public class MessagesListViewModel : ObservableObject
+    {
+        public MessagesListViewModel()
+            : base(listenCultureChanges: true)
+        {
+            LoadData();
+        }
+
+        public ObservableCollection<MessageData> Messages { get; } = new ObservableCollection<MessageData>();
+
+        protected override void OnCultureChanged(CultureInfo culture)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            Messages.Clear();
+
+            JsonHelper.Instance.LoadViewModel(this, source: "Messages.json");
+        }
+    }
+}

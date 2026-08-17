@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SmartHomeRoomPage"
+    Title="{ Binding Title }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    x:Name="root">
+
+    <!-- MAIN GRID -->
+    <Grid
+        RowDefinitions="170,*"
+        grial:Effects.ApplyIOSSafeAreaAsPadding="Top,Left,Right">
+
+        <Grid
+            RowDefinitions="Auto,*"
+            Padding="{ DynamicResource AirSpacingWithBorder }"
+            RowSpacing="20">
+            <!-- TITLE -->
+            <Label
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                Text="{ grial:Translate LabeRecentActivity }"
+                FontSize="17"
+            />
+            <Label
+                VerticalOptions="Start"
+                HorizontalOptions="End"
+                Text="{ grial:Translate LabelLastHs }"
+                FontSize="15"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+
+            <grial:CategoryChart
+                Grid.Row="1"
+                LabelFontColor="{ DynamicResource TextSecondaryColor }"
+                DisplayValues="False"
+                DisplayReferenceAxis="False"
+                DisplayReferenceGridLines="False"
+                DisplayValuesGridLines="True"
+                BackgroundColor="Transparent">
+                <grial:LineSeries
+                    ItemsSource="{ Binding RecentActivity }"
+                    Color="{ DynamicResource PrimaryColor }"
+                    LineStrokeSize="2"
+                    DisplayPoints="False"
+                    ValuePath="Value"
+                    LabelPath="Label"
+                />
+            </grial:CategoryChart>
+        </Grid>
+
+        <!-- CURVED TOP-TRIMMED GRID -->
+        <grial:ExtendedGrid
+            Grid.Row="1"
+            RowSpacing="20"
+            BackgroundColor="{ DynamicResource BackgroundColor }"
+            Padding="0,20,0,0"
+            Margin="0,-40,0,0"
+            TrimTopShape="InvertedRoundedCorners"
+            TrimTopHeight="40">
+
+            <!-- DEVICES -->
+            <ScrollView
+                VerticalScrollBarVisibility="Never"
+                Style="{ DynamicResource ResponsiveLandscapeMarginStyle }">
+
+                <grial:GridView
+                    ItemsSource="{ Binding Devices }"
+                    Padding="{ DynamicResource AirSpacingSmallBorder }"
+                    RowSpacing="15"
+                    ColumnSpacing="20"
+                    ColumnCount="{ grial:OnOrientationInt
+                        PortraitPhone=2,
+                        LandscapePhone=3,
+                        PortraitTablet=3,
+                        LandscapeTablet=3
+                    }"
+                    VerticalOptions="Start">
+                    <grial:GridView.ItemTemplate>
+                        <DataTemplate>
+                            <local:SmartHomeDeviceCardItemTemplate>
+                                <View.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{ Binding BindingContext.ItemTappedCommand, Source={x:Reference root} }"
+                                        CommandParameter="{ Binding . }"
+                                    />
+                                </View.GestureRecognizers>
+                            </local:SmartHomeDeviceCardItemTemplate>
+                        </DataTemplate>
+                    </grial:GridView.ItemTemplate>
+                </grial:GridView>
+            </ScrollView>
+
+        </grial:ExtendedGrid>
+    </Grid>
+</ContentPage>
+

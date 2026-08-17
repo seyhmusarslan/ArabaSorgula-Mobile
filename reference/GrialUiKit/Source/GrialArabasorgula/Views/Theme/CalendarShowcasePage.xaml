@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.CalendarShowcasePage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleCalendarShowcase }"
+    x:Name="root">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="DayTemplate">
+                <grial:CalendarDayLabel
+                    Padding="0,10"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    SingleSelectionCornerRadius="{ DynamicResource CalendarDaySingleSelectionCornerRadius }"
+                    StartRangeCornerRadius="{ DynamicResource CalendarDayStartRangeCornerRadius }"
+                    EndRangeCornerRadius="{ DynamicResource CalendarDayEndRangeCornerRadius }"
+                    MiddleRangeCornerRadius="{ DynamicResource CalendarDayMiddleRangeCornerRadius }"
+                    CurrentMonthDateTextColor="{ DynamicResource TextColor }"
+                    TextColor="{ DynamicResource TextColor }"
+                    OutOfBoundsTextColor="{ DynamicResource TextTertiaryColor }"
+                    OtherMonthDateTextColor="{ DynamicResource TextTertiaryColor }"
+                    DateFromOtherMonthTextColor="{ DynamicResource TextTertiaryColor }"
+                    DisabledDateTextColor="{ DynamicResource TextTertiaryColor }"
+                    Text="{ Binding Date, StringFormat='{0:%d}' }"
+                    BackgroundColor="Transparent"
+                    CurrentMonthDateBackgroundColor="Transparent"
+                    DateFromOtherMonthBackgroundColor="Transparent"
+                    SelectedDateTextColor="{ DynamicResource OnSurfaceColor }"
+                    SelectedDateBackgroundColor="{ DynamicResource PrimaryColor }"
+                    MiddleRangeTextColor="{ DynamicResource TextColor }"
+                    MiddleRangeBackgroundColor="{ DynamicResource PrimaryVariantColor }"
+                    TodayBackgroundColor="{ grial:If
+                        Condition={Binding
+                            BindingContext.ShowTodayDay,
+                            Source={x:Reference root}
+                        },
+                        Then={DynamicResource SuccessColor},
+                        Else='Transparent'
+                    }"
+                    TodayCornerRadius="{ DynamicResource CalendarDayTodayCornerRadius }"
+                    TodayTextColor="{ grial:If
+                        Condition={Binding
+                            BindingContext.ShowTodayDay,
+                            Source={x:Reference root}
+                        },
+                        Then={DynamicResource OnSurfaceColor},
+                        Else={DynamicResource TextColor}
+                    }"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    HeightRequest="48"
+                />
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView grial:Effects.IgnoreIOSSafeAreaOnScrollView="All">
+        <!-- Main Container -->
+        <VerticalStackLayout
+            Spacing="10"
+            Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+            <Grid>
+                <!-- Background decoration -->
+                <BoxView
+                    Color="{ DynamicResource BackgroundSecondaryColor }"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    CornerRadius="{ DynamicResource BaseBottomCornerRadius }"
+                    Margin="0,-40,0,0"
+                />
+
+                <!-- CALENDAR -->
+                <grial:Calendar
+                    Margin="{ DynamicResource AirSpacing }"
+                    SelectedDate="{ Binding SelectedDate, Mode=TwoWay }"
+                    SelectedRange="{ Binding SelectedRange, Mode=TwoWay }"
+                    ControlTemplate="{ DynamicResource CalendarTemplate }"
+                    WeekDayTemplate="{ grial:If
+                        Condition={Binding ShowWeekDays},
+                        Then={DynamicResource HeaderTemplate},
+                        Else={x:Null}
+                    }"
+                    DayTemplate="{ DynamicResource DayTemplate }"
+                    SelectionMode="{ Binding SelectionMode }"
+                />
+            </Grid>
+
+            <!-- Settings Container -->
+            <Grid
+                Padding="{ DynamicResource AirSpacing }"
+                RowDefinitions="Auto,*,*,*,*,*"
+                RowSpacing="24"
+                ColumnDefinitions="Auto,*"
+                ColumnSpacing="16">
+
+                <!-- Title -->
+                <Label
+                    Grid.ColumnSpan="2"
+                    Text="{ grial:Translate LabelSettings }"
+                    FontSize="{ StaticResource SmallTitleFontSize }"
+                />
+
+                <!-- Switch -->
+                <Switch
+                    Grid.Row="1"
+                    IsToggled="{ Binding SingleDaySelection, Mode=TwoWay }"
+                />
+
+                <!-- Setting -->
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{ grial:Translate EnableSingleSelection }"
+                    VerticalOptions="Center"
+                />
+
+                <!-- Switch -->
+                <Switch
+                    Grid.Row="2"
+                    IsToggled="{ Binding MultipleDaySelection, Mode=TwoWay }"
+                />
+
+                <!-- Setting -->
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="{ grial:Translate EnableMultipleSelection }"
+                    VerticalOptions="Center"
+                />
+
+                <!-- Switch -->
+                <Switch
+                    Grid.Row="3"
+                    IsToggled="{ Binding RangeSelection, Mode=TwoWay }"
+                />
+
+                <!-- Setting -->
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Text="{ grial:Translate EnableRangeSelection }"
+                    VerticalOptions="Center"
+                />
+
+                <!-- Switch -->
+                <Switch
+                    Grid.Row="4"
+                    IsToggled="{ Binding ShowTodayDay, Mode=TwoWay }"
+                />
+
+                <!-- Setting -->
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Text="{ grial:Translate EnableTodayDay }"
+                    VerticalOptions="Center"
+                />
+
+                <!-- Switch -->
+                <Switch
+                    Grid.Row="5"
+                    IsToggled="{ Binding ShowWeekDays, Mode=TwoWay }"
+                />
+
+                <!-- Setting -->
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Text="{ grial:Translate ShowWeekDays }"
+                    VerticalOptions="Center"
+                />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.ChatRightMessageItemTemplate">
+
+    <Grid
+        ColumnSpacing="0"
+        RowSpacing="0"
+        VerticalOptions="Start"
+        Padding="20,0"
+        ColumnDefinitions="*,14,Auto"
+        RowDefinitions="20,*,20,20">
+
+        <!-- RIGHT TRIANGLE -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalTextAlignment="Start"
+            VerticalOptions="Center"
+            TranslationY="0"
+            Text="{ x:Static local:GrialIconsFont.ShapeArrowLeft }"
+            TextColor="{ DynamicResource ChatRightBalloonBackgroundColor }"
+            Style="{ StaticResource FontIconFill }"
+            FontSize="26"
+            Rotation="180"
+        />
+
+        <!-- LEFT AVATAR -->
+        <grial:CircleImage
+            Grid.Row="1"
+            Grid.Column="2"
+            Size="44"
+            BorderSize="2"
+            VerticalOptions="Center"
+            Source="{ Binding From.Avatar }"
+            BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+            Style="{ StaticResource AvatarSmall }"
+            HorizontalOptions="Center"
+        />
+
+        <!-- BALLOON BACKGROUND -->
+        <BoxView
+            Grid.Row="1"
+            Grid.RowSpan="3"
+            Grid.Column="0"
+            Margin="0,0,0,10"
+            Color="{ DynamicResource ChatRightBalloonBackgroundColor }"
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill"
+        />
+
+        <!-- TEXT MESSAGE -->
+        <Label
+            Margin="15"
+            Grid.Row="1"
+            Grid.Column="0"
+            TextColor="{ DynamicResource ChatRightTextColor }"
+            FontSize="12"
+            Text="{ Binding Body }"
+        />
+
+        <!-- BY AND WHEN -->
+        <local:LabelList
+            Grid.Row="2"
+            Grid.Column="0"
+            HeightRequest="15"
+            Margin="15,0,15,4"
+            HorizontalOptions="Start"
+            SeparatorColor="{ DynamicResource TextOnSurfaceColor }">
+            <local:LabelList.Labels>
+                <!-- BY -->
+                <Label
+                    FontSize="11"
+                    FontAttributes="Bold"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    VerticalTextAlignment="Center"
+                    Text="{ Binding From.Name }"
+                />
+
+                <!-- WHEN -->
+                <Label
+                    VerticalOptions="Center"
+                    FontSize="11"
+                    TextColor="{ DynamicResource TextOnSurfaceColor }"
+                    Text="{ Binding When }"
+                />
+            </local:LabelList.Labels>
+        </local:LabelList>
+    </Grid>
+</ContentView>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Name="root"
+    x:Class="arabasorgula.SmartHomeScheduleCardTemplate">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:ListJoinConverter x:Key="ScheduleStringConverter" />
+            <local:StringToTimeConverter x:Key="StringToTimeConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid>
+        <!-- TODO-CLASSIC: change to grid ? -->
+        <grial:CardView
+            HasShadow="False"
+            RowDefinitions="Auto,Auto"
+            RowSpacing="20"
+            CornerRadius="0"
+            ColumnSpacing="10"
+            Padding="20">
+
+            <Grid
+                ColumnDefinitions="*,Auto,Auto"
+                RowDefinitions="Auto,Auto">
+                <!-- Title -->
+                <Label
+                    Text="{ Binding When }"
+                    IsVisible="{ grial:Eval
+                        Expression='A != B',
+                        A={Binding When},
+                        B={x:Null}
+                    }"
+                    FontSize="15"
+                    VerticalTextAlignment="Center"
+                />
+
+                <Label
+                    Text="{ Binding Days, Converter={StaticResource ScheduleStringConverter} }"
+                    IsVisible="{ grial:Eval
+                        Expression='A != null',
+                        A={Binding Days}
+                    }"
+                    FontSize="15"
+                    VerticalTextAlignment="Center"
+                />
+
+                <!-- Edit Button -->
+                <local:RoundedIconButton
+                    Grid.Column="1"
+                    Margin="0,6,0,0"
+                    IconText="{ x:Static local:GrialIconsFont.Edit2 }"
+                    IconFontFamily="{ DynamicResource IconsFontFamily }"
+                    Command="{ Binding EditScheduleCommand, Source={x:Reference root} }"
+                    CommandParameter="{ Binding . }"
+                    IconBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    IconColor="{ DynamicResource TextColor }"
+                    CornerRadius="{ DynamicResource CornerRadius-md }"
+                    IconFontSize="20"
+                    HeightRequest="36"
+                    WidthRequest="36"
+                    VerticalOptions="Center"
+                />
+
+                <!-- Delete Button -->
+                <local:RoundedIconButton
+                    Grid.Column="2"
+                    Margin="0,6,-8,0"
+                    IconText="{ x:Static local:GrialIconsFont.Trash }"
+                    IconFontFamily="{ DynamicResource IconsFontFamily }"
+                    Command="{ Binding DeleteScheduleCommand, Source={x:Reference root} }"
+                    CommandParameter="{ Binding . }"
+                    IconBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    IconColor="{ DynamicResource TextColor }"
+                    CornerRadius="{ DynamicResource CornerRadius-md }"
+                    IconFontSize="20"
+                    HeightRequest="36"
+                    WidthRequest="36"
+                    VerticalOptions="Center"
+                />
+
+                <!-- Schedule From - To -->
+                <HorizontalStackLayout
+                    Margin="0,-8,0,0"
+                    Spacing="4"
+                    Grid.Row="1">
+                    <Label
+                        Text="{ Binding From }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        FontSize="12"
+                    />
+                    <Label
+                        Text="to"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        FontSize="12"
+                    />
+                    <Label
+                        Text="{ Binding To }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        FontSize="12"
+                    />
+                </HorizontalStackLayout>
+            </Grid>
+
+            <ContentView
+                Content="{ Binding SecondaryContent, Source={x:Reference root} }"
+                Grid.Row="1"
+            />
+
+        </grial:CardView>
+    </Grid>
+
+</ContentView>
+

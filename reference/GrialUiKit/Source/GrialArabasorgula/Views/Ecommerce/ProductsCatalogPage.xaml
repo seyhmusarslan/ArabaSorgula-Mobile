@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.ProductsCatalogPage"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleProductsCatalog }">
+    <ContentPage.Content>
+        <CollectionView
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+            ItemsSource="{ Binding List }">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <local:ProductsCatalogItemTemplate HeightRequest="280">
+                        <View.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnItemSelected" />
+                        </View.GestureRecognizers>
+
+                    </local:ProductsCatalogItemTemplate>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

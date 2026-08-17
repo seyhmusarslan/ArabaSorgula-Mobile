@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.FoodPlacesDishReviewPage"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root">
+    <grial:ParallaxView
+        StickyHeaderHeight="{ OnPlatform
+            iOS='190',
+            Default='170'
+        }"
+        HeaderHeight="200"
+        BackgroundColor="{ DynamicResource BackgroundColor }">
+        <grial:ParallaxView.Header>
+            <Grid>
+                <Image
+                    Source="{ Binding SelectedDishImage }"
+                    Aspect="AspectFill"
+                />
+
+                <!-- CLOSE BUTTON -->
+                <local:RoundedIconButton
+                    Margin="0,30,20,0"
+                    Style="{ StaticResource CloseIconButtonInverseStyle }"
+                    Clicked="OnClose"
+                />
+            </Grid>
+        </grial:ParallaxView.Header>
+
+        <grial:ParallaxView.StickyHeader>
+            <Grid>
+                <!-- RATING BG -->
+                <BoxView
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Color="{ DynamicResource BackgroundSecondaryColor }"
+                    CornerRadius="{ DynamicResource BaseBottomCornerRadius }"
+                />
+
+                <!-- FACES RATING -->
+                <Grid
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    RowDefinitions="*,*,*"
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+                    <Label
+                        Text="{ grial:Translate StringRateExperience }"
+                        FontSize="24"
+                        HorizontalTextAlignment="Center"
+                    />
+
+                    <Label
+                        Grid.Row="1"
+                        Margin="0,5,0,0"
+                        Text="{ grial:Translate StringAreYouSatisfied }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        HorizontalTextAlignment="Center"
+                        FontSize="14"
+                    />
+
+                    <grial:Repeater
+                        Grid.Row="2"
+                        Margin="0,15,0,0"
+                        HeightRequest="50"
+                        HorizontalOptions="Center"
+                        SelectionMode="Single"
+                        Spacing="20"
+                        SpacingMode="Around"
+                        ItemsSource="{ Binding ExperienceRates }"
+                        InitialSelection="First">
+                        <grial:Repeater.ItemTemplate>
+                            <DataTemplate>
+                                <Label
+                                    HorizontalTextAlignment="Center"
+                                    Text="{ Binding . }"
+                                    FontSize="45"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                    FontFamily="{ StaticResource IconsFontFamily }"
+                                />
+                            </DataTemplate>
+                        </grial:Repeater.ItemTemplate>
+                        <grial:Repeater.SelectedItemTemplate>
+                            <DataTemplate>
+                                <Label
+                                    HorizontalTextAlignment="Center"
+                                    Text="{ Binding . }"
+                                    FontSize="45"
+                                    FontFamily="{ StaticResource IconsFontFamily }"
+                                    TextColor="{ DynamicResource PrimaryColor }"
+                                />
+                            </DataTemplate>
+                        </grial:Repeater.SelectedItemTemplate>
+                    </grial:Repeater>
+                </Grid>
+            </Grid>
+        </grial:ParallaxView.StickyHeader>
+
+        <VerticalStackLayout
+            Padding="{ DynamicResource AirSpacingWithBorder }"
+            Style="{ DynamicResource ResponsiveLandscapeMarginStyle }"
+            Spacing="30">
+
+            <!-- RATE CATEGORIES -->
+            <VerticalStackLayout
+                Spacing="10"
+                BindableLayout.ItemsSource="{ Binding RateCategories }">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Margin="0,10,0,0"
+                            RowSpacing="2"
+                            RowDefinitions="*,*"
+                            ColumnDefinitions="Auto,*">
+                            <!-- TITLE -->
+                            <Label
+                                FontAttributes="Bold"
+                                Text="{ Binding Title }"
+                                FontSize="16"
+                            />
+
+                            <!-- DESCRIPTION -->
+                            <Label
+                                Grid.Row="1"
+                                Text="{ Binding Description }"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                FontSize="{ StaticResource SmallFontSize }"
+                            />
+
+                            <!-- RATE -->
+                            <grial:Rating
+                                IsReadOnly="False"
+                                Grid.Column="1"
+                                IconFontSize="16"
+                                IconColor="{ DynamicResource RatingColor }"
+                                UnselectedIconText="{ x:Static local:GrialIconsFont.StarFill }"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Value="{ Binding Rate }"
+                            />
+
+                            <BoxView
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                VerticalOptions="End"
+                                Margin="0,30,0,0"
+                                Style="{ StaticResource Horizontal1ptLineStyle }"
+                            />
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <!-- IMPROVE -->
+            <VerticalStackLayout Spacing="16">
+
+                <Label
+                    FontAttributes="Bold"
+                    Text="{ grial:Translate StringCanImprove }"
+                    FontSize="16"
+                />
+
+                <!-- CATEGORIES TO IMPROVE -->
+                <grial:SelectableWrapPanel
+                    SelectionMode="Multiple"
+                    ItemsSource="{ Binding ImprovedCategories }"
+                    ColumnSpacing="6">
+                    <grial:SelectableWrapPanel.ItemTemplate>
+                        <DataTemplate>
+                            <grial:RoundedLabel
+                                Margin="4"
+                                VerticalOptions="Center"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                BackgroundColor="{ DynamicResource TagItemUnselectedBackgroundColor }"
+                                Padding="10"
+                                Text="{ Binding . }"
+                                FontSize="{ grial:OnOrientationDouble
+                                    Default=10,
+                                    PortraitPhone=10,
+                                    LandscapePhone=10,
+                                    PortraitTablet=16,
+                                    LandscapeTablet=16
+                                }"
+                            />
+                        </DataTemplate>
+                    </grial:SelectableWrapPanel.ItemTemplate>
+                    <grial:SelectableWrapPanel.SelectedItemTemplate>
+                        <DataTemplate>
+                            <grial:RoundedLabel
+                                Margin="4"
+                                VerticalOptions="Center"
+                                TextColor="{ DynamicResource PrimaryColor }"
+                                BackgroundColor="{ DynamicResource TagItemBackgroundColor }"
+                                Padding="10"
+                                Text="{ Binding . }"
+                                FontSize="{ grial:OnOrientationDouble
+                                    Default=10,
+                                    PortraitPhone=10,
+                                    LandscapePhone=10,
+                                    PortraitTablet=16,
+                                    LandscapeTablet=16
+                                }"
+                            />
+                        </DataTemplate>
+                    </grial:SelectableWrapPanel.SelectedItemTemplate>
+                </grial:SelectableWrapPanel>
+            </VerticalStackLayout>
+
+            <!-- POST REVIEW? -->
+            <Grid>
+                <Label
+                    FontAttributes="Bold"
+                    Text="{ grial:Translate StringPostReview }"
+                    VerticalOptions="Center"
+                    FontSize="14"
+                />
+
+                <Switch HorizontalOptions="End" />
+            </Grid>
+
+            <!-- ABOUT EXPERIENCE -->
+            <Editor grial:EditorProperties.Placeholder="{ grial:Translate StringTellUsAbout }" />
+
+            <!-- SUBMIT -->
+            <Button
+                HeightRequest="50"
+                Margin="0"
+                Text="{ grial:Translate StringSubmit }"
+                Style="{ StaticResource PrimaryActionButtonStyle }"
+                Clicked="OnSubmit"
+            />
+        </VerticalStackLayout>
+    </grial:ParallaxView>
+</ContentPage>

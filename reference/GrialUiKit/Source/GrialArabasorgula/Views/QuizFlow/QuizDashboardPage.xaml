@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.QuizDashboardPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root"
+    grial:GrialNavigationPage.ShadowType="Hide"
+    grial:GrialNavigationPage.BarBackgroundColor="Transparent"
+    grial:GrialNavigationPage.BarType="Transparent"
+    grial:GrialNavigationPage.BarTextColor="{ DynamicResource BackgroundSecondaryColor }">
+
+    <!-- RESOURCES -->
+    <ContentPage.Resources>
+        <!-- FLOATING MENU BUTTON TEMPLATE -->
+        <ControlTemplate x:Key="FloatingMenu_ControlTemplate">
+            <!-- TODO: height = 1/2 Cornerradius -->
+            <grial:CardView
+                CornerRadius="25"
+                HeightRequest="50"
+                WidthRequest="50"
+                ShadowOpacity="0.2"
+                ShadowSize="15"
+                grial:Effects.ShadowIOSOffset="10"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Padding="0">
+                <!-- EMOJI -->
+                <local:Emoji
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    HeightRequest="32"
+                    WidthRequest="32"
+                    Unicode="{ x:Static local:Emojis.thinking_face }"
+                />
+            </grial:CardView>
+        </ControlTemplate>
+
+        <!-- FLOATING MENU CLOSE BUTTON TEMPLATE -->
+        <ControlTemplate x:Key="FloatingMenu_CloseButtonControlTemplate">
+            <Grid
+                grial:Effects.CornerRadius="25"
+                HeightRequest="50"
+                WidthRequest="50"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Padding="0">
+                <Label
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontSize="30"
+                    FontFamily="{ StaticResource GrialIconsFill }"
+                    Text="{ x:Static local:GrialIconsFont.Close }"
+                />
+            </Grid>
+        </ControlTemplate>
+
+        <!-- FLOATING MENU OPTION BUTTONS TEMPLATE -->
+        <ControlTemplate x:Key="FloatingMenu_ItemControlTemplate">
+            <!-- TODO: height = 1/2 Cornerradius -->
+            <Grid
+                ColumnDefinitions="Auto,Auto"
+                ColumnSpacing="10"
+                grial:Effects.CornerRadius="25"
+                HeightRequest="50"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Padding="20,0">
+                <local:Emoji
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    HeightRequest="16"
+                    WidthRequest="16"
+                    Unicode="{ TemplateBinding IconText }"
+                />
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontSize="{ StaticResource SmallFontSize }"
+                    Text="{ TemplateBinding Text }"
+                />
+            </Grid>
+        </ControlTemplate>
+    </ContentPage.Resources>
+
+    <grial:GrialNavigationPage.TitleView>
+        <Grid ColumnDefinitions="*,Auto">
+            <Label
+                Text="Hi Rodney"
+                TextColor="{ DynamicResource OnSurfaceColor }"
+                FontSize="{ StaticResource SmallTitleFontSize }"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+            />
+            <!-- ICON -->
+            <Border
+                Grid.Column="1"
+                Margin="10,0"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                HeightRequest="42"
+                WidthRequest="42"
+                StrokeShape="RoundRectangle 14"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Padding="8">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{ Binding GoToAchievementsCommand }" />
+                </Border.GestureRecognizers>
+
+                <local:Emoji Unicode="{ x:Static local:Emojis.trophy }" />
+            </Border>
+        </Grid>
+    </grial:GrialNavigationPage.TitleView>
+
+    <!-- MAIN CONTAINER -->
+    <Grid RowDefinitions="{ OnPlatform Android='90,*', Default='120,*' }">
+        <!-- FIXED HEADER -->
+        <Image
+            Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_header.jpg"
+            Aspect="AspectFill"
+            grial:Effects.CornerRadius="{ DynamicResource BaseBottomCornerRadius }"
+            HeightRequest="{ OnPlatform
+                Android='90',
+                Default='120'
+            }"
+        />
+
+        <!-- DETAILED/SUB CATEGORIES -->
+        <CollectionView
+            x:Name="collection"
+            Grid.Row="1"
+            VerticalScrollBarVisibility="Never"
+            ItemsSource="{ Binding CategoriesList }">
+            <CollectionView.Header>
+                <!-- CONTENT -->
+                <VerticalStackLayout
+                    Spacing="20"
+                    Padding="{ DynamicResource AirSpacing }"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+                    <!-- MAIN BANNER IMAGE CONTAINER -->
+                    <Grid>
+                        <!-- MAIN BANNER -->
+                        <Grid
+                            RowDefinitions="Auto,Auto,*"
+                            ColumnDefinitions="*,140"
+                            HeightRequest="140"
+                            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                            Padding="26">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{ Binding OnBannerTappedCommand }" />
+                            </Grid.GestureRecognizers>
+
+                            <grial:Effects.BackgroundGradient>
+                                <grial:LinearGradient>
+                                    <grial:GradientColor Color="{ StaticResource PrimaryColor }" />
+                                    <grial:GradientColor Color="#3F97FF" />
+                                </grial:LinearGradient>
+                            </grial:Effects.BackgroundGradient>
+
+                            <!-- BG DECORATION -->
+                            <local:BackgroundDecoration
+                                Grid.Column="1"
+                                Grid.RowSpan="3"
+                            />
+                            <!-- LABEL -->
+                            <Label
+                                Text="{ Binding GameLevel, StringFormat='Lvl {0}' }"
+                                TextColor="{ DynamicResource OnSurfaceColor }"
+                            />
+                            <!-- TITLE -->
+                            <Label
+                                Grid.Row="1"
+                                Text="{ Binding GameName }"
+                                FontSize="{ StaticResource TitleFontSize }"
+                                TextColor="{ DynamicResource OnSurfaceColor }"
+                            />
+
+                            <grial:ProgressBar
+                                x:Name="progress"
+                                Grid.Row="2"
+                                Grid.ColumnSpan="2"
+                                VerticalOptions="End"
+                                Style="{ StaticResource TallProgressBarStyle }"
+                                ActiveColor="{ DynamicResource OnSurfaceColor }"
+                                InactiveColor="{ DynamicResource OverlayHighlightColor }"
+                                Text="{ grial:Format
+                                    '{A}/{B}',
+                                    A={Binding
+                                        AnimatedProgress,
+                                        StringFormat='{0:F0}',
+                                        Source={x:Reference progress}
+                                    },
+                                    B={Binding
+                                        MaxProgress,
+                                        Source={x:Reference progress}
+                                    }
+                                }"
+                                Progress="{ Binding GameProgress }"
+                                MinProgress="0"
+                                MaxProgress="{ Binding GameMaxProgress }"
+                            />
+                        </Grid>
+                        <!-- IMAGE -->
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Grid.RowSpan="2"
+                            Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/quiz_direct_hit.png"
+                            HeightRequest="100"
+                            Margin="0,-20,37,0"
+                            VerticalOptions="Start"
+                            HorizontalOptions="End"
+                            Aspect="AspectFit"
+                        />
+                    </Grid>
+
+                    <!-- GENERAL/MAIN CATEGORIES -->
+                    <grial:Repeater
+                        VerticalOptions="Center"
+                        HeightRequest="70"
+                        ItemsSource="{ Binding CategoriesList }"
+                        Spacing="16"
+                        SpacingMode="Around"
+                        ScrollPadding="{ DynamicResource AirSpacingNoBorder }"
+                        Margin="{ DynamicResource RemoveParentAirSpacing }"
+                        ScrollBarVisibility="Never"
+                        Orientation="Horizontal">
+                        <grial:Repeater.ItemTemplate>
+                            <DataTemplate>
+                                <local:QuizCategoryItemTemplate OnItemTappedCommand="{ Binding BindingContext.OnCategoryTappedCommand, Source={x:Reference root} }" />
+                            </DataTemplate>
+                        </grial:Repeater.ItemTemplate>
+                    </grial:Repeater>
+                </VerticalStackLayout>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <local:QuizSubCategoryItemTemplate ItemTappedCommand="{ Binding BindingContext.OnQuizTappedCommand, Source={x:Reference root} }" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- FLOATING BUTTON -->
+        <grial:FloatingMenu
+            Grid.Row="1"
+            Direction="Top"
+            Margin="30,0,30,50"
+            VerticalOptions="End"
+            HorizontalOptions="End"
+            OverlayBackgroundColor="Transparent"
+            ItemsAlignment="End"
+            Spacing="10"
+            ControlTemplate="{ StaticResource FloatingMenu_ControlTemplate }"
+            CloseButtonTemplate="{ StaticResource FloatingMenu_CloseButtonControlTemplate }"
+            ItemControlTemplate="{ StaticResource FloatingMenu_ItemControlTemplate }">
+            <grial:FloatingMenuItem
+                Text="{ grial:Translate PlayRandom }"
+                TapCommand="{ Binding PlayRandomCommand }"
+                IconText="{ x:Static local:Emojis.shuffle_tracks_button }"
+            />
+            <grial:FloatingMenuItem
+                Text="{ grial:Translate ReviewMistakes }"
+                TapCommand="{ Binding ReviewMistakesCommand }"
+                IconText="{ x:Static local:Emojis.warning }"
+            />
+
+        </grial:FloatingMenu>
+    </Grid>
+
+</ContentPage>

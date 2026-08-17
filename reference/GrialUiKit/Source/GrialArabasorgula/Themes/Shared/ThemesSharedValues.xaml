@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ThemesSharedValues">
+
+    <!-- MAIN FONT -->
+    <x:String x:Key="AppFontFamily">Poppins</x:String>
+    <x:String x:Key="AppSemiBoldFamily">PoppinsSemiBold</x:String>
+
+    <!-- FONT SIZES -->
+    <x:Double x:Key="SmallFontSize">11</x:Double>
+    <x:Double x:Key="BaseFontSize">13</x:Double>
+    <x:Double x:Key="LargeFontSize">15</x:Double>
+    <x:Double x:Key="XLargeFontSize">18</x:Double>
+    <x:Double x:Key="SmallTitleFontSize">18</x:Double>
+    <x:Double x:Key="TitleFontSize">24</x:Double>
+    <x:Double x:Key="LargeTitleFontSize">28</x:Double>
+
+    <!-- CORNER RADIUS -->
+    <x:Double x:Key="CornerRadius-none">0</x:Double>
+    <x:Int32 x:Key="CornerRadiusInt-none">0</x:Int32>
+    <x:Single x:Key="CornerRadiusFloat-none">0</x:Single>
+
+    <x:Double x:Key="CornerRadius-sm">4</x:Double>
+    <x:Int32 x:Key="CornerRadiusInt-sm">4</x:Int32>
+    <x:Single x:Key="CornerRadiusFloat-sm">4</x:Single>
+
+    <x:Double x:Key="CornerRadius-x-sm">8</x:Double>
+    <x:Int32 x:Key="CornerRadiusInt-x-sm">8</x:Int32>
+    <x:Single x:Key="CornerRadiusFloat-x-sm">8</x:Single>
+
+    <x:Double x:Key="CornerRadius-md">12</x:Double>
+    <x:Int32 x:Key="CornerRadiusInt-md">12</x:Int32>
+    <x:Single x:Key="CornerRadiusFloat-md">12</x:Single>
+
+    <x:Double x:Key="CornerRadius-big">16</x:Double>
+    <x:Int32 x:Key="CornerRadiusInt-big">16</x:Int32>
+    <x:Single x:Key="CornerRadiusFloat-big">16</x:Single>
+    <CornerRadius x:Key="BottomCornerRadius-big">0,0,16,16</CornerRadius>
+
+    <x:Double x:Key="CornerRadius-x-big">20</x:Double>
+    <x:Int32 x:Key="CornerRadiusInt-x-big">20</x:Int32>
+    <x:Single x:Key="CornerRadiusFloat-x-big">20</x:Single>
+
+    <x:Double x:Key="CornerRadius-xx-big">24</x:Double>
+    <x:Int32 x:Key="CornerRadiusInt-xx-big">24</x:Int32>
+    <x:Single x:Key="CornerRadiusFloat-xx-big">24</x:Single>
+
+    <x:Double x:Key="CornerRadius-lg">32</x:Double>
+    <x:Int32 x:Key="CornerRadiusInt-lg">32</x:Int32>
+    <x:Single x:Key="CornerRadiusFloat-lg">32</x:Single>
+    <!-- INFO : Bottom/Top cornerradius 20, 30, 40 all converted to 32 -->
+    <CornerRadius x:Key="BottomCornerRadius-lg">0,0,32,32</CornerRadius>
+    <CornerRadius x:Key="TopCornerRadius-lg">32,32,0,0</CornerRadius>
+
+    <grial:XamlCornerRadiusAlias x:Key="CardViewCornerRadius" Value="{ StaticResource CornerRadius-x-big }" />
+    <grial:XamlCornerRadiusAlias x:Key="CardViewContentCornerRadius" Value="{ StaticResource CornerRadius-x-big }" />
+    <grial:XamlCornerRadiusAlias x:Key="BaseCornerRadius" Value="{ StaticResource CornerRadius-x-big }" />
+    <grial:XamlDoubleAlias x:Key="BaseCornerRadiusDouble" Value="{ StaticResource CornerRadius-x-big }" />
+    <grial:XamlCornerRadiusAlias x:Key="BaseBottomCornerRadius" Value="{ StaticResource BottomCornerRadius-lg }" />
+    <grial:XamlCornerRadiusAlias x:Key="BaseTopCornerRadius" Value="{ StaticResource TopCornerRadius-lg }" />
+
+    <grial:XamlCornerRadiusAlias x:Key="SingleLinePickerBorderCornerRadius" Value="{ StaticResource CornerRadius-none }" />
+    <grial:XamlCornerRadiusAlias x:Key="SliderTrackCornerRadius" Value="{ StaticResource CornerRadius-sm }" />
+
+    <!-- grial:CalendarDayLabel -->
+    <CornerRadius x:Key="CalendarDaySingleSelectionCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="CalendarDayStartRangeCornerRadius">8,0,8,0</CornerRadius>
+    <CornerRadius x:Key="CalendarDayEndRangeCornerRadius">0,8,0,8</CornerRadius>
+    <CornerRadius x:Key="CalendarDayMiddleRangeCornerRadius">0,0,0,0</CornerRadius>
+    <CornerRadius x:Key="CalendarDayTodayCornerRadius">8</CornerRadius>
+
+    <CornerRadius x:Key="BackgroundDecorationCornerRadius">80</CornerRadius>
+
+
+    <!-- SPACING -->
+    <Thickness x:Key="AirSpacing">30</Thickness>
+    <Thickness x:Key="AirSpacingNoTop">30,0,30,30</Thickness>
+    <Thickness x:Key="AirSpacingSmallBorder">30,10</Thickness>
+    <Thickness x:Key="AirSpacingWithBorder">30,20</Thickness>
+    <Thickness x:Key="AirSpacingNoBorder">30,0</Thickness>
+    <Thickness x:Key="RemoveParentAirSpacing">-30,0</Thickness>
+    <Thickness x:Key="RemoveParentTopAirSpacing">0,-30,0,0</Thickness>
+
+    <!-- POPUPS SPECIFIC -->
+    <Thickness x:Key="AirSpacingOnlyTop">0,30,0,0</Thickness>
+    <Thickness x:Key="AirSpacingSmallTop">30,20,30,30</Thickness>
+    <Thickness x:Key="VerticalAirSpacing">0,30</Thickness>
+    <Thickness x:Key="HorizontalAirSpacing">30,0</Thickness>
+    <Thickness x:Key="PopupAirSpacing">24</Thickness>
+
+    <x:Double x:Key="SpacingXBig">24</x:Double>
+    <x:Double x:Key="SpacingBig">20</x:Double>
+    <x:Double x:Key="SpacingMedium">16</x:Double>
+    <x:Double x:Key="SpacingSmall">12</x:Double>
+
+    <grial:XamlCornerRadiusAlias x:Key="CornerRadiusXBig" Value="{ StaticResource CornerRadius-x-big }" />
+    <grial:XamlCornerRadiusAlias x:Key="CornerRadiusBig" Value="{ StaticResource CornerRadius-big }" />
+    <grial:XamlCornerRadiusAlias x:Key="BottomCornerRadiusLg" Value="{ StaticResource BottomCornerRadius-lg }" />
+
+    <!-- Default Backdrop Color -->
+    <Color x:Key="PopupBackdropColor">#AA000000</Color>
+
+    <!-- Toast Specific
+    <grial:XamlColorAlias x:Key="PopupBorderColor" Value="{ StaticResource BackgroundTertiaryColor }"  />
+    -->
+</ResourceDictionary>

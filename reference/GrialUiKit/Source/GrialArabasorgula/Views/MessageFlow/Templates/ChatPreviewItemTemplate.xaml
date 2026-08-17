@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ChatPreviewItemTemplate">
+    <ContentView.Resources>
+        <grial:SwitchConverter
+            x:Key="ColorConverter"
+            Case1="Online"
+            Result1="{ StaticResource SuccessColor }"
+            Case2="Busy"
+            Result2="{ StaticResource ErrorColor }"
+            Case3="Away"
+            Result3="{ StaticResource WarningColor }"
+            DefaultResult="{ StaticResource DisabledColor }"
+        />
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid
+            Padding="20,0,20,20"
+            ColumnSpacing="14"
+            RowSpacing="6"
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+            ColumnDefinitions="Auto,*,Auto"
+            RowDefinitions="Auto,Auto">
+            <!-- AVATAR -->
+            <local:AvatarWithStatus
+                Margin="0,2,0,0"
+                Size="50"
+                Grid.RowSpan="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Source="{ Binding From.Avatar }"
+                StatusIndicatorColor="{ Binding From.Status, Converter={StaticResource ColorConverter} }"
+                IsStatusIndicatorIcon="True"
+                StatusIndicatorAutoHide="False"
+                StatusIndicatorSize="10"
+                StatusIndicatorShift="2"
+                BorderSize="2"
+                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                StatusIndicatorBorderSize="2"
+                StatusIndicatorBorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                CornerRadius="{ DynamicResource CornerRadius-big }">
+                <local:AvatarWithStatus.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAvatarTapped" />
+                </local:AvatarWithStatus.GestureRecognizers>
+            </local:AvatarWithStatus>
+
+            <!-- NAME -->
+            <Label
+                Margin="0,5,0,0"
+                Grid.Column="1"
+                Text="{ Binding From.Name }"
+                VerticalOptions="Center"
+                FontAttributes="Bold"
+            />
+
+            <Grid
+                Grid.Column="1"
+                Grid.Row="1"
+                ColumnDefinitions="Auto,*"
+                ColumnSpacing="5"
+                VerticalOptions="Start">
+                <Label
+                    Text="{ x:Static local:GrialIconsFont.Check }"
+                    Style="{ StaticResource FontIcon }"
+                    FontSize="15"
+                    TextColor="{ DynamicResource SuccessColor }"
+                    VerticalTextAlignment="Center"
+                />
+                <Label
+                    Grid.Column="1"
+                    Text="{ Binding Preview.Text }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    FontSize="{ StaticResource BaseFontSize }"
+                    LineBreakMode="TailTruncation"
+                />
+            </Grid>
+
+            <!-- WHEN -->
+            <Label
+                Grid.Column="2"
+                Grid.Row="0"
+                Opacity=".5"
+                Text="{ Binding Preview.When }"
+                FontSize="{ StaticResource SmallFontSize }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                VerticalOptions="Center"
+            />
+
+            <!-- SEPARATOR -->
+            <BoxView
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                VerticalOptions="End"
+                Margin="0,0,-20,-15"
+                Style="{ DynamicResource Horizontal1ptLineStyle }"
+            />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SignUpPage"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    Title="{ grial:Translate PageTitleSignUp }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+    <Grid>
+        <ScrollView>
+            <!-- MAIN CONTAINER -->
+            <Grid
+                Style="{ StaticResource BaseFormsContentStyle }"
+                ColumnSpacing="0"
+                RowSpacing="0"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                RowDefinitions="120,Auto,*,Auto">
+
+                <!-- Logo -->
+                <local:BrandLogo
+                    VerticalOptions="End"
+                    HorizontalOptions="Start"
+                    Grid.Row="0"
+                    Inverted="False"
+                />
+
+                <!-- CLAIM TEXT -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Spacing="10"
+                    Padding="0,10"
+                    VerticalOptions="Center">
+                    <Label
+                        LineBreakMode="WordWrap"
+                        Text="{ grial:Translate LabelRegisterNow }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        FontSize="{ OnIdiom
+                            Phone=24,
+                            Tablet=34
+                        }"
+                    />
+
+                    <Label
+                        LineBreakMode="WordWrap"
+                        Text="{ grial:Translate LabelRegisterNowAndEnjoy }"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                        VerticalTextAlignment="Center"
+                        FontSize="{ OnIdiom
+                            Phone=16,
+                            Tablet=26
+                        }"
+                    />
+                </VerticalStackLayout>
+
+                <!-- FIELDS CONTAINER -->
+                <Grid
+                    Margin="0,20,0,0"
+                    VerticalOptions="Start"
+                    HeightRequest="260"
+                    RowSpacing="20"
+                    Grid.Row="2"
+                    RowDefinitions="Auto,Auto,Auto,Auto">
+
+                    <VerticalStackLayout
+                        Grid.Row="0"
+                        Spacing="4"
+                        VerticalOptions="Start">
+                        <!-- -EMAIL ENTRY -->
+                        <Entry Placeholder="{ grial:Translate StringEmail }">
+                            <Entry.Behaviors>
+                                <grial:EmailValidatorBehavior x:Name="emailValidator" />
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <grial:RoundedLabel
+                            Text="{ grial:Translate ErrorPleaseEnterValidEmail }"
+                            IsVisible="{ Binding IsValid, Source={x:Reference emailValidator}, Converter={StaticResource NegateBooleanConverter} }"
+                            Style="{ StaticResource ValidationEntryErrorStyle }"
+                        />
+                    </VerticalStackLayout>
+
+                    <!-- USERNAME ENTRY -->
+                    <Entry
+                        Grid.Row="1"
+                        Placeholder="{ grial:Translate StringUsername }"
+                        VerticalOptions="Start"
+                    />
+
+                    <!-- PASSWORD ENTRY -->
+                    <Entry
+                        x:Name="passwordEntry"
+                        Grid.Row="2"
+                        Placeholder="{ grial:Translate StringPassword }"
+                        IsPassword="true"
+                        VerticalOptions="Start"
+                    />
+
+                    <VerticalStackLayout
+                        Grid.Row="3"
+                        Spacing="4"
+                        VerticalOptions="Start">
+                        <!-- PASSWORD REPEAT FIELD -->
+                        <Entry
+                            Placeholder="{ grial:Translate LabelRepeatPassword }"
+                            IsPassword="true">
+                            <Entry.Behaviors>
+                                <grial:TextMatchValidatorBehavior
+                                    x:Name="passwordValidator"
+                                    TextToMatch="{ Binding Text, Source={x:Reference passwordEntry} }"
+                                />
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <grial:RoundedLabel
+                            Text="{ grial:Translate LabelPasswordsDoNotMatch }"
+                            IsVisible="false"
+                            Style="{ StaticResource ValidationEntryErrorStyle }">
+                            <grial:RoundedLabel.Triggers>
+                                <DataTrigger
+                                    TargetType="grial:RoundedLabel"
+                                    Binding="{ Binding IsValid, Source={x:Reference passwordValidator} }"
+                                    Value="false">
+                                    <Setter Property="IsVisible" Value="true" />
+                                </DataTrigger>
+                            </grial:RoundedLabel.Triggers>
+
+                        </grial:RoundedLabel>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- FOOTER -->
+                <VerticalStackLayout
+                    HorizontalOptions="Fill"
+                    VerticalOptions="End"
+                    Margin="0,40,0,0"
+                    Grid.Row="3"
+                    Spacing="26">
+                    <!-- SINGUP BUTTON -->
+                    <Button
+                        Style="{ StaticResource PrimaryActionButtonStyle }"
+                        VerticalOptions="End"
+                        Text="{ grial:Translate StringSignUp }"
+                        WidthRequest="{ grial:OnOrientationSizeRequest
+                            LandscapePhone=200,
+                            LandscapeTablet=400
+                        }"
+                        HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                            PortraitPhone=Fill,
+                            LandscapePhone=Center,
+                            PortraitTablet=Fill,
+                            LandscapeTablet=Center
+                        }"
+                    />
+
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <!-- Text -->
+                        <Label
+                            Text="{ grial:Translate AlreadyUser }"
+                            FontSize="12"
+                            TextColor="{ DynamicResource TextSecondaryColor }"
+                            HorizontalTextAlignment="Center"
+                        />
+
+                        <!-- ALREADY A USER BUTTON -->
+                        <Button
+                            Text="{ grial:Translate ButtonLoginNow }"
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"
+                            Clicked="OnLoginTapped"
+                            Style="{ DynamicResource LinkButtonStyle }"
+                        />
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Grid>
+
+        </ScrollView>
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            HorizontalOptions="End"
+            Style="{ StaticResource CloseIconButtonInverseStyle }"
+            Clicked="OnCloseButtonClicked"
+        />
+    </Grid>
+</ContentPage>

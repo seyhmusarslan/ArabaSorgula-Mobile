@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.DashboardSwipeableHeaderMainItemTemplate"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial">
+    <ContentView.Content>
+        <!-- MAIN CONTAINER -->
+        <grial:CardView
+            HasShadow="False"
+            x:Name="card"
+            Padding="20"
+            RowDefinitions="Auto,Auto"
+            ColumnDefinitions="Auto,*"
+            ColumnSpacing="20"
+            RowSpacing="2"
+            Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+            <!-- EMOJI -->
+            <local:Emoji
+                Grid.RowSpan="2"
+                HeightRequest="32"
+                WidthRequest="32"
+                Unicode="{ Binding Emoji }"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Margin="8"
+            />
+            <!-- CATEGORY NAME -->
+            <Label
+                Grid.Column="1"
+                Text="{ Binding Name }"
+                FontFamily="{ StaticResource AppSemiBoldFamily }"
+                VerticalOptions="End"
+            />
+            <!-- CATEGORY NAME -->
+            <Label
+                Grid.Column="1"
+                Grid.Row="1"
+                Text="{ Binding ItemCount, StringFormat='{0:F0} screens' }"
+                FontSize="{ StaticResource SmallFontSize }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                VerticalOptions="Start"
+            />
+        </grial:CardView>
+    </ContentView.Content>
+
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer Command="{ Binding TapCommand }" />
+    </ContentView.GestureRecognizers>
+
+</ContentView>

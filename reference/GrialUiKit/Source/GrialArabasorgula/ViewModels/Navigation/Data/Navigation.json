@@ -1,0 +1,363 @@
+{
+  "[grial-metadata]": "id: Grial#Navigation.json version: 1.1.5",
+  "DashboardItems": {
+    "$id": "navigation-items",
+    "Items": [
+      {
+        "$id": "navigation-item-1",
+        "Name": "Contacts",
+        "BackgroundColor": "#FF921243",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_05.jpg",
+        "Icon": "",
+        "Emoji": "1f465",
+        "ItemCount": 6,
+        "Description": "All the people you know is here. Create, remove and organize your contacts efficiently. You can share them too!",
+        "Badge": 0
+      },
+      {
+        "$id": "navigation-item-2",
+        "Name": "Documents",
+        "BackgroundColor": "#FFB31250",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_04.jpg",
+        "Icon": "",
+        "Emoji": "1f4c4",
+        "ItemCount": 5,
+        "Description": "All the documents you work with everyday are here. Create, remove and organize your files efficiently. You can share them too!",
+        "Badge": 0
+      },
+      {
+        "$id": "navigation-item-3",
+        "Name": "Notifications",
+        "BackgroundColor": "#FFCD195E",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_07.jpg",
+        "Icon": "",
+        "Emoji": "1f514",
+        "ItemCount": 15,
+        "Description": "The ultimate notifications hub. Messages, emails, social networks, reminders, everything.",
+        "Badge": 9
+      },
+      {
+        "$id": "navigation-item-4",
+        "Name": "My Photos",
+        "BackgroundColor": "#FF56329A",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_03.jpg",
+        "Icon": "",
+        "Emoji": "1f4f7",
+        "ItemCount": 10,
+        "Description": "All the pictures you take are here. Create, remove and organize your photos efficiently. You can share them too!",
+        "Badge": 0
+      },
+      {
+        "$id": "navigation-item-5",
+        "Name": "Music",
+        "BackgroundColor": "#FF6A40B9",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_06.jpg",
+        "Icon": "",
+        "Emoji": "1f3b5",
+        "ItemCount": 5,
+        "Description": "All your favorites songs are here. All the styles, from classic to avant-garde composers. Make playlists matching your mood. Music is everything :)",
+        "Badge": 0
+      },
+      {
+        "$id": "navigation-item-6",
+        "Name": "Offers",
+        "BackgroundColor": "#FF7C4ECD",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_02.jpg",
+        "Icon": "",
+        "Emoji": "1f6d2",
+        "ItemCount": 7,
+        "Badge": 0
+      },
+      {
+        "$id": "navigation-item-7",
+        "Name": "World News",
+        "BackgroundColor": "#FF525ABB",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_08.jpg",
+        "Icon": "",
+        "Emoji": "1f30e",
+        "ItemCount": 3,
+        "Badge": 0
+      },
+      {
+        "$id": "navigation-item-8",
+        "Name": "Events",
+        "BackgroundColor": "#FF5F7DD4",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_09.jpg",
+        "Icon": "",
+        "Emoji": "1f4c5",
+        "ItemCount": 19,
+        "Badge": 9
+      },
+      {
+        "$id": "navigation-item-9",
+        "Name": "Settings",
+        "BackgroundColor": "#FF7B96E5",
+        "BackgroundImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/category_01.jpg",
+        "Icon": "",
+        "Emoji": "1f527",
+        "ItemCount": 4,
+        "Badge": 0
+      }
+    ]
+  },
+  "NavigationListWithImagesPage.xaml": {
+    "$ref": "navigation-items"
+  },
+  "NavigationListWithIconsPage.xaml": {
+    "$ref": "navigation-items"
+  },
+  "NavigationFlatListPage.xaml": {
+    "$ref": "navigation-items"
+  },
+  "NavigationCardsListPage.xaml": {
+    "$ref": "navigation-items"
+  },
+  "NavigationCardsDescriptionListPage.xaml": {
+    "Category": {
+      "Icon": "",
+      "Emoji": "1f525",
+      "Name": "Trending"
+    },
+    "Items": [
+      {
+        "$ref": "navigation-item-1"
+      },
+      {
+        "$ref": "navigation-item-2"
+      },
+      {
+        "$ref": "navigation-item-3"
+      },
+      {
+        "$ref": "navigation-item-4"
+      },
+      {
+        "$ref": "navigation-item-5"
+      }
+    ]
+  },
+  "VideoListPreviewPage.xaml": {
+    "Movies": [
+      {
+        "Name": "Doctor Strange 2",
+        "Director": "Sam Raimi",
+        "Year": "May 2022",
+        "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_1_poster_image.jpg",
+        "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_1_backdrop_image.jpg",
+        "Color": "#b02d1f",
+        "Overview": "After the events of Avengers: Endgame, Dr. Stephen Strange continues his research on the Time Stone. But an old friend turned enemy seeks to destroy every sorcerer on Earth, messing with Strange's plan, causing him to unleash an unspeakable evil.",
+        "TrailerVideo": "https://www.youtube.com/watch?v=Rf8LAYJSOL8",
+        "Rating": 95,
+        "RatingLabel": "9.5",
+        "Genres": [
+          "ACTION",
+          "ADVENTURE",
+          "FANTASY",
+          "SCI-FI"
+        ]
+      },
+      {
+        "Name": "Morbius",
+        "Director": "Daniel Espinosa",
+        "Year": "April 2022",
+        "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_2_poster_image.jpg",
+        "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_2_backdrop_image.jpg",
+        "Color": "#08373d",
+        "Overview": "Dangerously ill with a rare blood disorder, and determined to save others suffering his same fate, Dr. Morbius attempts a desperate gamble. What at first appears to be a radical success soon reveals itself to be a remedy potentially worse than the disease.",
+        "TrailerVideo": "https://www.youtube.com/watch?v=SQK-QxxtE8Y",
+        "Rating": 83,
+        "RatingLabel": "8.3",
+        "Genres": [
+          "ACTION",
+          "ADVENTURE",
+          "DRAMA",
+          "SUSPENSE"
+        ]
+      },
+      {
+        "Name": "The Batman",
+        "Director": "Matt Reeves",
+        "Year": "March 2022",
+        "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_3_poster_image.jpg",
+        "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_3_backdrop_image.jpg",
+        "Color": "#e57c1f",
+        "Overview": "When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
+        "TrailerVideo": "https://www.youtube.com/watch?v=mqqft2x_Aa4",
+        "Rating": 73,
+        "RatingLabel": "7.3",
+        "Genres": [
+          "ACTION",
+          "CRIME",
+          "DRAMA"
+        ]
+      },
+      {
+        "Name": "Black Adam",
+        "Director": "Jaume Collet-Serra",
+        "Year": "July 2022",
+        "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_4_poster_image.jpg",
+        "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_4_backdrop_image.jpg",
+        "Color": "#27282d",
+        "Overview": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods-and imprisoned just as quickly-Black Adam (Johnson) is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
+        "TrailerVideo": "https://www.youtube.com/watch?v=p99rer0DiCo",
+        "Rating": 90,
+        "RatingLabel": "9.0",
+        "Genres": [
+          "ACTION",
+          "FANTASY",
+          "SCI-FI"
+        ]
+      },
+      {
+        "Name": "Ant-Man and the Wasp",
+        "Director": "Peyton Reed",
+        "Year": "August 2018",
+        "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_5_poster_image.jpg",
+        "BackgroundImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_5_background_image.jpg",
+        "Color": "#c22c2d",
+        "Overview": "As Scott Lang balances being both a superhero and a father, Hope van Dyne and Dr. Hank Pym present an urgent new mission that finds the Ant-Man fighting alongside the Wasp to uncover secrets from their past.",
+        "TrailerVideo": "https://www.youtube.com/watch?v=8_rTIAOohas",
+        "Rating": 80,
+        "RatingLabel": "8.0",
+        "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_5_backdrop_image.jpg",
+        "Genres": [
+          "ACTION",
+          "ADVENTURE",
+          "FANTASY",
+          "COMEDY"
+        ]
+      },
+      {
+        "Name": "Wonder Woman",
+        "Director": "Patty Jenkins",
+        "Year": "May 2017",
+        "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_6_poster_image.jpg",
+        "BackgroundImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_6_background_image.jpg",
+        "TrailerVideo": "https://www.youtube.com/watch?v=INLzqh7rZ-U",
+        "Color": "#bb6300",
+        "Overview": "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict.",
+        "Rating": 72,
+        "RatingLabel": "7.2",
+        "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_6_backdrop_image.jpg",
+        "Genres": [
+          "ACTION",
+          "ADVENTURE",
+          "FANTASY",
+          "WAR",
+          "SCIENCE FICTION"
+        ]
+      },
+      {
+        "Name": "Spider-Man: Homecoming",
+        "Director": "Jon Watts",
+        "Year": "June 2017",
+        "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_7_poster_image.jpg",
+        "BackgroundImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_7_background_image.jpg",
+        "Color": "#1d4f66",
+        "TrailerVideo": "https://www.youtube.com/watch?v=xrzXIaTt99U",
+        "Overview": "Following the events of Captain America: Civil War, Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in Queens, New York City, with fighting crime as his superhero alter ego Spider-Man as a new threat, the Vulture, emerges.",
+        "Rating": 63,
+        "RatingLabel": "6.3",
+        "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_7_backdrop_image.jpg",
+        "Genres": [
+          "new york",
+          "high school",
+          "superhero",
+          "comics",
+          "teenager",
+          "reboot"
+        ]
+      },
+      {
+        "Name": "Thor: Ragnarok",
+        "Director": "Taika Waititi",
+        "Year": "October 2017",
+        "PosterImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_8_poster_image.jpg",
+        "BackgroundImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_8_background_image.jpg",
+        "Color": "#306C2D",
+        "Overview": "Thor is on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the prophecy of destruction to his homeworld and the end of Asgardian civilization, at the hands of the ruthless Hela.",
+        "TrailerVideo": "https://www.youtube.com/watch?v=ue80QwXMRHg",
+        "Rating": 75,
+        "RatingLabel": "7.5",
+        "BackdropImage": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/featured_movie_8_backdrop_image.jpg",
+        "Genres": [
+          "action",
+          "adventure",
+          "superhero",
+          "comic",
+          "femail villain"
+        ]
+      }
+    ]
+  },
+  "SurveyListPage.xaml": {
+    "SurveyCategories": [
+      {
+        "Icon": "",
+        "IconColor": "#46C771"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#AF52DE"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#5AC8FA"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#3F75FF"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#F9B300"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#FF7134"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#FF2525"
+      },
+      {
+        "Icon": "",
+        "IconColor": "#FB4D96"
+      }
+    ],
+    "SurveyList": [
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_01.jpg",
+        "Title": "United by Friendship",
+        "Description": "Donec augue ex, pharetra a iaculis eget, tristique vitae neque.",
+        "StepsCompleted": "4",
+        "TotalSteps": "20",
+        "Progress": 0.2
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_02.jpg",
+        "Title": "Olimpic Dream",
+        "Description": "Donec augue ex, pharetra a iaculis eget, tristique vitae neque.",
+        "StepsCompleted": "2",
+        "TotalSteps": "20",
+        "Progress": 0.1
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_03.jpg",
+        "Title": "Last Adenture",
+        "Description": "Donec augue ex, pharetra a iaculis eget, tristique vitae neque.",
+        "StepsCompleted": "12",
+        "TotalSteps": "16",
+        "Progress": 0.75
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/article_04.jpg",
+        "Title": "Wheels of Fortune",
+        "Description": "Donec augue ex, pharetra a iaculis eget, tristique vitae neque.",
+        "StepsCompleted": "4",
+        "TotalSteps": "8",
+        "Progress": 0.5
+      }
+    ]
+  }
+}

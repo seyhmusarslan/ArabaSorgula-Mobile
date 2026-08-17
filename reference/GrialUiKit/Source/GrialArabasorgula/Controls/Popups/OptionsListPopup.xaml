@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupResultPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    BackgroundColor="{ DynamicResource PopupBackdropColor }"
+    CloseWhenBackgroundIsClicked="False"
+    x:Class="arabasorgula.OptionsListPopup"
+    x:TypeArguments="x:Object"
+    x:Name="root"
+    AppearingAnimation="{ uxd:FadeInPopupAnimation
+        Duration=300,
+        Easing=CubicIn
+    }"
+    DisappearingAnimation="{ uxd:FadeOutPopupAnimation
+        Duration=300,
+        Easing=CubicOut
+    }">
+    <!-- Main Wrapper -->
+    <Grid
+        WidthRequest="{ OnIdiom
+            Default=-1,
+            Tablet=400,
+            Desktop=400
+        }"
+        VerticalOptions="Center"
+        Margin="{ DynamicResource AirSpacing }"
+        RowDefinitions="Auto,Auto"
+        RowSpacing="{ DynamicResource SpacingSmall }"
+        Padding="{ DynamicResource PopupAirSpacing }">
+        <BoxView
+            Grid.RowSpan="2"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            grial:Effects.CornerRadius="{ DynamicResource CornerRadius-x-big }"
+            Margin="-24"
+        />
+
+        <!-- CONTENT -->
+        <VerticalStackLayout Spacing="4">
+            <!-- Title -->
+            <Label
+                Text="{ Binding Title, Source={x:Reference root} }"
+                FontSize="{ DynamicResource TitleFontSize }"
+                HorizontalTextAlignment="Start"
+            />
+            <!-- Text -->
+            <Label
+                Text="{ Binding Text, Source={x:Reference root} }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                HorizontalTextAlignment="Start"
+            />
+            <!-- Options -->
+            <grial:Repeater
+                SelectionMode="Single"
+                InitialSelection="First"
+                ScrollPadding="0"
+                ItemSize="40"
+                ItemsAlignment="Start"
+                Orientation="Vertical"
+                HorizontalOptions="Start"
+                ItemsSource="{ Binding Items, Source={x:Reference root} }"
+                SelectedItem="{ Binding SelectedItem, Source={x:Reference root}, Mode=TwoWay }">
+                <grial:Repeater.ItemTemplate>
+                    <DataTemplate>
+                        <grial:Checkbox
+                            IsChecked="false"
+                            Margin="0"
+                            InputTransparent="True"
+                            VerticalOptions="Center">
+                            <Label
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center"
+                                Margin="8,0,0,0"
+                                Text="{ Binding . }"
+                            />
+                        </grial:Checkbox>
+                    </DataTemplate>
+                </grial:Repeater.ItemTemplate>
+                <grial:Repeater.SelectedItemTemplate>
+                    <DataTemplate>
+                        <grial:Checkbox
+                            IsChecked="true"
+                            InputTransparent="true"
+                            VerticalOptions="Center"
+                            CheckedBackgroundColor="{ DynamicResource PrimaryColor }"
+                            CheckedBorderColor="{ DynamicResource PrimaryColor }">
+                            <Label
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center"
+                                Margin="8,0,0,0"
+                                Text="{ Binding . }"
+                            />
+                        </grial:Checkbox>
+                    </DataTemplate>
+                </grial:Repeater.SelectedItemTemplate>
+            </grial:Repeater>
+        </VerticalStackLayout>
+        <!-- Buttons -->
+        <Grid
+            Grid.Row="1"
+            RowDefinitions="*,*"
+            RowSpacing="{ DynamicResource SpacingMedium }">
+            <!-- Primary Action Button -->
+            <Button
+                Style="{ DynamicResource PrimaryActionButtonStyle }"
+                Text="{ Binding ActionButtonText, Source={x:Reference root} }"
+                Command="{ Binding ActionButtonCommand, Source={x:Reference root} }"
+            />
+            <!-- Secondary Action Button -->
+            <Button
+                Grid.Row="1"
+                Style="{ DynamicResource SecondaryActionButtonStyle }"
+                Text="{ Binding SecondaryActionButtonText, Source={x:Reference root} }"
+                Command="{ Binding SecondaryActionButtonCommand, Source={x:Reference root} }"
+            />
+        </Grid>
+    </Grid>
+
+</uxd:PopupResultPage>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardCardItemTemplate"
+    x:Name="Root">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer
+            Command="{ Binding Command, Source={x:Reference Root} }"
+            CommandParameter="{ Binding CommandParameter, Source={x:Reference Root} }"
+        />
+    </ContentView.GestureRecognizers>
+
+    <grial:CardView
+        Margin="2"
+        RowDefinitions="*,Auto,50,Auto,10"
+        BackgroundColor="{ StaticResource BackgroundSecondaryColor }">
+
+        <!-- Card Background image -->
+        <Image Source="{ Binding BackgroundImage }" />
+
+        <Grid
+            Grid.Row="1"
+            ColumnSpacing="8"
+            Padding="14,10"
+            RowDefinitions="Auto"
+            ColumnDefinitions="Auto,*">
+
+            <!-- Avatar -->
+            <grial:CircleImage
+                Source="{ Binding Avatar }"
+                HeightRequest="{ OnIdiom
+                    Phone=46,
+                    Tablet=60
+                }"
+                WidthRequest="{ OnIdiom
+                    Phone=46,
+                    Tablet=60
+                }"
+                VerticalOptions="Center"
+            />
+
+            <!-- Author -->
+            <Label
+                Grid.Column="1"
+                Text="{ Binding Author }"
+                LineBreakMode="WordWrap"
+                TextColor="{ DynamicResource TextColor }"
+                FontSize="{ OnIdiom
+                    Phone={StaticResource BaseFontSize},
+                    Tablet={StaticResource LargeFontSize}
+                }"
+                VerticalOptions="Center"
+            />
+        </Grid>
+
+        <!-- Card title -->
+        <Label
+            Grid.Row="2"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            Text="{ Binding Title }"
+            FontSize="{ OnIdiom
+                Phone={StaticResource BaseFontSize},
+                Tablet={StaticResource LargeFontSize}
+            }"
+            Margin="14,0"
+        />
+
+        <!-- SECTION -->
+        <grial:RoundedLabel
+            Grid.Column="0"
+            Style="{ StaticResource TagLabelStyle }"
+            Text="{ Binding Section }"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            Grid.Row="3"
+            BackgroundColor="{ Binding BackgroundColor }"
+            Margin="10,0"
+            FontSize="{ StaticResource SmallFontSize }"
+        />
+
+        <!-- VIEWS -->
+        <Grid
+            ColumnDefinitions="Auto,Auto"
+            ColumnSpacing="5"
+            RowDefinitions="Auto"
+            HeightRequest="22"
+            HorizontalOptions="End"
+            Grid.Row="0"
+            VerticalOptions="Start"
+            Margin="10"
+            Padding="8,2"
+            grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }"
+            BackgroundColor="{ StaticResource OverlayVariantColor }">
+
+            <Label
+                Text="{ x:Static local:GrialIconsFont.Eye }"
+                Style="{ StaticResource FontIcon }"
+                TextColor="{ DynamicResource OnSurfaceColor }"
+                FontSize="{ OnIdiom
+                    Phone=15,
+                    Tablet=20
+                }"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="End"
+            />
+
+            <Label
+                Grid.Column="1"
+                Text="223"
+                TextColor="{ DynamicResource OnSurfaceColor }"
+                FontSize="{ OnIdiom
+                    Phone=13,
+                    Tablet=16
+                }"
+                VerticalTextAlignment="Center"
+            />
+        </Grid>
+    </grial:CardView>
+</ContentView>

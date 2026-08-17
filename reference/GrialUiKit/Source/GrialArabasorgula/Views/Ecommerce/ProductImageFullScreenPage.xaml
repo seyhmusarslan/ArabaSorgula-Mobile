@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ProductImageFullScreenPage"
+    grial:GrialNavigationPage.HasNavigationBar="false"
+    BackgroundColor="Black">
+    <Grid>
+        <Image
+            x:Name="img"
+            Aspect="AspectFit"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/product_item_0.jpg">
+            <View.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="OnImagePreviewDoubleTapped"
+                    NumberOfTapsRequired="2"
+                />
+            </View.GestureRecognizers>
+        </Image>
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            Style="{ StaticResource CloseIconButtonStyle }"
+            Clicked="OnCloseButtonClicked"
+        />
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,398 @@
+{
+  "[grial-metadata]": "id: Grial#FoodPlacesFlow.json version: 1.0.1",
+  "FoodPlacesMainPage.xaml": {
+    "Places": [
+      {
+        "$id": "food-place-1",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_le_condor.jpg",
+        "HeaderImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_le_condor.jpg",
+        "Name": "Il Condor",
+        "Initials": "IC",
+        "Description": "Italian Cousine",
+        "IsOpen": true,
+        "Rating": 4.3,
+        "OpeningTime": "9:00 AM",
+        "ClosingTime": "8:00 PM",
+        "Distance": "1.7 km",
+        "Latitude": 48.8583701,
+        "Longitude": 2.2922926,
+        "TrafficInformation": [
+          {
+            "IconText": "",
+            "Title": "Distance",
+            "Description": "1.9 km"
+          },
+          {
+            "IconText": "",
+            "Title": "Walking",
+            "Description": "13.4 min"
+          },
+          {
+            "IconText": "",
+            "Title": "Driving",
+            "Description": "2 min"
+          }
+        ],
+        "Dishes": [
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_01.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_02.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_03.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_04.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_05.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_06.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_07.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_08.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_09.jpg"
+        ],
+        "DishesCount": 9,
+        "ReviewsCount": 235,
+        "Reviews": [
+          {
+            "$id": "food-places-review-1",
+            "Name": "Clare Japi",
+            "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg",
+            "Rating": "3.5",
+            "Date": "23-01-2021",
+            "Text": "After hours and hours working around a new feature, we findout Grial UI Kit. In a few minutes we had our MVP ready so we decided to go party to Ie Condor."
+          },
+          {
+            "$id": "food-places-review-2",
+            "Name": "Malvin North",
+            "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg",
+            "Rating": "4.7",
+            "Date": "23-01-2021",
+            "Text": "I can’t say enough of this place! We went there and we conected with every available dish. It was a magical experience :)"
+          },
+          {
+            "$id": "food-places-review-3",
+            "Name": "Larra Vide",
+            "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_02.jpg",
+            "Rating": "2.7",
+            "Date": "23-01-2021",
+            "Text": "I wonder what Anthony Burdain would think. I love the 'Chorizo al pan' but the wine with sprite was to much. I loved the music by the way. "
+          }
+        ]
+      },
+      {
+        "$id": "food-place-2",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_heian_kyo.jpg",
+        "HeaderImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_heian_kyo.jpg",
+        "Name": "Heian-kyo",
+        "Initials": "HK",
+        "Description": "Japanese",
+        "IsOpen": true,
+        "Rating": 4.1,
+        "OpeningTime": "6:00 PM",
+        "ClosingTime": "11:30 PM",
+        "Distance": "2.3 km",
+        "Latitude": 35.6681625,
+        "Longitude": 139.6007848,
+        "TrafficInformation": [
+          {
+            "IconText": "",
+            "Title": "Distance",
+            "Description": "2.3 km"
+          },
+          {
+            "IconText": "",
+            "Title": "Walking",
+            "Description": "19.2 min"
+          },
+          {
+            "IconText": "",
+            "Title": "Driving",
+            "Description": "5 min"
+          }
+        ],
+        "Dishes": [
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_01.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_02.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_03.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_04.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_05.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_06.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_07.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_08.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_09.jpg"
+        ],
+        "DishesCount": 9,
+        "ReviewsCount": 235,
+        "Reviews": [
+          {
+            "$ref": "food-places-review-1"
+          },
+          {
+            "$ref": "food-places-review-2"
+          },
+          {
+            "$ref": "food-places-review-3"
+          }
+        ]
+      },
+      {
+        "$id": "food-place-3",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dalai.jpg",
+        "HeaderImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dalai.jpg",
+        "Name": "Dalai",
+        "Initials": "DA",
+        "Description": "Chinese",
+        "IsOpen": true,
+        "Rating": 4.1,
+        "OpeningTime": "9:00 AM",
+        "ClosingTime": "1:00 AM",
+        "Distance": "2.3 km",
+        "Latitude": 39.9173708,
+        "Longitude": 116.3833529,
+        "TrafficInformation": [
+          {
+            "IconText": "",
+            "Title": "Distance",
+            "Description": "2.3 km"
+          },
+          {
+            "IconText": "",
+            "Title": "Walking",
+            "Description": "19.2 min"
+          },
+          {
+            "IconText": "",
+            "Title": "Driving",
+            "Description": "5 min"
+          }
+        ],
+        "Dishes": [
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_01.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_02.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_03.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_04.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_05.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_06.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_07.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_08.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_09.jpg"
+        ],
+        "DishesCount": 9,
+        "ReviewsCount": 235,
+        "Reviews": [
+          {
+            "$ref": "food-places-review-1"
+          },
+          {
+            "$ref": "food-places-review-2"
+          },
+          {
+            "$ref": "food-places-review-3"
+          }
+        ]
+      },
+      {
+        "$id": "food-place-4",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_pearland.jpg",
+        "HeaderImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_pearland.jpg",
+        "Name": "Pearland",
+        "Initials": "PE",
+        "Description": "Coffe Roasters",
+        "IsOpen": false,
+        "Rating": 3.5,
+        "OpeningTime": "8:00 AM",
+        "ClosingTime": "4:00 PM",
+        "Distance": "3.0 km",
+        "Latitude": -34.891736,
+        "Longitude": -56.187222,
+        "TrafficInformation": [
+          {
+            "IconText": "",
+            "Title": "Distance",
+            "Description": "3.0 km"
+          },
+          {
+            "IconText": "",
+            "Title": "Walking",
+            "Description": "25.3 min"
+          },
+          {
+            "IconText": "",
+            "Title": "Driving",
+            "Description": "12 min"
+          }
+        ],
+        "Dishes": [
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_01.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_02.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_03.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_04.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_05.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_06.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_07.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_08.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_09.jpg"
+        ],
+        "DishesCount": 9,
+        "ReviewsCount": 235,
+        "Reviews": [
+          {
+            "$ref": "food-places-review-1"
+          },
+          {
+            "$ref": "food-places-review-2"
+          },
+          {
+            "$ref": "food-places-review-3"
+          }
+        ]
+      },
+      {
+        "$id": "food-place-5",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_rounded.jpg",
+        "HeaderImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_rounded.jpg",
+        "Name": "Rounded",
+        "Initials": "RO",
+        "Description": "Burgers",
+        "IsOpen": false,
+        "Rating": 3.1,
+        "OpeningTime": "7:00 AM",
+        "ClosingTime": "3:30 PM",
+        "Distance": "1.1 km",
+        "Latitude": -34.891736,
+        "Longitude": -56.187222,
+        "TrafficInformation": [
+          {
+            "IconText": "",
+            "Title": "Distance",
+            "Description": "1.2 km"
+          },
+          {
+            "IconText": "",
+            "Title": "Walking",
+            "Description": "8.2 min"
+          },
+          {
+            "IconText": "",
+            "Title": "Driving",
+            "Description": "4 min"
+          }
+        ],
+        "Dishes": [
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_01.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_02.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_03.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_04.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_05.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_06.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_07.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_08.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_09.jpg"
+        ],
+        "DishesCount": 9,
+        "ReviewsCount": 235,
+        "Reviews": [
+          {
+            "$ref": "food-places-review-1"
+          },
+          {
+            "$ref": "food-places-review-2"
+          },
+          {
+            "$ref": "food-places-review-3"
+          }
+        ]
+      },
+      {
+        "$id": "food-place-6",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_beast.jpg",
+        "HeaderImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_beast.jpg",
+        "Name": "Beast",
+        "Initials": "BE",
+        "Description": "Barbecue",
+        "IsOpen": true,
+        "Rating": 3.8,
+        "OpeningTime": "7:00 AM",
+        "ClosingTime": "2:00 AM",
+        "Distance": "1.5 km",
+        "Latitude": -34.8945376,
+        "Longitude": -56.1550176,
+        "TrafficInformation": [
+          {
+            "IconText": "",
+            "Title": "Distance",
+            "Description": "1.5 km"
+          },
+          {
+            "IconText": "",
+            "Title": "Walking",
+            "Description": "10.4 min"
+          },
+          {
+            "IconText": "",
+            "Title": "Driving",
+            "Description": "7 min"
+          }
+        ],
+        "Dishes": [
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_01.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_02.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_03.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_04.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_05.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_06.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_07.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_08.jpg",
+          "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/food_places_dishes_09.jpg"
+        ],
+        "DishesCount": 9,
+        "ReviewsCount": 235,
+        "Reviews": [
+          {
+            "$ref": "food-places-review-1"
+          },
+          {
+            "$ref": "food-places-review-2"
+          },
+          {
+            "$ref": "food-places-review-3"
+          }
+        ]
+      }
+    ]
+  },
+  "RestaurantMapPage.xaml": {
+    "$ref": "food-place-1"
+  },
+  "FoodPlacesDishReviewPage.xaml": {
+    "ExperienceRates": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "ImprovedCategories": [
+      "Overall Service",
+      "Menu Variants",
+      "Place",
+      "Location",
+      "Music",
+      "Beverages",
+      "Ambientation",
+      "Desserts",
+      "Lightining",
+      "Pickup and delivery"
+    ],
+    "RateCategories": [
+      {
+        "Title": "Overall Service",
+        "Description": "What do you think?",
+        "Rate": 5.0
+      },
+      {
+        "Title": "Menu",
+        "Description": "Big enough?",
+        "Rate": 2.0
+      },
+      {
+        "Title": "Price",
+        "Description": "Quality/price relationship?",
+        "Rate": 3.0
+      }
+    ]
+  }
+}

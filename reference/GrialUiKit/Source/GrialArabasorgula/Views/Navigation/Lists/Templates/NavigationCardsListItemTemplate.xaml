@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.NavigationCardsListItemTemplate">
+
+    <grial:CardView
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        ColumnSpacing="4"
+        RowSpacing="5"
+        HasShadow="False"
+        Margin="30,8"
+        RowDefinitions="*,*">
+
+        <grial:CardView.ColumnDefinitions>
+            <ColumnDefinition Width="{ OnIdiom Phone=80, Tablet=110 }" />
+            <ColumnDefinition Width="*" />
+        </grial:CardView.ColumnDefinitions>
+
+        <!-- ICON -->
+        <local:RoundedIcon
+            Margin="10"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            IconHorizontalOptions="Center"
+            IconVerticalOptions="Center"
+            IconPadding="14"
+            IconText="{ Binding Icon }"
+            IconFontSize="{ OnIdiom
+                Phone=27,
+                Tablet=32
+            }"
+            IconBackgroundCornerRadius="{ DynamicResource CornerRadius-md }"
+            IconBackgroundColor="{ Binding BackgroundColorColor }"
+            IconColor="{ Binding BackgroundColorColor }"
+            IconBackgroundOpacity="0.1"
+            IsIconBackgroundCircular="false"
+        />
+
+        <!-- CATEGORY -->
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="{ Binding Name }"
+            TextColor="{ DynamicResource TextColor }"
+            FontAttributes="Bold"
+            FontSize="{ StaticResource LargeFontSize }"
+            VerticalTextAlignment="End"
+        />
+
+        <!-- ITEM COUNT -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="{ Binding ItemCount, StringFormat='{}{0:F0} items' }"
+            FontAttributes="None"
+            FontSize="14"
+            Opacity=".5"
+            VerticalTextAlignment="Start"
+            TextColor="{ DynamicResource TextColor }"
+        />
+
+    </grial:CardView>
+</ContentView>

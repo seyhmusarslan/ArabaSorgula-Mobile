@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.VerticalFriendTemplate"
+    x:Name="root">
+    <ContentView.Resources>
+        <local:SpaceToBreakLineConverter x:Key="SpaceToBreakLineConverter" />
+    </ContentView.Resources>
+    <Grid
+        RowDefinitions="55,*"
+        HorizontalOptions="Center"
+        VerticalOptions="Start"
+        WidthRequest="70">
+        <grial:CircleImage
+            HorizontalOptions="Center"
+            BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+            BorderSize="2"
+            Size="52"
+            Source="{ Binding Image, Source={x:Reference root} }"
+        />
+        <Label
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            LineBreakMode="WordWrap"
+            VerticalTextAlignment="Start"
+            VerticalOptions="Start"
+            Text="{ Binding Text, Source={x:Reference root}, Converter={StaticResource SpaceToBreakLineConverter} }"
+        />
+    </Grid>
+</ContentView>

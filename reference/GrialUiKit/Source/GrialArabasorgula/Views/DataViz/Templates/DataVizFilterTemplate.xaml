@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="arabasorgula.DataVizFilterTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Name="root">
+
+    <Grid
+        Margin="0,0,20,0"
+        ColumnDefinitions="Auto,Auto">
+
+        <!-- Picker -->
+        <Picker
+            x:Name="Picker"
+            Grid.ColumnSpan="2"
+            grial:PickerProperties.BorderStyle="None"
+            BackgroundColor="Transparent"
+            FontSize="14"
+            ItemsSource="{ Binding Options, Source={x:Reference root} }"
+            SelectedItem="{ Binding SelectedOption, Mode=TwoWay, Source={x:Reference root} }"
+            TextColor="Transparent"
+        />
+
+        <!-- Bg -->
+        <BoxView
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="-20,0"
+            CornerRadius="{ DynamicResource CornerRadius-big }"
+            InputTransparent="True"
+            Color="{ DynamicResource PrimaryVariantColor }"
+            IsVisible="{ Binding SelectedItem, Source={x:Reference Picker}, Converter={StaticResource IsNotNullConverter} }"
+        />
+
+        <!-- Pseudo Picker -->
+        <Label
+            Grid.Column="0"
+            BindingContext="{ x:Reference Picker }"
+            FontSize="14"
+            HorizontalOptions="End"
+            InputTransparent="true"
+            Text="{ Binding SelectedItem }"
+            TextColor="{ DynamicResource PrimaryColor }"
+            VerticalOptions="Center"
+        />
+
+        <!-- Icon -->
+        <Label
+            Grid.Column="1"
+            Margin="10,0,0,0"
+            FontSize="18"
+            HorizontalTextAlignment="End"
+            InputTransparent="true"
+            Style="{ StaticResource FontIcon }"
+            Text="{ x:Static local:GrialIconsFont.ChevronDown }"
+            TextColor="{ DynamicResource PrimaryColor }"
+            VerticalOptions="Center"
+        />
+    </Grid>
+</ContentView>
+

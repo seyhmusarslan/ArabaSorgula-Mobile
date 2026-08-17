@@ -1,0 +1,34 @@
+{
+    "[grial-metadata]": "id: Grial#Forms.json version: 1.0.5",
+    "StepsFormPage.xaml": {
+        "AppUsageData": [
+            {
+                "PickerTitle": "Frecuency",
+                "PickerOptions": ["Daily", "Weekly", "Monthly"]
+            },
+            {
+                "PickerTitle": "Session Duration",
+                "PickerOptions": [
+                    "5-15 minutes",
+                    "15-30 minutes",
+                    "30-45 minutes",
+                    "45-60 minutes"
+                ]
+            },
+            {
+                "PickerTitle": "Primary Purpose",
+                "PickerOptions": ["Social Networking", "Killing Time", "Other"]
+            },
+            {
+                "PickerTitle": "Ease of Use",
+                "PickerOptions": ["Easy", "Moderate", "Hard"]
+            }
+        ],
+        "FeedbackData": [
+            {
+                "PickerTitle": "Satisfaction",
+                "PickerOptions": ["Low", "Medium", "High"]
+            }
+        ]
+    }
+}

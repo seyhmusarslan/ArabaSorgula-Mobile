@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.WebsiteTrafficReportPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleWebsiteTrafficReport }">
+
+    <ContentPage.Resources>
+
+        <!-- PIE CHART THEME -->
+        <grial:ChartTheme x:Key="PieTheme">
+            <SolidColorBrush Color="#F9B300" />
+            <SolidColorBrush Color="#FF0000" />
+            <SolidColorBrush Color="#5E39CE" />
+            <SolidColorBrush Color="#3F75FF" />
+            <SolidColorBrush Color="#D9E3FF" />
+        </grial:ChartTheme>
+
+        <!-- CHART LEGEND TEMPLATE -->
+        <DataTemplate x:Key="ChartLegendTemplate">
+            <Grid
+                ColumnDefinitions="12,*"
+                ColumnSpacing="3"
+                Margin="0,5,10,0">
+                <!-- Color Square -->
+                <Rectangle
+                    Grid.Column="0"
+                    Fill="{ Binding Color }"
+                    HeightRequest="12"
+                    WidthRequest="12"
+                    RadiusX="4"
+                    RadiusY="4"
+                    VerticalOptions="Center"
+                />
+                <!-- Legend Text -->
+                <Label
+                    Grid.Column="1"
+                    Text="{ Binding Text }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    VerticalOptions="Center"
+                />
+            </Grid>
+        </DataTemplate>
+
+    </ContentPage.Resources>
+
+    <ScrollView grial:Effects.IgnoreIOSSafeAreaOnScrollView="All">
+
+        <!-- Main Container -->
+        <Grid
+            RowDefinitions="Auto,*"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom"
+            grial:Effects.IOSSafeAreaBottomSize="20">
+
+            <!-- Data Cards Section Container -->
+            <Grid
+                RowDefinitions="Auto,135"
+                RowSpacing="24"
+                Padding="{ grial:OnOrientationThickness
+                    Landscape='100,20,100,20',
+                    PortraitPhone='20',
+                    PortraitTablet='100,20,100,20'
+                }">
+
+                <!-- Section Title -->
+                <Label
+                    FontSize="{ StaticResource LargeFontSize }"
+                    HorizontalTextAlignment="Start"
+                    Text="{ grial:Translate LabelReport }"
+                    TextColor="{ DynamicResource TextColor }"
+                    VerticalTextAlignment="Center"
+                />
+
+                <!-- DATA CARDS -->
+                <local:WebsiteTrafficReportCardItemTemplate Grid.Row="1" />
+
+            </Grid>
+
+            <!-- Charts container -->
+            <grial:ExtendedGrid
+                Grid.Row="1"
+                Padding="{ grial:OnOrientationThickness
+                    Landscape='100,20,100,20',
+                    PortraitPhone='20',
+                    PortraitTablet='100,20,100,20'
+                }"
+                RowDefinitions="Auto,*"
+                Margin="0,10,0,0"
+                TrimTopShape="RoundedCorners"
+                TrimTopHeight="40"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+                <VerticalStackLayout Spacing="24">
+                    <!-- BAR CHART -->
+                    <!-- Title -->
+                    <Label
+                        Margin="0,10,0,0"
+                        FontSize="{ StaticResource LargeFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate StringUsers }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                    />
+
+                    <!-- CHART -->
+                    <grial:HorizontalBarChart
+                        Margin="-10,-10,0,0"
+                        AxisFontColor="{ DynamicResource TextSecondaryColor }"
+                        AxisLinesColor="#E0E3EC"
+                        AxisLinesStrokeSize="1"
+                        BackgroundColor="Transparent"
+                        CategorySeparation="12"
+                        DisplayLabels="True"
+                        DisplayReferenceAxis="True"
+                        DisplayReferenceGridLines="False"
+                        HasSelection="False"
+                        HeightRequest="240"
+                        LabelFontColor="{ DynamicResource TextSecondaryColor }"
+                        LabelFontSize="9"
+                        LabelHorizontalAlignment="Left"
+                        Legend="BarSeriesLegend"
+                        ValueLabelFontColor="{ DynamicResource TextSecondaryColor }"
+                        MaxValue="{ Binding MaxValue }">
+
+                        <grial:BarSeries
+                            Title="Recurring"
+                            ItemsSource="{ Binding WebSiteSeries }"
+                            ValuePath="RecurringValue"
+                            LabelPath="Label"
+                            Color="#5E39CE"
+                            Style="{ DynamicResource WebsiteTrafficReportPage_BarSeriesStyle }"
+                        />
+
+                        <grial:BarSeries
+                            Title="Non-recurring"
+                            ItemsSource="{ Binding WebSiteSeries }"
+                            ValuePath="NonRecurringValue"
+                            LabelPath="Label"
+                            Color="#C5B7F7"
+                            Style="{ DynamicResource WebsiteTrafficReportPage_BarSeriesStyle }"
+                        />
+
+                    </grial:HorizontalBarChart>
+
+                    <!-- Barchart Legend -->
+                    <grial:MultiSeriesLegend
+                        x:Name="BarSeriesLegend"
+                        Margin="0,-10,0,0"
+                        HeightRequest="20"
+                        ItemTemplate="{ DynamicResource ChartLegendTemplate }">
+
+                        <grial:MultiSeriesLegend.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </grial:MultiSeriesLegend.ItemsLayout>
+
+                    </grial:MultiSeriesLegend>
+
+                    <!-- PIE CHART -->
+                    <!-- Title -->
+                    <Label
+                        FontSize="{ StaticResource LargeFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate LabelUserAcquisition }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                    />
+
+                    <Grid>
+                        <!-- Inside Pie Labels -->
+                        <VerticalStackLayout
+                            Grid.Row="1"
+                            HorizontalOptions="Center"
+                            Spacing="6"
+                            VerticalOptions="Center">
+
+                            <!-- Value -->
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="24"
+                                HorizontalTextAlignment="Center"
+                                Text="{ Binding Total }"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                VerticalTextAlignment="Center"
+                            />
+
+                            <!-- Label -->
+                            <Label
+                                FontSize="14"
+                                HorizontalTextAlignment="Center"
+                                Text="{ grial:Translate StringTotal }"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                VerticalTextAlignment="Center"
+                            />
+
+                        </VerticalStackLayout>
+
+                        <!-- CHART -->
+                        <grial:PieChart
+                            HeightRequest="240"
+                            BackgroundColor="Transparent"
+                            IsAnimated="False"
+                            LabelFontColor="DimGray"
+                            LabelFontSize="12"
+                            DisplayLabels="False"
+                            StrokeSize="0"
+                            Theme="{ StaticResource PieTheme }"
+                            Legend="ChartLegend"
+                            HasSelection="False">
+
+                            <grial:PieSeries
+                                InnerRadius="0.7"
+                                ItemsSource="{ Binding Acquisition }"
+                                Radius="120"
+                                ValuePath="Value"
+                                LabelPath="Label"
+                            />
+
+                        </grial:PieChart>
+
+                    </Grid>
+
+                    <!-- Pie Chart Legend -->
+                    <grial:SingleSeriesLegend
+                        x:Name="ChartLegend"
+                        HeightRequest="60"
+                        ItemTemplate="{ StaticResource ChartLegendTemplate }">
+
+                        <grial:SingleSeriesLegend.ItemsLayout>
+                            <GridItemsLayout
+                                Orientation="Vertical"
+                                Span="3"
+                                VerticalItemSpacing="5"
+                            />
+                        </grial:SingleSeriesLegend.ItemsLayout>
+
+                    </grial:SingleSeriesLegend>
+
+                </VerticalStackLayout>
+            </grial:ExtendedGrid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

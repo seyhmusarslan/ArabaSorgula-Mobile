@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.NotificationsListItemTemplate">
+
+    <!-- MAIN GRID -->
+    <Grid
+        Padding="20,0,15,0"
+        VerticalOptions="Fill"
+        ColumnSpacing="15"
+        RowSpacing="5"
+        ColumnDefinitions="Auto,*,40"
+        RowDefinitions="*,*">
+        <!-- ICON -->
+        <local:RoundedIcon
+            Grid.RowSpan="2"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            IconText="{ Binding Type, Converter={StaticResource NotificationConverter} }"
+            IconFontSize="{ grial:OnOrientationDouble
+                PortraitPhone=18,
+                LandscapePhone=18,
+                PortraitTablet=22,
+                LandscapeTablet=22
+            }"
+            IconBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            IconColor="{ Binding Type, Converter={StaticResource NotificationConverter} }"
+            IsCircular="False"
+            CornerRadius="{ DynamicResource CornerRadius-md }"
+            HeightRequest="44"
+            WidthRequest="44"
+        />
+
+        <!-- NOTIFICATION -->
+        <Label
+            Grid.Column="1"
+            Grid.Row="0"
+            FontAttributes="None"
+            Text="{ Binding Title }"
+            HorizontalOptions="Start"
+            VerticalOptions="End"
+            FontSize="{ StaticResource BaseFontSize }"
+        />
+
+        <!-- DESCRIPTION -->
+        <Label
+            Grid.Column="1"
+            Grid.Row="1"
+            FontSize="{ StaticResource SmallFontSize }"
+            FontAttributes="None"
+            Text="{ Binding Description }"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+        />
+
+        <!-- CHEVRON -->
+        <Label
+            Grid.Column="2"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            WidthRequest="20"
+            HorizontalOptions="End"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            Style="{ DynamicResource CardsListItemTemplateChevronStyle }"
+            Margin="0"
+        />
+
+        <!-- SEPARATOR -->
+        <BoxView
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"
+            Margin="0,0,-30,0"
+            VerticalOptions="End"
+            Style="{ StaticResource Horizontal1ptLineStyle }"
+        />
+    </Grid>
+</ContentView>

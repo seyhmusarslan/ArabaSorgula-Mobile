@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.SettingsMenuPage"
+    Title="{ grial:Translate PageTitlePreferences }"
+    x:Name="root">
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <!-- MAIN CONTAINER -->
+        <VerticalStackLayout
+            Spacing="20"
+            Padding="{ DynamicResource AirSpacing }"
+            Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+            <!-- TITLE -->
+            <Label
+                Text="{ grial:Translate LabelSettings }"
+                FontSize="{ StaticResource TitleFontSize }"
+                VerticalOptions="Center"
+            />
+            <!-- PROMO BANNER -->
+            <Grid
+                HeightRequest="130"
+                BindingContext="{ Binding PromoData }"
+                Padding="{ DynamicResource AirSpacing }"
+                RowDefinitions="Auto,Auto"
+                RowSpacing="8"
+                grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }">
+                <!-- GRADIENT BACKGROUND -->
+                <grial:Effects.BackgroundGradient>
+                    <grial:LinearGradient>
+                        <grial:GradientColor Color="{ Binding BindingContext.PromoData.DarkColorColor, Source={x:Reference root} }" />
+                        <grial:GradientColor Color="{ Binding BindingContext.PromoData.LightColorColor, Source={x:Reference root} }" />
+                    </grial:LinearGradient>
+                </grial:Effects.BackgroundGradient>
+                <!-- BANNER BACKGROUND DECORATION -->
+                <local:BackgroundDecoration
+                    Grid.RowSpan="2"
+                    Margin="110,-100,-100,-100"
+                />
+                <!-- HEADER -->
+                <Label
+                    Text="{ Binding Header }"
+                    FontSize="{ StaticResource SmallTitleFontSize }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    VerticalOptions="Center"
+                />
+                <!-- DESCRIPTION -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ Binding Description }"
+                    FontSize="{ StaticResource SmallFontSize }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    VerticalOptions="Center"
+                />
+            </Grid>
+            <!-- SETTINGS LIST -->
+            <VerticalStackLayout BindableLayout.ItemsSource="{ Binding Settings }">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <local:MenuItemTemplate />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

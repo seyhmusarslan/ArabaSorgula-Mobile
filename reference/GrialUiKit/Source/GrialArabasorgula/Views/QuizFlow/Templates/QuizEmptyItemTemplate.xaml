@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.QuizEmptyItemTemplate"
+    x:Name="root">
+
+    <!-- DASHED BORDER -->
+    <Border
+        StrokeThickness="2"
+        Stroke="{ DynamicResource BackgroundTertiaryColor }"
+        StrokeShape="RoundRectangle 20"
+        StrokeDashArray="6,6"
+        StrokeDashOffset="6"
+        BackgroundColor="{ DynamicResource BackgroundColor }"
+        Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+        <!-- CONTENT -->
+        <Grid
+            RowDefinitions=".5*,.2*,.3*"
+            Padding="{ DynamicResource AirSpacing }"
+            RowSpacing="40">
+            <!-- ICON -->
+            <local:Emoji
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                WidthRequest="120"
+                HeightRequest="120"
+                Unicode="{ x:Static local:Emojis.raising_hands }"
+            />
+
+            <!-- TEXT CONTAINER -->
+            <VerticalStackLayout
+                Grid.Row="1"
+                HorizontalOptions="Center">
+                <!-- TITLE -->
+                <Label
+                    Text="{ grial:Translate LabelNoMoreQuestions }"
+                    FontSize="{ StaticResource TitleFontSize }"
+                    FontFamily="{ StaticResource AppSemiBoldFamily }"
+                    HorizontalTextAlignment="Center"
+                />
+                <!-- SUBTITLE -->
+                <Label
+                    Text="{ grial:Translate LabelQuestionsCompleted }"
+                    TextColor="{ DynamicResource TextTertiaryColor }"
+                    HorizontalTextAlignment="Center"
+                />
+            </VerticalStackLayout>
+
+            <!-- REVIEW BUTTON -->
+            <Button
+                Grid.Row="2"
+                Text="{ grial:Translate ButtonReview }"
+                Style="{ DynamicResource SecondaryActionButtonStyle }"
+                FontFamily="{ StaticResource AppSemiBoldFamily }"
+                VerticalOptions="End"
+                Command="{ Binding ReviewResultsCommand, Source={x:Reference root} }"
+            />
+        </Grid>
+    </Border>
+
+</ContentView>
+

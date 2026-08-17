@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.FoodPlacesDetailsTemplate">
+    <grial:DrawerScrollView
+        BindingContext="{ Binding FoodPlaceData }"
+        VerticalScrollBarVisibility="Never"
+        VerticalOptions="Fill">
+
+        <VerticalStackLayout
+            Style="{ DynamicResource ResponsiveLandscapeMarginStyle }"
+            Spacing="20"
+            Padding="{ DynamicResource AirSpacingWithBorder }"
+            Margin="{ OnPlatform Android='0,0,0,30' }">
+            <!-- Header -->
+            <Grid ColumnDefinitions="*,Auto">
+                <!-- NAME AND DESCRIPTION -->
+                <VerticalStackLayout Spacing="0">
+                    <!-- NAME -->
+                    <Label
+                        FontAttributes="Bold"
+                        Text="{ Binding Name }"
+                        FontSize="{ DynamicResource TitleFontSize }"
+                    />
+
+                    <!-- DESCRIPTION -->
+                    <Label
+                        Text="{ Binding Description }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        FontSize="16"
+                    />
+                </VerticalStackLayout>
+
+                <!-- RATING -->
+                <Label
+                    Grid.Column="1"
+                    TextColor="{ DynamicResource RatingColor }"
+                    VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontAttributes="Bold"
+                                Text="{ Binding Rating }"
+                                FontSize="35"
+                            />
+                            <Span Text=" " />
+                            <Span
+                                FontFamily="{ StaticResource IconsFontFamily }"
+                                Text="{ x:Static local:GrialIconsFont.StarFill }"
+                                FontSize="33"
+                            />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+
+            <!-- TRAFFIC INFORMATION -->
+            <!--
+                ScrollPadding="25, 0"
+                ScrollBarVisibility="Never"
+                ItemSize="130"
+                Spacing="12"
+                Orientation="Horizontal"
+            -->
+            <CollectionView
+                Margin="-30,10,-30,0"
+                HeightRequest="45"
+                ItemsSource="{ Binding TrafficInformation }"
+                SelectionMode="None"
+                HorizontalOptions="Fill"
+                ItemsLayout="HorizontalList"
+                HorizontalScrollBarVisibility="Never">
+                <CollectionView.Header>
+                    <BoxView WidthRequest="25" />
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <BoxView WidthRequest="25" />
+                </CollectionView.Footer>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local:TrafficInformationTemplate
+                            Margin="12,0,0,0"
+                            IconText="{ Binding IconText }"
+                            Title="{ Binding Title }"
+                            Description="{ Binding Description }"
+                        />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- REVIEWS -->
+            <Grid
+                Margin="0,10,0,0"
+                RowSpacing="10"
+                RowDefinitions="Auto,Auto">
+                <!-- TITLE -->
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontAttributes="Bold"
+                                Text="{ grial:Translate StringReviews }"
+                                FontSize="24"
+                            />
+                            <Span
+                                Text="{ Binding ReviewsCount, StringFormat='{0} Reviews' }"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                FontSize="15"
+                            />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- CARDS -->
+                <grial:Repeater
+                    Grid.Row="1"
+                    ItemsSource="{ Binding Reviews }"
+                    ItemSize="290"
+                    HeightRequest="230"
+                    Orientation="Horizontal"
+                    ScrollBarVisibility="Never"
+                    SelectionMode="None"
+                    Spacing="25"
+                    Margin="{ DynamicResource RemoveParentAirSpacing }"
+                    ScrollPadding="20, 0"
+                    VerticalOptions="Start">
+                    <grial:Repeater.ItemTemplate>
+                        <DataTemplate>
+                            <grial:CardView
+                                HasShadow="False"
+                                RowDefinitions="Auto,Auto,*"
+                                RowSpacing="0"
+                                ColumnDefinitions="Auto,*"
+                                ColumnSpacing="10"
+                                HeightRequest="190"
+                                Margin="0,5,0,20"
+                                Padding="15,20"
+                                grial:Effects.DropShadow="Light">
+                                <!-- RATING -->
+                                <Grid
+                                    HeightRequest="40"
+                                    WidthRequest="70"
+                                    Grid.Column="1"
+                                    HorizontalOptions="End"
+                                    Margin="0,-28,-15,0">
+                                    <BoxView
+                                        Color="{ DynamicResource RatingColor }"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Fill"
+                                        CornerRadius="0,10,10,0"
+                                    />
+
+                                    <Label
+                                        TextColor="{ DynamicResource TextOnSurfaceColor }"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    Text="{ Binding Rating }"
+                                                    FontSize="15"
+                                                />
+                                                <Span Text=" " />
+                                                <Span
+                                                    Text="{ x:Static local:GrialIconsFont.Star }"
+                                                    FontFamily="{ StaticResource IconsFontFamily }"
+                                                    FontSize="14"
+                                                />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+
+                                <!-- AVATAR -->
+                                <grial:CircleImage
+                                    VerticalOptions="Start"
+                                    Grid.RowSpan="2"
+                                    Size="50"
+                                    Source="{ Binding Avatar }"
+                                />
+
+                                <!-- TITLE -->
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{ Binding Name }"
+                                    FontSize="20"
+                                />
+
+                                <!-- DATE -->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{ Binding Date }"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                    FontSize="13"
+                                />
+
+                                <!-- TEXT -->
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.ColumnSpan="2"
+                                    Margin="0,10,0,0"
+                                    Text="{ Binding Text }"
+                                    FontSize="13"
+                                    LineHeight="1.1"
+                                />
+                            </grial:CardView>
+                        </DataTemplate>
+                    </grial:Repeater.ItemTemplate>
+                </grial:Repeater>
+            </Grid>
+
+            <!-- DISHES -->
+            <Grid
+                RowSpacing="20"
+                RowDefinitions="27,Auto">
+                <!-- TITLE -->
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontAttributes="Bold"
+                                Text="{ grial:Translate StringDishes }"
+                                FontSize="24"
+                            />
+                            <Span
+                                Text="{ Binding DishesCount, StringFormat='{0} Photos' }"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                FontSize="15"
+                            />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- GALLERY -->
+                <grial:GridView
+                    Grid.Row="1"
+                    Margin="0"
+                    ColumnSpacing="8"
+                    RowSpacing="8"
+                    ColumnCount="3"
+                    RowCount="3"
+                    ItemsSource="{ Binding Dishes }"
+                    ItemHeightToWidthRelation="1">
+                    <grial:GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Image
+                                Source="{ Binding . }"
+                                Aspect="AspectFill"
+                                grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DishTapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </DataTemplate>
+                    </grial:GridView.ItemTemplate>
+                </grial:GridView>
+
+            </Grid>
+
+            <!-- REVIEW BUTTON -->
+            <Button
+                Margin="0,10,0,20"
+                Text="{ grial:Translate StringRateExperience }"
+                Style="{ StaticResource PrimaryActionButtonStyle }"
+                Clicked="RateClicked"
+            />
+        </VerticalStackLayout>
+    </grial:DrawerScrollView>
+</ContentView>

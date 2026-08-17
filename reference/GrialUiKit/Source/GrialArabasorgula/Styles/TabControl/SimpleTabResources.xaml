@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SimpleTabResources">
+
+    <!-- Simple tab style not supporting icons -->
+    <Style x:Key="SimpleTabStyle" TargetType="grial:TabControl">
+        <Setter Property="TabItemStyle">
+            <Setter.Value>
+                <Style TargetType="grial:TabItem">
+                    <Setter Property="TextColor" Value="{ DynamicResource SimpleTabDefaultStateTextColor }" />
+                    <Setter Property="TextColorSelected" Value="{ DynamicResource PrimaryColor }" />
+                    <Setter Property="FontSize" Value="14" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TabItemControlTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Label
+                            Margin="0,20,0,10"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontSize="{ TemplateBinding FontSize }"
+                            FontAttributes="Bold"
+                            Text="{ TemplateBinding Text }"
+                            TextColor="{ TemplateBinding CurrentTextColor }"
+                        />
+
+                        <BoxView
+                            HeightRequest="2"
+                            WidthRequest="15"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            IsVisible="{ TemplateBinding IsSelected }"
+                            Color="{ DynamicResource PrimaryColor }"
+                        />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

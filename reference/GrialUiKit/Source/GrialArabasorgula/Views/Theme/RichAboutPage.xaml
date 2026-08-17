@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.RichAboutPage"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    Title="{ grial:Translate StringContactUs }"
+    grial:GrialNavigationPage.ForceShadow="True">
+    <ContentPage.Resources>
+        <x:String x:Key="SayHelloURL">https://http://bit.ly/2Ed0T4G</x:String>
+    </ContentPage.Resources>
+
+    <grial:GrialNavigationPage.TitleView>
+        <Grid>
+            <!-- GRIAL LOGO -->
+            <Label
+                Text="{ x:Static local:GrialIconsFont.LogoGrialSquare }"
+                VerticalOptions="Center"
+                FontSize="32"
+                Margin="0,0"
+                InputTransparent="true"
+                TextColor="{ DynamicResource TextColor }"
+                HorizontalOptions="Center"
+                FontFamily="{ StaticResource IconsFontFamily }">
+                <VisualElement.Behaviors>
+                    <grial:AnimatedTranslationY
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="230"
+                        ProgressEnd="260"
+                        Start="0"
+                        End="6"
+                    />
+                    <grial:AnimatedOpacity
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="230"
+                        ProgressEnd="260"
+                        Start="1"
+                        End="0"
+                    />
+                </VisualElement.Behaviors>
+            </Label>
+
+            <!-- ANIMATED PAGE TITLE -->
+            <Label
+                Text="{ grial:Translate StringAboutUs }"
+                FontSize="18"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+                TextColor="{ DynamicResource TextColor }"
+                VerticalOptions="Center">
+                <VisualElement.Behaviors>
+                    <grial:AnimatedTranslationY
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="255"
+                        ProgressEnd="300"
+                        Start="30"
+                        End="0"
+                    />
+                    <grial:AnimatedOpacity
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="270"
+                        ProgressEnd="300"
+                        Start="0"
+                        End="1"
+                    />
+                </VisualElement.Behaviors>
+            </Label>
+        </Grid>
+    </grial:GrialNavigationPage.TitleView>
+
+    <Grid
+        RowSpacing="0"
+        RowDefinitions="228,*">
+
+        <!-- HEADER IMAGE -->
+        <grial:ExtendedGrid
+            TrimBottomHeight="40"
+            TrimBottomShape="RoundedCorners">
+            <Image
+                Style="{ StaticResource NoPlaceholderImageStyle }"
+                Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthroughimage_1.jpg"
+                AnchorX="0.5"
+                AnchorY="1"
+                HeightRequest="228"
+                VerticalOptions="Start"
+                InputTransparent="true"
+                Opacity="1">
+                <View.Behaviors>
+                    <grial:AnimatedTranslationY
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="0"
+                        ProgressEnd="190"
+                        Start="0"
+                        End="20"
+                    />
+
+                    <grial:AnimatedOpacity
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="10"
+                        ProgressEnd="220"
+                        Start="1"
+                        End="0"
+                    />
+
+                    <grial:AnimatedScale
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="0"
+                        ProgressEnd="220"
+                        Start="1"
+                        End="1.35"
+                    />
+                </View.Behaviors>
+            </Image>
+        </grial:ExtendedGrid>
+
+
+        <!-- SCROLLVIEW -->
+        <ScrollView Grid.RowSpan="2">
+            <VisualElement.Behaviors>
+                <grial:ScrollViewScrollBehavior x:Name="scroll" />
+            </VisualElement.Behaviors>
+
+            <Grid>
+                <BoxView
+                    Margin="-30,228,0,0"
+                    Color="{ DynamicResource BackgroundSecondaryColor }">
+                    <View.Behaviors>
+                        <grial:AnimatedOpacity
+                            Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                            ProgressStart="20"
+                            ProgressEnd="40"
+                            Start="0.85"
+                            End="1"
+                        />
+                    </View.Behaviors>
+                </BoxView>
+
+                <grial:ExtendedStackLayout
+                    VerticalOptions="Fill"
+                    Padding="{ DynamicResource AirSpacing }"
+                    Margin="0,228,0,0"
+                    Spacing="30">
+
+                    <VerticalStackLayout Spacing="10">
+                        <!-- TITLE -->
+                        <Label
+                            Text="{ grial:Translate StringAboutUs }"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Start"
+                        />
+
+                        <!-- DESCRIPTION -->
+                        <Label
+                            Text="{ grial:Translate RichAboutPageDescriptionString }"
+                            HorizontalTextAlignment="Start"
+                        />
+                    </VerticalStackLayout>
+
+
+                    <!-- TESTIMONIALS -->
+                    <CarouselView
+                        HeightRequest="280"
+                        BackgroundColor="{ DynamicResource BackgroundColor }"
+                        grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                        Margin="0"
+                        IndicatorView="indicator"
+                        HorizontalScrollBarVisibility="Never"
+                        ItemsSource="{ Binding Testimonials }">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <VerticalStackLayout
+                                    Spacing="0"
+                                    VerticalOptions="Center"
+                                    Margin="{ DynamicResource AirSpacingNoBorder }">
+
+                                    <grial:RoundedImage
+                                        Margin="0,10"
+                                        HorizontalOptions="Center"
+                                        Source="{ Binding Image }"
+                                        Style="{ StaticResource AvatarImageStyle }"
+                                    />
+
+                                    <Label
+                                        FontSize="18"
+                                        FontAttributes="Bold"
+                                        Text="{ Binding Name }"
+                                        HorizontalTextAlignment="Center"
+                                    />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{ Binding Title }"
+                                        TextColor="{ DynamicResource FavoriteColor }"
+                                        HorizontalTextAlignment="Center"
+                                    />
+
+                                    <grial:Rating
+                                        Margin="0,10"
+                                        Value="{ Binding Rating }"
+                                        MaxValue="5"
+                                        HorizontalOptions="Center"
+                                        Scale=".75"
+                                    />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{ Binding Testimonial }"
+                                        HorizontalTextAlignment="Center"
+                                    />
+
+                                    <Image
+                                        HeightRequest="40"
+                                        Margin="0,20"
+                                        Aspect="AspectFit"
+                                        Source="{ Binding CompanyLogo }"
+                                    />
+                                </VerticalStackLayout>
+
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+
+                    <IndicatorView
+                        x:Name="indicator"
+                        IndicatorColor="{ DynamicResource OverlayVariantColor }"
+                        SelectedIndicatorColor="{ DynamicResource PrimaryColor }"
+                        HorizontalOptions="Center"
+                    />
+
+                    <Image
+                        Margin="{ DynamicResource RemoveParentAirSpacing }"
+                        Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthroughimage_2.jpg"
+                        HeightRequest="240"
+                        grial:TrimmingEffects.BottomHeight="40"
+                        grial:TrimmingEffects.BottomShape="RoundedCorners"
+                    />
+                    <!-- LOGO -->
+                    <Image
+                        HorizontalOptions="Start"
+                        HeightRequest="35"
+                        WidthRequest="170"
+                        Aspect="AspectFit"
+                        Margin="0,10"
+                        Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/microsoft_logo.png"
+                    />
+
+                    <VerticalStackLayout Spacing="20">
+                        <!-- ABOUT TEXT -->
+                        <Label
+                            Text="{ grial:Translate RichAboutPageMissionString }"
+                            HorizontalTextAlignment="Start"
+                        />
+
+                        <!-- PARAGRAPH -->
+                        <Label
+                            Text="{ grial:Translate RichAboutPageMission2String }"
+                            HorizontalTextAlignment="Start"
+                        />
+
+                        <!-- PARAGRAPH -->
+                        <Label
+                            Text="{ grial:Translate RichAboutPageFollowUs }"
+                            HorizontalTextAlignment="Start"
+                        />
+                    </VerticalStackLayout>
+
+
+                    <!-- SOCIAL LOGOS -->
+                    <HorizontalStackLayout
+                        Margin="0,10"
+                        Spacing="20"
+                        HorizontalOptions="Start">
+                        <!-- INSTRAGRAM -->
+                        <Label
+                            Text="{ x:Static local:GrialIconsFont.LogoInstagram }"
+                            FontFamily="{ StaticResource IconsFontFamily }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            FontSize="{ OnIdiom
+                                Phone=27,
+                                Tablet=32
+                            }">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{ Binding TapCommand }"
+                                    CommandParameter="https://www.youtube.com/channel/UCx3l6cIxm1X60ViL3kv_MRg"
+                                />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <!-- YOUTUBE -->
+                        <Label
+                            Text="{ x:Static local:GrialIconsFont.LogoYoutube }"
+                            FontFamily="{ StaticResource IconsFontFamily }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            FontSize="{ OnIdiom
+                                Phone=27,
+                                Tablet=32
+                            }">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{ Binding TapCommand }"
+                                    CommandParameter="https://www.youtube.com/channel/UCx3l6cIxm1X60ViL3kv_MRg"
+                                />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <!-- TWITTER -->
+                        <Label
+                            Text="{ x:Static local:GrialIconsFont.LogoTwitter }"
+                            FontFamily="{ StaticResource IconsFontFamily }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            FontSize="{ OnIdiom
+                                Phone=27,
+                                Tablet=32
+                            }">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{ Binding TapCommand }"
+                                    CommandParameter="https://twitter.com/Grialkit"
+                                />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <!-- FACEBOOK -->
+                        <Label
+                            Text="{ x:Static local:GrialIconsFont.LogoFacebook }"
+                            FontFamily="{ StaticResource IconsFontFamily }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                            FontSize="{ OnIdiom
+                                Phone=27,
+                                Tablet=32
+                            }">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{ Binding TapCommand }"
+                                    CommandParameter="https://www.facebook.com/profile.php?id=100010296186657"
+                                />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </HorizontalStackLayout>
+
+                    <!-- PARAGRAPH -->
+                    <Label
+                        Text="{ grial:Translate RichAboutPageEagerToHear }"
+                        HorizontalTextAlignment="Start"
+                    />
+
+                    <!-- BUTTON -->
+                    <Button
+                        Margin="0"
+                        Text="{ grial:Translate StringContactUs }"
+                        Style="{ StaticResource PrimaryActionButtonStyle }"
+                        Command="{ Binding TapCommand }"
+                        CommandParameter="{ StaticResource SayHelloURL }"
+                        WidthRequest="{ grial:OnOrientationSizeRequest
+                            LandscapePhone=200,
+                            LandscapeTablet=400
+                        }"
+                        HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                            Portrait=Fill,
+                            Landscape=Center
+                        }"
+                    />
+
+                </grial:ExtendedStackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

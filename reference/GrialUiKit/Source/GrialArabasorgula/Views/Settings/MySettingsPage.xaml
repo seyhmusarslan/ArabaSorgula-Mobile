@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.MySettingsPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleSettings }">
+
+    <ScrollView
+        grial:Effects.IgnoreIOSSafeAreaOnScrollView="All"
+        VerticalScrollBarVisibility="Never">
+        <!-- CONTENT -->
+        <VerticalStackLayout
+            Padding="{ DynamicResource AirSpacing }"
+            Spacing="16"
+            Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+            <!-- TITLE -->
+            <Label
+                Text="{ grial:Translate LabelMySettings }"
+                FontSize="{ StaticResource TitleFontSize }"
+                VerticalOptions="Center"
+            />
+
+            <!-- USER CARD -->
+            <grial:CardView
+                Padding="20"
+                HasShadow="False"
+                ColumnDefinitions="Auto,*,Auto"
+                RowDefinitions="Auto,Auto"
+                ColumnSpacing="16"
+                BindingContext="{ Binding UserData }">
+                <View.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnItemTapped" />
+                </View.GestureRecognizers>
+
+                <!-- USER AVATAR IMAGE -->
+                <grial:RoundedImage
+                    Grid.RowSpan="2"
+                    Source="{ Binding Image }"
+                    Style="{ StaticResource AvatarImageSmallStyle }"
+                />
+                <!-- USER NICK -->
+                <Label
+                    Grid.Column="1"
+                    Text="{ Binding NickName }"
+                    FontSize="{ StaticResource SmallTitleFontSize }"
+                    VerticalOptions="Center"
+                />
+                <!-- USER EMAIL -->
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Text="{ Binding Email }"
+                    VerticalOptions="Center"
+                    FontSize="{ StaticResource SmallFontSize }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                />
+                <!-- USER SUBSCRIPTION TYPE -->
+                <local:Tag
+                    Grid.Column="2"
+                    Grid.RowSpan="2"
+                    Text="PRO"
+                    IsVisible="{ Binding IsPro }"
+                />
+            </grial:CardView>
+
+            <!-- MAIN (CARD LIKE) CATEGORIES -->
+            <grial:GridView
+                ColumnSpacing="12"
+                RowSpacing="12"
+                ColumnCount="{ grial:OnOrientationInt
+                    PortraitPhone=2,
+                    LandscapePhone=4,
+                    PortraitTablet=4,
+                    LandscapeTablet=4
+                }"
+                ItemsSource="{ Binding MainCategories }"
+                Margin="0,0,0,-16">
+                <grial:GridView.ItemTemplate>
+                    <DataTemplate>
+                        <local:MainCategoriesItemTemplate HeightRequest="110" />
+                    </DataTemplate>
+                </grial:GridView.ItemTemplate>
+            </grial:GridView>
+
+            <!-- CATEGORIES (LIST) -->
+            <CollectionView
+                ItemsSource="{ Binding Categories }"
+                SelectionMode="None"
+                Margin="-30,0,-30,30">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local:CategoriesItemTemplate />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

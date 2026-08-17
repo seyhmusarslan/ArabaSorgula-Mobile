@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.InteractiveNotificationPopup"
+    x:Name="root">
+    <Grid
+        ColumnDefinitions="Auto,*,73"
+        Margin="{ DynamicResource AirSpacing }"
+        ColumnSpacing="{ DynamicResource SpacingSmall }"
+        Padding="16"
+        VerticalOptions="End"
+        Background="{ DynamicResource BackgroundSecondaryColor }"
+        grial:Effects.CornerRadius="{ DynamicResource CornerRadius-x-big }">
+        <!-- Icon -->
+        <Label
+            Text="{ Binding IconText, Source={x:Reference root} }"
+            TextColor="{ Binding IconColor, Source={x:Reference root} }"
+            FontFamily="{ DynamicResource GrialIconsFill }"
+            FontSize="{ OnIdiom
+                Phone=24,
+                Tablet=28,
+                Desktop=28
+            }"
+            VerticalTextAlignment="Center"
+        />
+        <!-- Text -->
+        <Label
+            Grid.Column="1"
+            Text="{ Binding Text, Source={x:Reference root} }"
+            FontSize="{ DynamicResource BaseFontSize }"
+            HorizontalTextAlignment="Start"
+            VerticalTextAlignment="Center"
+            FontFamily="{ DynamicResource AppSemiBoldFamily }"
+        />
+        <!-- Action Button -->
+        <Button
+            HeightRequest="40"
+            Grid.Column="2"
+            Text="{ Binding ActionButtonText, Source={x:Reference root} }"
+            Command="{ Binding ActionButtonCommand, Source={x:Reference root} }"
+            BackgroundColor="{ DynamicResource BackgroundColor }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            FontFamily="{ StaticResource AppSemiBoldFamily }"
+        />
+    </Grid>
+</uxd:PopupPage>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardItemTemplate"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    x:Name="Root">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer
+            Command="{ Binding Command, Source={x:Reference Root} }"
+            CommandParameter="{ Binding CommandParameter, Source={x:Reference Root} }"
+        />
+    </ContentView.GestureRecognizers>
+
+    <ContentView.Content>
+        <Grid>
+            <!-- BACKGROUND -->
+            <BoxView
+                Color="{ Binding BackgroundColorColor }"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                IsVisible="{ Binding ShowBackgroundColor, Source={x:Reference Root} }"
+            />
+
+            <!-- BACKGROUND IMAGE -->
+            <Image
+                Source="{ Binding BackgroundImage }"
+                Opacity=".4"
+                IsVisible="{ Binding ShowBackgroundImage, Source={x:Reference Root} }"
+            />
+
+            <Grid
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                ColumnDefinitions="Auto"
+                RowSpacing="15"
+                RowDefinitions="Auto,Auto">
+
+                <!-- ICON -->
+                <local:RoundedIconWithBadge
+                    HeightRequest="65"
+                    WidthRequest="65"
+                    BackgroundColor="Transparent"
+                    IsIconBackgroundVisible="{ Binding ShowiconBackground, Source={x:Reference Root} }"
+                    IconBackgroundCornerRadius="{ DynamicResource BaseCornerRadius }"
+                    IconBackgroundColor="{ Binding BackgroundColorColor }"
+                    IconText="{ Binding Icon }"
+                    IconColor="{ StaticResource TextOnSurfaceColor }"
+                    IconFontSize="{ OnIdiom
+                        Phone=30,
+                        Tablet=35
+                    }"
+                    IconVerticalOptions="Center"
+                    IconHorizontalOptions="Center"
+                    IconPadding="16"
+                    IsIconBackgroundCircular="False"
+                    StatusIndicatorTextColor="#FFF"
+                    StatusIndicatorColor="{ DynamicResource SuccessColor }"
+                    StatusIndicatorBorderSize="1"
+                    StatusIndicatorBorderColor="#FFF"
+                    StatusIndicatorText="{ Binding Badge }"
+                    StatusIndicatorFontSize="11"
+                    StatusIndicatorSize="22"
+                    StatusIndicatorShift="{ grial:Eval
+                        Expression='A ? 8 : 0',
+                        A={Binding
+                            ShowiconBackground,
+                            Source={x:Reference Root}
+                        }
+                    }"
+                />
+
+                <!-- LABEL -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ Binding Name }"
+                    TextColor="{ Binding TextColor, Source={x:Reference Root} }"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="{ OnIdiom
+                        Phone=16,
+                        Tablet=18
+                    }"
+                />
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

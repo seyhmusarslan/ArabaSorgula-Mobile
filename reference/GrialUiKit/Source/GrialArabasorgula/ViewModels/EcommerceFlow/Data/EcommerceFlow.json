@@ -1,0 +1,740 @@
+{
+    "[grial-metadata]": "id: Grial#EcommerceFlow.json version: 1.0.1",
+    "EcommerceFlowReviews": {
+        "$id": "ecommerce-flow-product-reviews",
+        "List": [
+            {
+                "$id": "ecommerce-flow-product-review-1",
+                "Title": "Nice product",
+                "Reviewer": "Regina Joplin",
+                "RatingValue": 4.3,
+                "RatingMax": 5.0,
+                "Date": "October 2th 2018",
+                "Comment": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample."
+            },
+            {
+                "Title": "Very good choice",
+                "Reviewer": "Pat Davies",
+                "RatingValue": 4.0,
+                "RatingMax": 5.0,
+                "Date": "August 25th 2018",
+                "Comment": "I love cheese, especially airedale queso. Cheese and biscuits halloumi cauliflower cheese cottage cheese swiss boursin fondue caerphilly."
+            },
+            {
+                "Title": "Nice product",
+                "Reviewer": "Regina Joplin",
+                "RatingValue": 4.3,
+                "RatingMax": 5.0,
+                "Date": "October 2th 2018",
+                "Comment": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample."
+            },
+            {
+                "Title": "Very good choice",
+                "Reviewer": "Pat Davies",
+                "RatingValue": 4.0,
+                "RatingMax": 5.0,
+                "Date": "August 25th 2018",
+                "Comment": "I love cheese, especially airedale queso. Cheese and biscuits halloumi cauliflower cheese cottage cheese swiss boursin fondue caerphilly."
+            },
+            {
+                "Title": "Exceelent!!",
+                "Reviewer": "Peter Puchelli",
+                "RatingValue": 5.0,
+                "RatingMax": 5.0,
+                "Date": "November 2th 2017",
+                "Comment": " love cheese, especially airedale queso. Cheese and biscuits halloumi cauliflower cheese cottage cheese swiss boursin fondue caerphilly."
+            },
+            {
+                "Title": "Fine",
+                "Reviewer": "Rick Morty",
+                "RatingValue": 3.0,
+                "RatingMax": 5.0,
+                "Date": "July 5th 2017",
+                "Comment": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample."
+            }
+        ],
+        "Count": 7
+    },
+
+    "EcommerceMainPage.xaml": {
+        "Categories": [
+            {
+                "Name": "Lamps",
+                "Content": [
+                    {
+                        "$id": "prod-lamp-1",
+                        "Name": "Alta Lamp",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "This is Alta Lamp, designed by Roberto Camela the most innovative product designer from a beatiful scandinavian country.",
+                        "Price": 49.99,
+                        "IsNew": true,
+                        "IsFavorite": true,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp_315.png",
+                        "Rating": 4.3,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#ABDACF",
+                              "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#9184C7",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp2_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp2_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp2_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#E47C7C",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp3_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp3_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp3_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#D5DF6F",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp4_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp4_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp4_45.png"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "$id": "prod-lamp-2",
+                        "Name": "Chuck N. Lamp",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "Sharped angles, it looks hard, it's masculine it moves like a ninja lamp. This is the Chuck Norris Lamp and it will kick your light bulbs.",
+                        "Price": 39.99,
+                        "IsNew": false,
+                        "IsFavorite": false,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam_315.png",
+                        "Rating": 5.0,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#585857",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#EBEAEA",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam2_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam2_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam2_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#BE3A39",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam3_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam3_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam3_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#3D4084",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam4_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam4_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chucknlam4_45.png"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Name": "Sofas",
+                "Content": [
+                  {
+                    "$id": "prod-sofa-1",
+                    "Name": "Sofabio",
+                    "Manufacturer": "UXDIVERS",
+                    "Description": "Sofabio was carefully designed by a husband that was constantly kicked out of bed and sent to the sofa to spend the night. Durable, strong, designed for mens that like UFC.",
+                    "Price": 499,
+                    "IsNew": false,
+                    "IsFavorite": true,
+                    "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_0.png",
+                    "Rating": 3.9,
+                    "Reviews": {
+                      "$ref": "ecommerce-flow-product-reviews"
+                    },
+                    "AvailableColors": [
+                      {
+                        "Color": "#C78E33",
+                        "Gallery": [
+                          "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_315.png",
+                          "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_0.png",
+                          "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_45.png"
+                        ]
+                      },
+                      {
+                        "Color": "#574741",
+                        "Gallery": [
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio2_315.png",
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio2_0.png",
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio2_45.png"
+                          ]
+                      },
+                      {
+                        "Color": "#CCCCCC",
+                        "Gallery": [
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio3_315.png",
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio3_0.png",
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio3_45.png"
+                          ]
+                      },
+                      {
+                        "Color": "#000000",
+                        "Gallery": [
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio4_315.png",
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio4_0.png",
+                            "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio4_45.png"
+                          ]
+                      }
+                    ]
+                  },
+                    {
+                        "$id": "prod-sofa-2",
+                        "Name": "Al Bondi",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "Designed by Al Bondi from Married... with children. Lay down and spend a good time while watching your favorite tv program and get your brain washed once more.",
+                        "Price": 699,
+                        "IsNew": true,
+                        "IsFavorite": false,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi_0.png",
+                        "Rating": 3.5,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#000000",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#A7926D",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi2_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi2_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi2_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#CBCBCB",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi3_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi3_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi3_45.png"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "$id": "prod-sofa-3",
+                        "Name": "Offspring",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "So go on, indulge yourself. That's right, kick off your shoes, put your feet up, lean back and just enjoy the melodies. After all, music soothes even the savage beasts.",
+                        "Price": 799,
+                        "IsNew": false,
+                        "IsFavorite": false,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring_0.png",
+                        "Rating": 3.8,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#E6E6E6",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#404040",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring2_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring2_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring2_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#A7916E",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring3_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring3_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring3_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#7274F7",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring4_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring4_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_offspring4_45.png"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Name": "Chairs",
+                "Content": [
+                    {
+                        "$id": "prod-chair-1",
+                        "Name": "La Shisha",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "This chair is not comfortable, is not durable, is not pretty, but you can pretend you know something about design with your friends.",
+                        "Price": 129,
+                        "IsNew": false,
+                        "IsFavorite": true,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha_0.png",
+                        "Rating": 0.7,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#E6E6E6",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#894D31",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha2_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha2_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha2_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#3D74A0",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha3_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha3_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha3_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#B23332",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha4_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha4_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_lashisha4_45.png"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "$id": "prod-chair-2",
+                        "Name": "Chat Noir",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "Chat Noir, looks like a sofa but no, it's in fact a chair. The coolest thing about it, is that you can make a pile of Chat Noir chairs. Not comfortable.",
+                        "Price": 149,
+                        "IsNew": false,
+                        "IsFavorite": false,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir_0.png",
+                        "Rating": 3.5,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#0c0c0c",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#E6E6E6",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir2_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir2_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir2_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#CD2026",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir3_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir3_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir3_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#774CAD",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir4_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir4_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_chatnoir4_45.png"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "$id": "prod-chair-3",
+                        "Name": "The Crusher",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "If your back hurts, this not for you. This chair looks stylish, it looks pretty on photos, but it will brake your back if you spend more than 4 minutes on it. Buy it and feed your instagram.",
+                        "Price": 139,
+                        "IsNew": false,
+                        "IsFavorite": false,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher_0.png",
+                        "Rating": 3.5,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#C5482A",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#E6E6E6",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher2_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher2_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher2_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#4553BA",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher3_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher3_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher3_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#7DCB2D",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher4_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher4_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_thecrusher4_45.png"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Name": "Stools",
+                "Content": [
+                    {
+                        "$id": "prod-stool-1",
+                        "Name": "Stephan Kito",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "Say hello to Esteban Kito. Give your hobbit friends a warm welcome to your home and invite them to drink a beer on Estabn Kito. Not recommended for Elfos.",
+                        "Price": 49.99,
+                        "IsNew": true,
+                        "IsFavorite": false,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito_45.png",
+                        "Rating": 4.7,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#969696",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito_45.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito_0.png"
+                                ]
+                            },
+                            {
+                                "Color": "#2B2B2B",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito2_45.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito2_0.png"
+                                ]
+                            },
+                            {
+                                "Color": "#942425",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito3_45.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito3_0.png"
+                                ]
+                            },
+                            {
+                                "Color": "#275297",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito4_45.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_stephankito4_0.png"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "$id": "prod-stool-2",
+                        "Name": "Little Boshta",
+                        "Manufacturer": "UXDIVERS",
+                        "Description": "Give your house some style with this Little Boshta stool from the great CakeOne collection. Of course this is not to sit, only use it to put magazines on it and take some cool pictures for your friends and family.",
+                        "Price": 29.99,
+                        "IsNew": false,
+                        "IsFavorite": false,
+                        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta4_45.png",
+                        "Rating": 4.1,
+                        "Reviews": {
+                            "$ref": "ecommerce-flow-product-reviews" 
+                        },
+                        "AvailableColors": [
+                            {
+                                "Color": "#1F2022",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#BC1B1C",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta2_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta2_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta2_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#E6E6E6",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta3_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta3_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta3_45.png"
+                                ]
+                            },
+                            {
+                                "Color": "#47AFC9",
+                                "Gallery": [
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta4_315.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta4_0.png",
+                                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta4_45.png"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "HighlightedProducts": [
+            {
+                "$ref": "prod-sofa-1"
+            },
+            {
+                "$ref": "prod-sofa-2"
+            },
+            {
+                "$ref": "prod-sofa-3"
+            }
+        ],
+        "Banner": "Get 25% off on newest collections"
+    },
+    "ProductDetailPage.xaml": {
+        "Name": "Sofabio",
+        "Manufacturer": "UXDIVERS",
+        "Description": "Sofabio was carefully designed by a husband that was constantly kicked out of bed and sent to the sofa to spend the night. Durable, strong, designed for mens that like UFC.",
+        "Price": 499,
+        "IsNew": true,
+        "IsFavorite": true,
+        "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_0.png",
+        "Rating": 3.9,
+        "AvailableColors": [
+            {
+                "Color": "#C78E33",
+                "Gallery": [
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_315.png",
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_0.png",
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_45.png"
+                ]
+            },
+            {
+                "Color": "#574741",
+                "Gallery": [
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio2_315.png",
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio2_0.png",
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio2_45.png"
+                    ]
+            },
+            {
+                "Color": "#CCCCCC",
+                "Gallery": [
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio3_315.png",
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio3_0.png",
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio3_45.png"
+                    ]
+            },
+            {
+                "Color": "#000000",
+                "Gallery": [
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio4_315.png",
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio4_0.png",
+                    "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio4_45.png"
+                    ]
+            }
+        ],
+        "Quantities": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "Reviews": {
+            "List": [
+            {
+                "Title": "Nice product",
+                "Reviewer": "Regina Joplin",
+                "RatingValue": 4.3,
+                "RatingMax": 5.0,
+                "Date": "October 2th 2018",
+                "Comment": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample."
+            },
+            {
+                "Title": "Very good choice",
+                "Reviewer": "Pat Davies",
+                "RatingValue": 4.0,
+                "RatingMax": 5.0,
+                "Date": "August 25th 2018",
+                "Comment": "I love cheese, especially airedale queso. Cheese and biscuits halloumi cauliflower cheese cottage cheese swiss boursin fondue caerphilly."
+            },
+            {
+                "Title": "Nice product",
+                "Reviewer": "Regina Joplin",
+                "RatingValue": 4.3,
+                "RatingMax": 5.0,
+                "Date": "October 2th 2018",
+                "Comment": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample."
+            },
+            {
+                "Title": "Very good choice",
+                "Reviewer": "Pat Davies",
+                "RatingValue": 4.0,
+                "RatingMax": 5.0,
+                "Date": "August 25th 2018",
+                "Comment": "I love cheese, especially airedale queso. Cheese and biscuits halloumi cauliflower cheese cottage cheese swiss boursin fondue caerphilly."
+            },
+            {
+                "Title": "Exceelent!!",
+                "Reviewer": "Peter Puchelli",
+                "RatingValue": 5.0,
+                "RatingMax": 5.0,
+                "Date": "November 2th 2017",
+                "Comment": " love cheese, especially airedale queso. Cheese and biscuits halloumi cauliflower cheese cottage cheese swiss boursin fondue caerphilly."
+            },
+            {
+                "Title": "Fine",
+                "Reviewer": "Rick Morty",
+                "RatingValue": 3.0,
+                "RatingMax": 5.0,
+                "Date": "July 5th 2017",
+                "Comment": "In connection with this appellative of \"Whalebone whales,\" it is of great leap of yer happiness leadership colors. This is how we design a great article sample."
+            }
+        ]},
+        "RelatedProducts": [
+            {
+                "Name": "Al Bondi",
+                "Manufacturer": "UXDIVERS",
+                "Price": 699,
+                "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_albondi_0.png"
+            },
+            {
+                "Name": "Little Boshta",
+                "Manufacturer": "UXDIVERS",
+                "Price": 29.99,
+                "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_littleboshta4_45.png",
+                "Rating": 4.1
+            },
+            {
+                "Name": "Alta Lamp",
+                "Manufacturer": "UXDIVERS",
+                "Price": 49.99,
+                "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_altalamp_315.png"
+            },
+            {
+                "$ref": "prod-sofa-3"
+            }
+        ]
+    },
+    "OrderConfirmationPage.xaml": {
+        "Product": {
+            "$id": "prod-with-related",
+            "Name": "Sofabio",
+            "Manufacturer": "UXDIVERS",
+            "Description": "Sofabio was carefully designed by a husband that was constantly kicked out of bed and sent to the sofa to spend the night. Durable, strong, designed for mens that like UFC.",
+            "Price": 499,
+            "IsNew": false,
+            "IsFavorite": true,
+            "Image": "https://grial-images.s3.us-west-2.amazonaws.com/v4.0/product_sofabio_0.png",
+            "Rating": 3.9,
+            "Quantities": [1,2,3],
+            "RelatedProducts": [
+                { "$ref": "prod-sofa-3" },
+                { "$ref": "prod-sofa-2" },
+                { "$ref": "prod-stool-1" }
+            ]
+        },
+        "IsGift": true,
+        "Subtotal": 499,
+        "Total": "40.1",
+        "ShippingAddress": "8952 Pacocha Station Suite 664",
+        "PaymentMethod": "VISA XXXX-XXX-XXXX-3461"
+    },
+    "CheckoutPage.xaml": {
+        "Product": {
+            "$ref": "prod-with-related"
+        },
+      "ShippingOptions": [
+        {
+          "Option": "Free Shipping",
+          "Description": "4-6 Business Day",
+          "Price": 0
+        },
+        {
+          "Option": "Standard",
+          "Description": "2-4 Business Day",
+          "Price": 10
+        },
+        {
+          "Option": "Express",
+          "Description": "1 Business Day",
+          "Price": 20
+        }
+      ],
+        "Quantity": 1,
+        "VAT": "0.79",
+        "Total": 499,
+        "ShippingAddress": "8952 Pacocha Station Suite 664",
+        "PaymentMethod": "VISA XXXX-XXX-XXXX-3461"
+    }
+}

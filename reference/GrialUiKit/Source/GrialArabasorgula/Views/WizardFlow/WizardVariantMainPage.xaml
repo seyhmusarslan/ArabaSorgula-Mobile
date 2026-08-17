@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    x:Class="arabasorgula.WizardVariantMainPage"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    HideSoftInputOnTapped="true"
+    grial:GrialNavigationPage.BarBackgroundColor="Transparent"
+    grial:Effects.BackgroundGradient="{ DynamicResource PrimaryGradient }">
+
+    <grial:DataPresenter.TemplatingRules>
+        <grial:TemplatingRule
+            TargetType="local:StepEntryViewModel"
+            TemplateType="local:WizardEntryItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepDatePickerViewModel"
+            TemplateType="local:WizardDatePickerItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepPhoneViewModel"
+            TemplateType="local:WizardPhoneItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepCheckboxViewModel"
+            TemplateType="local:WizardCheckboxItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepRadioViewModel"
+            TemplateType="local:WizardRadioItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepCountryPickerViewModel"
+            TemplateType="local:WizardCountryPickerTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepSuccessViewModel"
+            TemplateType="local:WizardSuccessItemTemplate"
+        />
+    </grial:DataPresenter.TemplatingRules>
+
+    <Grid
+        RowDefinitions="Auto,Auto,*,Auto"
+        grial:Effects.ApplyIOSSafeAreaAsPadding="All">
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            Style="{ DynamicResource CloseIconButtonInverseStyle }"
+            Margin="{ OnPlatform
+                iOS='0,0,30,0',
+                Android='0,20,30,0'
+            }"
+            Clicked="OnClose"
+        />
+
+        <!-- PROGRESS GROUP -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            Spacing="15"
+            Margin="{ DynamicResource AirSpacingNoTop }">
+            <!-- Progress Text -->
+            <Label
+                TextColor="{ DynamicResource OnSurfaceColor }"
+                FontAttributes="Bold">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{ grial:Eval 'A+1', A={Binding Position, Source={x:Reference carousel}} }" />
+                            <Span Text=" / " />
+                            <Span Text="{ Binding Steps.Length }" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <!-- Progress Bar -->
+            <ProgressBar
+                BackgroundColor="{ OnPlatform
+                    Android={x:Null},
+                    iOS={StaticResource OverlayHighlightColor}
+                }"
+                ProgressColor="{ DynamicResource OnSurfaceColor }"
+                Progress="{ grial:Eval
+                    '(A+1) / B',
+                    A={Binding
+                        Position,
+                        Source={x:Reference carousel}
+                    },
+                    B={Binding Steps.Length},
+                    BType={x:Type x:Double}
+                }"
+            />
+        </VerticalStackLayout>
+
+        <!-- CARD CAROUSEL -->
+        <grial:Carousel
+            x:Name="carousel"
+            Grid.Row="2"
+            IsClippedToBounds="false"
+            Loop="False"
+            ItemSeparation="15"
+            PeekPercentage="0.05"
+            PeekScale="0.9"
+            Position="{ Binding Position, Mode=OneWayToSource }"
+            MoveNextCommand="{ Binding MoveNextCommand, Mode=OneWayToSource }"
+            MoveEndedCommand="{ Binding MoveEndedCommand }"
+            CanMoveNext="{ Binding CurrentStep.IsValid }"
+            Margin="15,0"
+            ItemsSource="{ Binding Steps }">
+            <grial:Carousel.ItemTemplate>
+                <DataTemplate>
+                    <local:WizardBaseCardVariantItemTemplate />
+                </DataTemplate>
+            </grial:Carousel.ItemTemplate>
+        </grial:Carousel>
+
+        <!-- Button -->
+        <Button
+            Grid.Row="3"
+            Margin="35,25"
+            Style="{ StaticResource SecondaryActionButtonStyle }"
+            Text="{ Binding CurrentStep.NextCaption }"
+            WidthRequest="{ grial:OnOrientationSizeRequest
+                LandscapePhone=200,
+                LandscapeTablet=400
+            }"
+            HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                Portrait=Fill,
+                Landscape=Center
+            }"
+            Command="{ Binding CurrentStep.NextCommand }"
+            IsVisible="{ Binding CurrentStep.NextCommand, Converter={StaticResource IsNotNullConverter} }"
+        />
+    </Grid>
+</ContentPage>
+

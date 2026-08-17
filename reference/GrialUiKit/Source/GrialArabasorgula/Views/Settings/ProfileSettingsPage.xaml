@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.ProfileSettingsPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root"
+    grial:Effects.ApplyIOSSafeAreaAsPadding="Top">
+    <!-- CONTENT CONTAINER -->
+    <Grid
+        Padding="0,30,0,0"
+        BackgroundColor="{ DynamicResource BackgroundColor }"
+        RowDefinitions="Auto,*">
+        <!-- HEADER -->
+        <Grid
+            RowDefinitions="Auto,Auto,Auto"
+            ColumnDefinitions="*,Auto"
+            RowSpacing="4"
+            Padding="{ DynamicResource AirSpacingNoTop }"
+            BindingContext="{ Binding UserData }"
+            Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+            <!-- USER IMAGE -->
+            <grial:RoundedImage
+                Style="{ StaticResource AvatarImageStyle }"
+                CornerRadius="{ DynamicResource BaseCornerRadius }"
+                Size="56"
+                Source="{ Binding Image }"
+                HorizontalOptions="Start"
+                Margin="0,0,0,12"
+            />
+            <!-- TITLE -->
+            <Label
+                Grid.Row="1"
+                Text="{ Binding Name }"
+                FontSize="{ StaticResource TitleFontSize }"
+                VerticalOptions="End"
+            />
+            <!-- SUBTITLE -->
+            <Label
+                Grid.Row="2"
+                Text="{ Binding Email }"
+                TextColor="{ DynamicResource TextTertiaryColor }"
+                VerticalOptions="Start"
+            />
+            <!-- CLOSE ICON -->
+            <local:RoundedIconButton
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                HorizontalOptions="End"
+                Style="{ StaticResource CloseIconButtonInverseStyle }"
+                Command="{ Binding BindingContext.CloseCommand, Source={x:Reference root} }"
+                VerticalOptions="Start"
+                Margin="0"
+            />
+        </Grid>
+
+        <!-- CATEGORIES (LIST) -->
+        <CollectionView
+            ItemsSource="{ Binding Settings }"
+            SelectionMode="None"
+            Grid.Row="1"
+            VerticalScrollBarVisibility="Never">
+            <CollectionView.Footer>
+                <!-- END OF LIST SPACING -->
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="30"
+                />
+            </CollectionView.Footer>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout
+                    Orientation="Vertical"
+                    ItemSpacing="12"
+                />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <local:ProfileItemTemplate />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

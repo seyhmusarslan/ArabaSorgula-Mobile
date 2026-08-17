@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:GrialNavigationPage.ForceShadow="False"
+    x:Class="arabasorgula.QuizProfileAchievementsPage"
+    Title=""
+    grial:GrialNavigationPage.BarBackgroundColor="Transparent"
+    grial:GrialNavigationPage.BarType="Transparent"
+    grial:GrialNavigationPage.BarTextColor="{ DynamicResource BackgroundSecondaryColor }">
+
+    <!-- RESOURCES -->
+    <ContentPage.Resources>
+        <!-- CHART LEGEND TEMPLATE -->
+        <DataTemplate x:Key="ChartLegendTemplate">
+            <Grid ColumnDefinitions="20,*">
+                <Rectangle
+                    Fill="{ Binding Color }"
+                    HeightRequest="10"
+                    RadiusX="10"
+                    RadiusY="10"
+                    VerticalOptions="Center"
+                    WidthRequest="10"
+                />
+
+                <Label
+                    Grid.Column="1"
+                    Margin="5"
+                    Text="{ Binding Text }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    VerticalOptions="Center"
+                />
+            </Grid>
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <grial:GrialNavigationPage.TitleView>
+        <!-- WELCOME -->
+        <Label
+            Text="Hi Rodney"
+            TextColor="{ DynamicResource OnSurfaceColor }"
+            FontSize="{ StaticResource SmallTitleFontSize }"
+            FontAttributes="Bold"
+            VerticalOptions="Center"
+            HorizontalOptions="Start"
+            VerticalTextAlignment="Center"
+        />
+    </grial:GrialNavigationPage.TitleView>
+
+    <!-- MAIN CONTAINER -->
+    <Grid RowDefinitions="{ OnPlatform Android='130,*', Default='170,*' }">
+        <!-- BACKGROUND -->
+        <BoxView Color="{ DynamicResource PrimaryColor }" />
+
+        <!-- PROGRESS HEADER -->
+        <Grid
+            RowDefinitions="Auto,Auto,*"
+            HeightRequest="130"
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+            Padding="24"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            Margin="30,0,30,-80"
+            VerticalOptions="End">
+            <!-- LABEL -->
+            <Label
+                Text="LVL"
+                TextColor="{ DynamicResource TextTertiaryColor }"
+                FontSize="{ StaticResource SmallFontSize }"
+                VerticalOptions="Start"
+            />
+
+            <!-- TITLE -->
+            <Label
+                Grid.Row="1"
+                FontFamily="{ StaticResource AppSemiBoldFamily }"
+                Text="{ grial:Format
+                    '{A} {B}',
+                    A={Binding
+                        QuizLevel,
+                        StringFormat='{0:F1}'
+                    },
+                    B={Binding QuizTitle}
+                }"
+                FontSize="{ StaticResource SmallTitleFontSize }"
+            />
+
+            <grial:ProgressBar
+                x:Name="bar"
+                Grid.Row="2"
+                VerticalOptions="End"
+                Style="{ StaticResource TallProgressBarStyle }"
+                Progress="{ Binding QuizProgress }"
+                MaxProgress="{ Binding QuizMaxProgress }"
+                TextActiveColor="{ DynamicResource OnSurfaceColor }"
+                TextInactiveColor="{ DynamicResource OnSurfaceColor }"
+                InactiveColor="{ DynamicResource InfoSecondaryColor }"
+                Text="{ grial:Eval
+                    'A*100',
+                    A={Binding
+                        AnimatedRelativeProgress,
+                        Source={x:Reference bar}
+                    },
+                    StringFormat='{}{0:0}%'
+                }"
+            />
+        </Grid>
+
+        <ScrollView
+            Grid.Row="1"
+            VerticalScrollBarVisibility="Never"
+            grial:Effects.IgnoreIOSSafeAreaOnScrollView="Bottom"
+            Margin="0,90,0,0">
+            <!-- CONTENT -->
+            <VerticalStackLayout
+                Padding="{ DynamicResource AirSpacingWithBorder }"
+                grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom"
+                grial:Effects.IOSSafeAreaBottomSize="30"
+                Spacing="24"
+                Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+                <!-- PLAYER STATS -->
+                <HorizontalStackLayout
+                    HorizontalOptions="Center"
+                    BindableLayout.ItemsSource="{ Binding UserStats }"
+                    HeightRequest="110"
+                    Spacing="40">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                RowDefinitions="42,Auto,Auto"
+                                RowSpacing="0">
+                                <local:Emoji
+                                    Unicode="{ Binding Icon }"
+                                    WidthRequest="32"
+                                    HeightRequest="32"
+                                    VerticalOptions="Start"
+                                    HorizontalOptions="Center"
+                                />
+                                <Label
+                                    Grid.Row="1"
+                                    Text="{ Binding Value }"
+                                    FontSize="{ StaticResource SmallTitleFontSize }"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                />
+                                <Label
+                                    Grid.Row="2"
+                                    Text="{ Binding Area }"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                    HorizontalTextAlignment="Center"
+                                />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+
+                <!-- SECTION TITLE -->
+                <Label
+                    Text="{ grial:Translate LabelDailyTasks }"
+                    FontSize="{ StaticResource SmallTitleFontSize }"
+                    Margin="0,0,0,-8"
+                />
+
+                <Border
+                    StrokeShape="RoundRectangle 17"
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    Padding="24">
+                    <VerticalStackLayout
+                        BindableLayout.ItemsSource="{ Binding DailyTasks }"
+                        Spacing="30">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    ColumnDefinitions="32,*"
+                                    ColumnSpacing="16"
+                                    RowDefinitions="*,*"
+                                    RowSpacing="6">
+
+                                    <local:Emoji
+                                        Grid.RowSpan="2"
+                                        Unicode="{ Binding Icon }"
+                                        WidthRequest="32"
+                                        HeightRequest="32"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                    />
+                                    <Label
+                                        Grid.Column="1"
+                                        Text="{ Binding Title }"
+                                        FontSize="{ StaticResource LargeFontSize }"
+                                    />
+
+                                    <grial:ProgressBar
+                                        x:Name="progress"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        VerticalOptions="End"
+                                        Style="{ StaticResource TallProgressBarStyle }"
+                                        TextFontSize="{ StaticResource SmallFontSize }"
+                                        TextInactiveColor="{ DynamicResource TextSecondaryColor }"
+                                        TextActiveColor="{ DynamicResource OnSurfaceColor }"
+                                        Text="{ grial:Format
+                                            '{A}/{B}',
+                                            A={Binding
+                                                AnimatedProgress,
+                                                Source={x:Reference progress},
+                                                StringFormat='{0:F0}'
+                                            },
+                                            B={Binding
+                                                MaxProgress,
+                                                Source={x:Reference progress}
+                                            }
+                                        }"
+                                        Progress="{ Binding Value }"
+                                        MaxProgress="{ Binding MaxValue }"
+                                        InactiveColor="{ DynamicResource BackgroundColor }"
+                                        ActiveColor="{ Binding BackgroundColor }"
+                                    />
+                                </Grid>
+
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- SECTION TITLE -->
+                <Label
+                    Text="{ grial:Translate LabelActivityVsAccuracy }"
+                    FontSize="{ StaticResource SmallTitleFontSize }"
+                    Margin="0,0,0,-8"
+                />
+
+                <grial:CardView
+                    RowDefinitions="Auto,*"
+                    HasShadow="False"
+                    BindingContext="{ Binding ChartSeries }"
+                    Padding="24">
+                    <!-- AREA CHART -->
+                    <grial:CategoryChart
+                        Margin="-20,0"
+                        Grid.Row="0"
+                        AxisFontColor="{ DynamicResource TextSecondaryColor }"
+                        AxisLinesColor="#E0E3EC"
+                        BackgroundColor="Transparent"
+                        CategoryLabels="{ Binding Labels }"
+                        DisplayLabels="True"
+                        ReferenceLabelHorizontalAlignment="Right"
+                        DisplayReferenceAxis="True"
+                        DisplayReferenceGridLines="True"
+                        DisplayValues="True"
+                        GridDashPattern="0"
+                        HasSelection="False"
+                        HeightRequest="150"
+                        Legend="AreaChartLegend"
+                        MaxValue="{ Binding MaxValue }"
+                        LabelFontColor="{ DynamicResource TextColor }"
+                        ValueLabelFontColor="{ DynamicResource TextSecondaryColor }">
+                        <!-- First Series -->
+                        <grial:LineSeries
+                            Title="{ grial:Translate LabelActivity }"
+                            AreaBrush="{ DynamicResource SuccessSecondaryColor }"
+                            Color="{ DynamicResource SuccessSecondaryColor }"
+                            CurveFactor="0"
+                            DisplayPoints="False"
+                            ItemsSource="{ Binding Activity }"
+                            LineStrokeSize="0"
+                        />
+                        <!-- Second Series -->
+                        <grial:LineSeries
+                            Title="{ grial:Translate LabelAccuracy }"
+                            Color="{ DynamicResource SuccessColor }"
+                            AreaBrush="{ DynamicResource SuccessColor }"
+                            CurveFactor="0"
+                            DisplayPoints="False"
+                            ItemsSource="{ Binding Accuracy }"
+                            LineStrokeSize="0"
+                            Opacity=".1"
+                        />
+                    </grial:CategoryChart>
+
+                    <!-- Legend -->
+                    <grial:MultiSeriesLegend
+                        x:Name="AreaChartLegend"
+                        Grid.Row="1"
+                        HeightRequest="30"
+                        HorizontalOptions="End"
+                        ItemTemplate="{ StaticResource ChartLegendTemplate }">
+
+                        <grial:MultiSeriesLegend.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </grial:MultiSeriesLegend.ItemsLayout>
+                    </grial:MultiSeriesLegend>
+
+                </grial:CardView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

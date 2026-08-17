@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.MovieDetailPage"
+    grial:GrialNavigationPage.BarBackgroundColor="Transparent"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:VideoPlayerResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BindingContext="{ Binding Movie }">
+        <Grid
+            x:Name="PictureHeader"
+            RowDefinitions="360">
+            <!-- Placeholder Spacing -->
+            <BoxView
+                Color="{ DynamicResource BackgroundSecondaryColor }"
+                VerticalOptions="Fill"
+            />
+
+            <!-- MOVIE POSTER BACKGROUND -->
+            <Image
+                Grid.Row="0"
+                Source="{ Binding Source }"
+                HeightRequest="360"
+                Opacity="1">
+
+                <Image.Behaviors>
+                    <grial:AnimatedTranslationY
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="0"
+                        ProgressEnd="250"
+                        Start="-20"
+                        End="0"
+                    />
+                    <grial:AnimatedScale
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="10"
+                        ProgressEnd="250"
+                        Start="1.1"
+                        End="1.14"
+                    />
+                    <grial:AnimatedOpacity
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="0"
+                        ProgressEnd="40"
+                        Start="0"
+                        End="1"
+                    />
+                    <grial:AnimatedStyle
+                        Target="{ x:Reference root }"
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        Threshold="40"
+                        UnapplyThreshold="40"
+                        ApplyStyleWhen="AfterThreshold">
+                        <Setter Property="grial:GrialNavigationPage.BarTextColor" Value="{ DynamicResource TextOnSurfaceColor }" />
+                    </grial:AnimatedStyle>
+                </Image.Behaviors>
+
+            </Image>
+
+            <!-- MOVIE PICTURE -->
+            <Image
+                HeightRequest="{ grial:OnOrientationSizeRequest
+                    Default=260,
+                    PortraitTablet=240,
+                    LandscapeTablet=240
+                }"
+                HorizontalOptions="Center"
+                Source="{ Binding Source }"
+                WidthRequest="180"
+                grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                Margin="0"
+                VerticalOptions="Center">
+                <VisualElement.Behaviors>
+                    <grial:AnimatedScale
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="0"
+                        ProgressEnd="40"
+                        Start="1"
+                        End=".85"
+                    />
+                    <grial:AnimatedTranslationY
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="0"
+                        ProgressEnd="40"
+                        Start="0"
+                        End="34"
+                    />
+                    <grial:AnimatedOpacity
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="0"
+                        ProgressEnd="40"
+                        Start="1"
+                        End="0"
+                    />
+                </VisualElement.Behaviors>
+            </Image>
+
+            <!-- PLAY BUTTON -->
+            <!-- TODO: height = 1/2 Cornerradius -->
+            <Button
+                Grid.Row="0"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                WidthRequest="80"
+                HeightRequest="80"
+                CornerRadius="40"
+                Margin="0,60,0,0"
+                FontSize="38"
+                BorderWidth="2"
+                BackgroundColor="#55000000"
+                Text="{ x:Static local:GrialIconsFont.AudioPlay }"
+                TextColor="{ DynamicResource OnSurfaceColor }"
+                FontFamily="{ StaticResource IconsFontFamily }"
+                BorderColor="{ DynamicResource OnSurfaceColor }"
+                x:Name="Play2"
+                Padding="5,0,0,0"
+                TranslationY="0"
+                Clicked="OnPlayClicked"
+                BindingContext="{ Binding . }">
+                <VisualElement.Behaviors>
+                    <grial:AnimatedAction
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        Threshold="140"
+                        InvokeActionWhen="AfterThreshold">
+                        <grial:AnimationFadeTo
+                            Target="{ x:Reference Play2 }"
+                            Opacity="1"
+                            Duration="150"
+                        />
+                    </grial:AnimatedAction>
+                    <grial:AnimatedAction
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        Threshold="140"
+                        InvokeActionWhen="BeforeThreshold">
+                        <grial:AnimationFadeTo
+                            Target="{ x:Reference Play2 }"
+                            Opacity="0"
+                            Duration="150"
+                        />
+                    </grial:AnimatedAction>
+
+                    <grial:FullScreenVideoBehavior
+                        Source="{ Binding BindingContext.TrailerVideo, Source={x:Reference Play2} }"
+                        SkinTemplate="{ StaticResource VideoPlayerSkin }"
+                        ErrorTemplate="{ StaticResource VideoPlayerErrorSkin }"
+                    />
+                </VisualElement.Behaviors>
+            </Button>
+        </Grid>
+
+        <ScrollView
+            grial:Effects.IgnoreIOSSafeAreaOnScrollView="All"
+            Grid.Row="0"
+            Margin="0,160,0,0"
+            Grid.RowSpan="2">
+            <VisualElement.Behaviors>
+                <grial:ScrollViewScrollBehavior x:Name="scroll" />
+            </VisualElement.Behaviors>
+
+            <grial:ExtendedGrid
+                Margin="0,175,0,0"
+                RowDefinitions="Auto,*">
+                <!-- BUTTON PLAY -->
+                <Grid
+                    Grid.Row="0"
+                    Margin="{ DynamicResource AirSpacingNoBorder }"
+                    HorizontalOptions="Fill"
+                    BindingContext="{ Binding . }">
+                    <Button
+                        Text="{ grial:Translate Key=ButtonPlayMovie }"
+                        WidthRequest="300"
+                        Style="{ StaticResource PrimaryActionButtonStyle }"
+                        Clicked="OnPlayClicked"
+                        x:Name="Play1">
+
+                        <VisualElement.Behaviors>
+                            <grial:AnimatedAction
+                                Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                                Threshold="140"
+                                InvokeActionWhen="AfterThreshold">
+                                <grial:AnimationTranslateY
+                                    Target="{ x:Reference Play1 }"
+                                    Duration="350"
+                                    TranslateY="100"
+                                />
+                            </grial:AnimatedAction>
+
+                            <grial:AnimatedAction
+                                Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                                Threshold="140"
+                                InvokeActionWhen="BeforeThreshold">
+                                <grial:AnimationTranslateY
+                                    Target="{ x:Reference Play1 }"
+                                    Duration="250"
+                                    TranslateY="0"
+                                />
+                            </grial:AnimatedAction>
+
+                            <grial:FullScreenVideoBehavior
+                                Source="{ Binding BindingContext.TrailerVideo, Source={x:Reference Play1} }"
+                                SkinTemplate="{ StaticResource VideoPlayerSkin }"
+                                ErrorTemplate="{ StaticResource VideoPlayerErrorSkin }"
+                            />
+                        </VisualElement.Behaviors>
+
+                    </Button>
+                </Grid>
+
+                <!-- DETAILS -->
+                <grial:ExtendedGrid
+                    Grid.Row="1"
+                    Padding="{ DynamicResource AirSpacingSmallBorder }"
+                    RowSpacing="20"
+                    VerticalOptions="Start"
+                    Margin="0,-20,0,0"
+                    TrimTopShape="InvertedRoundedCorners"
+                    TrimTopHeight="40"
+                    BackgroundColor="{ DynamicResource BackgroundColor }"
+                    RowDefinitions="20,Auto,Auto,Auto,Auto,100,220">
+                    <!-- RATING -->
+                    <Grid
+                        Padding="0"
+                        HeightRequest="300"
+                        Grid.Row="0"
+                        ColumnDefinitions="*">
+
+                        <!-- Rating is not showing without specifying HeightRequest -->
+                        <grial:Rating
+                            Grid.Column="0"
+                            VerticalOptions="Center"
+                            HeightRequest="25"
+                            WidthRequest="200"
+                            IconColor="{ DynamicResource RatingColor }"
+                            IconFontSize="22"
+                            Value="{ Binding RatingValue }"
+                            MaxValue="{ Binding RatingMax }"
+                            HorizontalOptions="Start"
+                        />
+
+                    </Grid>
+
+                    <!-- TITLE -->
+                    <Label
+                        Grid.Row="1"
+                        Text="{ Binding Title }"
+                        FontSize="{ grial:OnOrientationDouble
+                            PortraitPhone=26,
+                            LandscapePhone=26,
+                            PortraitTablet=34,
+                            LandscapeTablet=34
+                        }"
+                        FontAttributes="None"
+                    />
+
+                    <!-- DESCRIPTION -->
+                    <Label
+                        Grid.Row="2"
+                        Text="{ Binding Plot }"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        FontSize="{ grial:OnOrientationDouble
+                            PortraitPhone=14,
+                            LandscapePhone=14,
+                            PortraitTablet=18,
+                            LandscapeTablet=18
+                        }"
+                        HorizontalTextAlignment="Start"
+                    />
+
+                    <!-- SEPARATOR -->
+                    <BoxView
+                        Grid.Row="2"
+                        VerticalOptions="End"
+                        Margin="0,0,0,-20"
+                        Style="{ DynamicResource Horizontal1ptLineStyle }"
+                    />
+
+                    <!-- GENRES -->
+                    <grial:ExtendedGrid
+                        Grid.Row="3"
+                        grial:Effects.BackgroundGradient="{ DynamicResource BackgroundColor }"
+                        Padding="0,20"
+                        RowSpacing="12"
+                        BorderThickness="0,1,0,1"
+                        BorderColor="{ DynamicResource ListSeparatorColor }"
+                        RowDefinitions="20,Auto">
+                        <!-- Title -->
+                        <Label Text="{ grial:Translate GenresSection }" />
+
+
+                        <!-- GENRES -->
+                        <grial:WrapPanel
+                            Grid.Row="1"
+                            Margin="-4,0,0,0"
+                            ItemsSource="{ Binding Genres }"
+                            VerticalOptions="Center">
+                            <grial:WrapPanel.ItemTemplate>
+                                <DataTemplate>
+                                    <grial:RoundedLabel
+                                        Margin="4,0"
+                                        TextColor="{ DynamicResource PrimaryColor }"
+                                        Padding="6"
+                                        HeightRequest="26"
+                                        FontSize="{ grial:OnOrientationDouble
+                                            Default=10,
+                                            PortraitPhone=10,
+                                            LandscapePhone=10,
+                                            PortraitTablet=16,
+                                            LandscapeTablet=16
+                                        }"
+                                        Text="{ Binding . }"
+                                    />
+                                </DataTemplate>
+                            </grial:WrapPanel.ItemTemplate>
+                        </grial:WrapPanel>
+                    </grial:ExtendedGrid>
+
+                    <!-- SEPARATOR -->
+                    <BoxView
+                        Grid.Row="3"
+                        VerticalOptions="End"
+                        Style="{ DynamicResource Horizontal1ptLineStyle }"
+                    />
+
+                    <!-- CAST -->
+                    <grial:ExtendedGrid
+                        Grid.Row="4"
+                        RowDefinitions="20,Auto"
+                        RowSpacing="0"
+                        HeightRequest="75"
+                        Margin="-4,-4,0,0"
+                        Padding="0,0,0,10"
+                        BorderColor="{ DynamicResource ListSeparatorColor }"
+                        BorderThickness="0,0,0,1">
+                        <!-- TITLE -->
+                        <Label
+                            VerticalOptions="Center"
+                            Text="CAST:  "
+                            TextColor="{ DynamicResource TextColor }"
+                            FontAttributes="Bold"
+                            FontSize="{ grial:OnOrientationDouble
+                                Default=10,
+                                PortraitPhone=12,
+                                LandscapePhone=12,
+                                PortraitTablet=18,
+                                LandscapeTablet=18
+                            }"
+                        />
+
+                        <!-- NAMES -->
+                        <grial:WrapPanel
+                            Grid.Row="1"
+                            Margin="0,5,0,0"
+                            ItemsSource="{ Binding Cast }"
+                            VerticalOptions="Start">
+                            <grial:WrapPanel.ItemTemplate>
+                                <DataTemplate>
+                                    <!-- NAME LABEL -->
+                                    <local:IconText
+                                        VerticalOptions="Start"
+                                        IconAttribute="Fill"
+                                        Text="{ Binding . }"
+                                        Icon="{ x:Static local:GrialIconsFont.ShapeCircle }"
+                                        IconColor="{ DynamicResource TextSecondaryColor }"
+                                        TextColor="{ DynamicResource TextSecondaryColor }"
+                                        IconFontSize="8"
+                                    />
+                                </DataTemplate>
+                            </grial:WrapPanel.ItemTemplate>
+                            <grial:WrapPanel.ItemSeparatorTemplate>
+                                <DataTemplate>
+                                    <!-- SEPARATOR LABEL -->
+                                    <Label
+                                        Margin="0,0,10,0"
+                                        TextColor="{ DynamicResource TextSecondaryColor }"
+                                        Text="  "
+                                        FontSize="{ grial:OnOrientationDouble
+                                            Default=10,
+                                            PortraitPhone=12,
+                                            LandscapePhone=12,
+                                            PortraitTablet=18,
+                                            LandscapeTablet=18
+                                        }"
+                                    />
+                                </DataTemplate>
+                            </grial:WrapPanel.ItemSeparatorTemplate>
+                        </grial:WrapPanel>
+                    </grial:ExtendedGrid>
+
+                    <!-- SEPARATOR -->
+                    <BoxView
+                        Grid.Row="4"
+                        VerticalOptions="End"
+                        Margin="0,0,0,-8"
+                        Style="{ DynamicResource Horizontal1ptLineStyle }"
+                    />
+
+                    <!-- ICONS GRID -->
+                    <grial:ExtendedGrid
+                        Grid.Row="5"
+                        WidthRequest="{ grial:OnOrientationSizeRequest Landscape=370 }"
+                        Margin="0"
+                        Padding="0"
+                        ColumnDefinitions="*,*,*,*"
+                        BackgroundColor="{ DynamicResource BackgroundColor }"
+                        BorderColor="{ DynamicResource ListSeparatorColor }"
+                        BorderThickness="0,0,0,1">
+                        <!-- MY LIST -->
+                        <local:IconTextButton
+                            Text="My List"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Center"
+                            Icon="{ x:Static local:GrialIconsFont.Plus }"
+                            IconColor="{ DynamicResource FavoriteColor }"
+                            StyleIconText="{ StaticResource IconTextToolbarStyle }"
+                        />
+
+                        <!-- SHARE -->
+                        <local:IconTextButton
+                            Grid.Column="1"
+                            Text="Share"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Center"
+                            IconColor="{ DynamicResource PrimaryColor }"
+                            Icon="{ x:Static local:GrialIconsFont.Share }"
+                            StyleIconText="{ StaticResource IconTextToolbarStyle }"
+                        />
+
+                        <!-- SAVE -->
+                        <local:IconTextButton
+                            Grid.Column="2"
+                            Text="Save"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Center"
+                            IconColor="{ DynamicResource SuccessColor }"
+                            Icon="{ x:Static local:GrialIconsFont.Bookmark }"
+                            StyleIconText="{ StaticResource IconTextToolbarStyle }"
+                        />
+
+                        <!-- FAVORITE -->
+                        <local:IconTextButton
+                            Grid.Column="3"
+                            Text="Favorite"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Center"
+                            IconColor="{ DynamicResource RatingColor }"
+                            Icon="{ x:Static local:GrialIconsFont.Star }"
+                            StyleIconText="{ StaticResource IconTextToolbarStyle }"
+                        />
+                    </grial:ExtendedGrid>
+
+                    <!-- SEPARATOR -->
+                    <BoxView
+                        Grid.Row="5"
+                        VerticalOptions="End"
+                        Style="{ DynamicResource Horizontal1ptLineStyle }"
+                        Margin="0,0,0,5"
+                    />
+
+                    <!-- SIMILAR MOVIES -->
+                    <local:MoviesSectionTemplate
+                        Grid.Row="6"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+                        BindingContext="{ Binding Section }"
+                        TitleMargin="{ DynamicResource AirSpacingNoBorder }"
+                        ScrollPadding="{ DynamicResource AirSpacingNoBorder }"
+                        Margin="{ OnPlatform
+                            Android='-30,-15,-30,0',
+                            iOS='-30,-25,-30,0'
+                        }"
+                    />
+
+                </grial:ExtendedGrid>
+            </grial:ExtendedGrid>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
+

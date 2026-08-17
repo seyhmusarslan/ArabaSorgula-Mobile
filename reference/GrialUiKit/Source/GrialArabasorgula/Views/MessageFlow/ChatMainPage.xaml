@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ChatMainPage"
+    Title="Chats &amp; Contacts"
+    grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="/Styles/TabControl/SegmentedTabResources.xaml" />
+    </ContentPage.Resources>
+
+    <!-- TABS -->
+    <grial:TabControl
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        TabStripMargin="{ grial:OnOrientationThickness
+            Portrait='30,20,30,40',
+            Landscape='100,30,100,50'
+        }"
+        Style="{ StaticResource SegmentedTabStyle }">
+        <grial:TabItem Text="{ grial:Translate StringMessages }">
+            <grial:ExtendedGrid
+                BackgroundColor="{ DynamicResource BackgroundColor }"
+                Margin="0,-40,0,0"
+                TrimTopShape="InvertedRoundedCorners"
+                TrimTopHeight="40">
+                <CollectionView
+                    Margin="{ OnPlatform Android='0,20,0,0' }"
+                    x:Name="conversations"
+                    ItemsSource="{ Binding Conversations }"
+                    BackgroundColor="{ DynamicResource BackgroundColor }">
+                    <CollectionView.Header>
+                        <BoxView HeightRequest="20" />
+                    </CollectionView.Header>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <local:ChatPreviewItemTemplate HeightRequest="90">
+                                <View.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnMessageTapped" />
+                                </View.GestureRecognizers>
+                            </local:ChatPreviewItemTemplate>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </grial:ExtendedGrid>
+        </grial:TabItem>
+
+        <grial:TabItem Text="{ grial:Translate StringContacts }">
+            <grial:ExtendedGrid
+                BackgroundColor="{ DynamicResource BackgroundColor }"
+                Margin="0,-40,0,0"
+                TrimTopShape="InvertedRoundedCorners"
+                TrimTopHeight="40">
+                <CollectionView
+                    Margin="{ OnPlatform Android='0,20,0,0' }"
+                    x:Name="contacts"
+                    ItemsSource="{ Binding Contacts }"
+                    BackgroundColor="{ DynamicResource BackgroundColor }">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                RowDefinitions="*,1"
+                                RowSpacing="0">
+
+                                <local:ContactItemTemplate HeightRequest="90">
+                                    <View.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnContactTapped" />
+                                    </View.GestureRecognizers>
+                                </local:ContactItemTemplate>
+
+                                <!-- SEPARATOR -->
+                                <BoxView
+                                    Grid.Row="1"
+                                    IsVisible="False"
+                                    Style="{ StaticResource Horizontal1ptLineStyle }"
+                                />
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!-- FAB ADD NEW CONTACT -->
+                <Button
+                    Text="{ x:Static local:GrialIconsFont.Plus }"
+                    Style="{ StaticResource CircleActionButtonFlatStyle }"
+                    Clicked="OnAddContactClicked"
+                    grial:Effects.Shadow="False"
+                    BorderWidth="2"
+                    BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                    BackgroundColor="{ DynamicResource PrimaryColor }"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"
+                    FontFamily="{ StaticResource IconsFontFamily }"
+                    Margin="20"
+                />
+            </grial:ExtendedGrid>
+        </grial:TabItem>
+    </grial:TabControl>
+</ContentPage>

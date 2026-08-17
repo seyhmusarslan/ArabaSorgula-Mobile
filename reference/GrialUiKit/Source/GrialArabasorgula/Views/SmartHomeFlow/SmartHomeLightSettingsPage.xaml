@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SmartHomeLightSettingsPage"
+    Title="{ grial:Translate StringLightSetup }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    grial:GrialNavigationPage.BarBackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:NumberToPercentageConverter x:Key="NumberToPercentageConverter" />
+            <local:ListJoinConverter x:Key="ScheduleStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- MAIN GRID -->
+    <Grid BackgroundColor="{ DynamicResource BackgroundColor }">
+
+        <ScrollView VerticalScrollBarVisibility="Never">
+
+            <!-- CONTENT -->
+            <Grid
+                RowSpacing="20"
+                RowDefinitions="Auto,Auto,Auto,*"
+                Padding="{ DynamicResource AirSpacing }"
+                Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                <!-- STATUS/SCENE SETTINGS CONTAINER -->
+                <Grid
+                    ColumnDefinitions="Auto,*"
+                    RowDefinitions="Auto,Auto"
+                    VerticalOptions="Center"
+                    RowSpacing="15"
+                    ColumnSpacing="20">
+
+                    <!-- STATUS -->
+                    <!-- Title -->
+                    <Label Text="{ grial:Translate LabelStatus }" />
+
+                    <!-- Card Wrapper -->
+                    <grial:CardView
+                        Grid.Row="1"
+                        ColumnDefinitions="Auto,Auto"
+                        ColumnSpacing="10"
+                        HasShadow="False"
+                        HeightRequest="60"
+                        Padding="20,0"
+                        BackgroundColor="{ grial:If
+                            Condition={Binding
+                                IsToggled,
+                                Source={x:Reference statusSwitch}
+                            },
+                            Then={DynamicResource PrimaryColor},
+                            Else={DynamicResource BackgroundSecondaryColor}
+                        }">
+
+                        <Switch
+                            x:Name="statusSwitch"
+                            Scale="0.8"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            IsToggled="{ Binding SelectedDevice.IsOn }"
+                            OnColor="#33FFFFFF"
+                        />
+
+                        <!-- On/Off Label -->
+                        <Label
+                            Grid.Column="1"
+                            Text="{ grial:If
+                                Condition={Binding
+                                    IsToggled,
+                                    Source={x:Reference statusSwitch}
+                                },
+                                Then='on',
+                                Else='off'
+                            }"
+                            TextColor="{ grial:If
+                                Condition={Binding
+                                    IsToggled,
+                                    Source={x:Reference statusSwitch}
+                                },
+                                Then={DynamicResource OnSurfaceColor},
+                                Else={DynamicResource TextSecondaryColor}
+                            }"
+                            FontAttributes="Bold"
+                            VerticalTextAlignment="Center"
+                        />
+
+                    </grial:CardView>
+                </Grid>
+
+                <!-- SCENE -->
+                <Grid
+                    Grid.Row="1"
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="15">
+
+                    <!-- Title -->
+                    <Label Text="{ grial:Translate LabelColorScene }" />
+
+                    <ScrollView
+                        Grid.Row="1"
+                        Orientation="Horizontal"
+                        HorizontalScrollBarVisibility="Never"
+                        Margin="{ DynamicResource RemoveParentAirSpacing }">
+
+                        <HorizontalStackLayout
+                            Margin="{ DynamicResource AirSpacingNoBorder }"
+                            Spacing="8"
+                            VerticalOptions="Start"
+                            RadioButtonGroup.GroupName="single"
+                            RadioButtonGroup.SelectedValue="{ Binding SelectedDevice.ColorScene, Mode=TwoWay }"
+                            BindableLayout.ItemsSource="{ Binding ColorScenes }">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <local:SmartHomeImageRadioButtonTemplate />
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                </Grid>
+
+                <!-- INTENSITY SLIDER -->
+                <Grid
+                    Grid.Row="2"
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="15">
+                    <!-- Title -->
+                    <Label Text="{ grial:Translate LabelIntensity }" />
+
+                    <grial:Slider
+                        Style="{ StaticResource TallSliderStyle }"
+                        Grid.Row="1"
+                        Value="{ Binding SelectedDevice.Intensity }"
+                        InactiveColor="{ DynamicResource BackgroundSecondaryColor }"
+                    />
+                </Grid>
+
+                <!-- SCHEDULE -->
+                <VerticalStackLayout
+                    Grid.Row="3"
+                    Spacing="20">
+
+                    <!-- Schedule Header -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <local:IconText
+                            Grid.Column="0"
+                            Icon="{ x:Static local:GrialIconsFont.Clock }"
+                            IconFontSize="28"
+                            Text="{ grial:Translate LabelSchedule }"
+                            Spacing="5"
+                            VerticalOptions="Center"
+                            IconColor="{ DynamicResource TextColor }"
+                        />
+
+                        <!-- Add Schedule Button -->
+                        <local:RoundedIconButton
+                            Grid.Column="1"
+                            IconText="{ x:Static local:GrialIconsFont.Plus }"
+                            IconFontFamily="{ DynamicResource IconsFontFamily }"
+                            Command="{ Binding AddScheduleCommand }"
+                            CornerRadius="{ DynamicResource CornerRadius-md }"
+                            IconFontSize="20"
+                            HeightRequest="36"
+                            WidthRequest="36"
+                            VerticalOptions="Center"
+                            IconBackgroundColor="{ DynamicResource PrimaryColor }"
+                            IconColor="{ DynamicResource TextOnSurfaceColor }"
+                        />
+
+                    </Grid>
+
+                    <!-- SCHEDULED ITEMS -->
+                    <VerticalStackLayout
+                        grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                        BindableLayout.ItemsSource="{ Binding SelectedDevice.Schedules }">
+
+                        <BindableLayout.EmptyView>
+                            <Label
+                                Margin="6,0"
+                                Text="No programed schedules."
+                            />
+                        </BindableLayout.EmptyView>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <local:SmartHomeScheduleCardTemplate
+                                    EditScheduleCommand="{ Binding BindingContext.EditScheduleCommand, Source={x:Reference root} }"
+                                    DeleteScheduleCommand="{ Binding BindingContext.DeleteScheduleCommand, Source={x:Reference root} }">
+
+                                    <local:SmartHomeScheduleCardTemplate.SecondaryContent>
+                                        <VerticalStackLayout Spacing="10">
+                                            <HorizontalStackLayout
+                                                VerticalOptions="Center"
+                                                Spacing="10">
+                                                <Label
+                                                    Text="{ grial:Translate LightIntensity }"
+                                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                                />
+
+                                                <Label
+                                                    Text="{ Binding Intensity, StringFormat='{0:F0} %', Converter={StaticResource NumberToPercentageConverter} }"
+                                                    VerticalOptions="Center"
+                                                    VerticalTextAlignment="Center"
+                                                />
+                                            </HorizontalStackLayout>
+
+                                            <!-- Separator -->
+                                            <BoxView Style="{ DynamicResource Horizontal1ptLineStyle }" />
+
+                                            <HorizontalStackLayout
+                                                VerticalOptions="Center"
+                                                Spacing="10">
+                                                <Label
+                                                    VerticalOptions="Center"
+                                                    Text="{ grial:Translate LightColorScene }"
+                                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                                />
+
+                                                <grial:RoundedImage
+                                                    Source="{ Binding ColorScene }"
+                                                    CornerRadius="6"
+                                                    HeightRequest="24"
+                                                    WidthRequest="24"
+                                                    VerticalOptions="Center"
+                                                />
+                                            </HorizontalStackLayout>
+
+                                            <BoxView Style="{ DynamicResource Horizontal1ptLineStyle }" />
+                                        </VerticalStackLayout>
+                                    </local:SmartHomeScheduleCardTemplate.SecondaryContent>
+
+                                </local:SmartHomeScheduleCardTemplate>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

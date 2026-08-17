@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.CustomSearchBar"
+    x:Name="Root">
+
+    <!-- SEARCH BAR -->
+    <grial:CardView
+        BackgroundColor="{ Binding SearchBackgroundColor, Source={x:Reference Root} }"
+        ColumnDefinitions="Auto,*,Auto"
+        CornerRadius="{ Binding CornerRadius, Source={x:Reference Root} }"
+        HeightRequest="{ Binding HeightRequest, Source={x:Reference Root} }"
+        Margin="0"
+        ShadowOpacity="0">
+
+        <Label
+            Margin="12,0,0,0"
+            FontSize="20"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            Text="{ x:Static local:GrialIconsFont.Search }"
+            FontFamily="{ StaticResource IconsFontFamily }"
+            VerticalOptions="Center"
+        />
+
+        <Entry
+            x:Name="searchEntry"
+            Placeholder="{ Binding Placeholder, Source={x:Reference Root} }"
+            PlaceholderColor="{ Binding PlaceholderColor, Source={x:Reference Root} }"
+            Grid.Column="1"
+            HorizontalTextAlignment="{ Binding HorizontalTextAlignment, Source={x:Reference Root} }"
+            VerticalTextAlignment="Center"
+            Completed="OnCompleted"
+            Text="{ Binding Text, Source={x:Reference Root}, Mode=TwoWay }"
+            TextColor="{ Binding TextColor, Source={x:Reference Root} }"
+            TranslationX="{ OnPlatform
+                Android=-5,
+                iOS=0
+            }"
+            TranslationY="{ OnPlatform
+                Android=2,
+                iOS=0
+            }"
+            FontSize="{ Binding FontSize, Source={x:Reference Root} }"
+            FontFamily="{ DynamicResource AppFontFamily }"
+            TextChanged="OnTextChanged"
+            Focused="OnFocused"
+            BackgroundColor="Transparent"
+            Unfocused="OnUnfocused"
+            grial:EntryProperties.BorderStyle="None"
+        />
+
+        <Grid
+            x:Name="clearLabel"
+            Grid.Column="2"
+            Margin="0,0,14,0"
+            HorizontalOptions="End"
+            IsVisible="False">
+
+            <Label
+                VerticalOptions="Center"
+                FontSize="18"
+                TextColor="{ Binding ClearButtonColor, Source={x:Reference Root} }"
+                Text="{ x:Static local:GrialIconsFont.Close }"
+                FontFamily="{ StaticResource IconsFontFamily }"
+            />
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTapped" />
+            </Grid.GestureRecognizers>
+        </Grid>
+    </grial:CardView>
+</ContentView>
+

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.PerformanceDashboardFilterTemplate">
+    <ContentView.Content>
+        <!-- FILTER ROW -->
+        <Grid
+            Margin="20"
+            Padding="12,0"
+            grial:Effects.CornerRadius="0"
+            HeightRequest="44"
+            ColumnDefinitions="*,Auto"
+            ColumnSpacing="8">
+            <!-- LABEL -->
+            <Label
+                Grid.Column="0"
+                Text="{ grial:Translate TasksPerformance }"
+                FontSize="{ StaticResource XLargeFontSize }"
+                VerticalOptions="Center"
+                TextColor="{ DynamicResource TextColor }"
+                InputTransparent="true"
+                FontAttributes="Bold"
+            />
+
+            <!-- CUSTOM PICKER -->
+            <Grid
+                Grid.Column="1"
+                ColumnDefinitions="*,Auto"
+                ColumnSpacing="12"
+                Padding="16,8"
+                BackgroundColor="{ DynamicResource PrimaryVariantColor }"
+                grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }">
+
+                <!-- PICKER -->
+                <Picker
+                    Grid.ColumnSpan="2"
+                    FontSize="{ StaticResource BaseFontSize }"
+                    TextColor="Transparent"
+                    grial:PickerProperties.BorderStyle="None"
+                    ItemsSource="{ Binding Periods }"
+                    SelectedItem="{ Binding SelectedPeriod, Mode=TwoWay }"
+                    BackgroundColor="Transparent"
+                />
+
+                <!-- PSEUDO PICKER -->
+                <Label
+                    Grid.Column="0"
+                    InputTransparent="True"
+                    Text="{ Binding SelectedPeriod, Mode=OneWay }"
+                    FontSize="{ StaticResource BaseFontSize }"
+                    VerticalTextAlignment="Center"
+                    TextColor="{ DynamicResource PrimaryColor }"
+                />
+
+                <!-- ICON -->
+                <Label
+                    Grid.Column="1"
+                    VerticalTextAlignment="Center"
+                    TextColor="{ DynamicResource PrimaryColor }"
+                    Text="{ x:Static local:GrialIconsFont.Calendar }"
+                    Style="{ StaticResource FontIcon }"
+                    InputTransparent="True"
+                    FontSize="24"
+                />
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

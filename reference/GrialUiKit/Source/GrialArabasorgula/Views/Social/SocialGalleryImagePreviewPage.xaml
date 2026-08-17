@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SocialGalleryImagePreviewPage"
+    grial:GrialNavigationPage.HasNavigationBar="false"
+    BackgroundColor="Black">
+
+    <Grid>
+
+        <Image
+            x:Name="img"
+            Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_04.jpg"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+            <View.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="OnImagePreviewDoubleTapped"
+                    NumberOfTapsRequired="2"
+                />
+            </View.GestureRecognizers>
+        </Image>
+
+        <!-- CLOSE ICON -->
+        <Label
+            Margin="{ grial:OnOrientationThickness
+                PortraitPhone='20,50',
+                LandscapePhone=20,
+                PortraitTablet='20,50',
+                LandscapeTablet=20
+            }"
+            VerticalOptions="Start"
+            FontSize="30"
+            Text="{ x:Static local:GrialIconsFont.Close }"
+            HorizontalTextAlignment="End"
+            TextColor="{ DynamicResource OnSurfaceColor }"
+            HeightRequest="30"
+            WidthRequest="30"
+            Style="{ StaticResource FontIcon }">
+
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnCloseButtonClicked" />
+            </Label.GestureRecognizers>
+
+        </Label>
+
+    </Grid>
+
+</ContentPage>

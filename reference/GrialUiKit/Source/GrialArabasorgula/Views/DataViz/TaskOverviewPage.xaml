@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.TaskOverviewPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleTaskOverview }">
+    <ContentPage.Content>
+        <Grid
+            RowSpacing="15"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+            RowDefinitions="Auto,*">
+
+            <grial:ExtendedGrid
+                RowSpacing="15"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Padding="0,20,0,40"
+                TrimBottomShape="RoundedCorners"
+                TrimBottomHeight="40"
+                RowDefinitions="Auto,Auto">
+
+                <!-- TITLE -->
+                <Label
+                    Grid.Row="0"
+                    Margin="{ DynamicResource AirSpacingNoBorder }"
+                    Text="{ Binding Period }"
+                    FontSize="{ StaticResource TitleFontSize }"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    TextColor="{ DynamicResource TextColor }"
+                    FontAttributes="Bold"
+                />
+
+                <!-- CARDS -->
+                <grial:Repeater
+                    HeightRequest="210"
+                    ScrollPadding="{ DynamicResource AirSpacingNoBorder }"
+                    Spacing="15"
+                    Grid.Row="1"
+                    ScrollBarVisibility="Never"
+                    ItemsSource="{ Binding Data }"
+                    ItemSize="150"
+                    IsVisible="{ grial:OnOrientationBool
+                        Default=true,
+                        LandscapePhone=false
+                    }">
+                    <grial:Repeater.ItemTemplate>
+                        <DataTemplate>
+                            <local:TaskOverviewCardItemTemplate
+                                WidthRequest="150"
+                                HeightRequest="210"
+                            />
+                        </DataTemplate>
+                    </grial:Repeater.ItemTemplate>
+                </grial:Repeater>
+            </grial:ExtendedGrid>
+
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{ Binding People }"
+                VerticalOptions="Fill">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local:TasksOverviewListItemTemplate />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

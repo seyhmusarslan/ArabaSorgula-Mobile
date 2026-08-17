@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.ResponsiveHelpersPage"
+    Title="{ grial:Translate PageTitleResponsiveHelpers }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="{ DynamicResource AirSpacing }"
+            Spacing="25">
+
+            <!-- LOGO -->
+            <Grid
+                WidthRequest="60"
+                HeightRequest="60"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+
+
+                <BoxView
+                    CornerRadius="{ DynamicResource CornerRadius-big }"
+                    Opacity="1"
+                    HorizontalOptions="Center"
+                    WidthRequest="60"
+                    Color="{ DynamicResource BackgroundSecondaryColor }"
+                />
+
+                <Label
+                    TextColor="{ DynamicResource TextColor }"
+                    FontSize="60"
+                    Text="{ x:Static local:GrialIconsFont.LogoGrial }"
+                    Style="{ StaticResource FontIcon }"
+                    HorizontalOptions="Center"
+                    VerticalTextAlignment="Center"
+                />
+
+            </Grid>
+
+            <!-- PLATFORM CARD -->
+            <grial:CardView
+                ColumnDefinitions="*,*"
+                HeightRequest="160"
+                HasShadow="False"
+                RowDefinitions="55,*">
+
+                <!-- Header -->
+                <BoxView
+                    Grid.ColumnSpan="2"
+                    Style="{ StaticResource Horizontal1ptLineStyle }"
+                    VerticalOptions="End"
+                />
+
+                <!-- Header Title -->
+                <Label
+                    Grid.ColumnSpan="2"
+                    Text="{ grial:Translate StringPlatform }"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    TextColor="{ DynamicResource TextColor }"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    TextTransform="None"
+                />
+
+                <!-- iOS -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- Icon -->
+                    <local:RoundedIcon
+                        IconText="{ x:Static local:GrialIconsFont.Dashboard }"
+                        IconFontFamily="{ StaticResource GrialIconsFill }"
+                        Opacity="{ OnPlatform
+                            iOS=1,
+                            Android=0.5
+                        }"
+                        IconFontSize="25"
+                        Style="{ DynamicResource ResponsiveHelpersPage_RoundedIconStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="iOS"
+                        Opacity="{ OnPlatform
+                            iOS=1,
+                            Android=0.2
+                        }"
+                    />
+                </VerticalStackLayout>
+
+                <!-- ANDROID -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- Icon -->
+                    <local:RoundedIcon
+                        IconText="{ x:Static local:GrialIconsFont.LogoAndroid }"
+                        IconFontFamily="{ StaticResource GrialIconsFill }"
+                        Opacity="{ OnPlatform
+                            iOS=0.2,
+                            Android=1
+                        }"
+                        IconFontSize="25"
+                        Style="{ DynamicResource ResponsiveHelpersPage_RoundedIconStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Android"
+                        Opacity="{ OnPlatform
+                            iOS=0.2,
+                            Android=1
+                        }"
+                    />
+
+                </VerticalStackLayout>
+            </grial:CardView>
+
+
+            <!-- DEVICES CARD -->
+            <grial:CardView
+                ColumnDefinitions="*,*"
+                HeightRequest="160"
+                HasShadow="False"
+                RowDefinitions="55,*">
+
+                <!-- Header -->
+                <BoxView
+                    Grid.ColumnSpan="2"
+                    Style="{ StaticResource Horizontal1ptLineStyle }"
+                    VerticalOptions="End"
+                />
+
+                <!-- Header Title -->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Text="{ grial:Translate StringDevices }"
+                    TextColor="{ DynamicResource TextColor }"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    TextTransform="None"
+                />
+
+                <!-- Phone -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- Icon -->
+                    <local:RoundedIcon
+                        IconText="{ x:Static local:GrialIconsFont.Smartphone }"
+                        Opacity="{ OnIdiom
+                            Phone=1,
+                            Tablet=0.2
+                        }"
+                        Rotation="{ grial:OnOrientationDouble
+                            LandscapePhone=-90,
+                            LandscapeTablet=-90,
+                            PortraitPhone=0,
+                            PortraitTablet=0,
+                            Default=0
+                        }"
+                        IconFontSize="25"
+                        Style="{ DynamicResource ResponsiveHelpersPage_RoundedIconStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="{ grial:Translate StringPhone }"
+                        Opacity="{ OnIdiom
+                            Phone=1,
+                            Tablet=0.2
+                        }"
+                    />
+                </VerticalStackLayout>
+
+                <!-- TABLET -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- Icon -->
+                    <local:RoundedIcon
+                        IconText="{ x:Static local:GrialIconsFont.Tablet }"
+                        Opacity="{ OnIdiom
+                            Phone=0.2,
+                            Tablet=1
+                        }"
+                        Rotation="{ grial:OnOrientationDouble
+                            LandscapePhone=-90,
+                            LandscapeTablet=-90,
+                            PortraitPhone=0,
+                            PortraitTablet=0,
+                            Default=0
+                        }"
+                        IconFontSize="25"
+                        Style="{ DynamicResource ResponsiveHelpersPage_RoundedIconStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="{ grial:Translate StringTablet }"
+                        Opacity="{ OnIdiom
+                            Phone=0.2,
+                            Tablet=1
+                        }"
+                    />
+
+                </VerticalStackLayout>
+            </grial:CardView>
+
+
+            <!-- ORIENTATION CARD -->
+            <grial:CardView
+                ColumnDefinitions="*,*"
+                HeightRequest="160"
+                HasShadow="False"
+                RowDefinitions="55,*">
+
+                <!-- Header -->
+                <BoxView
+                    Grid.ColumnSpan="2"
+                    Style="{ StaticResource Horizontal1ptLineStyle }"
+                    VerticalOptions="End"
+                />
+
+                <!-- Header Title -->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Text="{ grial:Translate StringOrientation }"
+                    TextColor="{ DynamicResource TextColor }"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    TextTransform="None"
+                />
+
+                <!-- LANDSCAPE -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- Icon -->
+                    <local:RoundedIcon
+                        IconText="{ x:Static local:GrialIconsFont.Landscape }"
+                        Opacity="{ grial:OnOrientationDouble
+                            LandscapePhone=1,
+                            LandscapeTablet=1,
+                            PortraitPhone=0.2,
+                            PortraitTablet=0.2,
+                            Default=0.2
+                        }"
+                        IconFontSize="25"
+                        Style="{ DynamicResource ResponsiveHelpersPage_RoundedIconStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="{ grial:Translate StringOrientationLandscape }"
+                        Opacity="{ grial:OnOrientationDouble
+                            LandscapePhone=1,
+                            LandscapeTablet=1,
+                            PortraitPhone=0.2,
+                            PortraitTablet=0.2,
+                            Default=0.2
+                        }"
+                    />
+                </VerticalStackLayout>
+
+                <!-- PORTRAIT -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- Icon -->
+                    <local:RoundedIcon
+                        IconText="{ x:Static local:GrialIconsFont.Portrait }"
+                        Opacity="{ grial:OnOrientationDouble
+                            LandscapePhone=0.2,
+                            LandscapeTablet=0.2,
+                            PortraitPhone=1,
+                            PortraitTablet=1,
+                            Default=1
+                        }"
+                        IconFontSize="25"
+                        Style="{ DynamicResource ResponsiveHelpersPage_RoundedIconStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="{ grial:Translate StringOrientationPortrait }"
+                        Opacity="{ grial:OnOrientationDouble
+                            LandscapePhone=0.2,
+                            LandscapeTablet=0.2,
+                            PortraitPhone=1,
+                            PortraitTablet=1,
+                            Default=1
+                        }"
+                    />
+
+                </VerticalStackLayout>
+            </grial:CardView>
+
+            <!-- LAYOUT DIRECTION -->
+            <grial:CardView
+                ColumnDefinitions="*,*"
+                HeightRequest="160"
+                HasShadow="False"
+                RowDefinitions="55,*">
+
+                <!-- Header -->
+                <BoxView
+                    Grid.ColumnSpan="2"
+                    Style="{ StaticResource Horizontal1ptLineStyle }"
+                    VerticalOptions="End"
+                />
+
+                <!-- Header Title -->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Text="{ grial:Translate StringLayoutDirection }"
+                    TextColor="{ DynamicResource TextColor }"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    TextTransform="None"
+                />
+
+                <!-- Left-to-right -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- Icon -->
+                    <local:RoundedIcon
+                        IconText="LTR"
+                        IconFontFamily="{ StaticResource AppFontFamily }"
+                        IconFontSize="15"
+                        Opacity="1.0"
+                        HeightRequest="47"
+                        WidthRequest="47"
+                        Style="{ DynamicResource ResponsiveHelpersPage_RoundedIconStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Left-to-right"
+                        Opacity="1.0"
+                    />
+                </VerticalStackLayout>
+
+                <!-- Right-to-left -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- Icon -->
+                    <local:RoundedIcon
+                        IconText="RTL"
+                        IconFontFamily="{ StaticResource AppFontFamily }"
+                        IconFontSize="15"
+                        Opacity="0.2"
+                        HeightRequest="47"
+                        WidthRequest="47"
+                        Style="{ DynamicResource ResponsiveHelpersPage_RoundedIconStyle }"
+                    />
+
+                    <!-- Text -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Right-to-left"
+                        Opacity="0.2"
+                    />
+
+                </VerticalStackLayout>
+            </grial:CardView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

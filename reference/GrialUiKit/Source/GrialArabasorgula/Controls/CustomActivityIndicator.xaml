@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.CustomActivityIndicator">
+
+    <Grid x:Name="Wrapper">
+        <BoxView
+            HeightRequest="64"
+            WidthRequest="64"
+            Color="{ DynamicResource PrimaryColor }"
+            CornerRadius="{ DynamicResource CornerRadius-x-sm }"
+        />
+
+        <Label
+            Text="{ x:Static local:GrialIconsFont.LogoGrial }"
+            Style="{ StaticResource FontIcon }"
+            TextColor="White"
+            FontSize="45"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+        />
+    </Grid>
+</ContentView>

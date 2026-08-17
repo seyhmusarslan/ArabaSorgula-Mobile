@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ArticleVariantItemTemplate">
+    <Grid
+        ColumnSpacing="10"
+        RowSpacing="0"
+        Padding="{ DynamicResource AirSpacing }"
+        ColumnDefinitions="45,*,180"
+        RowDefinitions="20,20,185,Auto">
+
+        <!-- AVATAR -->
+        <grial:RoundedImage
+            Margin="5,0,0,0"
+            Size="36"
+            Grid.RowSpan="2"
+            Source="{ Binding Avatar }"
+            Style="{ StaticResource AvatarImageStyle }"
+            HorizontalOptions="Start"
+        />
+
+        <!-- AUTHOR -->
+        <Label
+            Grid.Column="1"
+            Text="{ Binding Author }"
+            VerticalTextAlignment="Center"
+            FontAttributes="Bold"
+            TextColor="{ DynamicResource TextColor }"
+            HorizontalOptions="Fill"
+        />
+
+        <!-- ARTICLE IMAGE -->
+        <Image
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+            Margin="0,20,0,15"
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            Source="{ Binding BackgroundImage }"
+        />
+
+        <!-- TITLE -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Text="{ Binding Title }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            FontSize="{ StaticResource SmallFontSize }"
+            HorizontalTextAlignment="Start"
+        />
+
+        <!-- ARTICLE SECTION -->
+        <Label
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Margin="10,0,0,0"
+            FontSize="14"
+            Text="{ Binding Section }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            FontAttributes="Bold"
+            LineBreakMode="TailTruncation"
+            VerticalOptions="End"
+        />
+
+        <!-- ARTICLE DATE -->
+        <Label
+            Margin="0,0,5,0"
+            Grid.Row="1"
+            Grid.Column="2"
+            HorizontalOptions="End"
+            FontSize="{ StaticResource SmallFontSize }"
+            Text="{ Binding When }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            LineBreakMode="TailTruncation"
+            VerticalOptions="End"
+        />
+
+        <!-- ARTICLE STATISTICS -->
+        <Grid
+            Grid.Row="3"
+            Grid.Column="2"
+            ColumnDefinitions="Auto,Auto"
+            ColumnSpacing="15"
+            HorizontalOptions="End"
+            Margin="0,0,10,0">
+            <!-- Users -->
+            <local:IconText
+                Icon="{ x:Static local:GrialIconsFont.Users }"
+                Spacing="3"
+                Text="112"
+                IconColor="{ DynamicResource InfoColor }"
+                TextColor="{ DynamicResource InfoColor }"
+            />
+
+            <!-- Likes -->
+            <local:IconText
+                Grid.Column="1"
+                Icon="{ x:Static local:GrialIconsFont.Heart }"
+                Spacing="3"
+                Text="2.1k"
+                IconColor="{ DynamicResource FavoriteColor }"
+                TextColor="{ DynamicResource FavoriteColor }"
+            />
+        </Grid>
+
+        <!-- SEPARATOR -->
+        <BoxView
+            Grid.Row="3"
+            Grid.ColumnSpan="3"
+            VerticalOptions="End"
+            Style="{ StaticResource Horizontal1ptLineStyle }"
+            Margin="0,0,0,-30"
+        />
+    </Grid>
+</ContentView>

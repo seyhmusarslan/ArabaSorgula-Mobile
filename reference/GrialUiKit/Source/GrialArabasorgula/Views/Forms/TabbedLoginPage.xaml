@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.TabbedLoginPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="/Styles/TabControl/SegmentedTabResources.xaml" />
+    </ContentPage.Resources>
+
+    <Grid
+        Padding="0,20,0,0"
+        grial:Effects.ApplyIOSSafeAreaAsPadding="Top"
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        RowDefinitions="Auto,*">
+
+        <Grid
+            HorizontalOptions="Start"
+            Margin="0,0,20,0"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+            RowDefinitions="Auto,Auto,Auto"
+            RowSpacing="0"
+            ColumnSpacing="0"
+            Padding="0,0,0,10"
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+            VerticalOptions="End"
+            ColumnDefinitions="Auto">
+
+            <!-- LOGO -->
+            <local:BrandLogo
+                Grid.Row="0"
+                Grid.RowSpan="1"
+                Margin="20,0"
+                VerticalOptions="End"
+                Inverted="False"
+                HorizontalOptions="Start"
+                IsVisible="{ grial:OnOrientationBool
+                    Portrait=true,
+                    Landscape=False
+                }"
+            />
+
+            <!-- WELCOME -->
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="{ grial:Translate StringWelcomeToGrial }"
+                FontSize="22"
+                TextColor="{ DynamicResource TextColor }"
+                FontAttributes="Bold"
+                VerticalOptions="End"
+                HorizontalOptions="Start"
+                Margin="20,0,0,0"
+            />
+
+            <!-- SUB -->
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="{ grial:Translate StringWelcomeBack }"
+                FontSize="16"
+                TextColor="{ DynamicResource PrimaryColor }"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                Margin="20,0,0,0"
+            />
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <!-- TAB -->
+            <grial:TabControl
+                x:Name="tab"
+                Style="{ StaticResource SegmentedTabStyle }"
+                VerticalOptions="Fill"
+                TabStripBackgroundColor="{ DynamicResource BackgroundColor }"
+                TabContentBackgroundColor="{ DynamicResource BackgroundColor }">
+                <!-- LOGIN TAB -->
+                <grial:TabItem Text="{ grial:Translate StringLogin }">
+                    <ScrollView>
+                        <Grid
+                            Padding="20"
+                            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+                            RowDefinitions="*,Auto">
+
+                            <VerticalStackLayout
+                                HeightRequest="200"
+                                Grid.Row="0"
+                                VerticalOptions="Center"
+                                Spacing="20">
+
+                                <Entry
+                                    Placeholder="{ grial:Translate StringEmail }"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Fill"
+                                />
+
+                                <Entry
+                                    Placeholder="{ grial:Translate StringPassword }"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Fill"
+                                />
+
+                                <!-- Remember me? -->
+                                <Grid
+                                    Margin="0,0,0,20"
+                                    ColumnDefinitions="Auto,*"
+                                    ColumnSpacing="5">
+                                    <Switch IsToggled="True" />
+
+                                    <Label
+                                        Grid.Column="1"
+                                        Text="{ grial:Translate StringRememberMe }"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Start"
+                                        TextColor="{ DynamicResource TextSecondaryColor }"
+                                    />
+                                </Grid>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout
+                                Grid.Row="1"
+                                Spacing="14"
+                                VerticalOptions="End">
+                                <!-- Primary Button -->
+                                <Button
+                                    VerticalOptions="Center"
+                                    Text="{ grial:Translate StringLogin }"
+                                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                                />
+
+                                <!-- Google Button -->
+                                <local:IconButton
+                                    VerticalOptions="Center"
+                                    Text="{ grial:Translate StringLoginGoogle }"
+                                    ButtonStyle="{ StaticResource SecondaryActionButtonStyle }"
+                                    IconFontSize="15"
+                                    IconText="{ x:Static local:GrialIconsFont.LogoGoogle }"
+                                    IconFontFamily="{ StaticResource IconsFontFamily }"
+                                    IconColor="{ DynamicResource PrimaryColor }"
+                                />
+
+                                <!-- Forgot password -->
+                                <Label
+                                    Text="{ grial:Translate LabelForgotYourPassword }"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                />
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </ScrollView>
+                </grial:TabItem>
+
+                <!-- SIGNUP TAB -->
+                <grial:TabItem Text="{ grial:Translate StringButtonSignUp }">
+                    <ScrollView>
+                        <Grid
+                            Padding="20"
+                            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+                            RowDefinitions="*,Auto">
+
+                            <Grid
+                                Grid.Row="0"
+                                RowDefinitions="Auto,Auto,Auto,Auto"
+                                VerticalOptions="Center"
+                                RowSpacing="20">
+
+                                <Entry
+                                    Placeholder="{ grial:Translate StringName }"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Fill"
+                                />
+
+                                <Entry
+                                    Grid.Row="1"
+                                    Placeholder="{ grial:Translate StringEmail }"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Fill"
+                                />
+
+                                <Entry
+                                    Grid.Row="2"
+                                    Placeholder="{ grial:Translate StringPassword }"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Fill"
+                                />
+
+                                <Grid
+                                    Grid.Row="3"
+                                    ColumnDefinitions="Auto,*"
+                                    ColumnSpacing="14">
+
+                                    <Entry
+                                        Placeholder="+235"
+                                        WidthRequest="80"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Fill"
+                                    />
+
+                                    <Entry
+                                        Grid.Column="1"
+                                        Placeholder="{ grial:Translate StringPhone }"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Fill"
+                                    />
+
+                                </Grid>
+
+                            </Grid>
+
+                            <VerticalStackLayout
+                                Grid.Row="1"
+                                Spacing="15"
+                                VerticalOptions="Start"
+                                Margin="0,30,0,0">
+                                <!-- Primary Button -->
+                                <Button
+                                    VerticalOptions="Center"
+                                    Text="{ grial:Translate StringButtonSignUp }"
+                                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                                />
+
+                                <!-- Google Button -->
+                                <local:IconButton
+                                    VerticalOptions="Center"
+                                    Text="{ grial:Translate StringSignUpGoogle }"
+                                    ButtonStyle="{ StaticResource SecondaryActionButtonStyle }"
+                                    IconFontSize="15"
+                                    IconText="{ x:Static local:GrialIconsFont.LogoGoogle }"
+                                    IconFontFamily="{ StaticResource IconsFontFamily }"
+                                    IconColor="{ DynamicResource PrimaryColor }"
+                                />
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </ScrollView>
+
+                </grial:TabItem>
+            </grial:TabControl>
+        </Grid>
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            Style="{ StaticResource CloseIconButtonInverseStyle }"
+            Clicked="OnCloseButtonClicked"
+        />
+
+    </Grid>
+</ContentPage>

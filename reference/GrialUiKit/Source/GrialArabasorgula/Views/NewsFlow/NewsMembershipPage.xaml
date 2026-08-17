@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.NewsMembershipPage"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+    <!-- Main Container -->
+    <Grid>
+        <ScrollView>
+            <Grid
+                HorizontalOptions="Center"
+                RowSpacing="20"
+                Padding="{ OnIdiom
+                    Phone='24',
+                    Tablet='100,24'
+                }"
+                RowDefinitions="{ OnIdiom
+                    Tablet='*,Auto,*',
+                    Phone='3*,Auto,2*'
+                }">
+
+                <!-- Logo / Title / Subtitle -->
+                <VerticalStackLayout
+                    VerticalOptions="End"
+                    Margin="0,0,0,10"
+                    Spacing="6">
+
+                    <Border
+                        Margin="0,0,0,20"
+                        HeightRequest="80"
+                        WidthRequest="80"
+                        Padding="10"
+                        StrokeShape="RoundRectangle 20"
+                        BackgroundColor="{ DynamicResource PrimaryColor }">
+                        <Image Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/grial_logo.png" />
+                    </Border>
+
+                    <!-- Title -->
+                    <Label
+                        Text="Get access to millions of news and articles"
+                        FontSize="{ StaticResource TitleFontSize }"
+                        HorizontalTextAlignment="Center"
+                        LineHeight="0.8"
+                        FontAttributes="Bold"
+                    />
+                    <!-- Subtitle -->
+                    <Label
+                        Text="Select a plan that's right for you"
+                        FontSize="12"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        HorizontalTextAlignment="Center"
+                    />
+                </VerticalStackLayout>
+
+                <!-- Plans Container -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    VerticalOptions="Center"
+                    Spacing="24"
+                    RadioButtonGroup.GroupName="plans"
+                    RadioButtonGroup.SelectedValue="{ Binding SelectedPlan, Mode=TwoWay }"
+                    BindableLayout.ItemsSource="{ Binding Plans }">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <local:NewsMembershipPlanRadioButtonTemplate />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+
+                <!-- Login Button -->
+                <Button
+                    Grid.Row="2"
+                    Text="Activate now"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    Clicked="ActivateButtonClicked"
+                    Margin="0,0,0,30"
+                />
+
+            </Grid>
+        </ScrollView>
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            VerticalOptions="Start"
+            IconBackgroundCornerRadius="{ DynamicResource CornerRadius-md }"
+            HeightRequest="30"
+            WidthRequest="30"
+            IconBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            IconColor="{ DynamicResource TextColor }"
+            HorizontalOptions="End"
+            IconText="{ x:Static local:MaterialCommunityIconsFont.Close }"
+            IconFontFamily="{ StaticResource NewsIconsFontFamily }"
+            IconFontSize="24"
+            Margin="{ OnPlatform
+                Android='30,20',
+                iOS='30,70'
+            }"
+            Clicked="OnClose"
+        />
+    </Grid>
+
+</ContentPage>

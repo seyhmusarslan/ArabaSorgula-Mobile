@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    x:Class="arabasorgula.NewExplorerItemPopupTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    BackgroundColor="{ DynamicResource OverlayColor }"
+    CloseWhenBackgroundIsClicked="False"
+    AppearingAnimation="{ uxd:ScaleInPopupAnimation
+        Duration=400,
+        ScaleFrom=1.2,
+        Easing=SinOut
+    }"
+    DisappearingAnimation="{ uxd:ScaleOutPopupAnimation
+        Duration=300,
+        ScaleTo=0.8,
+        Easing=SinIn
+    }">
+
+    <Grid
+        RowDefinitions="*"
+        RowSpacing="0">
+        <!-- FIX CLOSE POPUP -->
+        <BoxView
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            Color="Transparent">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTapped" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <!-- CONTENT -->
+        <Grid
+            Padding="{ DynamicResource AirSpacing }"
+            WidthRequest="300"
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            RowSpacing="20"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+            <!-- TITLE -->
+            <Label
+                Margin="0,10"
+                Text="{ Binding Title }"
+                HorizontalOptions="Center"
+                FontSize="{ StaticResource TitleFontSize }"
+            />
+
+            <!-- NAME ENTRY -->
+            <Border
+                Grid.Row="1"
+                IsVisible="{ Binding ShowNameField }"
+                Stroke="{ DynamicResource PrimaryColor }"
+                StrokeThickness="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="{ DynamicResource BaseCornerRadius }" />
+                </Border.StrokeShape>
+                <Entry
+                    IsVisible="{ Binding ShowNameField }"
+                    Text="{ Binding ItemName, Mode=TwoWay }"
+                    Placeholder="{ grial:Translate StringName }"
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                />
+            </Border>
+
+            <!-- PICK COLOR -->
+            <grial:Repeater
+                Grid.Row="2"
+                IsVisible="{ Binding ShowColors }"
+                InitialSelection="First"
+                SelectedItem="{ Binding SelectedColor, Mode=TwoWay }"
+                ItemsSource="{ Binding FolderColors }"
+                HeightRequest="60"
+                SelectionMode="Single"
+                ScrollBarVisibility="Never">
+                <grial:Repeater.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="0"
+                            Margin="5,0"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+                            <Border
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                StrokeThickness="1"
+                                Padding="4"
+                                Stroke="Transparent">
+                                <Border.Shadow>
+                                    <Shadow
+                                        Brush="Black"
+                                        Offset="0,10"
+                                        Radius="20"
+                                        Opacity="0.2"
+                                    />
+                                </Border.Shadow>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="{ DynamicResource CornerRadius-big }" />
+                                </Border.StrokeShape>
+                                <!-- TODO: height = 1/2 Cornerradius -->
+                                <BoxView
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Color="{ Binding . }"
+                                    HeightRequest="22"
+                                    WidthRequest="22"
+                                    CornerRadius="11"
+                                />
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </grial:Repeater.ItemTemplate>
+                <grial:Repeater.SelectedItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="0"
+                            Margin="5,0"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+                            <Border
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                StrokeThickness="1"
+                                Padding="4"
+                                Stroke="{ DynamicResource PrimaryColor }">
+                                <Border.Shadow>
+                                    <Shadow
+                                        Brush="Black"
+                                        Offset="0,10"
+                                        Radius="20"
+                                        Opacity="0.2"
+                                    />
+                                </Border.Shadow>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="{ DynamicResource CornerRadius-big }" />
+                                </Border.StrokeShape>
+                                <!-- TODO: height = 1/2 Cornerradius -->
+                                <BoxView
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Color="{ Binding . }"
+                                    HeightRequest="22"
+                                    WidthRequest="22"
+                                    CornerRadius="11"
+                                />
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </grial:Repeater.SelectedItemTemplate>
+            </grial:Repeater>
+
+            <!-- SAVE BUTTON -->
+            <Button
+                Grid.Row="3"
+                Text="Save"
+                Style="{ StaticResource PrimaryActionButtonStyle }"
+                Command="{ Binding SaveCommand }"
+            />
+
+            <!-- CANCEL -->
+            <Button
+                Grid.Row="4"
+                Margin="0,-10,0,0"
+                Text="Cancel"
+                BorderColor="Transparent"
+                Style="{ DynamicResource PrimaryActionOutlineButtonStyle }"
+                Command="{ Binding CancelCommand }"
+            />
+        </Grid>
+    </Grid>
+</uxd:PopupPage>

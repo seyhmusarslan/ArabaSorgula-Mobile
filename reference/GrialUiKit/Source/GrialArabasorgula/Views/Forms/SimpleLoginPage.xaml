@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.SimpleLoginPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    Title="{ grial:Translate PageTitleSimpleLogin }"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <Grid>
+        <BoxView
+            Color="{ DynamicResource PrimaryColor }"
+            HeightRequest="350"
+            VerticalOptions="Start"
+            grial:Effects.CornerRadius="{ DynamicResource BaseBottomCornerRadius }"
+        />
+
+        <ScrollView
+            grial:Effects.IgnoreIOSSafeAreaOnScrollView="Left,Right,Top"
+            VerticalOptions="Fill"
+            Padding="{ StaticResource MainWrapperPadding }">
+            <!-- MAIN CONTAINER -->
+            <Grid
+                ColumnSpacing="0"
+                RowSpacing="0"
+                Style="{ StaticResource SimpleLoginFormsContentStyle }"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                RowDefinitions="Auto,*,Auto">
+
+                <!-- HEADER -->
+                <Grid
+                    Grid.Row="0"
+                    RowSpacing="5"
+                    Padding="0,20,0,0"
+                    RowDefinitions="Auto,Auto,Auto">
+
+                    <!-- BG DECORATION -->
+                    <local:BackgroundDecoration
+                        Margin="0,0,-100,-20"
+                        IsVisible="{ grial:OnOrientationBool
+                            Landscape=False,
+                            Portrait=True
+                        }"
+                        Grid.RowSpan="3"
+                    />
+
+                    <!-- LOGO -->
+                    <local:BrandLogo
+                        Grid.Row="0"
+                        HorizontalOptions="Center"
+                    />
+
+                    <!-- WELCOME TEXT -->
+                    <Label
+                        Grid.Row="1"
+                        Text="{ grial:Translate StringWelcomeToGrial }"
+                        FontSize="{ OnIdiom
+                            Phone=22,
+                            Tablet=28
+                        }"
+                        HorizontalOptions="Center"
+                        TextColor="{ DynamicResource TextOnSurfaceColor }"
+                    />
+
+                    <!-- USE YOUR CREDENTIALS TEXT -->
+                    <Label
+                        Grid.Row="2"
+                        Text="{ grial:Translate LabelUseCredentialsToLogin }"
+                        TextColor="{ DynamicResource TextOnSurfaceColor }"
+                        HorizontalOptions="Center"
+                        FontSize="{ OnIdiom
+                            Phone=15,
+                            Tablet=18
+                        }"
+                    />
+                </Grid>
+
+                <!-- FIELDS AND BUTTONS CONTAINER -->
+                <grial:CardView
+                    Margin="0,20"
+                    Grid.Row="1"
+                    Padding="20"
+                    CornerRadius="{ DynamicResource CornerRadius-big }">
+
+                    <VerticalStackLayout
+                        Spacing="20"
+                        VerticalOptions="Center">
+                        <!-- EMAIL ENTRY -->
+                        <Entry Placeholder="{ grial:Translate StringEmail }" />
+
+                        <!-- PASSWORD ENTRY -->
+                        <Entry
+                            Placeholder="{ grial:Translate StringPassword }"
+                            IsPassword="True"
+                        />
+
+                        <!-- LOGIN BUTTON -->
+                        <Button
+                            Style="{ StaticResource PrimaryActionButtonStyle }"
+                            Text="{ grial:Translate StringLogin }"
+                            WidthRequest="{ grial:OnOrientationSizeRequest
+                                LandscapePhone=200,
+                                LandscapeTablet=400
+                            }"
+                            HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                                Portrait=Fill,
+                                Landscape=Center
+                            }"
+                        />
+
+                        <Label
+                            Text="{ grial:Translate LabelOrConnectWith }"
+                            FontSize="13"
+                            TextTransform="Uppercase"
+                            HorizontalOptions="Center"
+                        />
+
+                        <!-- FACEBOOK -->
+                        <local:IconButton
+                            BackgroundColor="#3b5998"
+                            BorderColor="#3b5998"
+                            TextColor="{ DynamicResource OnSurfaceColor }"
+                            Text="{ grial:Translate StringFacebook }"
+                            WidthRequest="{ grial:OnOrientationSizeRequest
+                                LandscapePhone=200,
+                                LandscapeTablet=400
+                            }"
+                            HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                                Portrait=Fill,
+                                Landscape=Center
+                            }"
+                            IconText="{ x:Static local:GrialIconsFont.LogoFacebookSquare }"
+                            IconFontSize="15"
+                            IconFontFamily="{ StaticResource IconsFontFamily }"
+                            IconColor="{ DynamicResource OnSurfaceColor }"
+                        />
+
+                        <!-- TWITTER -->
+                        <local:IconButton
+                            BackgroundColor="#1DA1F2"
+                            BorderColor="#1DA1F2"
+                            TextColor="{ DynamicResource OnSurfaceColor }"
+                            Text="{ grial:Translate StringTwitter }"
+                            WidthRequest="{ grial:OnOrientationSizeRequest
+                                LandscapePhone=200,
+                                LandscapeTablet=400
+                            }"
+                            HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                                Portrait=Fill,
+                                Landscape=Center
+                            }"
+                            IconText="{ x:Static local:GrialIconsFont.LogoTwitter }"
+                            IconFontSize="15"
+                            IconFontFamily="{ StaticResource GrialIconsFill }"
+                            IconColor="{ DynamicResource OnSurfaceColor }"
+                        />
+                    </VerticalStackLayout>
+                </grial:CardView>
+
+                <Label
+                    Grid.Row="2"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,20"
+                    FontSize="14"
+                    Text="{ grial:Translate LabelForgotYourPassword }"
+                />
+
+            </Grid>
+        </ScrollView>
+
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            Style="{ StaticResource CloseIconButtonInverseStyle }"
+            Clicked="OnCloseButtonClicked"
+        />
+    </Grid>
+</ContentPage>

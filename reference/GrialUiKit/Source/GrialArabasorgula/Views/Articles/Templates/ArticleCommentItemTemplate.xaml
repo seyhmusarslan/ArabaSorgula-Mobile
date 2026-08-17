@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ArticleCommentItemTemplate">
+    <Grid
+        Padding="{ DynamicResource AirSpacingNoBorder }"
+        RowSpacing="0"
+        ColumnSpacing="14"
+        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+        ColumnDefinitions="Auto, *"
+        RowDefinitions="Auto, 20, *">
+        <!-- Image -->
+        <grial:CircleImage
+            Size="50"
+            Grid.Column="0"
+            Grid.RowSpan="3"
+            BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+            BorderSize="2"
+            Source="{ Binding From.Avatar }"
+            VerticalOptions="Start"
+            TranslationY="0"
+        />
+
+        <!-- Name -->
+        <Label
+            Margin="0,4,0,0"
+            Grid.Column="1"
+            Grid.Row="0"
+            Text="{ Binding From.Name }"
+            FontAttributes="Bold"
+            VerticalOptions="Start"
+            FontSize="{ StaticResource LargeFontSize }"
+            TextColor="{ DynamicResource TextColor }"
+        />
+
+        <!-- Date -->
+        <Label
+            Grid.Column="1"
+            Grid.Row="0"
+            Margin="0,4,0,0"
+            Text="{ Binding When }"
+            TextColor="{ DynamicResource TextTertiaryColor }"
+            HorizontalOptions="End"
+            FontSize="{ StaticResource SmallFontSize }"
+        />
+
+        <!-- Comment -->
+        <Label
+            Padding="0"
+            Margin="0,-20,0,0"
+            Grid.Column="1"
+            Grid.Row="2"
+            Text="{ Binding Body }"
+            LineBreakMode="WordWrap"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            VerticalOptions="Start"
+        />
+
+        <!-- SEPARATOR -->
+        <BoxView
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="1"
+            VerticalOptions="End"
+            Style="{ DynamicResource Horizontal1ptLineStyle }"
+            Margin="0,0,0,20"
+        />
+    </Grid>
+
+</ContentView>

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.SocialRankingPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    Title="{ grial:Translate PageTitleSocialRanking }"
+    x:Name="root">
+    <!-- RESOURCES -->
+    <ContentPage.Resources>
+        <!-- GRID STYLES -->
+        <Style TargetType="grial:DataGrid">
+            <Setter Property="SelectedBackgroundColor" Value="#40BFE1FF" />
+            <Setter Property="HeaderRowBackgroundColor" Value="{ DynamicResource DataGridHeaderRowBackgroundColor }" />
+            <Setter Property="BackgroundColor" Value="{ DynamicResource BackgroundSecondaryColor }" />
+            <Setter Property="GridSeparatorVisibility" Value="Vertical" />
+            <Setter Property="HeaderSeparatorVisibility" Value="Vertical" />
+            <Setter Property="ColumnSeparatorWidth" Value="16" />
+            <Setter Property="ColumnSeparatorColor" Value="Transparent" />
+            <Setter Property="HeaderColumnSeparatorWidth" Value="16" />
+            <Setter Property="HeaderColumnSeparatorColor" Value="Transparent" />
+        </Style>
+
+        <!-- COLUMN STYLES -->
+        <Style x:Key="BaseColumn" TargetType="grial:DataGridColumn">
+            <Setter Property="IsSortable" Value="True" />
+            <Setter Property="SortIconsFontFamily" Value="{ StaticResource IconsFontFamily }" />
+            <Setter Property="DescendingSortIconText" Value="{ x:Static local:GrialIconsFont.ChevronDown }" />
+            <Setter Property="AscendingSortIconText" Value="{ x:Static local:GrialIconsFont.ChevronUp }" />
+            <Setter Property="ColumnWidth" Value="0.1*" />
+            <Setter Property="HeaderTextColor" Value="{ DynamicResource DataGridHeaderTextColor }" />
+            <Setter Property="HeaderTextAlignment" Value="Start" />
+            <Setter Property="HeaderFontSize" Value="{ StaticResource SmallFontSize }" />
+            <Setter Property="HeaderPadding" Value="0,8" />
+            <Setter Property="CellTextColor" Value="{ DynamicResource DataGridCellTextColor }" />
+            <Setter Property="CellPadding" Value="0" />
+            <Setter Property="CellFontSize" Value="14" />
+            <Setter Property="CellTextAlignment" Value="Start" />
+            <Setter Property="CellVerticalAlignment" Value="Center" />
+        </Style>
+
+        <!-- IMAGE -->
+        <Style x:Key="ImageColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Image" />
+            <Setter Property="ColumnWidth" Value="40" />
+            <Setter Property="CellTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Image
+                            HeightRequest="24"
+                            WidthRequest="24"
+                            Aspect="AspectFill"
+                            Source="{ Binding Image }"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"
+                        />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- COLUMNS -->
+        <!-- PLATFORM -->
+        <Style x:Key="PlatformColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Name" />
+            <Setter Property="HeaderText" Value="Platform" />
+            <Setter Property="ColumnWidth" Value="*" />
+            <Setter Property="CellTextColor" Value="{ DynamicResource TextColor }" />
+        </Style>
+
+        <!-- VIEWS -->
+        <Style x:Key="ViewsColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Views" />
+            <Setter Property="HeaderText" Value="Views" />
+            <Setter Property="ColumnWidth" Value="0.4*" />
+        </Style>
+
+        <!-- LIKES -->
+        <Style x:Key="LikesColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Likes" />
+            <Setter Property="HeaderText" Value="Likes" />
+            <Setter Property="ColumnWidth" Value="0.4*" />
+            <Setter Property="CellTextColor" Value="{ DynamicResource TextTertiaryColor }" />
+        </Style>
+
+        <!-- SUBS -->
+        <Style x:Key="SubsColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Subs" />
+            <Setter Property="HeaderText" Value="Subs" />
+            <Setter Property="ColumnWidth" Value="0.4*" />
+            <Setter Property="CellTextColor" Value="{ DynamicResource TextTertiaryColor }" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid>
+        <!-- DATA GRID -->
+        <grial:DataGrid
+            Grid.Row="1"
+            Margin="0,0,0,30"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+            RowHeight="50"
+            SelectionMode="Row"
+            HeaderHeight="300"
+            ItemsSource="{ Binding SocialData }">
+            <grial:DataGrid.HeaderTemplate>
+                <ControlTemplate>
+                    <!-- USER INFO -->
+                    <VerticalStackLayout
+                        Margin="0,30"
+                        BindingContext="{ Binding BindingContext.UserData, Source={Reference root} }"
+                        Spacing="8"
+                        InputTransparent="True">
+                        <Border
+                            StrokeThickness="4"
+                            Stroke="{ DynamicResource BackgroundSecondaryColor }"
+                            HorizontalOptions="Center"
+                            StrokeShape="RoundRectangle 50">
+                            <!-- AVATAR -->
+                            <Image
+                                Source="{ Binding UserImage }"
+                                HeightRequest="100"
+                                WidthRequest="100"
+                                Aspect="AspectFill"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                            />
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Offset="0,10"
+                                    Radius="20"
+                                    Opacity="0.2"
+                                />
+                            </Border.Shadow>
+                        </Border>
+                        <!-- NAME -->
+                        <Label
+                            Margin="0,10,0,-6"
+                            Text="{ Binding UserName }"
+                            FontSize="{ StaticResource TitleFontSize }"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                        />
+                        <!-- MEMBER SINCE -->
+                        <Label
+                            Text="{ Binding MemberSince, StringFormat='Since {0:F0}' }"
+                            TextColor="{ DynamicResource TextTertiaryColor }"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                        />
+                        <!-- SUBSCRIPTION TYPE -->
+                        <local:Tag
+                            HorizontalOptions="Center"
+                            Text="{ Binding Subscription }"
+                        />
+                    </VerticalStackLayout>
+                </ControlTemplate>
+            </grial:DataGrid.HeaderTemplate>
+
+            <grial:DataGrid.ColumnDefinitions>
+                <grial:DataGridColumn Style="{ StaticResource ImageColumn }" />
+                <grial:DataGridColumn Style="{ StaticResource PlatformColumn }" />
+                <grial:DataGridColumn Style="{ StaticResource ViewsColumn }" />
+                <grial:DataGridColumn Style="{ StaticResource LikesColumn }" />
+                <grial:DataGridColumn Style="{ StaticResource SubsColumn }" />
+            </grial:DataGrid.ColumnDefinitions>
+        </grial:DataGrid>
+    </Grid>
+</ContentPage>

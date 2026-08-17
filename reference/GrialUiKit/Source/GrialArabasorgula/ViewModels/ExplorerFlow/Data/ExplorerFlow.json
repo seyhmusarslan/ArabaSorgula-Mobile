@@ -1,0 +1,55 @@
+{
+  "[grial-metadata]": "id: Grial#ExplorerFlow.json version: 1.0.1",
+  "ExplorerListPage.xaml": {
+    "Files": [
+      {
+        "Type": "Word",
+        "Name": "Word Document",
+        "CreationDate": "Mar 13, 2021"
+      },
+      {
+        "Type": "Excel",
+        "Name": "Excel Document",
+        "CreationDate": "Mar 13, 2021"
+      },
+      {
+        "Type": "PowerPoint",
+        "Name": "Power Point Document",
+        "CreationDate": "Mar 13, 2021"
+      },
+      {
+        "Type": "PowerPoint",
+        "Name": "Power Point Document 2",
+        "CreationDate": "Mar 13, 2021"
+      }
+    ],
+    "Folders": [
+      {
+        "Name": "My Project",
+        "BackgroundColor": "#3F75FF",
+        "CreationDate": "Mar 13, 2021",
+        "FileCount": "6"
+      },
+      {
+        "Name": "My Project 2",
+        "BackgroundColor": "#9A0089",
+        "CreationDate": "Mar 13, 2021",
+        "FileCount": "6"
+      },
+      {
+        "Name": "My Project 3",
+        "BackgroundColor": "#5E39CE",
+        "CreationDate": "Mar 13, 2021",
+        "FileCount": "6"
+      }
+    ],
+    "FolderColors": [
+      "#F9B300",
+      "#E74856",
+      "#D13438",
+      "#FFB900",
+      "#46C771",
+      "#10893E"
+    ]
+  }
+}

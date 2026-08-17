@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardCarouselMainItemTemplate">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <grial:GreaterThanConverter
+                x:Key="ScaleConverter"
+                Threshold="90"
+                x:TypeArguments="x:Double"
+                TrueValue="1"
+                FalseValue="0.8"
+            />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <grial:CardView
+            HasShadow="False"
+            x:Name="card">
+            <Grid
+                RowDefinitions="Auto,Auto"
+                Scale="{ Binding Height, Source={x:Reference card}, Converter={StaticResource ScaleConverter} }"
+                VerticalOptions="Center">
+                <!-- ICON -->
+                <Label
+                    IsVisible="{ OnPlatform
+                        Android=true,
+                        iOS=false
+                    }"
+                    FontSize="30"
+                    Text="{ Binding Icon }"
+                    FontFamily="{ DynamicResource IconsFontFamily }"
+                    TextColor="{ DynamicResource PrimaryColor }"
+                    HorizontalOptions="Center"
+                />
+
+                <!-- EMOJI -->
+                <local:Emoji
+                    IsVisible="{ OnPlatform
+                        Android=false,
+                        iOS=true
+                    }"
+                    HeightRequest="26"
+                    WidthRequest="26"
+                    Unicode="{ Binding Emoji }"
+                    HorizontalOptions="Center"
+                />
+
+                <!-- CATEGORY NAME -->
+                <Label
+                    Grid.Row="1"
+                    Margin="0,5,0,-3"
+                    Text="{ Binding Name }"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                />
+            </Grid>
+        </grial:CardView>
+    </ContentView.Content>
+
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer Command="{ Binding TapCommand }" />
+    </ContentView.GestureRecognizers>
+
+</ContentView>

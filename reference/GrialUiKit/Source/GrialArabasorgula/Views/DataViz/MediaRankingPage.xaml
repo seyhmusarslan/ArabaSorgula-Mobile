@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.MediaRankingPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    Title="{ grial:Translate PageTitleMediaRanking }"
+    x:Name="root">
+
+    <!-- RESOURCES -->
+    <ContentPage.Resources>
+        <x:Double x:Key="DataGridHeaderHeight">400</x:Double>
+        <x:Double x:Key="DataGridHeaderTranslation">-400</x:Double>
+
+        <!-- GRID STYLES -->
+        <Style TargetType="grial:DataGrid">
+            <Setter Property="SelectedBackgroundColor" Value="#40BFE1FF" />
+            <Setter Property="HeaderRowBackgroundColor" Value="{ DynamicResource DataGridHeaderRowBackgroundColor }" />
+            <Setter Property="BackgroundColor" Value="{ DynamicResource BackgroundSecondaryColor }" />
+            <Setter Property="GridSeparatorVisibility" Value="Vertical" />
+            <Setter Property="HeaderSeparatorVisibility" Value="Vertical" />
+            <Setter Property="ColumnSeparatorWidth" Value="16" />
+            <Setter Property="ColumnSeparatorColor" Value="Transparent" />
+            <Setter Property="HeaderColumnSeparatorWidth" Value="16" />
+            <Setter Property="HeaderColumnSeparatorColor" Value="Transparent" />
+        </Style>
+
+        <!-- COLUMN STYLES -->
+        <Style x:Key="BaseColumn" TargetType="grial:DataGridColumn">
+            <Setter Property="IsSortable" Value="True" />
+            <Setter Property="SortIconsFontFamily" Value="{ StaticResource IconsFontFamily }" />
+            <Setter Property="DescendingSortIconText" Value="{ x:Static local:GrialIconsFont.ChevronDown }" />
+            <Setter Property="AscendingSortIconText" Value="{ x:Static local:GrialIconsFont.ChevronUp }" />
+            <Setter Property="ColumnWidth" Value="0.1*" />
+            <Setter Property="HeaderTextColor" Value="{ DynamicResource DataGridHeaderTextColor }" />
+            <Setter Property="HeaderTextAlignment" Value="Start" />
+            <Setter Property="HeaderFontSize" Value="{ StaticResource SmallFontSize }" />
+            <Setter Property="HeaderPadding" Value="0,6" />
+            <Setter Property="CellTextColor" Value="{ DynamicResource DataGridCellTextColor }" />
+            <Setter Property="CellPadding" Value="0" />
+            <Setter Property="CellFontSize" Value="14" />
+            <Setter Property="CellTextAlignment" Value="Start" />
+            <Setter Property="CellVerticalAlignment" Value="Center" />
+        </Style>
+
+        <!-- ID -->
+        <Style x:Key="IdColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Id" />
+            <Setter Property="ColumnWidth" Value="42" />
+            <Setter Property="CellTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <grial:RoundedLabel
+                            HeightRequest="22"
+                            WidthRequest="22"
+                            Text="{ Binding Id }"
+                            CornerRadius="{ DynamicResource CornerRadius-sm }"
+                            Padding="0"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="End"
+                        />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- IMAGE -->
+        <Style x:Key="ImageColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="HeaderText" Value="" />
+            <Setter Property="ColumnWidth" Value="24" />
+            <Setter Property="CellTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Image
+                            HeightRequest="36"
+                            WidthRequest="24"
+                            Aspect="AspectFill"
+                            Source="{ Binding PosterImage }"
+                            HorizontalOptions="Center"
+                        />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- TITLE -->
+        <Style x:Key="TitleColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Name" />
+            <Setter Property="HeaderText" Value="Title" />
+            <Setter Property="ColumnWidth" Value="200" />
+            <Setter Property="CellTextColor" Value="{ DynamicResource TextColor }" />
+        </Style>
+
+        <!-- RATING -->
+        <Style x:Key="RatingColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="HeaderText" Value="Rating" />
+            <Setter Property="ColumnWidth" Value="100" />
+            <Setter Property="CellTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Grid
+                            ColumnDefinitions="Auto,Auto"
+                            VerticalOptions="Fill"
+                            ColumnSpacing="4">
+                            <!-- RATING -->
+                            <local:IconText
+                                Orientation="Horizontal"
+                                Icon="{ x:Static local:GrialIconsFont.StarFill }"
+                                IconFontSize="{ StaticResource SmallTitleFontSize }"
+                                IconColor="{ DynamicResource RatingColor }"
+                                TextColor="{ DynamicResource RatingColor }"
+                                Text="{ Binding RatingLabel }"
+                                TextFontAttributes="Bold"
+                                VerticalOptions="Center"
+                            />
+                            <!-- VIEWS -->
+                            <Label
+                                Grid.Column="1"
+                                Text="(2.9M)"
+                                TextColor="{ DynamicResource TextTertiaryColor }"
+                                VerticalOptions="Center"
+                            />
+                        </Grid>
+
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- YEAR -->
+        <Style x:Key="YearColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Year" />
+            <Setter Property="HeaderText" Value="Year" />
+            <Setter Property="ColumnWidth" Value="50" />
+            <Setter Property="CellTextColor" Value="{ DynamicResource TextColor }" />
+        </Style>
+
+        <!-- LENGTH -->
+        <Style x:Key="LengthColumn" TargetType="grial:DataGridColumn" BasedOn="{ StaticResource BaseColumn }">
+            <Setter Property="BindingPath" Value="Director" />
+            <Setter Property="HeaderText" Value="Director" />
+            <Setter Property="ColumnWidth" Value="80" />
+            <Setter Property="CellTextColor" Value="{ DynamicResource TextTertiaryColor }" />
+        </Style>
+    </ContentPage.Resources>
+
+    <!-- CONTENT -->
+    <Grid
+        RowDefinitions="Auto,*"
+        RowSpacing="30">
+        <!-- CATEGORIES TABS -->
+        <Grid
+            HeightRequest="60"
+            ColumnDefinitions="*,*"
+            Margin="60,30,60,0"
+            RadioButtonGroup.GroupName="tabs"
+            RadioButtonGroup.SelectedValue="{ Binding IsShowingMovies, Mode=TwoWay }"
+            VerticalOptions="Start"
+            Padding="1"
+            BackgroundColor="{ DynamicResource BackgroundColor }"
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }">
+            <RadioButton
+                ControlTemplate="{ StaticResource TabRadioButtonTemplate }"
+                Content="{ grial:Translate MediaRankingLabelMovies }"
+                Value="{ x:Static x:Boolean.TrueString }"
+                IsChecked="True"
+            />
+            <RadioButton
+                Grid.Column="1"
+                ControlTemplate="{ StaticResource TabRadioButtonTemplate }"
+                Content="{ grial:Translate MediaRankingLabelTvShows }"
+                Value="{ x:Static x:Boolean.FalseString }"
+            />
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            IsClippedToBounds="True">
+            <Grid
+                HeightRequest="{ StaticResource DataGridHeaderHeight }"
+                ZIndex="1"
+                VerticalOptions="Start"
+                InputTransparent="True">
+                <!-- OUTSTANDING FIRST ITEM -->
+                <local:MediaRankingHeaderTemplate BindingContext="{ Binding Selected }" />
+
+                <VisualElement.Behaviors>
+                    <grial:AnimatedTranslationY
+                        Progress="{ Binding ScrollProgressY, Source={x:Reference dataGrid} }"
+                        ProgressStart="0"
+                        ProgressEnd="{ StaticResource DataGridHeaderHeight }"
+                        Start="0"
+                        End="400"
+                        MultiplyValue="-1"
+                    />
+                </VisualElement.Behaviors>
+            </Grid>
+            <!-- DATA GRID -->
+            <grial:DataGrid
+                x:Name="dataGrid"
+                Padding="0,0,0,20"
+                grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+                RowHeight="50"
+                SelectedItem="{ Binding Selected, Mode=TwoWay }"
+                SelectionMode="Row"
+                EnableHorizontalScrolling="True"
+                ItemsSource="{ grial:If
+                    Condition={Binding IsShowingMovies},
+                    Then={Binding Movies},
+                    Else={Binding TvShows}
+                }"
+                HeaderHeight="{ StaticResource DataGridHeaderHeight }">
+
+                <grial:DataGrid.ColumnDefinitions>
+                    <grial:DataGridColumn Style="{ StaticResource IdColumn }" />
+                    <grial:DataGridColumn Style="{ StaticResource ImageColumn }" />
+                    <grial:DataGridColumn Style="{ StaticResource TitleColumn }" />
+                    <grial:DataGridColumn Style="{ StaticResource RatingColumn }" />
+                    <grial:DataGridColumn Style="{ StaticResource YearColumn }" />
+                    <grial:DataGridColumn Style="{ StaticResource LengthColumn }" />
+                </grial:DataGrid.ColumnDefinitions>
+            </grial:DataGrid>
+        </Grid>
+    </Grid>
+</ContentPage>

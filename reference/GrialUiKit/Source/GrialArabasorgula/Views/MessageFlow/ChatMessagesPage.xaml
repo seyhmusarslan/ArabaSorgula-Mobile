@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ChatMessagesPage"
+    grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <ContentPage.Resources>
+        <grial:SwitchConverter
+            x:Key="ColorConverter"
+            Case1="Online"
+            Result1="{ StaticResource SuccessColor }"
+            Case2="Busy"
+            Result2="{ StaticResource ErrorColor }"
+            Case3="Away"
+            Result3="{ StaticResource WarningColor }"
+            DefaultResult="{ StaticResource DisabledColor }"
+        />
+
+        <ResourceDictionary>
+            <grial:BoolMemberTemplateSelector
+                x:Key="Selector"
+                MemberName="IsIncoming">
+
+                <grial:BoolMemberTemplateSelector.TrueDataTemplate>
+                    <DataTemplate>
+                        <local:IncomingMessageItemTemplate />
+                    </DataTemplate>
+                </grial:BoolMemberTemplateSelector.TrueDataTemplate>
+
+                <grial:BoolMemberTemplateSelector.FalseDataTemplate>
+                    <DataTemplate>
+                        <local:OutgoingMessageItemTemplate />
+                    </DataTemplate>
+                </grial:BoolMemberTemplateSelector.FalseDataTemplate>
+
+            </grial:BoolMemberTemplateSelector>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <grial:GrialNavigationPage.TitleView>
+        <HorizontalStackLayout
+            Padding="20,0"
+            HorizontalOptions="Start"
+            Spacing="10">
+
+            <!-- AVATAR -->
+            <local:AvatarWithStatus
+                Size="30"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BindingContext="{ Binding Conversation.From }"
+                Source="{ Binding Avatar }"
+                StatusIndicatorColor="{ Binding Status, Converter={StaticResource ColorConverter} }"
+                IsStatusIndicatorIcon="True"
+                StatusIndicatorAutoHide="False"
+                StatusIndicatorSize="8"
+                BorderSize="2"
+                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                CornerRadius="{ DynamicResource CornerRadius-md }">
+                <local:AvatarWithStatus.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAvatarTapped" />
+                </local:AvatarWithStatus.GestureRecognizers>
+            </local:AvatarWithStatus>
+
+            <Label
+                BindingContext="{ Binding Conversation.From }"
+                Text="{ Binding Name }"
+                TextColor="{ DynamicResource TextColor }"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLabelTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </HorizontalStackLayout>
+
+    </grial:GrialNavigationPage.TitleView>
+
+    <Grid
+        Grid.Column="0"
+        RowSpacing="0"
+        RowDefinitions="*,Auto"
+        BackgroundColor="{ DynamicResource BackgroundColor }">
+        <!-- - MESSAGES LIST -->
+        <CollectionView
+            Grid.Row="0"
+            VerticalScrollBarVisibility="Never"
+            ItemsSource="{ Binding Conversation.Messages }"
+            ItemTemplate="{ StaticResource Selector }"
+            SelectionMode="None"
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }">
+            <CollectionView.Footer>
+                <BoxView HeightRequest="60" />
+            </CollectionView.Footer>
+        </CollectionView>
+
+        <!-- - BUTTONS CONTAINER -->
+        <grial:ExtendedGrid
+            Grid.Row="1"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            ColumnSpacing="6"
+            Padding="10,0"
+            ColumnDefinitions="32,*,32,32"
+            Margin="0,-40,0,0"
+            TrimTopShape="InvertedRoundedCorners"
+            TrimTopHeight="40">
+            <!-- - PLUS BUTTON -->
+            <Label
+                Grid.Column="0"
+                TextColor="{ DynamicResource PrimaryColor }"
+                Style="{ StaticResource FontIcon }"
+                Text="{ x:Static local:GrialIconsFont.Plus }"
+                FontSize="22"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+            />
+
+            <!-- - ENTRY -->
+            <Entry
+                Grid.Column="1"
+                Margin="0,10"
+                Placeholder="{ grial:Translate TypeYourMessage }"
+                grial:EntryProperties.BorderColor="{ DynamicResource EntryAndEditorsBorderColor }"
+                BackgroundColor="{ DynamicResource EntryAndEditorsBackgroundColor }"
+                grial:EntryProperties.BorderWidth="2"
+                grial:EntryProperties.BorderCornerRadius="{ DynamicResource EntryBorderCornerRadius }"
+            />
+
+
+            <!-- - CAMERA BUTTON -->
+            <Label
+                Grid.Column="2"
+                TextColor="{ DynamicResource PrimaryColor }"
+                Style="{ StaticResource FontIcon }"
+                Text="{ x:Static local:GrialIconsFont.Camera }"
+                FontSize="22"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+            />
+
+            <!-- - MIC BUTTON -->
+            <Label
+                Grid.Column="3"
+                TextColor="{ DynamicResource PrimaryColor }"
+                Style="{ StaticResource FontIcon }"
+                Text="{ x:Static local:GrialIconsFont.Mic }"
+                FontSize="22"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+            />
+
+        </grial:ExtendedGrid>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.PricingPlanBPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitlePricingPlanB }">
+
+    <ScrollView
+        grial:Effects.IgnoreIOSSafeAreaOnScrollView="All"
+        VerticalScrollBarVisibility="Never">
+        <!-- CONTAINER -->
+        <Grid
+            RowDefinitions="80,Auto,Auto,*"
+            Padding="{ DynamicResource AirSpacing }"
+            RowSpacing="30">
+            <!-- TOP DECORATION -->
+            <Border
+                HeightRequest="80"
+                WidthRequest="80"
+                Padding="10"
+                StrokeShape="RoundRectangle 20"
+                BackgroundColor="{ DynamicResource PrimaryColor }">
+                <Image Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/grial_logo.png" />
+            </Border>
+            <!-- BENEFITS LIST -->
+            <!-- OPTIONS -->
+            <grial:CardView
+                Grid.Row="1"
+                ShadowOpacity=".2"
+                Padding="16,24"
+                RowSpacing="24"
+                RowDefinitions="Auto,Auto,Auto">
+                <VerticalStackLayout
+                    Spacing="10"
+                    BindableLayout.ItemsSource="{ Binding SelectedPlan.Benefits }">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <local:IconText
+                                Icon="{ Binding Icon }"
+                                Text="{ Binding Description }"
+                                IconColor="{ DynamicResource OnSurfaceColor }"
+                                IconFontFamily="{ DynamicResource GrialIconsFill }"
+                                IconBackgroundColor="{ Binding IconBackground }"
+                                IconBackgroundSize="28"
+                                IconFontSize="{ StaticResource LargeFontSize }"
+                                Spacing="10"
+                            />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+                <!-- ADDITIONAL OPTIONS TITLE -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ grial:Translate LabelAndMore }"
+                    FontAttributes="Bold"
+                />
+                <!-- ADDITIONAL BENEFITS LIST -->
+                <VerticalStackLayout
+                    Margin="16,-12,0,0"
+                    Grid.Row="2"
+                    Spacing="10"
+                    BindableLayout.ItemsSource="{ Binding SelectedPlan.AdditionalBenefits }">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+
+                            <Label Text="{ Binding ., StringFormat='• {0:F0}' }" />
+
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </grial:CardView>
+
+            <!-- PLANS -->
+            <VerticalStackLayout
+                Grid.Row="2"
+                Spacing="{ OnPlatform
+                    iOS='10',
+                    Android='0'
+                }"
+                RadioButtonGroup.GroupName="plans"
+                RadioButtonGroup.SelectedValue="{ Binding SelectedPlan, Mode=TwoWay }"
+                BindableLayout.ItemsSource="{ Binding Plans }">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <local:PricingBRadioButtonTemplate />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <!-- CONTINUE BUTTON -->
+            <Button
+                Grid.Row="3"
+                Command="{ Binding SubscribeCommand }"
+                Style="{ StaticResource PrimaryActionButtonStyle }"
+                Text="{ grial:Translate StringSubscribe }"
+                VerticalOptions="End"
+            />
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

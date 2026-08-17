@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.MessageItemTemplate">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <grial:BooleanToObjectConverter
+                x:Key="isStaredIconConverter"
+                x:TypeArguments="x:String"
+                TrueValue="{ x:Static local:GrialIconsFont.StarFill }"
+                FalseValue="{ x:Static local:GrialIconsFont.Star }"
+            />
+
+            <grial:BooleanToObjectConverter
+                x:Key="isReadConverter"
+                x:TypeArguments="FontAttributes">
+                <grial:BooleanToObjectConverter.TrueValue>
+                    <FontAttributes>None</FontAttributes>
+                </grial:BooleanToObjectConverter.TrueValue>
+
+                <grial:BooleanToObjectConverter.FalseValue>
+                    <FontAttributes>Bold</FontAttributes>
+                </grial:BooleanToObjectConverter.FalseValue>
+            </grial:BooleanToObjectConverter>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid
+        ColumnSpacing="0"
+        ColumnDefinitions="Auto,*"
+        Padding="{ OnIdiom
+            Phone='10,5',
+            Tablet='100,5'
+        }"
+        VerticalOptions="Center">
+
+        <grial:RoundedImage
+            Source="{ Binding From.Avatar }"
+            Size="50"
+            Aspect="AspectFill"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            Style="{ StaticResource AvatarImageStyle }"
+            TranslationX="8"
+            TranslationY="14"
+        />
+
+        <Grid
+            Grid.Column="1"
+            HorizontalOptions="Fill"
+            RowDefinitions="Auto,Auto,*"
+            RowSpacing="0"
+            Padding="20,10">
+            <Grid
+                ColumnDefinitions="*,Auto,Auto,Auto"
+                ColumnSpacing="3">
+                <HorizontalStackLayout Spacing="4">
+                    <!-- BY -->
+                    <Label
+                        Text="{ Binding From.Name }"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                        FontAttributes="{ Binding IsRead, Converter={StaticResource isReadConverter} }"
+                    />
+                </HorizontalStackLayout>
+
+                <!-- FAVORITE -->
+                <Label
+                    Grid.Column="2"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    VerticalOptions="Center"
+                    FontSize="16"
+                    Style="{ StaticResource FontIcon }"
+                    Text="{ Binding IsStared, Converter={StaticResource isStaredIconConverter} }"
+                    TextColor="{ DynamicResource RatingColor }"
+                    IsVisible="{ Binding IsStared }"
+                />
+
+                <!-- WHEN -->
+                <Label
+                    Grid.Column="3"
+                    Text="{ Binding When }"
+                    FontSize="12"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    VerticalOptions="Center"
+                />
+
+            </Grid>
+
+            <Grid
+                Grid.Row="2"
+                ColumnDefinitions="*,Auto"
+                Padding="0,8,0,0">
+
+                <!-- MESSAGE BODY -->
+                <Label
+                    Text="{ Binding Body }"
+                    LineBreakMode="WordWrap"
+                    VerticalOptions="Fill"
+                />
+
+                <!-- UNREAD MESSAGES -->
+                <local:Badge
+                    Grid.Column="1"
+                    Size="20"
+                    FontSize="9"
+                    BackgroundColor="{ DynamicResource PrimaryColor }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    Text="{ Binding ThreadCount }"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                />
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentView>

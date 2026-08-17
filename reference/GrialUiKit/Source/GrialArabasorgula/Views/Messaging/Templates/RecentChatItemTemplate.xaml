@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.RecentChatItemTemplate">
+    <ContentView.Content>
+
+        <!-- MAIN GRID -->
+        <Grid
+            Padding="{ DynamicResource AirSpacingNoBorder }"
+            ColumnSpacing="10"
+            VerticalOptions="Center"
+            ColumnDefinitions="Auto,*,60"
+            RowSpacing="0"
+            RowDefinitions="Auto,30">
+            <!-- CONTACT IMAGE -->
+            <grial:RoundedImage
+                Grid.RowSpan="2"
+                Source="{ Binding From.Avatar }"
+                Size="{ grial:OnOrientationSizeRequest
+                    Default=45,
+                    PortraitTablet=55,
+                    LandscapeTablet=55
+                }"
+                VerticalOptions="Center"
+                CornerRadius="{ DynamicResource CornerRadius-big }"
+                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                BorderSize="2"
+            />
+
+            <!-- FROM -->
+            <Label
+                Grid.Column="1"
+                FontAttributes="Bold"
+                Text="{ Binding From.Name }"
+                VerticalOptions="End"
+                HorizontalOptions="Start"
+                FontSize="{ StaticResource BaseFontSize }"
+            />
+
+            <!-- NOTIFICATION -->
+            <Grid
+                ColumnDefinitions="Auto,*"
+                Grid.Column="1"
+                Grid.Row="1"
+                Grid.ColumnSpan="2">
+
+                <Label
+                    HorizontalTextAlignment="End"
+                    VerticalOptions="Center"
+                    IsVisible="{ Binding IsRead }"
+                    TextColor="{ DynamicResource SuccessColor }"
+                    Text="{ x:Static local:GrialIconsFont.Check }"
+                    Style="{ StaticResource FontIcon }"
+                    Margin="0,0,6,0"
+                />
+
+                <Label
+                    Grid.Column="1"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    FontSize="{ StaticResource SmallFontSize }"
+                    Text="{ Binding Body }"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center"
+                    LineBreakMode="TailTruncation"
+                />
+            </Grid>
+
+            <!-- TIME DELIVER -->
+
+            <Label
+                Grid.Column="2"
+                Text="{ Binding When }"
+                HorizontalTextAlignment="End"
+                FontSize="{ StaticResource SmallFontSize }"
+                TextColor="{ DynamicResource TextTertiaryColor }"
+            />
+
+
+
+            <!-- SEPARATOR -->
+            <BoxView
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                Margin="0,0,-30,-10"
+                VerticalOptions="End"
+                Style="{ StaticResource Horizontal1ptLineStyle }"
+            />
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

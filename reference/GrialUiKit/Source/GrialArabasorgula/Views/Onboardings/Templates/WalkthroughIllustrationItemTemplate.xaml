@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:WalkthroughBaseItemTemplate
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.WalkthroughIllustrationItemTemplate"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    x:Name="Root">
+
+    <Grid
+        RowDefinitions="*"
+        Margin="{ StaticResource CarouselViewItemFix }">
+
+        <VerticalStackLayout
+            VerticalOptions="End"
+            Spacing="50">
+
+            <!-- BACKGROUND IMAGE -->
+            <Image
+                Margin="{ DynamicResource AirSpacingNoBorder }"
+                Aspect="AspectFit"
+                VerticalOptions="Center"
+                Source="{ Binding Source={x:Reference Root}, Path=StepBackgroundImage }"
+                HeightRequest="{ grial:OnOrientationSizeRequest
+                    Portrait=400,
+                    Landscape=120
+                }"
+            />
+
+            <VerticalStackLayout>
+                <!-- HEADER -->
+                <Label
+                    Margin="0,30,0,0"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    Text="{ Binding Source={x:Reference Root}, Path=Header }"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="{ DynamicResource TextColor }"
+                />
+
+                <!-- TEXT -->
+                <Label
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    Opacity="0.7"
+                    Text="{ Binding Source={x:Reference Root}, Path=Text }"
+                    FontSize="16"
+                    TextColor="{ DynamicResource TextColor }"
+                />
+
+            </VerticalStackLayout>
+
+
+            <!-- BUTTON -->
+            <Button
+                Style="{ StaticResource OutlineButtonStyle }"
+                x:Name="ActionButton"
+                VerticalOptions="End"
+                Command="{ Binding ActionButtonCommand, Source={x:Reference Root} }"
+                Text="{ Binding Source={x:Reference Root}, Path=ButtonText }"
+                Margin="{ DynamicResource AirSpacingNoTop }"
+                WidthRequest="{ grial:OnOrientationSizeRequest
+                    LandscapePhone=200,
+                    LandscapeTablet=400
+                }"
+                HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                    PortraitPhone=Fill,
+                    LandscapePhone=Center,
+                    PortraitTablet=Fill,
+                    LandscapeTablet=Center
+                }"
+            />
+        </VerticalStackLayout>
+
+        <!-- CLOSE ICON -->
+        <Button
+            Margin="20,40,20,0"
+            Text="{ grial:Translate StringSkip, Converter={StaticResource ToUpperConverter} }"
+            FontSize="10"
+            Command="{ Binding CloseCommand, Source={x:Reference Root} }"
+            Style="{ StaticResource OutlineButtonStyle }"
+            HeightRequest="23"
+            WidthRequest="44"
+            CornerRadius="{ DynamicResource CornerRadiusInt-x-sm }"
+            VerticalOptions="Start"
+            HorizontalOptions="End"
+        />
+
+    </Grid>
+</local:WalkthroughBaseItemTemplate>

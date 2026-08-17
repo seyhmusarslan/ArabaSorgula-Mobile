@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    x:Class="arabasorgula.SimpleDialog"
+    Background="{ DynamicResource OverlayColor }"
+    CloseWhenBackgroundIsClicked="{ StaticResource DialogsCloseWhenBackgroundIsClicked }">
+    <uxd:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <Grid
+        Margin="{ DynamicResource AirSpacing }"
+        Style="{ StaticResource BlurredShadow }"
+        VerticalOptions="{ DynamicResource DialogsVerticalPositioning }">
+        <Grid
+            Padding="{ DynamicResource DialogsPadding }"
+            grial:Effects.CornerRadius="{ DynamicResource DialogsCornerRadius }"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            RowSpacing="8"
+            RowDefinitions="Auto,*,Auto">
+
+            <!-- TITLE AND ICON -->
+            <Grid
+                Grid.Row="0"
+                BackgroundColor="Transparent"
+                ColumnDefinitions="Auto,Auto,*">
+
+                <!-- ICON -->
+                <Label
+                    Grid.Column="0"
+                    Margin="0,0,10,0"
+                    TextColor="{ DynamicResource TextColor }"
+                    Text="{ x:Static local:GrialIconsFont.MessageSquare }"
+                    Style="{ StaticResource FontIcon }"
+                    VerticalTextAlignment="Center"
+                    FontSize="{ StaticResource DialogsIconsSize }"
+                    HorizontalTextAlignment="Start"
+                />
+
+                <!-- TITLE -->
+                <Label
+                    Grid.Column="1"
+                    Text="{ grial:Translate StringSimpleDialogTitle }"
+                    TextColor="{ DynamicResource TextColor }"
+                    FontSize="{ StaticResource DialogsTitleFontSize }"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                />
+
+                <!-- ICON CLOSE -->
+                <Label
+                    Grid.Column="2"
+                    Margin="0"
+                    FontSize="{ StaticResource DialogsIconsSize }"
+                    Text="{ x:Static local:GrialIconsFont.Close }"
+                    Style="{ StaticResource FontIconFill }"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="End">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClose" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Grid>
+
+            <!-- BODY -->
+            <Label
+                Grid.Row="1"
+                FontSize="{ StaticResource DialogsBodyFontSize }"
+                HorizontalTextAlignment="Start"
+                Text="{ grial:Translate StringSimpleDialogText }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+
+            <!-- FOOTER -->
+            <Button
+                Grid.Row="2"
+                VerticalOptions="End"
+                WidthRequest="{ grial:OnOrientationDouble
+                    Default=-1,
+                    Landscape=300
+                }"
+                HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                    Portrait='Fill',
+                    Landscape=Center
+                }"
+                Style="{ StaticResource DialogPrimaryActionButtonStyle }"
+                Text="{ grial:Translate StringClose }"
+                Clicked="OnClose"
+            />
+
+        </Grid>
+    </Grid>
+</uxd:PopupPage>

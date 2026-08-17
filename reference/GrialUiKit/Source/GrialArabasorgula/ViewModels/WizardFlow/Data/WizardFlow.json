@@ -1,0 +1,1019 @@
+ {
+    "[grial-metadata]": "id: Grial#WizardFlow.json version: 1.0.3",
+    "WizardCountryListPage.xaml": {
+        "AllCountries": [
+            {
+                "Name": "Afghanistan",
+                "Flag": "1F1E6-1F1EB"
+            },
+            {
+                "Name": "Åland Islands",
+                "Flag": "1F1E6-1F1FD"
+            },
+            {
+                "Name": "Albania",
+                "Flag": "1F1E6-1F1F1"
+            },
+            {
+                "Name": "Algeria",
+                "Flag": "1F1E9-1F1FF"
+            },
+            {
+                "Name": "American Samoa",
+                "Flag": "1F1E6-1F1F8"
+            },
+            {
+                "Name": "Andorra",
+                "Flag": "1F1E6-1F1E9"
+            },
+            {
+                "Name": "Angola",
+                "Flag": "1F1E6-1F1F4"
+            },
+            {
+                "Name": "Anguilla",
+                "Flag": "1F1E6-1F1EE"
+            },
+            {
+                "Name": "Antarctica",
+                "Flag": "1F1E6-1F1F6"
+            },
+            {
+                "Name": "Antigua and Barbuda",
+                "Flag": "1F1E6-1F1EC"
+            },
+            {
+                "Name": "Argentina",
+                "Flag": "1F1E6-1F1F7"
+            },
+            {
+                "Name": "Armenia",
+                "Flag": "1F1E6-1F1F2"
+            },
+            {
+                "Name": "Aruba",
+                "Flag": "1F1E6-1F1FC"
+            },
+            {
+                "Name": "Australia",
+                "Flag": "1F1E6-1F1FA"
+            },
+            {
+                "Name": "Austria",
+                "Flag": "1F1E6-1F1F9"
+            },
+            {
+                "Name": "Azerbaijan",
+                "Flag": "1F1E6-1F1FF"
+            },
+            {
+                "Name": "Bahamas",
+                "Flag": "1F1E7-1F1F8"
+            },
+            {
+                "Name": "Bahrain",
+                "Flag": "1F1E7-1F1ED"
+            },
+            {
+                "Name": "Bangladesh",
+                "Flag": "1F1E7-1F1E9"
+            },
+            {
+                "Name": "Barbados",
+                "Flag": "1F1E7-1F1E7"
+            },
+            {
+                "Name": "Belarus",
+                "Flag": "1F1E7-1F1FE"
+            },
+            {
+                "Name": "Belgium",
+                "Flag": "1F1E7-1F1EA"
+            },
+            {
+                "Name": "Belize",
+                "Flag": "1F1E7-1F1FF"
+            },
+            {
+                "Name": "Benin",
+                "Flag": "1F1E7-1F1EF"
+            },
+            {
+                "Name": "Bermuda",
+                "Flag": "1F1E7-1F1F2"
+            },
+            {
+                "Name": "Bhutan",
+                "Flag": "1F1E7-1F1F9"
+            },
+            {
+                "Name": "Bolivia",
+                "Flag": "1F1E7-1F1F4"
+            },
+            {
+                "Name": "Bosnia and Herzegovina",
+                "Flag": "1F1E7-1F1E6"
+            },
+            {
+                "Name": "Botswana",
+                "Flag": "1F1E7-1F1FC"
+            },
+            {
+                "Name": "Bouvet Island",
+                "Flag": "1F1E7-1F1FB"
+            },
+            {
+                "Name": "Brazil",
+                "Flag": "1F1E7-1F1F7"
+            },
+            {
+                "Name": "British Indian Ocean Territory",
+                "Flag": "1F1EE-1F1F4"
+            },
+            {
+                "Name": "Brunei",
+                "Flag": "1F1E7-1F1F3"
+            },
+            {
+                "Name": "Bulgaria",
+                "Flag": "1F1E7-1F1EC"
+            },
+            {
+                "Name": "Burkina Faso",
+                "Flag": "1F1E7-1F1EB"
+            },
+            {
+                "Name": "Burundi",
+                "Flag": "1F1E7-1F1EE"
+            },
+            {
+                "Name": "Cambodia",
+                "Flag": "1F1F0-1F1ED"
+            },
+            {
+                "Name": "Cameroon",
+                "Flag": "1F1E8-1F1F2"
+            },
+            {
+                "Name": "Canada",
+                "Flag": "1F1E8-1F1E6"
+            },
+            {
+                "Name": "Cape Verde",
+                "Flag": "1F1E8-1F1FB"
+            },
+            {
+                "Name": "Caribbean Netherlands",
+                "Flag": "1F1E7-1F1F6"
+            },
+            {
+                "Name": "Cayman Islands",
+                "Flag": "1F1F0-1F1FE"
+            },
+            {
+                "Name": "Central African Republic",
+                "Flag": "1F1E8-1F1EB"
+            },
+            {
+                "Name": "Chad",
+                "Flag": "1F1F9-1F1E9"
+            },
+            {
+                "Name": "Chile",
+                "Flag": "1F1E8-1F1F1"
+            },
+            {
+                "Name": "China",
+                "Flag": "1F1E8-1F1F3"
+            },
+            {
+                "Name": "Christmas Island",
+                "Flag": "1F1E8-1F1FD"
+            },
+            {
+                "Name": "Cocos (Keeling) Islands",
+                "Flag": "1F1E8-1F1E8"
+            },
+            {
+                "Name": "Colombia",
+                "Flag": "1F1E8-1F1F4"
+            },
+            {
+                "Name": "Comoros",
+                "Flag": "1F1F0-1F1F2"
+            },
+            {
+                "Name": "Republic of the Congo",
+                "Flag": "1F1E8-1F1EC"
+            },
+            {
+                "Name": "DR Congo",
+                "Flag": "1F1E8-1F1E9"
+            },
+            {
+                "Name": "Cook Islands",
+                "Flag": "1F1E8-1F1F0"
+            },
+            {
+                "Name": "Costa Rica",
+                "Flag": "1F1E8-1F1F7"
+            },
+            {
+                "Name": "Côte d'Ivoire (Ivory Coast",
+                "Flag": "1F1E8-1F1EE"
+            },
+            {
+                "Name": "Croatia",
+                "Flag": "1F1ED-1F1F7"
+            },
+            {
+                "Name": "Cuba",
+                "Flag": "1F1E8-1F1FA"
+            },
+            {
+                "Name": "Curaçao",
+                "Flag": "1F1E8-1F1FC"
+            },
+            {
+                "Name": "Cyprus",
+                "Flag": "1F1E8-1F1FE"
+            },
+            {
+                "Name": "Czechia",
+                "Flag": "1F1E8-1F1FF"
+            },
+            {
+                "Name": "Denmark",
+                "Flag": "1F1E9-1F1F0"
+            },
+            {
+                "Name": "Djibouti",
+                "Flag": "1F1E9-1F1EF"
+            },
+            {
+                "Name": "Dominica",
+                "Flag": "1F1E9-1F1F2"
+            },
+            {
+                "Name": "Dominican Republic",
+                "Flag": "1F1E9-1F1F4"
+            },
+            {
+                "Name": "Ecuador",
+                "Flag": "1F1EA-1F1E8"
+            },
+            {
+                "Name": "Egypt",
+                "Flag": "1F1EA-1F1EC"
+            },
+            {
+                "Name": "El Salvador",
+                "Flag": "1F1F8-1F1FB"
+            },
+            {
+                "Name": "England",
+                "Flag": "1F3F4-E0067"
+            },
+            {
+                "Name": "Equatorial Guinea",
+                "Flag": "1F1EC-1F1F6"
+            },
+            {
+                "Name": "Eritrea",
+                "Flag": "1F1EA-1F1F7"
+            },
+            {
+                "Name": "Estonia",
+                "Flag": "1F1EA-1F1EA"
+            },
+            {
+                "Name": "Eswatini (Swaziland",
+                "Flag": "1F1F8-1F1FF"
+            },
+            {
+                "Name": "Ethiopia",
+                "Flag": "1F1EA-1F1F9"
+            },
+            {
+                "Name": "Falkland Islands",
+                "Flag": "1F1EB-1F1F0"
+            },
+            {
+                "Name": "Faroe Islands",
+                "Flag": "1F1EB-1F1F4"
+            },
+            {
+                "Name": "Fiji",
+                "Flag": "1F1EB-1F1EF"
+            },
+            {
+                "Name": "Finland",
+                "Flag": "1F1EB-1F1EE"
+            },
+            {
+                "Name": "France",
+                "Flag": "1F1EB-1F1F7"
+            },
+            {
+                "Name": "French Guiana",
+                "Flag": "1F1EC-1F1EB"
+            },
+            {
+                "Name": "French Polynesia",
+                "Flag": "1F1F5-1F1EB"
+            },
+            {
+                "Name": "French Southern and Antarctic Lands",
+                "Flag": "1F1F9-1F1EB"
+            },
+            {
+                "Name": "Gabon",
+                "Flag": "1F1EC-1F1E6"
+            },
+            {
+                "Name": "Gambia",
+                "Flag": "1F1EC-1F1F2"
+            },
+            {
+                "Name": "Georgia",
+                "Flag": "1F1EC-1F1EA"
+            },
+            {
+                "Name": "Germany",
+                "Flag": "1F1E9-1F1EA"
+            },
+            {
+                "Name": "Ghana",
+                "Flag": "1F1EC-1F1ED"
+            },
+            {
+                "Name": "Gibraltar",
+                "Flag": "1F1EC-1F1EE"
+            },
+            {
+                "Name": "Greece",
+                "Flag": "1F1EC-1F1F7"
+            },
+            {
+                "Name": "Greenland",
+                "Flag": "1F1EC-1F1F1"
+            },
+            {
+                "Name": "Grenada",
+                "Flag": "1F1EC-1F1E9"
+            },
+            {
+                "Name": "Guadeloupe",
+                "Flag": "1F1EC-1F1F5"
+            },
+            {
+                "Name": "Guam",
+                "Flag": "1F1EC-1F1FA"
+            },
+            {
+                "Name": "Guatemala",
+                "Flag": "1F1EC-1F1F9"
+            },
+            {
+                "Name": "Guernsey",
+                "Flag": "1F1EC-1F1EC"
+            },
+            {
+                "Name": "Guinea",
+                "Flag": "1F1EC-1F1F3"
+            },
+            {
+                "Name": "Guinea-Bissau",
+                "Flag": "1F1EC-1F1FC"
+            },
+            {
+                "Name": "Guyana",
+                "Flag": "1F1EC-1F1FE"
+            },
+            {
+                "Name": "Haiti",
+                "Flag": "1F1ED-1F1F9"
+            },
+            {
+                "Name": "Heard Island and McDonald Islands",
+                "Flag": "1F1ED-1F1F2"
+            },
+            {
+                "Name": "Honduras",
+                "Flag": "1F1ED-1F1F3"
+            },
+            {
+                "Name": "Hong Kong",
+                "Flag": "1F1ED-1F1F0"
+            },
+            {
+                "Name": "Hungary",
+                "Flag": "1F1ED-1F1FA"
+            },
+            {
+                "Name": "Iceland",
+                "Flag": "1F1EE-1F1F8"
+            },
+            {
+                "Name": "India",
+                "Flag": "1F1EE-1F1F3"
+            },
+            {
+                "Name": "Indonesia",
+                "Flag": "1F1EE-1F1E9"
+            },
+            {
+                "Name": "Iran",
+                "Flag": "1F1EE-1F1F7"
+            },
+            {
+                "Name": "Iraq",
+                "Flag": "1F1EE-1F1F6"
+            },
+            {
+                "Name": "Ireland",
+                "Flag": "1F1EE-1F1EA"
+            },
+            {
+                "Name": "Isle of Man",
+                "Flag": "1F1EE-1F1F2"
+            },
+            {
+                "Name": "Israel",
+                "Flag": "1F1EE-1F1F1"
+            },
+            {
+                "Name": "Italy",
+                "Flag": "1F1EE-1F1F9"
+            },
+            {
+                "Name": "Jamaica",
+                "Flag": "1F1EF-1F1F2"
+            },
+            {
+                "Name": "Japan",
+                "Flag": "1F1EF-1F1F5"
+            },
+            {
+                "Name": "Jersey",
+                "Flag": "1F1EF-1F1EA"
+            },
+            {
+                "Name": "Jordan",
+                "Flag": "1F1EF-1F1F4"
+            },
+            {
+                "Name": "Kazakhstan",
+                "Flag": "1F1F0-1F1FF"
+            },
+            {
+                "Name": "Kenya",
+                "Flag": "1F1F0-1F1EA"
+            },
+            {
+                "Name": "Kiribati",
+                "Flag": "1F1F0-1F1EE"
+            },
+            {
+                "Name": "North Korea",
+                "Flag": "1F1F0-1F1F5"
+            },
+            {
+                "Name": "South Korea",
+                "Flag": "1F1F0-1F1F7"
+            },
+            {
+                "Name": "Kosovo",
+                "Flag": "1F1FD-1F1F0"
+            },
+            {
+                "Name": "Kuwait",
+                "Flag": "1F1F0-1F1FC"
+            },
+            {
+                "Name": "Kyrgyzstan",
+                "Flag": "1F1F0-1F1EC"
+            },
+            {
+                "Name": "Laos",
+                "Flag": "1F1F1-1F1E6"
+            },
+            {
+                "Name": "Latvia",
+                "Flag": "1F1F1-1F1FB"
+            },
+            {
+                "Name": "Lebanon",
+                "Flag": "1F1F1-1F1E7"
+            },
+            {
+                "Name": "Lesotho",
+                "Flag": "1F1F1-1F1F8"
+            },
+            {
+                "Name": "Liberia",
+                "Flag": "1F1F1-1F1F7"
+            },
+            {
+                "Name": "Libya",
+                "Flag": "1F1F1-1F1FE"
+            },
+            {
+                "Name": "Liechtenstein",
+                "Flag": "1F1F1-1F1EE"
+            },
+            {
+                "Name": "Lithuania",
+                "Flag": "1F1F1-1F1F9"
+            },
+            {
+                "Name": "Luxembourg",
+                "Flag": "1F1F1-1F1FA"
+            },
+            {
+                "Name": "Macau",
+                "Flag": "1F1F2-1F1F4"
+            },
+            {
+                "Name": "Madagascar",
+                "Flag": "1F1F2-1F1EC"
+            },
+            {
+                "Name": "Malawi",
+                "Flag": "1F1F2-1F1FC"
+            },
+            {
+                "Name": "Malaysia",
+                "Flag": "1F1F2-1F1FE"
+            },
+            {
+                "Name": "Maldives",
+                "Flag": "1F1F2-1F1FB"
+            },
+            {
+                "Name": "Mali",
+                "Flag": "1F1F2-1F1F1"
+            },
+            {
+                "Name": "Malta",
+                "Flag": "1F1F2-1F1F9"
+            },
+            {
+                "Name": "Marshall Islands",
+                "Flag": "1F1F2-1F1ED"
+            },
+            {
+                "Name": "Martinique",
+                "Flag": "1F1F2-1F1F6"
+            },
+            {
+                "Name": "Mauritania",
+                "Flag": "1F1F2-1F1F7"
+            },
+            {
+                "Name": "Mauritius",
+                "Flag": "1F1F2-1F1FA"
+            },
+            {
+                "Name": "Mayotte",
+                "Flag": "1F1FE-1F1F9"
+            },
+            {
+                "Name": "Mexico",
+                "Flag": "1F1F2-1F1FD"
+            },
+            {
+                "Name": "Micronesia",
+                "Flag": "1F1EB-1F1F2"
+            },
+            {
+                "Name": "Moldova",
+                "Flag": "1F1F2-1F1E9"
+            },
+            {
+                "Name": "Monaco",
+                "Flag": "1F1F2-1F1E8"
+            },
+            {
+                "Name": "Mongolia",
+                "Flag": "1F1F2-1F1F3"
+            },
+            {
+                "Name": "Montenegro",
+                "Flag": "1F1F2-1F1EA"
+            },
+            {
+                "Name": "Montserrat",
+                "Flag": "1F1F2-1F1F8"
+            },
+            {
+                "Name": "Morocco",
+                "Flag": "1F1F2-1F1E6"
+            },
+            {
+                "Name": "Mozambique",
+                "Flag": "1F1F2-1F1FF"
+            },
+            {
+                "Name": "Myanmar",
+                "Flag": "1F1F2-1F1F2"
+            },
+            {
+                "Name": "Namibia",
+                "Flag": "1F1F3-1F1E6"
+            },
+            {
+                "Name": "Nauru",
+                "Flag": "1F1F3-1F1F7"
+            },
+            {
+                "Name": "Nepal",
+                "Flag": "1F1F3-1F1F5"
+            },
+            {
+                "Name": "Netherlands",
+                "Flag": "1F1F3-1F1F1"
+            },
+            {
+                "Name": "New Caledonia",
+                "Flag": "1F1F3-1F1E8"
+            },
+            {
+                "Name": "New Zealand",
+                "Flag": "1F1F3-1F1FF"
+            },
+            {
+                "Name": "Nicaragua",
+                "Flag": "1F1F3-1F1EE"
+            },
+            {
+                "Name": "Niger",
+                "Flag": "1F1F3-1F1EA"
+            },
+            {
+                "Name": "Nigeria",
+                "Flag": "1F1F3-1F1EC"
+            },
+            {
+                "Name": "Niue",
+                "Flag": "1F1F3-1F1FA"
+            },
+            {
+                "Name": "Norfolk Island",
+                "Flag": "1F1F3-1F1EB"
+            },
+            {
+                "Name": "North Macedonia",
+                "Flag": "1F1F2-1F1F0"
+            },
+            {
+                "Name": "Northern Mariana Islands",
+                "Flag": "1F1F2-1F1F5"
+            },
+            {
+                "Name": "Norway",
+                "Flag": "1F1F3-1F1F4"
+            },
+            {
+                "Name": "Oman",
+                "Flag": "1F1F4-1F1F2"
+            },
+            {
+                "Name": "Pakistan",
+                "Flag": "1F1F5-1F1F0"
+            },
+            {
+                "Name": "Palau",
+                "Flag": "1F1F5-1F1FC"
+            },
+            {
+                "Name": "Palestine",
+                "Flag": "1F1F5-1F1F8"
+            },
+            {
+                "Name": "Panama",
+                "Flag": "1F1F5-1F1E6"
+            },
+            {
+                "Name": "Papua New Guinea",
+                "Flag": "1F1F5-1F1EC"
+            },
+            {
+                "Name": "Paraguay",
+                "Flag": "1F1F5-1F1FE"
+            },
+            {
+                "Name": "Peru",
+                "Flag": "1F1F5-1F1EA"
+            },
+            {
+                "Name": "Philippines",
+                "Flag": "1F1F5-1F1ED"
+            },
+            {
+                "Name": "Pitcairn Islands",
+                "Flag": "1F1F5-1F1F3"
+            },
+            {
+                "Name": "Poland",
+                "Flag": "1F1F5-1F1F1"
+            },
+            {
+                "Name": "Portugal",
+                "Flag": "1F1F5-1F1F9"
+            },
+            {
+                "Name": "Puerto Rico",
+                "Flag": "1F1F5-1F1F7"
+            },
+            {
+                "Name": "Qatar",
+                "Flag": "1F1F6-1F1E6"
+            },
+            {
+                "Name": "Réunion",
+                "Flag": "1F1F7-1F1EA"
+            },
+            {
+                "Name": "Romania",
+                "Flag": "1F1F7-1F1F4"
+            },
+            {
+                "Name": "Russia",
+                "Flag": "1F1F7-1F1FA"
+            },
+            {
+                "Name": "Rwanda",
+                "Flag": "1F1F7-1F1FC"
+            },
+            {
+                "Name": "Saint Barthélemy",
+                "Flag": "1F1E7-1F1F1"
+            },
+            {
+                "Name": "Saint Helena, Ascension and Tristan da Cunha",
+                "Flag": "1F1F8-1F1ED"
+            },
+            {
+                "Name": "Saint Kitts and Nevis",
+                "Flag": "1F1F0-1F1F3"
+            },
+            {
+                "Name": "Saint Lucia",
+                "Flag": "1F1F1-1F1E8"
+            },
+            {
+                "Name": "Saint Martin",
+                "Flag": "1F1F2-1F1EB"
+            },
+            {
+                "Name": "Saint Pierre and Miquelon",
+                "Flag": "1F1F5-1F1F2"
+            },
+            {
+                "Name": "Saint Vincent and the Grenadines",
+                "Flag": "1F1FB-1F1E8"
+            },
+            {
+                "Name": "Samoa",
+                "Flag": "1F1FC-1F1F8"
+            },
+            {
+                "Name": "San Marino",
+                "Flag": "1F1F8-1F1F2"
+            },
+            {
+                "Name": "São Tomé and Príncipe",
+                "Flag": "1F1F8-1F1F9"
+            },
+            {
+                "Name": "Saudi Arabia",
+                "Flag": "1F1F8-1F1E6"
+            },
+            {
+                "Name": "Scotland",
+                "Flag": "1F3F4-E0067"
+            },
+            {
+                "Name": "Senegal",
+                "Flag": "1F1F8-1F1F3"
+            },
+            {
+                "Name": "Serbia",
+                "Flag": "1F1F7-1F1F8"
+            },
+            {
+                "Name": "Seychelles",
+                "Flag": "1F1F8-1F1E8"
+            },
+            {
+                "Name": "Sierra Leone",
+                "Flag": "1F1F8-1F1F1"
+            },
+            {
+                "Name": "Singapore",
+                "Flag": "1F1F8-1F1EC"
+            },
+            {
+                "Name": "Sint Maarten",
+                "Flag": "1F1F8-1F1FD"
+            },
+            {
+                "Name": "Slovakia",
+                "Flag": "1F1F8-1F1F0"
+            },
+            {
+                "Name": "Slovenia",
+                "Flag": "1F1F8-1F1EE"
+            },
+            {
+                "Name": "Solomon Islands",
+                "Flag": "1F1F8-1F1E7"
+            },
+            {
+                "Name": "Somalia",
+                "Flag": "1F1F8-1F1F4"
+            },
+            {
+                "Name": "South Africa",
+                "Flag": "1F1FF-1F1E6"
+            },
+            {
+                "Name": "South Georgia",
+                "Flag": "1F1EC-1F1F8"
+            },
+            {
+                "Name": "South Sudan",
+                "Flag": "1F1F8-1F1F8"
+            },
+            {
+                "Name": "Spain",
+                "Flag": "1F1EA-1F1F8"
+            },
+            {
+                "Name": "Sri Lanka",
+                "Flag": "1F1F1-1F1F0"
+            },
+            {
+                "Name": "Sudan",
+                "Flag": "1F1F8-1F1E9"
+            },
+            {
+                "Name": "Suriname",
+                "Flag": "1F1F8-1F1F7"
+            },
+            {
+                "Name": "Svalbard and Jan Mayen",
+                "Flag": "1F1F8-1F1EF"
+            },
+            {
+                "Name": "Sweden",
+                "Flag": "1F1F8-1F1EA"
+            },
+            {
+                "Name": "Switzerland",
+                "Flag": "1F1E8-1F1ED"
+            },
+            {
+                "Name": "Syria",
+                "Flag": "1F1F8-1F1FE"
+            },
+            {
+                "Name": "Taiwan",
+                "Flag": "1F1F9-1F1FC"
+            },
+            {
+                "Name": "Tajikistan",
+                "Flag": "1F1F9-1F1EF"
+            },
+            {
+                "Name": "Tanzania",
+                "Flag": "1F1F9-1F1FF"
+            },
+            {
+                "Name": "Thailand",
+                "Flag": "1F1F9-1F1ED"
+            },
+            {
+                "Name": "Timor-Leste",
+                "Flag": "1F1F9-1F1F1"
+            },
+            {
+                "Name": "Togo",
+                "Flag": "1F1F9-1F1EC"
+            },
+            {
+                "Name": "Tokelau",
+                "Flag": "1F1F9-1F1F0"
+            },
+            {
+                "Name": "Tonga",
+                "Flag": "1F1F9-1F1F4"
+            },
+            {
+                "Name": "Trinidad and Tobago",
+                "Flag": "1F1F9-1F1F9"
+            },
+            {
+                "Name": "Tunisia",
+                "Flag": "1F1F9-1F1F3"
+            },
+            {
+                "Name": "Turkey",
+                "Flag": "1F1F9-1F1F7"
+            },
+            {
+                "Name": "Turkmenistan",
+                "Flag": "1F1F9-1F1F2"
+            },
+            {
+                "Name": "Turks and Caicos Islands",
+                "Flag": "1F1F9-1F1E8"
+            },
+            {
+                "Name": "Tuvalu",
+                "Flag": "1F1F9-1F1FB"
+            },
+            {
+                "Name": "Uganda",
+                "Flag": "1F1FA-1F1EC"
+            },
+            {
+                "Name": "Ukraine",
+                "Flag": "1F1FA-1F1E6"
+            },
+            {
+                "Name": "United Arab Emirates",
+                "Flag": "1F1E6-1F1EA"
+            },
+            {
+                "Name": "United Kingdom",
+                "Flag": "1F1EC-1F1E7"
+            },
+            {
+                "Name": "United States",
+                "Flag": "1F1FA-1F1F8"
+            },
+            {
+                "Name": "United States Minor Outlying Islands",
+                "Flag": "1F1FA-1F1F2"
+            },
+            {
+                "Name": "Uruguay",
+                "Flag": "1F1FA-1F1FE"
+            },
+            {
+                "Name": "Uzbekistan",
+                "Flag": "1F1FA-1F1FF"
+            },
+            {
+                "Name": "Vanuatu",
+                "Flag": "1F1FB-1F1FA"
+            },
+            {
+                "Name": "Vatican City (Holy See}",
+                "Flag": "1F1FB-1F1E6"
+            },
+            {
+                "Name": "Venezuela",
+                "Flag": "1F1FB-1F1EA"
+            },
+            {
+                "Name": "Vietnam",
+                "Flag": "1F1FB-1F1F3"
+            },
+            {
+                "Name": "British Virgin Islands",
+                "Flag": "1F1FB-1F1EC"
+            },
+            {
+                "Name": "United States Virgin Islands",
+                "Flag": "1F1FB-1F1EE"
+            },
+            {
+                "Name": "Wales",
+                "Flag": "1F3F4-E0067"
+            },
+            {
+                "Name": "Wallis and Futuna",
+                "Flag": "1F1FC-1F1EB"
+            },
+            {
+                "Name": "Western Sahara",
+                "Flag": "1F1EA-1F1ED"
+            },
+            {
+                "Name": "Yemen",
+                "Flag": "1F1FE-1F1EA"
+            },
+            {
+                "Name": "Zambia",
+                "Flag": "1F1FF-1F1F2"
+            },
+            {
+                "Name": "Zimbabwe",
+                "Flag": "1F1FF-1F1FC"
+            }
+        ]
+    }
+}

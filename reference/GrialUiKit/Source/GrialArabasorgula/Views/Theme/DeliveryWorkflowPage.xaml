@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.DeliveryWorkflowPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    grial:Effects.ApplyIOSSafeAreaAsPadding="All">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- STEP BORDER BASE STYLE -->
+            <Style TargetType="Border" x:Key="ShippingStepperIconBorder">
+                <Setter Property="Padding" Value="19,5" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 60,60,60,60" />
+                <Setter Property="StrokeThickness" Value="0" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <!-- STEP ICON BASE STYLE -->
+            <Style TargetType="Label" x:Key="ShippingStepperIconLabel">
+                <Setter Property="FontFamily" Value="GrialIconsLine" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <!-- STEP TITLE BASE STYLE -->
+            <Style TargetType="Label" x:Key="ShippingStepperLabel">
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <!-- ACTIVE STEP STYLE -->
+            <DataTemplate x:Key="ActiveItemTemplate">
+                <Grid
+                    RowDefinitions="45, Auto"
+                    RowSpacing="10">
+                    <!-- ICON BORDER -->
+                    <Border
+                        x:Name="PART_ProgressSizeReference"
+                        Grid.Row="0"
+                        BackgroundColor="Transparent"
+                        Style="{ StaticResource ShippingStepperIconBorder }">
+                        <!-- ICON -->
+                        <Label
+                            TextColor="{ DynamicResource OnSurfaceColor }"
+                            Style="{ StaticResource ShippingStepperIconLabel }"
+                            Text="{ Binding StepIcon }"
+                            FontFamily="{ StaticResource GrialIconsFill }"
+                        />
+                    </Border>
+
+                    <!-- TEXT -->
+                    <Label
+                        Grid.Row="1"
+                        Style="{ StaticResource ShippingStepperLabel }"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                        Text="{ Binding StepTitle }"
+                    />
+                </Grid>
+            </DataTemplate>
+
+            <!-- INACTIVE STEP STYLE -->
+            <DataTemplate x:Key="InactiveItemTemplate">
+                <Grid
+                    RowDefinitions="45, Auto"
+                    RowSpacing="10">
+                    <!-- ICON BORDER -->
+                    <Border
+                        x:Name="PART_ProgressSizeReference"
+                        Grid.Row="0"
+                        BackgroundColor="Transparent"
+                        Style="{ StaticResource ShippingStepperIconBorder }">
+                        <!-- ICON -->
+                        <Label
+                            Text="{ Binding StepIcon }"
+                            TextColor="{ DynamicResource DisabledColor }"
+                            Style="{ StaticResource ShippingStepperIconLabel }"
+                        />
+                    </Border>
+
+                    <!-- TEXT -->
+                    <Label
+                        Grid.Row="1"
+                        Style="{ StaticResource ShippingStepperLabel }"
+                        TextColor="{ DynamicResource DisabledColor }"
+                        Text="{ Binding StepTitle }"
+                    />
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- MAIN CONTAINER -->
+    <Grid
+        Padding="{ DynamicResource AirSpacing }"
+        RowDefinitions="56,*,Auto"
+        RowSpacing="34">
+        <!-- AVATAR -->
+        <Grid
+            ColumnDefinitions="56,*,Auto"
+            RowDefinitions="*,*"
+            ColumnSpacing="16">
+            <!-- IMAGE -->
+            <grial:CircleImage
+                Grid.RowSpan="2"
+                Source="{ Binding UserImage }"
+                Size="56"
+                VerticalOptions="Center"
+                Aspect="AspectFill"
+                BorderSize="2"
+                BorderColor="{ DynamicResource OnSurfaceColor }"
+            />
+            <!-- USER NAME -->
+            <Label
+                Grid.Column="1"
+                Text="{ Binding User }"
+                FontFamily="{ StaticResource AppSemiBoldFamily }"
+                FontSize="{ StaticResource SmallTitleFontSize }"
+                VerticalOptions="Center"
+            />
+            <!-- ORDER ID -->
+            <Label
+                Grid.Column="1"
+                Grid.Row="1"
+                Text="{ Binding OrderID, StringFormat='Order #{0:F0}' }"
+                FontSize="{ StaticResource SmallFontSize }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                VerticalOptions="Start"
+            />
+
+            <!-- CLOSE ICON -->
+            <local:RoundedIconButton
+                Grid.Column="2"
+                Grid.RowSpan="2"
+                Style="{ StaticResource CloseIconButtonInverseStyle }"
+                Command="{ Binding CloseCommand }"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Margin="0"
+            />
+        </Grid>
+
+        <!-- CARD -->
+        <Border
+            Grid.Row="1"
+            Padding="20"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+            <Grid RowDefinitions="Auto,*,Auto">
+                <VerticalStackLayout Spacing="4">
+                    <!-- CURRENT STEP -->
+                    <Label
+                        Text="{ Binding CurrentStep.Title }"
+                        FontSize="{ StaticResource TitleFontSize }"
+                        HorizontalTextAlignment="Center"
+                    />
+                    <!-- DESCRIPTION -->
+                    <Label
+                        Text="{ Binding CurrentStep.Description }"
+                        FontSize="{ StaticResource SmallFontSize }"
+                        HorizontalTextAlignment="Center"
+                        TextColor="{ DynamicResource TextSecondaryColor }"
+                        Margin="10,0"
+                    />
+                    <!-- EMOJI -->
+                    <Image
+                        HeightRequest="120"
+                        WidthRequest="120"
+                        Source="{ Binding CurrentStep.Emoji }"
+                        HorizontalOptions="Center"
+                        Margin="0,32"
+                    />
+                    <!-- WHEN -->
+                    <Label
+                        FontSize="{ StaticResource LargeFontSize }"
+                        HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{ Binding CurrentStep.Date }" />
+                                <Span Text=" at " />
+                                <Span Text="{ Binding CurrentStep.Time }" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <!-- AMOUNT / COST -->
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        TextColor="{ DynamicResource TextSecondaryColor }">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{ Binding CurrentStep.Items }" />
+                                <Span Text=" Items  •  $" />
+                                <Span Text="{ Binding CurrentStep.Cost }" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+
+                <!-- CARD FOOTER -->
+                <VerticalStackLayout
+                    Grid.Row="2"
+                    Spacing="15">
+                    <!-- STEPPER -->
+                    <grial:Stepper
+                        CurrentItem="{ Binding CurrentStep, Mode=TwoWay }"
+                        ItemsSource="{ Binding ShippingData }"
+                        IsProgressBarContinuous="True"
+                        HeightRequest="70"
+                        AnimateProgressDuration="500"
+                        AnimateProgress="True"
+                        ProgressStopBeforeOffset="5"
+                        ProgressStopAfterOffset="5"
+                        AnimateArrival="False"
+                        ActiveColor="{ DynamicResource PrimaryColor }"
+                        InactiveColor="{ DynamicResource BackgroundColor }"
+                        ActiveItemTemplate="{ StaticResource ActiveItemTemplate }"
+                        CurrentItemTemplate="{ StaticResource ActiveItemTemplate }"
+                        InactiveItemTemplate="{ StaticResource InactiveItemTemplate }"
+                        MoveNextCommand="{ Binding MoveNextStepCommand, Mode=OneWayToSource }"
+                    />
+                    <!-- ORDER DETAIL BUTTON -->
+                    <Button
+                        Text="Order Detail"
+                        Style="{ DynamicResource SecondaryActionButtonStyle }"
+                        VerticalOptions="End"
+                        Command="{ Binding OrderDetailCommand }"
+                    />
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <!-- BUTTON -->
+        <Button
+            Grid.Row="2"
+            Command="{ Binding NextCommand }"
+            Text="{ Binding CurrentStep.Status }"
+            Style="{ StaticResource PrimaryActionButtonStyle }"
+        />
+    </Grid>
+</ContentPage>

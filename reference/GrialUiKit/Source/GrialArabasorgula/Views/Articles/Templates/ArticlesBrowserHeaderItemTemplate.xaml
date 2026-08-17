@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ArticlesBrowserHeaderItemTemplate">
+    <ContentView.Content>
+        <Grid Margin="0">
+
+            <!-- ARTICLE IMAGE -->
+            <Image
+                Source="{ Binding BackgroundImage }"
+                VerticalOptions="Fill"
+            />
+
+            <!-- DATA -->
+            <Grid
+                Padding="{ DynamicResource AirSpacingNoTop }"
+                RowSpacing="0"
+                VerticalOptions="End"
+                grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+                RowDefinitions="20,Auto">
+
+                <local:LabelList
+                    HorizontalOptions="Start"
+                    SeparatorHeight="13"
+                    SeparatorColor="{ DynamicResource OnSurfaceColor }">
+                    <local:LabelList.Labels>
+                        <!-- Date -->
+                        <Label
+                            Grid.Row="0"
+                            Text="{ Binding When, Converter={StaticResource ToUpperConverter} }"
+                            FontSize="12"
+                            TextColor="{ DynamicResource OnSurfaceColor }"
+                        />
+
+                        <!-- Category -->
+                        <Label
+                            Text="{ Binding Section }"
+                            FontSize="12"
+                            TextColor="{ DynamicResource OnSurfaceColor }"
+                        />
+                    </local:LabelList.Labels>
+                </local:LabelList>
+
+                <!-- Title -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ Binding Title }"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                />
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

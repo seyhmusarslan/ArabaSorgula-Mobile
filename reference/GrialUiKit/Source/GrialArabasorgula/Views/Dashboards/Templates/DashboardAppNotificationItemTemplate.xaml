@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardAppNotificationItemTemplate"
+    x:Name="Root">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer
+            Command="{ Binding Command, Source={x:Reference Root} }"
+            CommandParameter="{ Binding CommandParameter, Source={x:Reference Root} }"
+        />
+    </ContentView.GestureRecognizers>
+    <ContentView.Content>
+        <Grid
+            ColumnSpacing="0"
+            RowSpacing="0"
+            Padding="0">
+
+            <!-- BACKGROUND -->
+            <BoxView
+                Grid.Row="0"
+                Grid.Column="0"
+                Color="{ Binding BackgroundColorColor }"
+            />
+
+            <!-- CONTENT -->
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalOptions="Fill"
+                Padding="10"
+                RowDefinitions="Auto,*"
+                ColumnDefinitions="50,*">
+
+                <!-- TEXT -->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="10"
+                    TextColor="{ Binding Source={x:Reference Root}, Path=TextColor }"
+                    FontSize="14"
+                    Text="{ Binding Body }"
+                />
+
+                <!-- Avatar -->
+                <grial:CircleImage
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BorderColor="{ Binding BackgroundColor }"
+                    Source="{ Binding Avatar }"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    HeightRequest="{ OnIdiom
+                        Phone=45,
+                        Tablet=50
+                    }"
+                    WidthRequest="{ OnIdiom
+                        Phone=45,
+                        Tablet=50
+                    }"
+                />
+
+                <Grid
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Padding="0"
+                    ColumnDefinitions="*,Auto">
+
+                    <!-- TITLE -->
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="{ Binding Title }"
+                        TextColor="{ Binding Source={x:Reference Root}, Path=TextColor }"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="End"
+                    />
+
+                    <!-- ICON -->
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{ Binding Icon }"
+                        Style="{ StaticResource FontIcon }"
+                        TextColor="{ Binding Source={x:Reference Root}, Path=TextColor }"
+                        FontSize="20"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="End"
+                    />
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

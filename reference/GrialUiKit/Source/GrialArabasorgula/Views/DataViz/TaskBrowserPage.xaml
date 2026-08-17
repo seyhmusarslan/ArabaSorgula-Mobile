@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.TaskBrowserPage"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    Title="{ grial:Translate PageTitleTaskBrowser }">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="/Styles/TabControl/SegmentedTabResources.xaml" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+                <Grid RowDefinitions="140,*">
+
+                    <VerticalStackLayout
+                        Grid.Row="0"
+                        Padding="{ DynamicResource AirSpacingNoBorder }"
+                        Spacing="6"
+                        VerticalOptions="End">
+                        <Label
+                            Text="{ Binding Date }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                        />
+                        <Label
+                            Text="{ grial:Translate AgendaTitle }"
+                            FontSize="{ StaticResource TitleFontSize }"
+                            TextColor="{ DynamicResource TextColor }"
+                            Margin="0,0,100,0"
+                        />
+                    </VerticalStackLayout>
+
+                    <grial:TabControl
+                        Grid.Row="1"
+                        Margin="0,0,0,14"
+                        Style="{ StaticResource SegmentedTabStyle }"
+                        TabStripMargin="25,10"
+                        TabContentBackgroundColor="Transparent">
+
+                        <grial:TabItem Text="{ grial:Translate StringWorkspaces }">
+
+                            <!-- CARDS -->
+                            <grial:Repeater
+                                ItemsSource="{ Binding Workspaces }"
+                                Orientation="Horizontal"
+                                HeightRequest="370"
+                                ItemSize="215"
+                                Spacing="10"
+                                ScrollBarVisibility="Never"
+                                ScrollPadding="20,0,20,0">
+                                <grial:Repeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:TaskBrowserCardItemTemplate
+                                            HeightRequest="370"
+                                            WidthRequest="215"
+                                            HorizontalOptions="Center"
+                                        />
+                                    </DataTemplate>
+                                </grial:Repeater.ItemTemplate>
+
+                            </grial:Repeater>
+
+                        </grial:TabItem>
+
+                        <grial:TabItem Text="{ grial:Translate StringProjects }">
+
+                            <!-- CARDS -->
+                            <grial:Repeater
+                                ItemsSource="{ Binding Projects }"
+                                Orientation="Horizontal"
+                                HeightRequest="370"
+                                ItemSize="215"
+                                Spacing="10"
+                                ScrollBarVisibility="Never"
+                                ScrollPadding="20,0,20,0">
+                                <grial:Repeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:TaskBrowserCardItemTemplate
+                                            HeightRequest="370"
+                                            WidthRequest="215"
+                                            HorizontalOptions="Center"
+                                        />
+                                    </DataTemplate>
+                                </grial:Repeater.ItemTemplate>
+
+                            </grial:Repeater>
+
+                        </grial:TabItem>
+
+                    </grial:TabControl>
+
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

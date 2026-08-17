@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.MediaRankingHeaderTemplate">
+    <Grid RowDefinitions="Auto,Auto,Auto">
+        <!-- ITEM IMAGE -->
+        <Image
+            Source="{ Binding PosterImage }"
+            HeightRequest="270"
+            WidthRequest="180"
+            Aspect="AspectFill"
+            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+            HorizontalOptions="Center"
+        />
+        <!-- ITEM NAME -->
+        <Label
+            Margin="20,20,20,0"
+            Grid.Row="1"
+            HorizontalTextAlignment="Center"
+            FontSize="{ StaticResource TitleFontSize }"
+            Text="{ Binding Name }"
+        />
+        <!-- ADDITIONAL INFO -->
+        <Grid
+            Grid.Row="2"
+            ColumnDefinitions="Auto,Auto,Auto"
+            HorizontalOptions="Center"
+            ColumnSpacing="20"
+            Margin="0,12,0,0">
+            <HorizontalStackLayout Spacing="4">
+                <!-- RATING -->
+                <local:IconText
+                    Orientation="Horizontal"
+                    Icon="{ x:Static local:GrialIconsFont.StarFill }"
+                    IconFontSize="{ StaticResource SmallTitleFontSize }"
+                    IconColor="{ DynamicResource RatingColor }"
+                    TextColor="{ DynamicResource RatingColor }"
+                    Text="{ Binding RatingLabel }"
+                    TextFontAttributes="Bold"
+                    VerticalOptions="Center"
+                />
+                <!-- VIEWS -->
+                <Label
+                    Text="(2.9M)"
+                    TextColor="{ DynamicResource TextTertiaryColor }"
+                    VerticalOptions="Center"
+                />
+
+            </HorizontalStackLayout>
+            <!-- YEAR -->
+            <Label
+                Grid.Column="1"
+                Text="2002"
+                VerticalOptions="Center"
+            />
+            <!-- LENGHT -->
+            <Label
+                Grid.Column="2"
+                Text="2h 22m"
+                TextColor="{ DynamicResource TextTertiaryColor }"
+                VerticalOptions="Center"
+            />
+        </Grid>
+
+    </Grid>
+</ContentView>
+

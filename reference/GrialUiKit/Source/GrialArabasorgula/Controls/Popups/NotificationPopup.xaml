@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    x:Class="arabasorgula.NotificationPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    BackgroundColor="Transparent"
+    AppearingAnimation="{ uxd:MoveInPopupAnimation
+        MoveDirection=Top,
+        Duration=300,
+        Easing=CubicOut
+    }"
+    DisappearingAnimation="{ uxd:MoveOutPopupAnimation
+        MoveDirection=Top,
+        Duration=300,
+        Easing=CubicOut
+    }"
+    x:Name="Root">
+
+    <uxd:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <Grid
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill"
+        BackgroundColor="Transparent"
+        Padding="16">
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnClose" />
+        </Grid.GestureRecognizers>
+
+        <Border
+            Shadow="2 2 8 Gray 0.3"
+            InputTransparent="true"
+            HorizontalOptions="Fill"
+            VerticalOptions="{ StaticResource NotificationsVerticalPositioning }"
+            grial:Effects.CornerRadius="{ StaticResource DialogsCornerRadius }"
+            Padding="0">
+            <Grid
+                grial:Effects.CornerRadius="{ StaticResource DialogsCornerRadius }"
+                RowSpacing="0"
+                ColumnSpacing="20"
+                ColumnDefinitions="Auto,*"
+                Padding="{ StaticResource NotificationsPadding }"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+                <!-- CONTENT -->
+                <local:RoundedIcon
+                    CornerRadius="{ DynamicResource CornerRadius-big }"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    HeightRequest="44"
+                    WidthRequest="44"
+                    BackgroundColor="{ DynamicResource SuccessColor }"
+                    IconColor="{ DynamicResource OnSurfaceColor }"
+                    IconText="{ x:Static local:GrialIconsFont.Check }"
+                    IconFontSize="24"
+                />
+
+                <Label
+                    Grid.Column="1"
+                    Text="{ Binding Message, Source={x:Reference Root} }"
+                    FontSize="{ StaticResource NotificationsFontSize }"
+                />
+            </Grid>
+        </Border>
+    </Grid>
+</uxd:PopupPage>

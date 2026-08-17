@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.TabPage"
+    Title="{ grial:Translate PageTitleTab }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    BarBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    UnselectedTabColor="{ DynamicResource TextColor }"
+    SelectedTabColor="{ DynamicResource PrimaryColor }">
+
+    <TabbedPage.Children>
+        <ContentPage
+            NavigationPage.HasNavigationBar="False"
+            Title="Page 1"
+            IconImageSource="tabs_icon.png">
+            <Grid>
+                <Image
+                    HeightRequest="300"
+                    WidthRequest="300"
+                    Grid.Row="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_gradient_01.png"
+                />
+            </Grid>
+        </ContentPage>
+
+        <ContentPage
+            NavigationPage.HasNavigationBar="False"
+            Title="Page 2"
+            IconImageSource="tabs_icon.png">
+            <Grid>
+                <Image
+                    Grid.Row="0"
+                    HeightRequest="300"
+                    WidthRequest="300"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_gradient_02.png"
+                />
+            </Grid>
+        </ContentPage>
+
+        <ContentPage
+            NavigationPage.HasNavigationBar="False"
+            Title="Page 3"
+            IconImageSource="tabs_icon.png">
+            <Grid>
+                <Image
+                    Grid.Row="0"
+                    HeightRequest="300"
+                    WidthRequest="300"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/walkthrough_gradient_03.png"
+                />
+            </Grid>
+        </ContentPage>
+
+    </TabbedPage.Children>
+
+</TabbedPage>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ProductCardItemTemplate">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer
+            Tapped="OnTapGestureRecognizerTapped"
+            NumberOfTapsRequired="1"
+        />
+    </ContentView.GestureRecognizers>
+    <grial:CardView
+        Margin="8"
+        HasShadow="False"
+        RowDefinitions="160,*">
+
+        <!-- PRODUCT IMAGE -->
+        <Image
+            Grid.Row="0"
+            Source="{ Binding Image }"
+        />
+
+        <!-- TAG -->
+        <grial:RoundedLabel
+            IsVisible="{ Binding IsNew }"
+            Text="NEW"
+            FontSize="10"
+            Padding="6,0"
+            HorizontalOptions="Start"
+            Margin="15"
+            HeightRequest="24"
+            VerticalOptions="Start"
+            TextColor="{ DynamicResource OnSurfaceColor }"
+            BackgroundColor="{ DynamicResource PrimaryColor }"
+        />
+
+        <grial:ExtendedGrid
+            Grid.Row="1"
+            RowSpacing="{ OnPlatform
+                iOS=5,
+                Android=0
+            }"
+            RowDefinitions="Auto,Auto,Auto"
+            Margin="0,-20,0,0"
+            Padding="16,36,16,16"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            grial:TrimmingEffects.TopHeight="20"
+            grial:TrimmingEffects.TopShape="InvertedRoundedCorners">
+            <!-- PRODUCT MANUFACTURER -->
+            <Label
+                Grid.Row="0"
+                Text="{ Binding Manufacturer, StringFormat='BY {0}' }"
+                FontSize="11"
+                HorizontalOptions="Start"
+                TextColor="{ DynamicResource PrimaryColor }"
+            />
+
+            <!-- PRODUCT NAME -->
+            <Label
+                Grid.Row="1"
+                Text="{ Binding Name }"
+                FontSize="20"
+                FontAttributes="None"
+                HorizontalOptions="Start"
+                TextColor="{ DynamicResource TextColor }"
+                LineBreakMode="TailTruncation"
+            />
+
+            <!-- PRICE -->
+            <Label
+                Grid.Row="2"
+                Text="{ Binding Price, StringFormat='$ {0:0.##}' }"
+                FontSize="{ OnIdiom
+                    Phone=20,
+                    Tablet=27
+                }"
+                VerticalOptions="End"
+                HorizontalOptions="Start"
+                TextColor="{ DynamicResource SuccessColor }"
+            />
+
+        </grial:ExtendedGrid>
+    </grial:CardView>
+</ContentView>

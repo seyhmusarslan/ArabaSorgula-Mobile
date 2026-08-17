@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.FormStepThreeTemplate"
+    x:Name="root">
+
+    <VerticalStackLayout Spacing="30">
+        <VerticalStackLayout>
+            <!-- TITLE -->
+            <Label
+                Text="{ grial:Translate StringFeedback }"
+                FontSize="{ StaticResource TitleFontSize }"
+                HorizontalTextAlignment="Center"
+            />
+
+            <!-- SUBTITLE -->
+            <Label
+                Grid.Row="1"
+                Text="{ grial:Translate StringComplete }"
+                FontSize="{ StaticResource SmallFontSize }"
+                HorizontalTextAlignment="Center"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Spacing="20">
+            <!-- SATISFACTION -->
+            <local:CustomPickerTemplate BindingContext="{ Binding Pickers[0] }" />
+
+            <!-- FAVORITE FEATURE -->
+            <Entry
+                Grid.Row="1"
+                Placeholder="{ grial:Translate StringFavoriteFeature }"
+            />
+            <!-- DESIRED FEATURE -->
+            <Entry
+                Grid.Row="2"
+                Placeholder="{ grial:Translate StringDesiredFeature }"
+            />
+            <!-- PAIN POINTS -->
+            <Entry
+                Grid.Row="3"
+                Placeholder="{ grial:Translate StringPainPoints }"
+            />
+            <!-- SUGGESTIONS -->
+            <Entry
+                Grid.Row="4"
+                Placeholder="{ grial:Translate StringSuggestions }"
+            />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentView>
+

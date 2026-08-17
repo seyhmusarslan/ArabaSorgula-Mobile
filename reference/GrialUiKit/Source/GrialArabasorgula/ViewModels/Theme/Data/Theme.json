@@ -1,0 +1,167 @@
+{
+  "[grial-metadata]": "id: Grial#Theme.json version: 1.2.6",
+  "CustomActionSheet.xaml": {
+    "Title": "File Actions",
+    "Actions": [
+      {
+        "Icon": "",
+        "Label": "Share"
+      },
+      {
+        "Icon": "",
+        "Label": "Upload"
+      },
+      {
+        "Icon": "",
+        "Label": "Copy"
+      },
+      {
+        "Icon": "",
+        "Label": "Print"
+      },
+      {
+        "Icon": "",
+        "Label": "Delete"
+      }
+    ]
+  },
+  "RichAboutPage.xaml": {
+    "Testimonials": [
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg",
+        "Name": "Skyler Harrisson",
+        "Title": "Founder and CTO",
+        "Testimonial": "When in need of a great design you know\nwho to call: this team is amazing!",
+        "CompanyLogo": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/chilly_out_logo.png",
+        "Rating": 5
+      },
+      {
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+        "Name": "Donald Davies",
+        "Title": "Director",
+        "Testimonial": "Nacho's team did a fantastique work with us!",
+        "CompanyLogo": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/nachos_design_logo.png",
+        "Rating": 4.5
+      }
+    ]
+  },
+  "FAQsPage.xaml": {
+    "FAQsList": [
+      {
+        "Question": "Do I get the screens’ XAML source code?",
+        "Answer": "Yes! You get the XAML code for all the screens and templates in your purchased Grial flavor.\n\nThis way we make sure you can customize it as much as you need."
+      },
+      {
+        "Question": "Can I pay for the Standard License and later upgrade to Pro/Pro RTL paying the difference?",
+        "Answer": "Absolutely yes, that is a very common path for our customers to upgrade."
+      },
+      {
+        "Question": "Does Grial provides support for RTL languages?",
+        "Answer": "Yes! Grial UI Kit supports Right-to-left languages in every screen and template.\n\nSwitching between LTR and RTL layouts can be done while the app is running, so it’s possible to offer an app-level setting for the language to your end users."
+      },
+      {
+        "Question": "Is there any way of purchasing several Grial licenses?",
+        "Answer": "Yes, Grial can be purchased single or through our Bundles which are sets of 5 licenses with a nice discount."
+      },
+      {
+        "Question": "Do I need to pay a new license per target platform?",
+        "Answer": "No, Grial license is app-based. It doesn’t matter whether your app targets Android, iOS or both, you will need to pay a single license per app."
+      },
+      {
+        "Question": "What does “unlimited seats” mean?",
+        "Answer": "It means that we don’t impose any restriction on the size of the team building the app.\n\nGrial license is app-based not seat-based."
+      },
+      {
+        "Question": "Do you offer custom design services?",
+        "Answer": "Yes, our custom-design services team can extend/modify Grial to suit your needs."
+      },
+      {
+        "Question": "Once I purchase the product, will I get updates for free?",
+        "Answer": "Yes, we will provide free updates in regards bug fixes and supporting latest Xamarin Forms stable packages.\n\nThose are included when you purchase. However, when we release a new major version with new features you will need to pay to get it."
+      },
+      {
+        "Question": "What happens when we change license mode of our app to production? Can we still work on fixes/improvements for our app?",
+        "Answer": "When you switch your license to production you won’t be able to change the app name, iOS bundle id and Android package name.\n\nThat’s the configuration from Grial’s side.\n\nBesides that, you can continue working improving your app normally without any constraint."
+      },
+      {
+        "Question": "What kind of support is included in my purchase?",
+        "Answer": "Customers who purchase Grial get Community support."
+      },
+      {
+        "Question": "Will my app depend on your servers to work?",
+        "Answer": "Absolutely not.\n\nOur license mechanism will never request your app to connect to our server."
+      },
+      {
+        "Question": "How is the license validated?",
+        "Answer": "The license is generated in the Grial Web Admin and included as a file in the downloaded solution.\n\nTo renew it you have to download the licence file again and remplace it in your project."
+      }
+    ]
+  },
+  "DeliveryWorkflowPage.xaml": {
+    "User": "Andrew Reynolds",
+    "UserImage": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+    "OrderID": "190841279",
+    "ShippingData": [
+      {
+        "Title": "Order received",
+        "Description": "You have a new order, please corfirm it to proceed the shippment.",
+        "Emoji": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/emoji_closed_mailbox_with_raised_flag.png",
+        "Date": "Friday 13",
+        "Time": "4:20 PM",
+        "Items": "5",
+        "Cost": "49.99",
+        "Status": "Confirm Order",
+        "StepIcon": "",
+        "StepTitle": "Received"
+      },
+      {
+        "Title": "Preparing",
+        "Description": "You have a new order, please corfirm it to proceed the shippment.",
+        "Emoji": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/emoji_mechanical_arm.png",
+        "Date": "Friday 13",
+        "Time": "4:20 PM",
+        "Items": "5",
+        "Cost": "49.99",
+        "Status": "Mark as Ready",
+        "StepIcon": "",
+        "StepTitle": "Preparing"
+      },
+      {
+        "Title": "Ready",
+        "Description": "You have a new order, please corfirm it to proceed the shippment.",
+        "Emoji": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/emoji_package.png",
+        "Date": "Friday 13",
+        "Time": "4:20 PM",
+        "Items": "5",
+        "Cost": "49.99",
+        "Status": "On the Go",
+        "StepIcon": "",
+        "StepTitle": "Ready"
+      },
+      {
+        "Title": "In Transit",
+        "Description": "You have a new order, please corfirm it to proceed the shippment.",
+        "Emoji": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/emoji_delivery_truck.png",
+        "Date": "Friday 13",
+        "Time": "4:20 PM",
+        "Items": "5",
+        "Cost": "49.99",
+        "Status": "Delivered",
+        "StepIcon": "",
+        "StepTitle": "In Transit"
+      },
+      {
+        "Title": "Delivered",
+        "Description": "You have a new order, please corfirm it to proceed the shippment.",
+        "Emoji": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/emoji_check_mark_button.png",
+        "Date": "Friday 13",
+        "Time": "4:20 PM",
+        "Items": "5",
+        "Cost": "49.99",
+        "Status": "Close",
+        "StepIcon": "",
+        "StepTitle": "Delivered"
+      }
+    ]
+  }
+}

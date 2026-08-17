@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.VideoCarouselHighlightsPage"
+    grial:GrialNavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:VideoPlayerResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <grial:VideoPlayer
+            Source="{ Binding BackgroundVideo }"
+            Style="{ StaticResource BackgroundVideoPlayerStyle }"
+            Margin="{ grial:OnOrientationThickness
+                Landscape='-200,0',
+                Portrait=0
+            }"
+        />
+
+        <!-- COLORED BACKGROUND -->
+        <BoxView Opacity="{ OnPlatform iOS=0.7, Android=0.5 }">
+            <BoxView.Behaviors>
+                <grial:AnimatedBackgroundColor
+                    IsSymmetric="true"
+                    Start="{ Binding CurrentAnimatedItem.ColorColor, Source={x:Reference carousel} }"
+                    End="{ Binding NextAnimatedItem.ColorColor, Source={x:Reference carousel} }"
+                    Progress="{ Binding ScrollProgress, Source={x:Reference carousel} }"
+                />
+            </BoxView.Behaviors>
+        </BoxView>
+
+        <!-- CONTENT -->
+        <Grid>
+            <grial:Effects.BackgroundGradient>
+                <grial:RadialGradient Radius="300" RadiusType="Absolute" CenterX="0.2" CenterY="0">
+                    <grial:GradientColor Color="#00000000" Opacity="0" />
+                    <grial:GradientColor Color="#11000000" Opacity="0.3" />
+                    <grial:GradientColor Color="#33000000" Opacity="0.5" />
+                    <grial:GradientColor Color="#66000000" Opacity="0.7" />
+                </grial:RadialGradient>
+            </grial:Effects.BackgroundGradient>
+
+            <local:ExtendedCarouselView
+                x:Name="carousel"
+                IndicatorView="indicatorView"
+                VerticalOptions="Fill"
+                ItemsSource="{ Binding Highlights }"
+                HorizontalScrollBarVisibility="Never"
+                Margin="0,0,0,20">
+                <local:ExtendedCarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            BackgroundColor="Transparent"
+                            Padding="45,0">
+                            <VerticalStackLayout
+                                Spacing="15"
+                                VerticalOptions="Center">
+                                <Label
+                                    FontSize="90"
+                                    Text="{ Binding Icon }"
+                                    Style="{ StaticResource FontIcon }"
+                                    TextColor="White"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    Margin="0,0,0,20"
+                                />
+                                <Label
+                                    FontSize="28"
+                                    FontAttributes="Bold"
+                                    Text="{ Binding Title }"
+                                    VerticalOptions="Center"
+                                    TextColor="White"
+                                    HorizontalOptions="Center"
+                                />
+                                <Label
+                                    FontSize="14"
+                                    Opacity="0.8"
+                                    Text="{ Binding Description }"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    TextColor="White"
+                                    HorizontalTextAlignment="Center"
+                                />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </local:ExtendedCarouselView.ItemTemplate>
+            </local:ExtendedCarouselView>
+        </Grid>
+
+        <IndicatorView
+            x:Name="indicatorView"
+            Margin="0,0,0,20"
+            IndicatorColor="#66989898"
+            SelectedIndicatorColor="White"
+            VerticalOptions="End"
+            HorizontalOptions="Center"
+        />
+
+        <!-- CLOSE ICON -->
+        <local:RoundedIconButton
+            Style="{ StaticResource CloseIconButtonStyle }"
+            Command="{ Binding CloseCommand }"
+        />
+    </Grid>
+
+</ContentPage>

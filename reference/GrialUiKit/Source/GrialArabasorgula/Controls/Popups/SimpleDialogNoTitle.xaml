@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    x:Class="arabasorgula.SimpleDialogNoTitle"
+    Background="{ DynamicResource OverlayColor }"
+    CloseWhenBackgroundIsClicked="{ StaticResource DialogsCloseWhenBackgroundIsClicked }">
+
+    <uxd:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <Grid
+        Margin="{ DynamicResource AirSpacing }"
+        Style="{ StaticResource BlurredShadow }"
+        VerticalOptions="{ DynamicResource DialogsVerticalPositioning }">
+        <Grid
+            RowSpacing="8"
+            Padding="{ DynamicResource DialogsPadding }"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            grial:Effects.CornerRadius="{ StaticResource DialogsCornerRadius }"
+            RowDefinitions="*,Auto">
+
+            <!-- CONTENT -->
+            <VerticalStackLayout
+                Grid.Row="0"
+                Spacing="14">
+
+                <!-- TITLE -->
+                <local:EmojiText
+                    HorizontalOptions="Start"
+                    Icon="{ x:Static local:Emojis.speech_balloon }"
+                    IconSize="24"
+                    Orientation="InvertedHorizontal"
+                    Text="{ grial:Translate StringSimpleDialogNoTitleTitle }"
+                    TextFontSize="{ OnPlatform
+                        iOS=20,
+                        Android=18
+                    }"
+                    Spacing="10"
+                    HeightRequest="20"
+                />
+
+                <!-- DESCRIPTION -->
+                <Label
+                    FontSize="{ StaticResource DialogsBodyFontSize }"
+                    HorizontalTextAlignment="Start"
+                    Text="{ grial:Translate StringSimpleDialogNoTitleText }"
+                    TextColor="{ DynamicResource TextTertiaryColor }"
+                />
+            </VerticalStackLayout>
+
+            <!-- FOOTER -->
+            <Button
+                Grid.Row="1"
+                VerticalOptions="Start"
+                WidthRequest="{ grial:OnOrientationDouble
+                    Default=-1,
+                    Landscape=300
+                }"
+                HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                    Portrait='Fill',
+                    Landscape=Center
+                }"
+                Style="{ StaticResource DialogPrimaryActionButtonStyle }"
+                Text="{ grial:Translate StringClose }"
+                Clicked="OnClose"
+            />
+
+        </Grid>
+
+    </Grid>
+</uxd:PopupPage>

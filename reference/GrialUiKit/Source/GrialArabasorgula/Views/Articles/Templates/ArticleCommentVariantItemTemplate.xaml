@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.ArticleCommentVariantItemTemplate">
+    <ContentView.Content>
+        <Grid
+            RowSpacing="0"
+            VerticalOptions="Start"
+            ColumnSpacing="15"
+            ColumnDefinitions="44,*,Auto"
+            RowDefinitions="25,Auto"
+            Padding="{ DynamicResource AirSpacingNoBorder }"
+            Margin="0,0,0,20">
+
+            <!-- AVATAR -->
+            <grial:CircleImage
+                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                Size="40"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.RowSpan="2"
+                HorizontalOptions="Start"
+                BorderSize="2"
+                VerticalOptions="Start"
+                Source="{ Binding From.Avatar }"
+            />
+
+            <!-- NAME -->
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{ Binding From.Name }"
+                FontSize="{ StaticResource LargeFontSize }"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+            />
+
+            <!-- MESSAGE -->
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Text="{ Binding Body }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                FontSize="{ StaticResource SmallFontSize }"
+                HeightRequest="50"
+            />
+
+            <!-- TIME -->
+            <Label
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="{ Binding When }"
+                TextColor="{ DynamicResource TextTertiaryColor }"
+                Opacity="1"
+                FontSize="{ StaticResource SmallFontSize }"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+            />
+
+            <!-- SEPARATOR -->
+            <BoxView
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Margin="0,0,-30,-25"
+                Style="{ DynamicResource Horizontal1ptLineStyle }"
+                VerticalOptions="End"
+            />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

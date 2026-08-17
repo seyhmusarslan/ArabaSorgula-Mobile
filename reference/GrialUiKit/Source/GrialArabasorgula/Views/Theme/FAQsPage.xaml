@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.FAQsPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="Root"
+    Title="FAQs">
+
+    <grial:GrialNavigationPage.TitleView>
+        <Grid>
+            <!-- GRIAL LOGO -->
+            <Label
+                Text="{ x:Static local:GrialIconsFont.LogoGrialSquare }"
+                VerticalOptions="Center"
+                FontSize="32"
+                Margin="0,0"
+                InputTransparent="true"
+                TextColor="{ DynamicResource PrimaryColor }"
+                HorizontalOptions="Center"
+                FontFamily="{ StaticResource IconsFontFamily }">
+                <VisualElement.Behaviors>
+                    <grial:AnimatedTranslationY
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="80"
+                        ProgressEnd="120"
+                        Start="6"
+                        End="0"
+                    />
+                    <grial:AnimatedOpacity
+                        Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                        ProgressStart="80"
+                        ProgressEnd="120"
+                        Start="0"
+                        End="1"
+                    />
+                </VisualElement.Behaviors>
+            </Label>
+        </Grid>
+    </grial:GrialNavigationPage.TitleView>
+
+    <Grid RowSpacing="0">
+        <!-- HEADER LOGO -->
+        <grial:ExtendedGrid
+            x:Name="logoHeader"
+            HeightRequest="120"
+            TrimBottomHeight="40"
+            TrimBottomShape="RoundedCorners"
+            VerticalOptions="Start"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+            <grial:ExtendedGrid.Behaviors>
+                <grial:AnimatedTranslationY
+                    Progress="{ Binding AbsoluteScrollY, Source={x:Reference scroll} }"
+                    ProgressStart="0"
+                    ProgressEnd="120"
+                    Start="0"
+                    End="-120"
+                />
+            </grial:ExtendedGrid.Behaviors>
+            <!-- GRIAL LOGO -->
+            <Label
+                Text="{ x:Static local:GrialIconsFont.LogoGrialSquare }"
+                VerticalOptions="Center"
+                FontSize="64"
+                Margin="0,0"
+                InputTransparent="true"
+                TextColor="{ DynamicResource PrimaryColor }"
+                HorizontalOptions="Center"
+                FontFamily="{ StaticResource IconsFontFamily }"
+            />
+        </grial:ExtendedGrid>
+
+        <!-- SCROLLVIEW -->
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <VisualElement.Behaviors>
+                <grial:ScrollViewScrollBehavior x:Name="scroll" />
+            </VisualElement.Behaviors>
+
+            <VerticalStackLayout
+                VerticalOptions="Fill"
+                Padding="{ DynamicResource AirSpacingNoBorder }"
+                Margin="0,150,0,30"
+                Spacing="15"
+                BindableLayout.ItemsSource="{ Binding FAQsList }">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <grial:CardView
+                            x:Name="card2"
+                            HasShadow="False"
+                            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+                            grial:Effects.ShadowOpacity="0.2">
+
+                            <mct:Expander
+                                x:Name="expander"
+                                Padding="5"
+                                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+                                <!-- HEADER -->
+                                <mct:Expander.Header>
+                                    <Grid
+                                        RowSpacing="1"
+                                        ColumnSpacing="0"
+                                        ColumnDefinitions="Auto,*"
+                                        RowDefinitions="Auto">
+                                        <!-- SEPARATOR -->
+                                        <BoxView
+                                            Margin="-5,0"
+                                            Opacity="0.4"
+                                            Grid.ColumnSpan="2"
+                                            VerticalOptions="End"
+                                            HeightRequest="1"
+                                            IsVisible="{ Binding IsExpanded, Source={RelativeSource AncestorType={x:Type mct:Expander}} }"
+                                            Color="{ DynamicResource ListSeparatorColor }"
+                                        />
+
+                                        <!-- ICON -->
+                                        <Label
+                                            Margin="14,14,6,14"
+                                            Grid.Column="0"
+                                            VerticalOptions="Start"
+                                            FontSize="24"
+                                            Text="{ x:Static local:GrialIconsFont.ChevronRight }"
+                                            FontFamily="{ StaticResource GrialIconsFill }"
+                                            TextColor="{ DynamicResource TextSecondaryColor }">
+                                            <Label.Triggers>
+                                                <DataTrigger
+                                                    TargetType="Label"
+                                                    Binding="{ Binding Source={RelativeSource AncestorType={x:Type mct:Expander}}, Path=IsExpanded }"
+                                                    Value="True">
+                                                    <Setter Property="Text" Value="{ x:Static local:GrialIconsFont.ChevronDown }" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+
+                                        <!-- TEXT -->
+                                        <Label
+                                            Grid.Column="1"
+                                            Margin="0,14,14,14"
+                                            HorizontalOptions="Start"
+                                            Text="{ Binding Question }"
+                                            FontSize="{ StaticResource BaseFontSize }"
+                                            TextColor="{ DynamicResource TextColor }"
+                                            VerticalOptions="Center"
+                                        />
+                                    </Grid>
+                                </mct:Expander.Header>
+
+                                <!-- CONTENT -->
+                                <mct:Expander.Content>
+                                    <Grid
+                                        Padding="5,0,5,5"
+                                        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+                                        <Label
+                                            Text="{ Binding Answer }"
+                                            TextColor="{ DynamicResource TextSecondaryColor }"
+                                            Margin="15"
+                                        />
+                                    </Grid>
+                                </mct:Expander.Content>
+                            </mct:Expander>
+                        </grial:CardView>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

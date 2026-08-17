@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.QuizGamePage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    grial:GrialNavigationPage.HasNavigationBar="False"
+    x:Name="root">
+
+    <!-- CONTENT -->
+    <Grid
+        Padding="{ DynamicResource AirSpacing }"
+        BackgroundColor="{ DynamicResource BackgroundColor }"
+        RowDefinitions="Auto,*">
+        <!-- HEADER -->
+        <Grid
+            RowDefinitions="Auto,Auto"
+            ColumnDefinitions="*,Auto"
+            Margin="{ OnIdiom
+                Phone={OnPlatform
+                    Android='0,0,0,20',
+                    Default='0,30'
+                },
+                Tablet='0,40'
+            }">
+            <!-- TITLE -->
+            <Label
+                Text="{ Binding QuizTitle }"
+                FontSize="{ StaticResource TitleFontSize }"
+                FontFamily="{ StaticResource AppSemiBoldFamily }"
+                VerticalOptions="End"
+            />
+            <!-- SUBTITLE -->
+            <Label
+                Grid.Row="1"
+                Text="{ grial:Translate LabeTrueOrFalse }"
+                TextColor="{ DynamicResource TextTertiaryColor }"
+                VerticalOptions="Start"
+            />
+            <!-- CLOSE ICON -->
+            <local:RoundedIconButton
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                Command="{ Binding CloseCommand }"
+                HorizontalOptions="End"
+                Style="{ StaticResource CloseIconButtonInverseStyle }"
+                VerticalOptions="Start"
+                Margin="{ OnIdiom
+                    Phone='-14,0',
+                    Tablet='0'
+                }"
+            />
+        </Grid>
+
+        <!-- CARDS -->
+        <grial:SwipeableLayout
+            x:Name="carousel"
+            Grid.Row="1"
+            Loop="False"
+            ItemsSource="{ Binding HipHopFacts }"
+            Animation="RotateDown"
+            Margin="0,0,0,30">
+
+            <grial:SwipeableLayout.EmptyViewTemplate>
+                <DataTemplate>
+                    <!-- EMPTY VIEW TEMPLATE -->
+                    <local:QuizEmptyItemTemplate ReviewResultsCommand="{ Binding BindingContext.ReviewResultsCommand, Source={x:Reference root} }" />
+                </DataTemplate>
+            </grial:SwipeableLayout.EmptyViewTemplate>
+
+            <grial:SwipeableLayout.ItemTemplate>
+                <DataTemplate>
+                    <!-- MOVIE CARD TEMPLATE -->
+                    <local:QuizDetailItemTemplate />
+                </DataTemplate>
+            </grial:SwipeableLayout.ItemTemplate>
+        </grial:SwipeableLayout>
+
+        <!-- GAME BUTTON - TRUE -->
+        <local:RoundedIcon
+            Grid.RowSpan="2"
+            TranslationX="100"
+            IconText="{ x:Static local:GrialIconsFont.CheckCircle }"
+            IconFontFamily="{ DynamicResource GrialIconsFill }"
+            IconColor="{ DynamicResource SuccessColor }"
+            IconBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            IconFontSize="42"
+            HeightRequest="74"
+            WidthRequest="74"
+            IsCircular="True"
+            VerticalOptions="Center"
+            HorizontalOptions="End">
+            <local:RoundedIcon.Behaviors>
+                <grial:AnimatedTranslationX
+                    Progress="{ Binding ScrollProgress, Source={x:Reference carousel} }"
+                    ProgressStart="0.01"
+                    ProgressEnd="0.50"
+                    Start="100"
+                    End="-50"
+                />
+
+                <grial:AnimatedOpacity
+                    Progress="{ Binding ScrollProgress, Source={x:Reference carousel} }"
+                    ProgressStart="{ OnPlatform
+                        Android=0.3,
+                        Default=0.45
+                    }"
+                    ProgressEnd="{ OnPlatform
+                        Android=0.8,
+                        Default=0.95
+                    }"
+                    Start="1"
+                    End="0"
+                />
+            </local:RoundedIcon.Behaviors>
+        </local:RoundedIcon>
+
+        <!-- GAME BUTTON - FALSE -->
+        <local:RoundedIcon
+            Grid.RowSpan="2"
+            Opacity="1"
+            TranslationX="-100"
+            IconText="{ x:Static local:GrialIconsFont.CloseCircle }"
+            IconFontFamily="{ DynamicResource GrialIconsFill }"
+            IconColor="{ DynamicResource ErrorColor }"
+            IconBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            IconFontSize="42"
+            HeightRequest="74"
+            WidthRequest="74"
+            IsCircular="True"
+            VerticalOptions="Center"
+            HorizontalOptions="Start">
+            <local:RoundedIcon.Behaviors>
+                <grial:AnimatedTranslationX
+                    Progress="{ Binding ScrollProgress, Source={x:Reference carousel} }"
+                    ProgressStart="-0.01"
+                    ProgressEnd="-0.50"
+                    Start="-100"
+                    End="50"
+                />
+
+                <grial:AnimatedOpacity
+                    Progress="{ Binding ScrollProgress, Source={x:Reference carousel} }"
+                    ProgressStart="{ OnPlatform
+                        Android=-0.3,
+                        Default=-0.45
+                    }"
+                    ProgressEnd="{ OnPlatform
+                        Android=-0.8,
+                        Default=-0.95
+                    }"
+                    Start="1"
+                    End="0"
+                />
+            </local:RoundedIcon.Behaviors>
+        </local:RoundedIcon>
+    </Grid>
+
+</ContentPage>

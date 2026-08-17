@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.ProductsGridPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    Title="{ grial:Translate Key=PageTitleProductsGrid }">
+    <Grid
+        RowSpacing="0"
+        Padding="0"
+        RowDefinitions="Auto,*">
+
+        <grial:ExtendedGrid
+            x:Name="banner"
+            Grid.Row="0"
+            RowSpacing="0"
+            Padding="0"
+            grial:Animate.Tapped="{ grial:AnimationStoryboard
+                Animation1={grial:AnimationFadeTo
+                    Easing=CubicIn,
+                    Opacity=0,
+                    Target={x:Reference banner},
+                    Duration=250
+                },
+                Animation2={grial:AnimationScaleTo
+                    Easing=CubicInOut,
+                    Scale=0,
+                    Target={x:Reference banner},
+                    Duration=250
+                }
+            }"
+            IsVisible="{ grial:IfEval
+                'A == 0',
+                A={Binding
+                    Opacity,
+                    Source={x:Reference banner}
+                },
+                Then=False,
+                Else=True
+            }"
+            RowDefinitions="6*,4*"
+            HeightRequest="{ OnIdiom
+                Phone=90,
+                Tablet=110
+            }"
+            BackgroundColor="{ DynamicResource PrimaryColor }"
+            TrimBottomHeight="40"
+            TrimBottomShape="RoundedCorners">
+            <Label
+                Grid.Row="0"
+                FontSize="{ OnIdiom
+                    Phone=26,
+                    Tablet=35
+                }"
+                Text="{ grial:Translate BannerTitle25DiscOff }"
+                TranslationY="2"
+                TextColor="{ DynamicResource OnSurfaceColor }"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                VerticalTextAlignment="Center"
+            />
+
+            <Label
+                Grid.Row="1"
+                FontSize="{ OnIdiom
+                    Phone=14,
+                    Tablet=20
+                }"
+                TranslationY="-5"
+                Text="{ grial:Translate BannerBodyEnjoyItNow }"
+                TextColor="{ DynamicResource OnSurfaceColor }"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                VerticalTextAlignment="Start"
+            />
+        </grial:ExtendedGrid>
+
+        <ScrollView Grid.Row="1">
+            <grial:GridView
+                Padding="{ DynamicResource AirSpacing }"
+                ColumnSpacing="20"
+                RowSpacing="20"
+                ColumnCount="{ grial:OnOrientationInt
+                    PortraitPhone=2,
+                    LandscapePhone=3,
+                    PortraitTablet=3,
+                    LandscapeTablet=4,
+                    PortraitDesktop=3,
+                    LandscapeDesktop=4
+                }"
+                VerticalOptions="Fill"
+                ItemsSource="{ Binding List }"
+                Style="{ StaticResource ResponsiveLandscapeMarginStyle }">
+                <grial:GridView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ProductGridItemTemplate />
+                    </DataTemplate>
+                </grial:GridView.ItemTemplate>
+            </grial:GridView>
+
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

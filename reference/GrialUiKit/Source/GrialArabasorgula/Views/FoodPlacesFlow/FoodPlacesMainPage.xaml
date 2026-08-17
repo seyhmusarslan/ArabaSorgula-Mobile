@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.FoodPlacesMainPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleFoodPlacesMain }">
+
+    <ContentPage.Resources>
+        <grial:BooleanToObjectConverter
+            x:Key="IsOpenTextConverter"
+            x:TypeArguments="x:String"
+            TrueValue="OPEN"
+            FalseValue="CLOSED"
+        />
+        <grial:BooleanToObjectConverter
+            x:Key="IsOpenColorConverter"
+            x:TypeArguments="Color"
+            TrueValue="{ StaticResource SuccessColor }"
+            FalseValue="{ StaticResource TextSecondaryColor }"
+        />
+        <grial:BooleanToObjectConverter
+            x:Key="IsOpenBackgroundColorConverter"
+            x:TypeArguments="Color"
+            TrueValue="#1A46C771"
+            FalseValue="#1A6F7A8F"
+        />
+    </ContentPage.Resources>
+
+
+    <CollectionView
+        VerticalScrollBarVisibility="Never"
+        Style="{ DynamicResource ResponsiveLandscapeMarginStyle }"
+        ItemsSource="{ Binding Places }"
+        SelectionMode="None">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="20,20,20,0">
+                    <!-- TODO : corneradius was 16 -->
+                    <grial:CardView
+                        Padding="12"
+                        ColumnDefinitions="100,*"
+                        HasShadow="False"
+                        ColumnSpacing="15">
+                        <grial:CardView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCardTapped" />
+                        </grial:CardView.GestureRecognizers>
+
+                        <!-- IMAGE -->
+                        <!-- TODO: corneradius was 12 -->
+                        <Image
+                            Source="{ Binding Image }"
+                            HeightRequest="100"
+                            WidthRequest="100"
+                            Aspect="AspectFill"
+                            grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }"
+                        />
+
+                        <!-- BODY -->
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            Spacing="0">
+
+                            <!-- HEADER -->
+                            <Grid>
+                                <!-- TITLE -->
+                                <Label
+                                    FontAttributes="Bold"
+                                    Text="{ Binding Name }"
+                                    VerticalOptions="Center"
+                                    FontSize="{ DynamicResource LargeFontSize }"
+                                />
+
+                                <Border
+                                    VerticalOptions="Start"
+                                    HorizontalOptions="End"
+                                    BackgroundColor="{ Binding IsOpen, Converter={StaticResource IsOpenBackgroundColorConverter} }"
+                                    Padding="8,3"
+                                    Margin="0,0,5,0">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="{ DynamicResource CornerRadius-x-sm }" />
+                                    </Border.StrokeShape>
+
+                                    <Label
+                                        Text="{ Binding IsOpen, Converter={StaticResource IsOpenTextConverter} }"
+                                        TextColor="{ Binding IsOpen, Converter={StaticResource IsOpenColorConverter} }"
+                                        FontSize="11"
+                                    />
+                                </Border>
+                            </Grid>
+
+                            <!-- DESCRIPTION -->
+                            <Label
+                                Text="{ Binding Description }"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                VerticalOptions="Start"
+                                FontSize="{ DynamicResource SmallFontSize }"
+                            />
+
+                            <!-- RATING -->
+                            <Grid
+                                Margin="0,10,0,0"
+                                ColumnDefinitions="Auto,*"
+                                ColumnSpacing="5"
+                                VerticalOptions="End">
+                                <!-- VALUE -->
+                                <Label
+                                    VerticalOptions="Center"
+                                    TextColor="{ DynamicResource RatingColor }"
+                                    Text="{ Binding Rating }"
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                                />
+
+                                <!-- STARS -->
+                                <grial:Rating
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Precision="0.5"
+                                    Spacing="4"
+                                    IconFontSize="18"
+                                    IconColor="{ DynamicResource RatingColor }"
+                                    UnselectedIconColor="{ DynamicResource DisabledSecondaryColor }"
+                                    UnselectedIconText="{ x:Static local:GrialIconsFont.StarFill }"
+                                    Value="{ Binding Rating }"
+                                />
+                            </Grid>
+
+                            <!-- INFORMATION -->
+                            <HorizontalStackLayout
+                                Margin="0,5,0,0"
+                                Spacing="10"
+                                HorizontalOptions="Start">
+                                <!-- TIME -->
+                                <Label
+                                    FontSize="{ DynamicResource SmallFontSize }"
+                                    TextColor="{ DynamicResource TextSecondaryColor }">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{ Binding OpeningTime }" />
+                                            <Span Text=" - " />
+                                            <Span Text="{ Binding ClosingTime }" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <!-- DISTANCE -->
+                                <Label
+                                    FontSize="{ DynamicResource SmallFontSize }"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End"
+                                    TextColor="{ DynamicResource TextSecondaryColor }">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="{ DynamicResource GrialIconsFill }"
+                                                Text="{ x:Static local:GrialIconsFont.MapPin }"
+                                                FontSize="13"
+                                            />
+                                            <Span Text=" 1.7 Km" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </grial:CardView>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

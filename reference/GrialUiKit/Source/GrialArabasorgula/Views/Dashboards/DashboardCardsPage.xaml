@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardCardsPage"
+    Title="{ grial:Translate PageTitleDashboardCards }"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="PageRoot">
+
+    <ScrollView>
+        <grial:GridView
+            Margin="0"
+            Padding="{ DynamicResource AirSpacing }"
+            ColumnSpacing="15"
+            RowSpacing="15"
+            ColumnCount="{ grial:OnOrientationInt
+                PortraitPhone=2,
+                LandscapePhone=3,
+                PortraitTablet=3,
+                LandscapeTablet=4,
+                PortraitDesktop=4,
+                LandscapeDesktop=4
+            }"
+            VerticalOptions="Fill"
+            ItemsSource="{ Binding Items }">
+            <grial:GridView.ItemTemplate>
+                <DataTemplate>
+                    <local:DashboardCardItemTemplate
+                        HeightRequest="260"
+                        Command="{ Binding BindingContext.TapCommand, Source={x:Reference PageRoot} }"
+                        CommandParameter="{ Binding . }"
+                    />
+                </DataTemplate>
+            </grial:GridView.ItemTemplate>
+        </grial:GridView>
+    </ScrollView>
+</ContentPage>

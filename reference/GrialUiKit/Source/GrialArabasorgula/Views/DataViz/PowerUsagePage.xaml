@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.PowerUsagePage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitlePowerUsage }">
+
+    <ContentPage.Resources>
+
+        <!-- Custom RadioButton Template -->
+        <ControlTemplate x:Key="RadioButtonTemplate">
+            <Border
+                x:Name="border"
+                Stroke="{ DynamicResource TextSecondaryColor }"
+                StrokeShape="RoundRectangle 6"
+                WidthRequest="35"
+                HeightRequest="28"
+                StrokeThickness="1"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Grid
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <!-- Content loads here -->
+                    <ContentPresenter />
+                </Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="border" Property="Border.BackgroundColor" Value="{ DynamicResource PrimaryVariantColor }" />
+                                    <Setter TargetName="border" Property="Border.Stroke" Value="{ DynamicResource PrimaryColor }" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="border" Property="Border.BackgroundColor" Value="Transparent" />
+                                    <Setter TargetName="border" Property="Border.Stroke" Value="{ DynamicResource TextSecondaryColor }" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </Border>
+        </ControlTemplate>
+
+        <!-- Style using ControlTemplate -->
+        <Style x:Key="ChartRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="ControlTemplate" Value="{ StaticResource RadioButtonTemplate }" />
+        </Style>
+
+    </ContentPage.Resources>
+
+    <ScrollView grial:Effects.IgnoreIOSSafeAreaOnScrollView="All">
+        <!-- Main Container -->
+        <Grid RowDefinitions="Auto,*">
+            <!-- Chart container -->
+            <grial:ExtendedGrid
+                Padding="{ grial:OnOrientationThickness
+                    Landscape='100,20,100,20',
+                    PortraitPhone='20',
+                    PortraitTablet='100,20,100,20'
+                }"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                RowDefinitions="Auto,Auto"
+                RowSpacing="26"
+                TrimBottomShape="RoundedCorners"
+                TrimBottomHeight="40">
+                <!-- Title And Chart Layout Buttons -->
+                <Grid
+                    ColumnDefinitions="*,Auto,Auto"
+                    ColumnSpacing="8">
+                    <Label
+                        FontSize="{ StaticResource LargeFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate LabelPowerUse }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                    />
+                    <!-- Horizontal Chart Button -->
+                    <RadioButton
+                        x:Name="radio1"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Style="{ DynamicResource ChartRadioButtonStyle }"
+                        IsChecked="True">
+                        <RadioButton.Content>
+                            <!-- Icon -->
+                            <Label
+                                Text="{ x:Static local:GrialIconsFont.BarChart }"
+                                FontFamily="{ StaticResource GrialIconsFill }"
+                                FontSize="14"
+                                TextColor="{ grial:If
+                                    Condition={Binding
+                                        IsChecked,
+                                        Source={x:Reference radio1}
+                                    },
+                                    Then={DynamicResource PrimaryColor},
+                                    Else={DynamicResource TextSecondaryColor}
+                                }"
+                                Rotation="90" />
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                    <!-- Vertical Chart Button -->
+                    <RadioButton
+                        x:Name="radio2"
+                        Grid.Column="2"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Style="{ DynamicResource ChartRadioButtonStyle }">
+                        <RadioButton.Content>
+                            <!-- Icon -->
+                            <Label
+                                Text="{ x:Static local:GrialIconsFont.BarChart }"
+                                FontFamily="{ StaticResource GrialIconsFill }"
+                                FontSize="14"
+                                TextColor="{ grial:If
+                                    Condition={Binding
+                                        IsChecked,
+                                        Source={x:Reference radio2}
+                                    },
+                                    Then={DynamicResource PrimaryColor},
+                                    Else={DynamicResource TextSecondaryColor}
+                                }" />
+                        </RadioButton.Content>
+                    </RadioButton>
+
+                </Grid>
+
+                <!-- HORIZONTAL BAR CHART -->
+                <grial:HorizontalBarChart
+                    Grid.Row="1"
+                    IsVisible="{ Binding IsChecked, Source={x:Reference radio1} }"
+                    Margin="-10,0,10,0"
+                    AxisFontColor="{ DynamicResource TextSecondaryColor }"
+                    AxisLinesColor="#E0E3EC"
+                    AxisLinesStrokeSize="1"
+                    BackgroundColor="Transparent"
+                    DisplayLabels="True"
+                    DisplayReferenceAxis="True"
+                    DisplayReferenceGridLines="True"
+                    HasSelection="True"
+                    HeightRequest="250"
+                    LabelFontColor="{ DynamicResource TextColor }"
+                    LabelFontSize="9"
+                    LabelHorizontalAlignment="Left"
+                    ValueLabelFontColor="{ DynamicResource TextSecondaryColor }"
+                    MaxValue="{ Binding MaxValue }">
+                    <grial:BarSeries
+                        BarWidth="0.8"
+                        SelectedIndex="0"
+                        ItemsSource="{ Binding ElectricitySeries }"
+                        LabelPath="Label"
+                        ValuePath="Value"
+                        Style="{ DynamicResource PowerUsagePage_BarSeriesStyle }"
+                    />
+
+                </grial:HorizontalBarChart>
+
+                <grial:BarChart
+                    Grid.Row="1"
+                    IsVisible="{ Binding IsChecked, Source={x:Reference radio2} }"
+                    Margin="-10,0,10,0"
+                    AxisFontColor="{ DynamicResource TextSecondaryColor }"
+                    AxisLinesColor="#E0E3EC"
+                    AxisLinesStrokeSize="1"
+                    BackgroundColor="Transparent"
+                    DisplayLabels="True"
+                    DisplayReferenceAxis="True"
+                    DisplayReferenceGridLines="True"
+                    HasSelection="True"
+                    HeightRequest="250"
+                    LabelFontColor="{ DynamicResource TextColor }"
+                    LabelFontSize="9"
+                    LabelHorizontalAlignment="Center"
+                    ValueLabelFontColor="{ DynamicResource TextSecondaryColor }"
+                    MaxValue="{ Binding MaxValue }">
+
+                    <grial:BarSeries
+                        BarWidth="0.6"
+                        SelectedIndex="0"
+                        ItemsSource="{ Binding ElectricitySeries }"
+                        LabelPath="Label"
+                        ValuePath="Value"
+                        Style="{ DynamicResource PowerUsagePage_BarSeriesStyle }"
+                    />
+
+                </grial:BarChart>
+            </grial:ExtendedGrid>
+
+            <Grid
+                Grid.Row="1"
+                Padding="{ grial:OnOrientationThickness
+                    Landscape='100,20,100,20',
+                    PortraitPhone='20',
+                    PortraitTablet='100,20,100,20'
+                }"
+                RowDefinitions="135,Auto,*"
+                RowSpacing="24">
+
+                <!-- DATA CARDS -->
+                <local:PowerUsageCardItemTemplate />
+
+                <!-- Section Title -->
+                <Label
+                    Grid.Row="1"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    HorizontalTextAlignment="Start"
+                    Text="{ grial:Translate LabelDeviceUse }"
+                    TextColor="{ DynamicResource TextColor }"
+                    VerticalTextAlignment="Center"
+                />
+
+                <!-- Usage Details List -->
+                <StackLayout
+                    Grid.Row="2"
+                    HeightRequest="500"
+                    BindableLayout.ItemsSource="{ Binding DeviceUsage }">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <local:PowerUsageListItemTemplate />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.CalendarSchedulePage"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    Title="{ grial:Translate PageTitleCalendarSchedule }">
+
+    <grial:Drawer
+        CaptureInnerItemScrollBeforePositionIndex="1"
+        grial:Effects.ApplyIOSSafeAreaAsPadding="Top,Bottom">
+
+        <!-- DRAWER BEHIND CONTENT -->
+        <!-- CALENDAR -->
+        <grial:Calendar
+            Padding="{ DynamicResource AirSpacing }"
+            Style="{ DynamicResource OnIdiomResponsiveMarginStyle }"
+            SelectedDate="{ Binding SelectedDate, Mode=TwoWay }"
+            ControlTemplate="{ DynamicResource CalendarTemplate }"
+            SelectionMode="Single"
+            VerticalOptions="Start"
+        />
+
+        <!-- DRAWER CONTROL TEMPLATE -->
+        <grial:Drawer.DrawerControlTemplate>
+            <ControlTemplate>
+                <Grid
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    grial:Effects.CornerRadius="{ DynamicResource BaseTopCornerRadius }"
+                    Padding="{ DynamicResource AirSpacing }"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                    <ContentPresenter
+                        Grid.Row="1"
+                        Style="{ DynamicResource OnIdiomResponsiveMarginStyle }"
+                    />
+                </Grid>
+            </ControlTemplate>
+        </grial:Drawer.DrawerControlTemplate>
+
+        <grial:Drawer.DrawerItems>
+            <!-- DRAWER CONTENT -->
+            <grial:DrawerItem StopPositions="{ OnPlatform iOS='320, 0.8*', Android='280, 0.8*' }">
+                <local:EventListItemTemplate />
+            </grial:DrawerItem>
+        </grial:Drawer.DrawerItems>
+    </grial:Drawer>
+</ContentPage>

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.AndroidTabResources">
+    <ControlTemplate x:Key="TabItemTemplate">
+        <Grid>
+            <!-- DISABLED TAB -->
+            <Grid.Triggers>
+                <DataTrigger
+                    TargetType="Grid"
+                    Binding="{ TemplateBinding IsEnabled }"
+                    Value="False">
+                    <Setter Property="Opacity" Value="0.4" />
+                </DataTrigger>
+            </Grid.Triggers>
+
+            <Grid
+                VerticalOptions="Center"
+                Margin="0,15"
+                RowSpacing="0"
+                RowDefinitions="Auto,Auto">
+
+                <!-- IMAGE ICON -->
+                <Image
+                    Grid.Row="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    HeightRequest="24"
+                    WidthRequest="24"
+                    IsVisible="{ TemplateBinding
+                        CurrentIconImage,
+                        Converter={StaticResource IsNotNullConverter}
+                    }"
+                    Source="{ TemplateBinding CurrentIconImage }">
+                    <Image.Triggers>
+                        <DataTrigger
+                            TargetType="Image"
+                            Binding="{ TemplateBinding IsSelected }"
+                            Value="False">
+                            <Setter Property="Opacity" Value="0.7" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+
+                <!-- FONT ICON -->
+                <Label
+                    Grid.Row="0"
+                    HorizontalOptions="Center"
+                    IsVisible="{ TemplateBinding
+                        CurrentIconText,
+                        Converter={StaticResource IsNotEmptyStringConverter}
+                    }"
+                    Text="{ TemplateBinding CurrentIconText }"
+                    TextColor="{ TemplateBinding CurrentIconTextColor }"
+                    FontSize="{ TemplateBinding IconTextFontSize }"
+                    FontFamily="{ TemplateBinding IconTextFontFamily }"
+                />
+
+                <!-- TEXT -->
+                <Label
+                    Grid.Row="1"
+                    HorizontalOptions="Center"
+                    FontSize="{ TemplateBinding FontSize }"
+                    IsVisible="{ TemplateBinding
+                        Text,
+                        Converter={StaticResource IsNotEmptyStringConverter}
+                    }"
+                    Text="{ TemplateBinding Text }"
+                    TextColor="{ TemplateBinding CurrentTextColor }"
+                />
+
+            </Grid>
+
+            <!-- SELECTED INDICATOR -->
+            <BoxView
+                HeightRequest="2"
+                Color="{ DynamicResource AndroidSelectedBackgroundColor }"
+                IsVisible="{ TemplateBinding IsSelected }"
+                VerticalOptions="{ grial:IfEval
+                    Expression='A == TabStripPlacement.Bottom',
+                    A={Binding
+                        TabStripPlacement,
+                        Source={RelativeSource AncestorType={x:Type grial:TabControl}}
+                    },
+                    Then=Start,
+                    Else=End
+                }"
+                Margin="40,0">
+                <BoxView.Triggers>
+                    <DataTrigger
+                        TargetType="BoxView"
+                        Binding="{ Binding TabStripPlacement, Source={RelativeSource AncestorType={x:Type grial:TabControl}} }"
+                        Value="{ x:Static grial:TabStripPlacement.Bottom }">
+                        <Setter Property="VerticalOptions" Value="Start" />
+                    </DataTrigger>
+                    <DataTrigger
+                        TargetType="BoxView"
+                        Binding="{ Binding TabStripPlacement, Source={RelativeSource AncestorType={x:Type grial:TabControl}} }"
+                        Value="{ x:Static grial:TabStripPlacement.Top }">
+                        <Setter Property="VerticalOptions" Value="End" />
+                    </DataTrigger>
+                </BoxView.Triggers>
+            </BoxView>
+
+            <!-- BADGE -->
+            <local:Badge
+                Scale=".6"
+                Text="{ TemplateBinding BadgeText }"
+                BackgroundColor="{ TemplateBinding BadgeBackgroundColor }"
+                TextColor="{ TemplateBinding BadgeTextColor }"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                TranslationX="12"
+                TranslationY="-1"
+            />
+
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="TabItemStyle" TargetType="grial:TabItem">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{ DynamicResource AndroidTabItemDefaultTextColor }" />
+        <Setter Property="TextColorSelected" Value="{ DynamicResource AndroidTabItemSelectedTextColor }" />
+        <Setter Property="IconTextFontFamily" Value="{ StaticResource IconsFontFamily }" />
+        <Setter Property="IconTextFontSize" Value="24" />
+        <Setter Property="IconTextColor" Value="{ DynamicResource AndroidTabItemDefaultTextColor }" />
+        <Setter Property="IconTextColorSelected" Value="{ DynamicResource AndroidTabItemSelectedTextColor }" />
+        <Setter Property="BadgeTextColor" Value="White" />
+        <Setter Property="BadgeBackgroundColor" Value="Red" />
+    </Style>
+
+    <Style x:Key="AndroidTabStyle" TargetType="grial:TabControl">
+        <Setter Property="TabItemStyle" Value="{ StaticResource TabItemStyle }" />
+        <Setter Property="TabItemControlTemplate" Value="{ StaticResource TabItemTemplate }" />
+        <Setter Property="TabContentBackgroundColor" Value="#F5F5F5" />
+        <Setter Property="TabStripBackgroundColor" Value="{ DynamicResource BackgroundSecondaryColor }" />
+        <Setter Property="AnimateTransition" Value="True" />
+        <Style.Triggers>
+            <Trigger TargetType="grial:TabControl" Property="TabStripPlacement" Value="Top">
+                <Setter Property="TabStripHeight" Value="80" />
+                <Setter Property="TabStripStyle">
+                    <Setter.Value>
+                        <Style TargetType="Grid">
+                            <Setter Property="grial:TrimmingEffects.BottomShape" Value="RoundedCorners" />
+                            <Setter Property="grial:TrimmingEffects.BottomHeight" Value="40" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger TargetType="grial:TabControl" Property="TabStripPlacement" Value="Bottom">
+                <Setter Property="TabStripStyle">
+                    <Setter.Value>
+                        <Style TargetType="Grid">
+                            <Setter Property="grial:TrimmingEffects.TopShape" Value="InvertedRoundedCorners" />
+                            <Setter Property="grial:TrimmingEffects.TopHeight" Value="40" />
+                            <Setter Property="Margin" Value="0,-40,0,0" />
+                            <Setter Property="Padding" Value="0,40,0,0" />
+                            <Setter Property="grial:Effects.ApplyIOSSafeAreaAsPadding" Value="Bottom" />
+                            <Setter Property="grial:Effects.IOSSafeAreaBottomSize" Value="20" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

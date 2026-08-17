@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    x:Class="arabasorgula.ExplorerItemsActionsPopupTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    BackgroundColor="{ DynamicResource OverlayColor }"
+    CloseWhenBackgroundIsClicked="True"
+    AppearingAnimation="{ uxd:MoveInPopupAnimation
+        MoveDirection=Bottom,
+        Duration=300,
+        Easing=CubicOut
+    }"
+    DisappearingAnimation="{ uxd:MoveOutPopupAnimation
+        MoveDirection=Bottom,
+        Duration=300,
+        Easing=CubicOut
+    }"
+    x:Name="root">
+    <uxd:PopupPage.Resources>
+        <grial:SwitchConverter
+            x:Key="DeleteOptionColorConverter"
+            Case1="Delete"
+            Result1="{ StaticResource DeleteButtonColor }"
+            DefaultResult="{ StaticResource TextSecondaryColor }"
+        />
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <Grid
+        RowDefinitions="*"
+        RowSpacing="0">
+        <!-- FIX CLOSE POPUP -->
+        <BoxView
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            Color="Transparent">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTapped" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <Grid
+            HeightRequest="400"
+            VerticalOptions="{ StaticResource CustomActionSheetPositioning }"
+            RowDefinitions="54,*"
+            grial:Effects.CornerRadius="{ DynamicResource BaseTopCornerRadius }"
+            Padding="{ DynamicResource AirSpacing }"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            RowSpacing="20">
+            <!-- TITLE -->
+            <Grid
+                Grid.Row="0"
+                Padding="20,0">
+
+                <!-- TITLE -->
+                <Label
+                    Text="{ Binding Title }"
+                    VerticalTextAlignment="Center"
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                />
+            </Grid>
+
+            <!-- CONTENT -->
+            <grial:WrapPanel
+                Grid.Row="1"
+                RowSpacing="30"
+                ColumnSpacing="20"
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                BackgroundColor="Transparent"
+                ItemsSource="{ Binding Actions }">
+                <grial:WrapPanel.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            HeightRequest="120"
+                            WidthRequest="85"
+                            RowSpacing="10"
+                            RowDefinitions="Auto,*"
+                            Padding="15,0">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{ Binding BindingContext.ActionSelectedCommand, Source={x:Reference root} }"
+                                    CommandParameter="{ Binding . }"
+                                />
+                            </Grid.GestureRecognizers>
+
+                            <!-- ICON -->
+                            <local:RoundedIcon
+                                CornerRadius="{ DynamicResource BaseCornerRadius }"
+                                HeightRequest="64"
+                                WidthRequest="72"
+                                IconText="{ Binding Icon }"
+                                IconFontSize="24"
+                                IconColor="{ Binding Label, Converter={StaticResource DeleteOptionColorConverter} }"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                BackgroundColor="{ DynamicResource BackgroundColor }"
+                            />
+
+                            <!-- LABEL -->
+                            <Label
+                                Grid.Row="1"
+                                Text="{ Binding Label }"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="Center"
+                                TextColor="#8B95AE"
+                            />
+                        </Grid>
+                    </DataTemplate>
+                </grial:WrapPanel.ItemTemplate>
+            </grial:WrapPanel>
+        </Grid>
+    </Grid>
+</uxd:PopupPage>

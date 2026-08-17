@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:WalkthroughBaseItemTemplate
+    x:Class="arabasorgula.WalkthroughImageItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Name="Root">
+
+    <local:WalkthroughBaseItemTemplate.Resources>
+        <ResourceDictionary>
+            <!-- ANIM IN -->
+            <grial:AnimationStoryboard
+                x:Key="AnimIn"
+                Delay="200">
+                <grial:AnimationFadeTo
+                    Target="{ x:Reference image }"
+                    Duration="200"
+                    Opacity="1"
+                />
+
+                <grial:AnimationPopIn
+                    Target="{ x:Reference headerLabel }"
+                    Duration="200"
+                />
+
+                <grial:AnimationRotateIn
+                    Target="{ x:Reference headerLabel }"
+                    Duration="200"
+                />
+
+
+                <grial:AnimationPopIn
+                    Target="{ x:Reference descriptionLabel }"
+                    Delay="200"
+                    Duration="200"
+                />
+
+                <grial:AnimationPopIn
+                    Target="{ x:Reference actionButton }"
+                    Duration="200"
+                />
+
+                <grial:AnimationPopIn
+                    Target="{ x:Reference skipButton }"
+                    Duration="200"
+                />
+            </grial:AnimationStoryboard>
+
+            <!-- ANIM RESET -->
+            <grial:AnimationStoryboard x:Key="AnimReset">
+                <grial:AnimationReset
+                    Opacity="0"
+                    Target="{ x:Reference image }"
+                />
+
+                <grial:AnimationReset
+                    Opacity="0"
+                    Target="{ x:Reference headerLabel }"
+                />
+
+                <grial:AnimationReset
+                    Opacity="0"
+                    Target="{ x:Reference descriptionLabel }"
+                />
+
+                <grial:AnimationReset
+                    Opacity="0"
+                    Target="{ x:Reference actionButton }"
+                />
+
+                <grial:AnimationReset
+                    Opacity="0"
+                    Target="{ x:Reference skipButton }"
+                />
+            </grial:AnimationStoryboard>
+        </ResourceDictionary>
+    </local:WalkthroughBaseItemTemplate.Resources>
+
+    <local:WalkthroughBaseItemTemplate.Triggers>
+        <EventTrigger Event="ItemInitialized">
+            <grial:StartAnimation Animation="{ StaticResource AnimReset }" />
+        </EventTrigger>
+
+        <EventTrigger Event="ItemDisappearing">
+            <grial:StartAnimation Animation="{ StaticResource AnimReset }" />
+        </EventTrigger>
+
+        <EventTrigger Event="ItemAppearing">
+            <grial:StartAnimation Animation="{ StaticResource AnimIn }" />
+        </EventTrigger>
+    </local:WalkthroughBaseItemTemplate.Triggers>
+
+    <local:WalkthroughBaseItemTemplate.Content>
+        <Grid
+            Margin="{ StaticResource CarouselViewItemFix }"
+            RowSpacing="0"
+            RowDefinitions="2*,*,Auto">
+
+            <!-- ARTICLE IMAGE -->
+            <Image
+                x:Name="image"
+                Grid.Row="0"
+                Source="{ Binding Source={x:Reference Root}, Path=StepBackgroundImage }"
+                Aspect="AspectFill"
+                HeightRequest="{ grial:OnOrientationSizeRequest LandscapePhone=220 }"
+            />
+
+            <grial:ExtendedStackLayout
+                Grid.Row="1"
+                Padding="{ grial:OnOrientationThickness
+                    Portrait='40,20,40,20',
+                    Landscape='0,20,0,40'
+                }"
+                VerticalOptions="Start"
+                Spacing="10"
+                Margin="0,-40,0,0"
+                TrimTopShape="InvertedRoundedCorners"
+                TrimTopHeight="40"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+                <!-- HEADER -->
+                <Label
+                    x:Name="headerLabel"
+                    HorizontalTextAlignment="Start"
+                    BackgroundColor="Transparent"
+                    Text="{ Binding Source={x:Reference Root}, Path=Header }"
+                    FontSize="34"
+                    FontAttributes="Bold"
+                    TextColor="{ DynamicResource TextColor }"
+                />
+
+                <!-- TEXT -->
+                <Label
+                    x:Name="descriptionLabel"
+                    HorizontalOptions="Start"
+                    BackgroundColor="Transparent"
+                    Opacity="0.7"
+                    Text="{ Binding Source={x:Reference Root}, Path=Text }"
+                    FontSize="16"
+                    TextColor="{ DynamicResource TextColor }"
+                />
+
+            </grial:ExtendedStackLayout>
+
+            <!-- BUTTON -->
+            <Grid
+                Grid.Row="2"
+                VerticalOptions="End"
+                ColumnDefinitions="Auto,*"
+                ColumnSpacing="0"
+                HorizontalOptions="Fill"
+                Padding="{ grial:OnOrientationThickness
+                    Portrait='40,0,40,20',
+                    Landscape='0,0,0,20'
+                }"
+                Style="{ StaticResource ResponsiveLandscapeMarginStyle }">
+                <!-- SKIP BUTTON -->
+                <Button
+                    x:Name="skipButton"
+                    Margin="0,0,15,0"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    BackgroundColor="{ DynamicResource WalkthroughSkipButtonColor }"
+                    VerticalOptions="End"
+                    Command="{ Binding CloseCommand, Source={x:Reference Root} }"
+                    Text="{ grial:Translate StringSkip }"
+                    WidthRequest="{ OnIdiom
+                        Phone=80,
+                        Tablet=180
+                    }"
+                    IsVisible="{ Binding IsLastPosition, Source={x:Reference Root}, Converter={StaticResource NegateBooleanConverter} }"
+                />
+
+                <Button
+                    x:Name="actionButton"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="1"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    VerticalOptions="End"
+                    Command="{ Binding ActionButtonCommand, Source={x:Reference Root} }"
+                    Text="{ Binding Source={x:Reference Root}, Path=ButtonText }"
+                    WidthRequest="{ grial:OnOrientationSizeRequest
+                        LandscapePhone=200,
+                        LandscapeTablet=400
+                    }"
+                    HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                        PortraitPhone=Fill,
+                        LandscapePhone=End,
+                        PortraitTablet=Fill,
+                        LandscapeTablet=End
+                    }"
+                />
+            </Grid>
+
+        </Grid>
+    </local:WalkthroughBaseItemTemplate.Content>
+</local:WalkthroughBaseItemTemplate>

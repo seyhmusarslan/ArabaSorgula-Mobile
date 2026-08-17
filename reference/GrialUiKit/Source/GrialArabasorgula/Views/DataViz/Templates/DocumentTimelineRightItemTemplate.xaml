@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.DocumentTimelineRightItemTemplate">
+
+    <Grid
+        ColumnSpacing="0"
+        RowSpacing="0"
+        VerticalOptions="Start"
+        ColumnDefinitions="*,Auto">
+
+        <Grid
+            Grid.Column="0"
+            ColumnSpacing="0"
+            RowSpacing="0"
+            VerticalOptions="Start"
+            Margin="0,20,40,0"
+            RowDefinitions="*,*">
+
+            <!-- AUTHOR -->
+            <Label
+                Grid.Row="0"
+                TextColor="{ DynamicResource PrimaryColor }"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                FontSize="12"
+                Text="{ Binding Author, StringFormat='By {0:F0}' }"
+            />
+
+            <!-- DATE -->
+            <Label
+                Grid.Row="1"
+                VerticalOptions="Start"
+                HorizontalOptions="End"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                FontSize="12"
+                Text="{ Binding When }"
+            />
+        </Grid>
+
+        <!-- TIMELINE ACTION -->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="1"
+            Padding="10"
+            ColumnSpacing="0"
+            VerticalOptions="Center"
+            HorizontalOptions="Start"
+            Margin="{ OnIdiom
+                Phone='6,10,10,10',
+                Tablet='6,10,100,10'
+            }"
+            ColumnDefinitions="26,130">
+
+            <BoxView
+                Grid.Column="1"
+                Style="{ StaticResource DocumentTimelineBubbleStyle }"
+                Color="{ DynamicResource BackgroundSecondaryColor }"
+            />
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                Text="{ x:Static local:GrialIconsFont.ShapeArrowLeft }"
+                TranslationX="11"
+                TextColor="{ DynamicResource BackgroundSecondaryColor }"
+                Style="{ StaticResource FontIconFill }"
+                FontSize="26"
+            />
+
+            <Label
+                Grid.Column="1"
+                Margin="10"
+                TextColor="{ DynamicResource TextColor }"
+                FontSize="{ StaticResource BaseFontSize }"
+                Text="{ Binding Title }"
+                LineBreakMode="WordWrap"
+            />
+        </Grid>
+
+        <!-- CONNECTION LINE -->
+        <BoxView
+            Grid.ColumnSpan="2"
+            WidthRequest="3"
+            VerticalOptions="Fill"
+            HorizontalOptions="Center"
+            Color="{ DynamicResource BackgroundSecondaryColor }"
+        />
+
+        <!-- ICON -->
+        <local:RoundedIcon
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            Margin="0,16,0,0"
+            HeightRequest="40"
+            WidthRequest="40"
+            IsIconBackgroundCircular="True"
+            IconFontSize="20"
+            IconText="{ Binding Icon }"
+            IconBackgroundColor="{ grial:Colorize
+                Key='DocumentTimeline',
+                Value={Binding Icon}
+            }"
+            IconColor="{ DynamicResource OnSurfaceColor }"
+            IconPadding="3"
+            IsCircular="True"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        />
+
+    </Grid>
+
+</ContentView>

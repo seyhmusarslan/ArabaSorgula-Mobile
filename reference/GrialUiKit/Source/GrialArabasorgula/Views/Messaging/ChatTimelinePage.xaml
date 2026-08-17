@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.ChatTimelinePage"
+    Title="{ grial:Translate PageTitleChatTimeline }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <grial:BoolMemberTemplateSelector
+                x:Key="Selector"
+                MemberName="IsInbound">
+
+                <grial:BoolMemberTemplateSelector.TrueDataTemplate>
+                    <DataTemplate>
+                        <local:ChatTimelineOutgoingItemTemplate />
+                    </DataTemplate>
+                </grial:BoolMemberTemplateSelector.TrueDataTemplate>
+
+                <grial:BoolMemberTemplateSelector.FalseDataTemplate>
+                    <DataTemplate>
+                        <local:ChatTimelineIncomingItemTemplate />
+                    </DataTemplate>
+                </grial:BoolMemberTemplateSelector.FalseDataTemplate>
+
+            </grial:BoolMemberTemplateSelector>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <CollectionView
+            ItemsSource="{ Binding Messages }"
+            ItemTemplate="{ StaticResource Selector }"
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+        />
+
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SocialCardPage">
+    <!-- CONTENT -->
+    <ScrollView>
+        <Grid
+            RowSpacing="0"
+            Padding="30,30,30,0"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            RowDefinitions="Auto,160,Auto">
+
+            <!-- HEADER -->
+            <VerticalStackLayout
+                Padding="0,0,0,30"
+                Spacing="15"
+                VerticalOptions="End"
+                HorizontalOptions="Center">
+                <!-- AVATAR -->
+                <local:AvatarWithStatus
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    Source="{ Binding Profile.Avatar }"
+                    StatusIndicatorText="10+"
+                    Style="{ StaticResource AvatarRoundedWithBadge }"
+                />
+
+                <!-- Name -->
+                <Label
+                    Text="{ Binding Profile.Name }"
+                    FontSize="{ StaticResource TitleFontSize }"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                />
+
+                <!-- Description -->
+                <local:IconText
+                    HeightRequest="20"
+                    HorizontalOptions="Center"
+                    Text="{ Binding Profile.Description }"
+                    Icon="{ x:Static local:GrialIconsFont.MapPin }"
+                    IconColor="{ DynamicResource PrimaryColor }"
+                    TextColor="{ DynamicResource PrimaryColor }"
+                />
+
+                <!-- Social -->
+                <Grid ColumnDefinitions="*,*,*">
+
+                    <!-- Column 1 -->
+                    <VerticalStackLayout
+                        Grid.Column="0"
+                        Spacing="0"
+                        HorizontalOptions="Center">
+                        <Label
+                            Text="1629"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            HorizontalTextAlignment="Center"
+                        />
+
+                        <Label
+                            Text="{ grial:Translate StringPhotos }"
+                            FontSize="12"
+                            HorizontalTextAlignment="Center"
+                        />
+                    </VerticalStackLayout>
+
+                    <!-- Column 2 -->
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="0"
+                        HorizontalOptions="Center">
+                        <Label
+                            Text="235"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            HorizontalTextAlignment="Center"
+                        />
+                        <Label
+                            Text="{ grial:Translate StringFollowers }"
+                            FontSize="12"
+                            HorizontalTextAlignment="Center"
+                        />
+                    </VerticalStackLayout>
+
+                    <!-- Column 3 -->
+                    <VerticalStackLayout
+                        Grid.Column="2"
+                        Spacing="0"
+                        HorizontalOptions="Center">
+                        <Label
+                            Text="2963"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            HorizontalTextAlignment="Center"
+                        />
+                        <Label
+                            Text="{ grial:Translate StringFollowing }"
+                            FontSize="12"
+                            HorizontalTextAlignment="Center"
+                        />
+                    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- SEPARATOR -->
+            <BoxView
+                Margin="{ DynamicResource RemoveParentAirSpacing }"
+                VerticalOptions="End"
+                Style="{ StaticResource Horizontal1ptLineStyle }"
+            />
+
+            <!-- CONTACTS -->
+            <grial:Repeater
+                Grid.Row="1"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Margin="{ DynamicResource RemoveParentAirSpacing }"
+                ScrollPadding="{ DynamicResource AirSpacing }"
+                Spacing="25"
+                ItemsSource="{ Binding Related.Friends }"
+                Orientation="Horizontal"
+                HeightRequest="160"
+                VerticalOptions="Center"
+                ScrollBarVisibility="Never">
+                <grial:Repeater.ItemTemplate>
+                    <DataTemplate>
+                        <local:VerticalFriendTemplate
+                            Image="{ Binding Avatar }"
+                            Text="{ Binding Name }"
+                        />
+                    </DataTemplate>
+                </grial:Repeater.ItemTemplate>
+            </grial:Repeater>
+
+            <!-- GALLERY IMAGE -->
+            <grial:ExtendedGrid
+                BackgroundColor="{ DynamicResource BackgroundColor }"
+                Margin="-30,-40,-30,0"
+                Grid.Row="2"
+                RowDefinitions="500"
+                TrimTopShape="InvertedRoundedCorners"
+                TrimTopHeight="40">
+                <!-- IMAGE GALLERY GRID -->
+                <grial:GridView
+                    Padding="10"
+                    ColumnSpacing="10"
+                    RowSpacing="10"
+                    ColumnCount="3"
+                    RowCount="3"
+                    ItemsSource="{ Binding Related.Images }">
+                    <grial:GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{ Binding . }" />
+                        </DataTemplate>
+                    </grial:GridView.ItemTemplate>
+                </grial:GridView>
+            </grial:ExtendedGrid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

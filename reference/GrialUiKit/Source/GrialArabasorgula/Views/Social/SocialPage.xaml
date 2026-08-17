@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.SocialPage"
+    Title="{ grial:Translate PageTitleSocial }">
+    <ScrollView>
+        <!-- GRID WRAPPER -->
+        <Grid
+            MinimumWidthRequest="300"
+            RowSpacing="0"
+            RowDefinitions="Auto,Auto">
+
+            <!-- SOCIAL HEADER -->
+            <Grid
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Grid.Row="0"
+                HeightRequest="{ OnIdiom
+                    Phone=360,
+                    Tablet=460
+                }"
+                Padding="{ DynamicResource AirSpacingNoTop }">
+
+                <VerticalStackLayout
+                    Grid.Row="0"
+                    Spacing="20"
+                    VerticalOptions="Center"
+                    Padding="20"
+                    TranslationY="-20">
+
+                    <Grid
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        TranslationY="25">
+                        <!-- AVATAR -->
+                        <local:AvatarWithStatus
+                            Source="{ Binding Profile.Avatar }"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            StatusIndicatorText="10+"
+                            Style="{ StaticResource AvatarRoundedWithBadge }"
+                            grial:Effects.DropShadow="Light">
+                            <View.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAvatarTapped" />
+                            </View.GestureRecognizers>
+                        </local:AvatarWithStatus>
+                    </Grid>
+
+                    <!-- USER NAME AND DESCRIPTION -->
+                    <VerticalStackLayout Padding="20">
+                        <Label
+                            Text="{ Binding Profile.Name }"
+                            TextColor="{ DynamicResource TextColor }"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            FontSize="{ OnIdiom Default={StaticResource TitleFontSize} }"
+                            FontAttributes="Bold"
+                        />
+
+                        <Label
+                            TextColor="{ DynamicResource TextColor }"
+                            HorizontalTextAlignment="Center"
+                            Text="{ Binding Profile.Description }"
+                            FontSize="{ OnIdiom
+                                Default={StaticResource BaseFontSize},
+                                Tablet={StaticResource XLargeFontSize}
+                            }"
+                        />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+
+                <!-- TOOLBAR -->
+                <Grid
+                    VerticalOptions="End"
+                    ColumnDefinitions="*,*,*,*"
+                    ColumnSpacing="0"
+                    Padding="{ DynamicResource AirSpacingNoBorder }"
+                    HeightRequest="-1"
+                    BackgroundColor="Transparent">
+                    <!-- HEART VALUE -->
+                    <local:IconText
+                        Icon="{ x:Static local:GrialIconsFont.Heart }"
+                        Text="1629"
+                        IconColor="{ DynamicResource FavoriteColor }"
+                        Style="{ StaticResource VerticalCircleIconTextStyle }"
+                    />
+
+                    <!-- MESSAGE VALUE -->
+                    <local:IconText
+                        Grid.Column="1"
+                        Icon="{ x:Static local:GrialIconsFont.MessageSquare }"
+                        Text="235"
+                        IconColor="{ DynamicResource PrimaryColor }"
+                        Style="{ StaticResource VerticalCircleIconTextStyle }"
+                    />
+
+                    <!-- USER VALUE -->
+                    <local:IconText
+                        Grid.Column="2"
+                        Icon="{ x:Static local:GrialIconsFont.User }"
+                        Text="1209"
+                        IconColor="{ DynamicResource SuccessColor }"
+                        Style="{ StaticResource VerticalCircleIconTextStyle }"
+                    />
+
+                    <!-- STAR VALUE -->
+                    <local:IconText
+                        Grid.Column="3"
+                        Icon="{ x:Static local:GrialIconsFont.Star }"
+                        Text="427"
+                        IconColor="{ DynamicResource RatingColor }"
+                        Style="{ StaticResource VerticalCircleIconTextStyle }"
+                    />
+                </Grid>
+            </Grid>
+
+            <grial:ExtendedGrid
+                Grid.Row="1"
+                BackgroundColor="{ DynamicResource BackgroundColor }"
+                RowDefinitions="Auto"
+                Margin="0,-40,0,0"
+                TrimTopShape="InvertedRoundedCorners"
+                TrimTopHeight="40">
+
+                <!-- SOCIAL HEADER -->
+                <VerticalStackLayout Padding="30,20,30,0">
+
+                    <!-- PHOTO HEADER -->
+                    <local:EmojiText
+                        HorizontalOptions="Start"
+                        Text="{ grial:Translate StringPhotos }"
+                        Icon="{ x:Static local:Emojis.camera_with_flash }"
+                        Style="{ StaticResource SocialHeaderEmojiTextStyle }"
+                    />
+
+                    <!-- SOCIAL IMAGE GALLERY GRID -->
+                    <Grid
+                        Padding="10"
+                        RowDefinitions="400">
+                        <grial:GridView
+                            ColumnSpacing="10"
+                            RowSpacing="10"
+                            ColumnCount="3"
+                            RowCount="3"
+                            ItemsSource="{ Binding Related.Images }">
+                            <grial:GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{ Binding . }" />
+                                </DataTemplate>
+                            </grial:GridView.ItemTemplate>
+                        </grial:GridView>
+                    </Grid>
+
+                    <!-- FRIENDS HEADER -->
+                    <local:EmojiText
+                        Margin="5,20,0,0"
+                        HorizontalOptions="Start"
+                        Text="{ grial:Translate StringFriends }"
+                        Icon="{ x:Static local:Emojis.busts_in_silhouette }"
+                        Style="{ StaticResource SocialHeaderEmojiTextStyle }"
+                    />
+
+                    <!-- FRIENDS GRID -->
+                    <grial:GridView
+                        Margin="0,10,0,40"
+                        ColumnSpacing="10"
+                        RowSpacing="10"
+                        VerticalOptions="Fill"
+                        ColumnCount="3"
+                        ItemsSource="{ Binding Related.Friends }">
+                        <grial:GridView.ItemTemplate>
+                            <DataTemplate>
+                                <local:VerticalFriendTemplate
+                                    Image="{ Binding Avatar }"
+                                    Text="{ Binding Name }"
+                                />
+                            </DataTemplate>
+                        </grial:GridView.ItemTemplate>
+                    </grial:GridView>
+                </VerticalStackLayout>
+            </grial:ExtendedGrid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

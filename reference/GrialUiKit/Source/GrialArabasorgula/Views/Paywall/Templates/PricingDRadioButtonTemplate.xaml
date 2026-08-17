@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.PricingDRadioButtonTemplate">
+
+    <RadioButton
+        Padding="0"
+        Value="{ Binding . }">
+        <RadioButton.ControlTemplate>
+            <!-- TEMPLATE -->
+            <ControlTemplate>
+                <!-- CONTAINER -->
+                <Grid
+                    Padding="24,16"
+                    grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }"
+                    BindingContext="{ TemplateBinding BindingContext }"
+                    BackgroundColor="{ grial:If
+                        Condition={TemplateBinding IsChecked},
+                        Then={DynamicResource PrimaryColor},
+                        Else={DynamicResource BackgroundSecondaryColor}
+                    }">
+                    <!-- CONTENT -->
+                    <VerticalStackLayout Spacing="8">
+                        <!-- PLAN -->
+                        <Label
+                            Text="{ Binding PlanType }"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="{ grial:If
+                                Condition={TemplateBinding IsChecked},
+                                Then={DynamicResource OnSurfaceColor},
+                                Else={DynamicResource TextColor}
+                            }"
+                        />
+                        <!-- COST/BILLING -->
+                        <Label
+                            TextColor="{ grial:If
+                                Condition={TemplateBinding IsChecked},
+                                Then={DynamicResource PrimaryVariantColor},
+                                Else={DynamicResource TextSecondaryColor}
+                            }"
+                            FontSize="14">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        Text="{ Binding PlanCost }"
+                                        FontAttributes="Bold"
+                                    />
+                                    <Span Text=" " />
+                                    <Span Text="{ Binding BillingDescription }" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <!-- PLAN BENEFITS -->
+                        <Label
+                            Text="{ Binding Benefit }"
+                            IsVisible="{ Binding Benefit, Converter={StaticResource IsNotEmptyStringConverter} }"
+                            FontSize="{ StaticResource SmallFontSize }"
+                            TextColor="{ grial:If
+                                Condition={TemplateBinding IsChecked},
+                                Then={DynamicResource PrimaryVariantColor},
+                                Else={DynamicResource TextTertiaryColor}
+                            }"
+                            Margin="0,-4,0,0"
+                        />
+                    </VerticalStackLayout>
+                    <!-- BEST DEAL TAG -->
+                    <grial:RoundedLabel
+                        Text="{ grial:Translate LabelBestDeal }"
+                        FontSize="{ StaticResource SmallFontSize }"
+                        Margin="0,-4,-12,0"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        IsVisible="{ Binding IsBestDeal }"
+                    />
+                </Grid>
+            </ControlTemplate>
+        </RadioButton.ControlTemplate>
+    </RadioButton>
+
+</ContentView>
+

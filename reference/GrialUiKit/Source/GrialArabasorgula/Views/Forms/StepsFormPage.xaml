@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.StepsFormPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- STEP ICON BASE STYLE -->
+            <Style x:Key="StepItemIconStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="FontFamily" Value="GrialIconsFill" />
+            </Style>
+
+            <!-- STEP TITLE BASE STYLE -->
+            <Style x:Key="StepItemTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="Text" Value="{ Binding Title }" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="Grid.Row" Value="1" />
+            </Style>
+
+            <!-- STEP BORDER BASE STYLE -->
+            <Style x:Key="StepItemBorderStyle" TargetType="Border">
+                <Setter Property="Padding" Value="14" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="StrokeThickness" Value="2" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 40,40,40,40" />
+            </Style>
+
+            <!-- ACTIVE STEP STYLE -->
+            <DataTemplate x:Key="ActiveItemTemplate">
+                <Grid
+                    RowDefinitions="*,Auto"
+                    RowSpacing="4">
+                    <!-- ICON BORDER -->
+                    <Border
+                        x:Name="PART_ProgressSizeReference"
+                        Style="{ StaticResource StepItemBorderStyle }"
+                        BackgroundColor="{ DynamicResource PrimaryColor }"
+                        Stroke="{ DynamicResource PrimaryColor }">
+                        <!-- ICON -->
+                        <Label
+                            Style="{ StaticResource StepItemIconStyle }"
+                            Text="{ Binding Icon }"
+                            TextColor="{ DynamicResource OnSurfaceColor }"
+                        />
+                    </Border>
+                    <!-- TITLE -->
+                    <Label
+                        Grid.Row="1"
+                        Style="{ StaticResource StepItemTitleStyle }"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                    />
+                </Grid>
+            </DataTemplate>
+
+            <!-- CURRENT STEP STYLE -->
+            <DataTemplate x:Key="CurrentItemTemplate">
+                <Grid
+                    RowDefinitions="*,Auto"
+                    RowSpacing="4">
+
+                    <!-- ICON BORDER -->
+                    <Border
+                        x:Name="PART_ProgressSizeReference"
+                        Style="{ StaticResource StepItemBorderStyle }"
+                        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                        Stroke="{ DynamicResource PrimaryColor }">
+                        <!-- ICON -->
+                        <Label
+                            Style="{ StaticResource StepItemIconStyle }"
+                            Text="{ Binding Icon }"
+                            TextColor="{ DynamicResource PrimaryColor }"
+                        />
+                    </Border>
+                    <!-- TITLE -->
+                    <Label
+                        Grid.Row="1"
+                        Style="{ StaticResource StepItemTitleStyle }"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                    />
+                </Grid>
+            </DataTemplate>
+
+            <!-- INACTIVE STEP STYLE -->
+            <DataTemplate x:Key="InactiveItemTemplate">
+                <Grid
+                    RowDefinitions="*,Auto"
+                    RowSpacing="4">
+                    <!-- ICON BORDER -->
+                    <Border
+                        x:Name="PART_ProgressSizeReference"
+                        Style="{ StaticResource StepItemBorderStyle }"
+                        BackgroundColor="{ DynamicResource BackgroundTertiaryColor }"
+                        Stroke="{ DynamicResource BackgroundTertiaryColor }">
+                        <!-- ICON -->
+                        <Label
+                            Style="{ StaticResource StepItemIconStyle }"
+                            Text="{ Binding Icon }"
+                            TextColor="{ DynamicResource DisabledColor }"
+                        />
+                    </Border>
+                    <!-- TITLE -->
+                    <Label
+                        Grid.Row="1"
+                        Style="{ StaticResource StepItemTitleStyle }"
+                        TextColor="{ DynamicResource TextTertiaryColor }"
+                    />
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- MAIN CONTAINER -->
+    <Grid
+        Padding="{ DynamicResource AirSpacing }"
+        RowDefinitions="74,Auto,*"
+        RowSpacing="28">
+        <!-- STEPPER -->
+        <grial:Stepper
+            Grid.Row="0"
+            ItemsSource="{ Binding Steps }"
+            CurrentItem="{ Binding CurrentStep }"
+            IsProgressBarContinuous="True"
+            StrokeSize="4"
+            LineCap="Round"
+            AnimateProgressDuration="500"
+            AnimateProgress="True"
+            DefaultArrivalAnimationEasing="CubicOut"
+            ActiveColor="{ DynamicResource PrimaryColor }"
+            InactiveColor="{ DynamicResource PrimaryVariantColor }"
+            ActiveItemTemplate="{ StaticResource ActiveItemTemplate }"
+            CurrentItemTemplate="{ StaticResource CurrentItemTemplate }"
+            InactiveItemTemplate="{ StaticResource InactiveItemTemplate }"
+        />
+
+        <ScrollView Grid.Row="1">
+            <!-- STEP CONTENT PRESENTER -->
+            <grial:DataPresenter Data="{ Binding CurrentStep.Form }">
+                <grial:DataPresenter.TemplatingRules>
+                    <grial:TemplatingRule
+                        TargetType="local:FormStepOneViewModel"
+                        TemplateType="local:FormStepOneTemplate"
+                    />
+                    <grial:TemplatingRule
+                        TargetType="local:FormStepTwoViewModel"
+                        TemplateType="local:FormStepTwoTemplate"
+                    />
+                    <grial:TemplatingRule
+                        TargetType="local:FormStepThreeViewModel"
+                        TemplateType="local:FormStepThreeTemplate"
+                    />
+                </grial:DataPresenter.TemplatingRules>
+            </grial:DataPresenter>
+        </ScrollView>
+
+        <!-- BUTTON NEXT STEP -->
+        <Button
+            Grid.Row="2"
+            Text="{ Binding CurrentStep.PrimaryActionText }"
+            Command="{ Binding NextCommand }"
+            Style="{ StaticResource PrimaryActionButtonStyle }"
+            VerticalOptions="End"
+        />
+    </Grid>
+</ContentPage>

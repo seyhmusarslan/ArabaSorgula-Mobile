@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.EmptyStatePage"
+    Title="{ grial:Translate PageTitleEmptyState }"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <Grid
+        RowDefinitions="*,Auto"
+        grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom">
+
+        <Grid
+            Grid.Row="0"
+            VerticalOptions="Fill"
+            HorizontalOptions="Center"
+            RowDefinitions="75*,25*">
+
+            <!-- ICON BACKGROUND -->
+            <!-- TODO: height = 1/2 Cornerradius -->
+            <BoxView
+                Grid.Row="0"
+                Color="{ DynamicResource PrimaryColor }"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                HeightRequest="100"
+                WidthRequest="100"
+                CornerRadius="50"
+                Opacity="0.1"
+                Scale="{ grial:OnOrientationDouble
+                    Default=2.2,
+                    LandscapePhone=1.2,
+                    LandscapeTablet=1.8
+                }"
+            />
+
+            <!-- ICON BACKGROUND -->
+            <!-- TODO: height = 1/2 Cornerradius -->
+            <BoxView
+                Grid.Row="0"
+                Color="{ DynamicResource PrimaryColor }"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                HeightRequest="100"
+                WidthRequest="100"
+                CornerRadius="50"
+                Opacity="0.1"
+                Scale="{ grial:OnOrientationDouble
+                    Default=1.4,
+                    LandscapePhone=.8,
+                    LandscapeTablet=1.1
+                }"
+            />
+
+            <!-- ICON -->
+            <Label
+                Grid.Row="0"
+                Text="{ x:Static local:GrialIconsFont.Settings }"
+                Style="{ StaticResource FontIcon }"
+                FontSize="{ grial:OnOrientationInt
+                    Default=90,
+                    LandscapePhone=50,
+                    LandscapeTablet=80
+                }"
+                HorizontalTextAlignment="Center"
+                TextColor="{ DynamicResource PrimaryColor }"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+            />
+
+            <!-- TEXT -->
+            <VerticalStackLayout
+                Grid.Row="1"
+                VerticalOptions="Start"
+                Padding="60,0"
+                Spacing="5">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    Text="{ grial:Translate PageTitleEmptyState }"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="{ DynamicResource TextColor }"
+                />
+
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Opacity="0.8"
+                    Text="{ grial:Translate LabelThereIsNothingHere }"
+                    FontSize="18"
+                    TextColor="{ DynamicResource TextColor }"
+                />
+            </VerticalStackLayout>
+
+        </Grid>
+
+        <!-- BUTTON -->
+        <Button
+            Grid.Row="1"
+            Style="{ StaticResource PrimaryActionButtonStyle }"
+            BackgroundColor="{ DynamicResource PrimaryColor }"
+            VerticalOptions="End"
+            Text="{ grial:Translate StringDone }"
+            Margin="20,0,20,20"
+            Clicked="OnCloseButtonClicked"
+            WidthRequest="{ grial:OnOrientationSizeRequest
+                LandscapePhone=200,
+                LandscapeTablet=400
+            }"
+            HorizontalOptions="{ grial:OnOrientationLayoutOptions
+                PortraitPhone=Fill,
+                LandscapePhone=Center,
+                PortraitTablet=Fill,
+                LandscapeTablet=Center
+            }"
+        />
+
+    </Grid>
+</ContentPage>

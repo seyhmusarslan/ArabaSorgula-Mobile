@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ContactItemTemplate">
+    <Grid
+        BackgroundColor="Transparent"
+        RowSpacing="0"
+        ColumnSpacing="14"
+        Padding="20,0"
+        VerticalOptions="Center"
+        Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+        ColumnDefinitions="Auto,*"
+        RowDefinitions="Auto,Auto">
+        <!-- AVATAR -->
+        <grial:RoundedImage
+            Grid.Column="0"
+            Grid.RowSpan="2"
+            Size="50"
+            Source="{ Binding Avatar }"
+            Aspect="AspectFill"
+            VerticalOptions="Center"
+            CornerRadius="{ DynamicResource CornerRadius-big }"
+            BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+            BorderSize="2"
+        />
+
+        <!-- NAME -->
+        <Label
+            Margin="0,5,0,0"
+            Grid.Column="1"
+            Grid.Row="0"
+            Text="{ Binding Name }"
+            VerticalOptions="Start"
+            FontAttributes="Bold"
+        />
+
+        <!-- LAST SEEN -->
+        <Label
+            Grid.Column="1"
+            Grid.RowSpan="1"
+            VerticalOptions="Center"
+            Text="{ Binding LastSeen }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            Margin="0,0,0,4"
+            Opacity="0.6"
+            FontSize="{ StaticResource SmallFontSize }"
+            FontAttributes="None"
+            HorizontalOptions="End"
+        />
+
+        <!-- TEXT WITH ICON -->
+        <local:IconText
+            Grid.Column="1"
+            Grid.Row="1"
+            Text="{ Binding City }"
+            IconFontSize="13"
+            TextFontSize="13"
+            Icon="{ x:Static local:GrialIconsFont.MapPin }"
+            IconColor="{ DynamicResource TextSecondaryColor }"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+            HorizontalOptions="Fill"
+            LineBreakMode="TailTruncation"
+        />
+
+        <!-- SEPARATOR -->
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="1"
+            VerticalOptions="End"
+            Margin="0,0,-20,-10"
+            Style="{ DynamicResource Horizontal1ptLineStyle }"
+        />
+    </Grid>
+</ContentView>

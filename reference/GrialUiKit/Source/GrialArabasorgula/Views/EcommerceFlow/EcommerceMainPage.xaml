@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:grial="http://uxdivers.com/grial"
+    BackgroundColor="Transparent"
+    Title="{ grial:Translate PageTitleEcommerceMain }"
+    x:Class="arabasorgula.EcommerceMainPage">
+    <Grid RowSpacing="0">
+        <!-- OVERLAPPED CONTENT -->
+        <Grid RowDefinitions="Auto,*">
+            <!-- SCROLLING AREA -->
+            <ScrollView
+                Margin="0,-40,0,0"
+                Padding="0,0,0,30"
+                Grid.Row="1"
+                BackgroundColor="{ DynamicResource BackgroundColor }"
+                grial:Effects.IgnoreIOSSafeAreaOnScrollView="All">
+
+                <Grid
+                    RowSpacing="0"
+                    RowDefinitions="320,*">
+                    <!-- CAROUSEL -->
+                    <grial:Carousel
+                        BackgroundColor="{ DynamicResource BackgroundTertiaryColor }"
+                        IndicatorView="indicatorView"
+                        Margin="0,0,0,30"
+                        ItemsSource="{ Binding HighlightedProducts }"
+                        Grid.Row="0"
+                        grial:TrimmingEffects.BottomShape="RoundedCorners"
+                        grial:TrimmingEffects.BottomHeight="40">
+
+                        <grial:Carousel.ItemTemplate>
+                            <DataTemplate>
+                                <local:ProductGalleryItemTemplate Padding="0,40,0,0" />
+                            </DataTemplate>
+                        </grial:Carousel.ItemTemplate>
+
+                    </grial:Carousel>
+
+                    <IndicatorView
+                        x:Name="indicatorView"
+                        Grid.Row="0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Margin="0,0,0,8"
+                        IndicatorColor="{ DynamicResource BackgroundTertiaryColor }"
+                        SelectedIndicatorColor="{ DynamicResource PrimaryColor }"
+                    />
+
+                    <!-- BANNER -->
+                    <Border
+                        InputTransparent="true"
+                        IsVisible="{ Binding Banner, Converter={StaticResource IsNotEmptyStringConverter} }"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Center"
+                        WidthRequest="210"
+                        HeightRequest="50"
+                        Stroke="{ DynamicResource BaseSeparatorColor }"
+                        BackgroundColor="Transparent"
+                        Padding="0"
+                        Margin="0,45,0,0">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="{ DynamicResource CornerRadius-md }" />
+
+                        </Border.StrokeShape>
+                        <Label
+                            Text="{ Binding Banner, Converter={StaticResource ToUpperConverter} }"
+                            TextColor="{ DynamicResource BaseSeparatorColor }"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+                    </Border>
+
+                    <!-- PRODUCTS CATEGORIES -->
+                    <VerticalStackLayout
+                        Margin="0,10,0,0"
+                        Grid.Row="1"
+                        BindableLayout.ItemsSource="{ Binding Categories }"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <!-- PRODUCTS CATEGORY -->
+                                <Grid
+                                    RowSpacing="0"
+                                    RowDefinitions="Auto,*">
+                                    <Label
+                                        Grid.Row="0"
+                                        Margin="22,22,22,10"
+                                        FontSize="22"
+                                        Text="{ Binding Name }"
+                                    />
+
+                                    <!-- PRODUCTS LIST -->
+                                    <grial:Repeater
+                                        HeightRequest="300"
+                                        Grid.Row="1"
+                                        ScrollPadding="16,10"
+                                        ItemsSource="{ Binding Content }"
+                                        ScrollBarVisibility="Never"
+                                        Spacing="12"
+                                        ItemSize="{ OnIdiom
+                                            Phone=190,
+                                            Tablet=260
+                                        }">
+                                        <grial:Repeater.ItemTemplate>
+                                            <DataTemplate>
+                                                <!-- PRODUCT ITEM TEMPLATE -->
+                                                <local:ProductCardItemTemplate />
+                                            </DataTemplate>
+                                        </grial:Repeater.ItemTemplate>
+                                    </grial:Repeater>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </Grid>
+            </ScrollView>
+
+
+            <!-- SEARCH BAR -->
+            <grial:ExtendedGrid
+                Grid.Row="0"
+                ColumnSpacing="18"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Padding="20,10,20,30"
+                grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+                RowDefinitions="44"
+                ColumnDefinitions="*,Auto"
+                TrimBottomShape="RoundedCorners"
+                TrimBottomHeight="40">
+                <local:CustomSearchBar
+                    Grid.Row="0"
+                    HeightRequest="43"
+                    Placeholder="{ grial:Translate StringSearch }"
+                    VerticalOptions="End"
+                    Style="{ StaticResource CustomSearchBarStyle }"
+                />
+
+                <!-- ICON -->
+                <local:RoundedIcon
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    VerticalOptions="Center"
+                    WidthRequest="40"
+                    HeightRequest="40"
+                    IconFontSize="20"
+                    IconColor="{ DynamicResource OnSurfaceColor }"
+                    IconText="{ x:Static local:GrialIconsFont.Sliders }"
+                    BackgroundColor="{ DynamicResource PrimaryColor }"
+                    CornerRadius="{ DynamicResource CornerRadius-md }"
+                />
+            </grial:ExtendedGrid>
+        </Grid>
+    </Grid>
+</ContentPage>

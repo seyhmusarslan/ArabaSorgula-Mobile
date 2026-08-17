@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ProductGalleryItemTemplate">
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer
+            Tapped="OnTapGestureRecognizerTapped"
+            NumberOfTapsRequired="1"
+        />
+    </ContentView.GestureRecognizers>
+    <Grid>
+
+        <!-- IMAGE -->
+        <Image
+            Source="{ Binding Image }"
+            Margin="0"
+        />
+
+        <!-- TAG -->
+        <grial:RoundedLabel
+            IsVisible="{ Binding IsNew }"
+            Text="NEW"
+            FontSize="10"
+            Padding="6,0"
+            HorizontalOptions="Start"
+            VerticalOptions="End"
+            Margin="15"
+            HeightRequest="24"
+            TextColor="{ DynamicResource OnSurfaceColor }"
+            BackgroundColor="{ DynamicResource PrimaryColor }"
+        />
+
+    </Grid>
+</ContentView>

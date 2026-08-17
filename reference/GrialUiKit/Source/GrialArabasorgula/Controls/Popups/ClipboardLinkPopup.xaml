@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupResultPage
+    x:TypeArguments="x:Boolean"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    BackgroundColor="{ DynamicResource PopupBackdropColor }"
+    CloseWhenBackgroundIsClicked="False"
+    x:Class="arabasorgula.ClipboardLinkPopup"
+    x:Name="root">
+    <!-- Main Wrapper -->
+    <Grid
+        WidthRequest="{ OnIdiom
+            Default=-1,
+            Tablet=400,
+            Desktop=400
+        }"
+        VerticalOptions="Center"
+        Margin="{ DynamicResource AirSpacing }"
+        RowDefinitions="Auto,Auto,Auto"
+        RowSpacing="{ DynamicResource SpacingBig }"
+        Padding="{ DynamicResource PopupAirSpacing }">
+        <!-- Popup Background -->
+        <Border
+            Background="{ Binding PopupBackground, Source={x:Reference root} }"
+            Stroke="{ Binding PopupBorderBrush, Source={x:Reference root} }"
+            StrokeShape="{ Binding PopupCornerRadius, Source={x:Reference root}, Converter={StaticResource PopupCornerRadiusToStrokeShapeConverter} }"
+            StrokeThickness="{ Binding PopupBorderThickness, Source={x:Reference root} }"
+            Margin="-24"
+            Grid.RowSpan="3"
+        />
+        <!-- CONTENT -->
+        <VerticalStackLayout Spacing="4">
+            <!-- Title -->
+            <Label
+                Text="{ Binding Title, Source={x:Reference root} }"
+                FontSize="{ DynamicResource TitleFontSize }"
+                HorizontalTextAlignment="Start"
+            />
+            <!-- Text -->
+            <Label
+                Text="{ Binding Text, Source={x:Reference root} }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                HorizontalTextAlignment="Start"
+            />
+        </VerticalStackLayout>
+        <!-- Form Link -->
+        <Grid
+            Grid.Row="1"
+            ColumnDefinitions="*,Auto"
+            ColumnSpacing="{ DynamicResource SpacingMedium }">
+            <!-- Form Field -->
+            <Entry
+                Placeholder="{ Binding ClipboardLinkPlaceholder, Source={x:Reference root} }"
+                Text="{ Binding ClipboardLinkText, Source={x:Reference root}, Mode=TwoWay }"
+            />
+
+            <!-- Copy Button -->
+            <Button
+                Grid.Column="1"
+                Text="{ x:Static local:GrialIconsFont.Copy }"
+                FontSize="24"
+                FontFamily="{ StaticResource IconsFontFamily }"
+                TextColor="{ DynamicResource PrimaryColor }"
+                WidthRequest="54"
+                Style="{ StaticResource SecondaryActionButtonStyle }"
+            />
+        </Grid>
+        <!-- Buttons -->
+        <Grid
+            Grid.Row="2"
+            ColumnDefinitions="*,*"
+            ColumnSpacing="{ DynamicResource SpacingMedium }">
+            <!-- Secondary Action Button -->
+            <Button
+                Style="{ DynamicResource SecondaryActionButtonStyle }"
+                Text="{ Binding SecondaryActionButtonText, Source={x:Reference root} }"
+                Command="{ Binding SecondaryActionButtonCommand, Source={x:Reference root} }"
+            />
+
+            <!-- Primary Action Button -->
+            <Button
+                Grid.Column="1"
+                Style="{ DynamicResource PrimaryActionButtonStyle }"
+                Text="{ Binding ActionButtonText, Source={x:Reference root} }"
+                Command="{ Binding ActionButtonCommand, Source={x:Reference root} }"
+            />
+        </Grid>
+    </Grid>
+</uxd:PopupResultPage>

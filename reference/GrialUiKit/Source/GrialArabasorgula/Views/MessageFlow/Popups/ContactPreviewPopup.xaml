@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ContactPreviewPopup"
+    BackgroundColor="{ DynamicResource OverlayColor }">
+    <uxd:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Label" x:Key="IconButton">
+                <Setter Property="BackgroundColor" Value="{ DynamicResource BackgroundSecondaryColor }" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="FontFamily" Value="{ StaticResource IconsFontFamily }" />
+                <Setter Property="TextColor" Value="{ DynamicResource PrimaryColor }" />
+                <Setter Property="FontSize" Value="22" />
+            </Style>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <uxd:PopupPage.Content>
+        <Grid
+            Margin="20"
+            Style="{ StaticResource BlurredShadow }"
+            VerticalOptions="{ DynamicResource DialogsVerticalPositioning }">
+            <Grid
+                RowSpacing="0"
+                ColumnSpacing="0"
+                grial:Effects.CornerRadius="{ DynamicResource DialogsCornerRadius }"
+                RowDefinitions="*,44"
+                ColumnDefinitions="*,*,*,*">
+
+                <Image
+                    Grid.ColumnSpan="4"
+                    Source="{ Binding Avatar }"
+                    Aspect="AspectFill"
+                    HeightRequest="300"
+                />
+
+                <!-- VALUE -->
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="4"
+                    Margin="20"
+                    FontAttributes="Bold"
+                    Text="{ Binding Name }"
+                    VerticalOptions="Start"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{ StaticResource IconButton }"
+                    Text="{ x:Static local:GrialIconsFont.MessageCircle }">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMessageIconTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{ StaticResource IconButton }"
+                    Text="{ x:Static local:GrialIconsFont.Phone }">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPhoneIconTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Style="{ StaticResource IconButton }"
+                    Text="{ x:Static local:GrialIconsFont.Video }">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVideoIconTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Style="{ StaticResource IconButton }"
+                    Text="{ x:Static local:GrialIconsFont.AlertInfo }">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnInfoIconTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Grid>
+        </Grid>
+    </uxd:PopupPage.Content>
+
+</uxd:PopupPage>

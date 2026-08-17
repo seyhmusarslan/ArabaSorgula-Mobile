@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.BrandLogo"
+    grial:Effects.BackgroundGradient="{ Binding BackgroundGradient, Source={RelativeSource Self} }"
+    grial:Effects.CornerRadius="{ DynamicResource CornerRadius-big }">
+
+    <ContentView.Resources>
+        <Style x:Key="InvertedStyle" TargetType="Label" BasedOn="{ StaticResource FontIcon }">
+            <Setter Property="TextColor" Value="{ DynamicResource TextOnSurfaceColor }" />
+        </Style>
+        <Style x:Key="AccentStyle" TargetType="Label" BasedOn="{ StaticResource FontIcon }">
+            <Setter Property="TextColor" Value="{ DynamicResource PrimaryColor }" />
+        </Style>
+    </ContentView.Resources>
+
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+
+            <!-- LOGO -->
+            <Label
+                grial:Effects.BackgroundGradient="{ TemplateBinding BackgroundGradient }"
+                Style="{ grial:If
+                    Condition={TemplateBinding Inverted},
+                    Then={StaticResource InvertedStyle},
+                    Else={StaticResource AccentStyle}
+                }"
+                FontSize="74"
+                Text="{ x:Static local:GrialIconsFont.LogoGrialSquare }"
+            />
+            <!-- Margin="{ grial:IfEval -->
+            <!-- 'A != null', -->
+            <!-- A={ TemplateBinding BackgroundGradient }, -->
+            <!-- Then=0, -->
+            <!-- Else='-5,0', -->
+            <!-- ResultType={ x:Type Thickness } -->
+            <!-- }" -->
+
+            <!--
+                If you have a brand logo in PNG format, you can repace the code above with the one below,
+                after including the logo.png in the native projects
+            -->
+            <!--
+            <Image
+                HeightRequest="64"
+                WidthRequest="64"
+                Source="logo.png"
+            />
+            -->
+
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+
+</ContentView>

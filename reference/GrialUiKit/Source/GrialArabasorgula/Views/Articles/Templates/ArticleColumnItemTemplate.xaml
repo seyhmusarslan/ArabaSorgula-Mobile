@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.ArticleColumnItemTemplate">
+
+    <Grid
+        BackgroundColor="{ DynamicResource BackgroundColor }"
+        Padding="{ DynamicResource AirSpacingWithBorder }"
+        RowSpacing="5"
+        ColumnSpacing="15"
+        RowDefinitions="Auto, *, Auto"
+        ColumnDefinitions="98,*">
+        <!-- TITLE -->
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="1"
+            Text="{ Binding Title }"
+            FontAttributes="Bold"
+            FontSize="{ grial:OnOrientationDouble
+                PortraitPhone=14,
+                LandscapePhone=14,
+                PortraitTablet=16,
+                LandscapeTablet=18
+            }"
+            TextColor="{ DynamicResource TextColor }"
+        />
+
+        <!-- IMAGE -->
+        <grial:RoundedImage
+            Margin="0,-5"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="3"
+            CornerRadius="{ DynamicResource BaseCornerRadiusDouble }"
+            TranslationY="5"
+            Source="{ Binding BackgroundImage }"
+            Size="98"
+            VerticalOptions="Start"
+            Aspect="AspectFill"
+        />
+
+        <!-- ARTICLE -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="{ Binding Body }"
+            FontSize="{ grial:OnOrientationDouble
+                PortraitPhone={StaticResource SmallFontSize},
+                LandscapePhone={StaticResource SmallFontSize},
+                PortraitTablet=14,
+                LandscapeTablet=14
+            }"
+            HeightRequest="{ grial:OnOrientationSizeRequest
+                PortraitPhone=50,
+                LandscapePhone=50,
+                PortraitTablet=5,
+                LandscapeTablet=70
+            }"
+            MaxLines="{ grial:OnOrientationDouble
+                Default=5,
+                LandscapeTablet=4
+            }"
+            LineBreakMode="WordWrap"
+            TextColor="{ DynamicResource TextSecondaryColor }"
+        />
+
+        <!-- FOOTER -->
+        <HorizontalStackLayout
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalOptions="End">
+
+            <Label
+                Text="{ Binding When }"
+                Opacity="1"
+                FontSize="{ grial:OnOrientationDouble
+                    PortraitPhone={StaticResource SmallFontSize},
+                    LandscapePhone={StaticResource SmallFontSize},
+                    PortraitTablet=14,
+                    LandscapeTablet=14
+                }"
+                HorizontalOptions="Fill"
+                TextColor="{ DynamicResource PrimaryColor }"
+            />
+
+        </HorizontalStackLayout>
+
+        <!-- SEPARATOR -->
+        <BoxView
+            Grid.Row="2"
+            VerticalOptions="End"
+            Style="{ StaticResource Horizontal1ptLineStyle }"
+            Grid.Column="1"
+            Grid.ColumnSpan="1"
+            Margin="0,0,-30,-20"
+        />
+    </Grid>
+</ContentView>

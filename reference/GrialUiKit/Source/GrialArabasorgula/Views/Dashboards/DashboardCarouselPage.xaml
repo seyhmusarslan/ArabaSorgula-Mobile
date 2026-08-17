@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.DashboardCarouselPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="Header_Height">300</x:Double>
+            <x:Double x:Key="HeaderVerticalScroll">-25</x:Double>
+
+            <grial:AnimationStoryboard x:Key="Anim">
+                <grial:AnimationPopIn
+                    Target="{ x:Reference carouselContainer }"
+                    Duration="200"
+                />
+
+                <grial:AnimationPopIn
+                    Target="{ x:Reference grid }"
+                    Duration="400"
+                />
+            </grial:AnimationStoryboard>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Triggers>
+        <EventTrigger Event="Appearing">
+            <grial:StartAnimation Animation="{ StaticResource Anim }" />
+        </EventTrigger>
+    </ContentPage.Triggers>
+
+    <ContentPage.Content>
+        <Grid>
+            <grial:ExtendedGrid
+                RowSpacing="0"
+                RowDefinitions="Auto,*">
+
+                <!-- GRID VIEW -->
+                <grial:GridView
+                    x:Name="grid"
+                    Grid.Row="1"
+                    ColumnCount="3"
+                    ColumnSpacing="15"
+                    RowSpacing="15"
+                    Padding="{ DynamicResource AirSpacing }"
+                    ItemsSource="{ Binding Items }"
+                    TranslationY="-15"
+                    Style="{ StaticResource ResponsiveLandscapeMarginStyle }">
+                    <grial:GridView.ItemTemplate>
+                        <DataTemplate>
+                            <local:DashboardCarouselMainItemTemplate />
+                        </DataTemplate>
+                    </grial:GridView.ItemTemplate>
+
+                </grial:GridView>
+
+                <!-- CAROUSEL CONTAINER -->
+                <grial:CardView
+                    CornerRadius="{ DynamicResource CornerRadius-none }"
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    HasShadow="False"
+                    x:Name="carouselContainer"
+                    HeightRequest="300"
+                    VerticalOptions="Start"
+                    IsVisible="{ grial:OnOrientationBool
+                        Portrait=true,
+                        Landscape=false
+                    }">
+
+                    <!-- CAROUSEL -->
+                    <grial:Carousel
+                        IndicatorView="indicatorView"
+                        HeightRequest="250"
+                        PeekPercentage="0.05"
+                        ItemsSource="{ Binding Headers }"
+                        Margin="0,0,0,40"
+                        Loop="False">
+                        <grial:Carousel.ItemTemplate>
+                            <DataTemplate>
+                                <local:DashboardCarouselHeaderItemTemplate />
+                            </DataTemplate>
+                        </grial:Carousel.ItemTemplate>
+                    </grial:Carousel>
+
+                    <IndicatorView
+                        x:Name="indicatorView"
+                        HorizontalOptions="Center"
+                        Margin="0,0,0,30"
+                        VerticalOptions="End"
+                        IndicatorColor="{ DynamicResource BackgroundTertiaryColor }"
+                        SelectedIndicatorColor="{ DynamicResource PrimaryColor }"
+                    />
+                </grial:CardView>
+            </grial:ExtendedGrid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

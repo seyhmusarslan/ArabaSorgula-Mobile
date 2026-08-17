@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SmartHomeDashboardCardItemTemplate">
+
+    <!-- MAIN WRAPPER -->
+    <grial:CardView
+        RowDefinitions="Auto,*,Auto"
+        HasShadow="False"
+        Padding="20">
+
+        <!-- Colored Icon -->
+        <Label
+            Text="{ Binding Icon }"
+            FontFamily="lucide"
+            FontSize="24"
+            TextColor="{ Binding IconColorColor }"
+        />
+
+        <!-- BOTTOM SECTION -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            VerticalOptions="End">
+            <!-- Small Colored Info -->
+            <Label
+                Text="{ Binding Title }"
+                FontSize="16"
+                TextColor="{ Binding IconColorColor }"
+                VerticalOptions="Center"
+            />
+            <!-- Additional Small Info -->
+            <Label
+                Text="{ Binding Info }"
+                FontSize="14"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                VerticalOptions="Center"
+                HorizontalOptions="Fill"
+            />
+            <Grid
+                ColumnDefinitions="*,Auto"
+                ColumnSpacing="10">
+                <Switch
+                    x:Name="statusSwitch"
+                    Grid.Column="1"
+                    Scale="0.8"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    IsToggled="{ Binding IsOn }"
+                    OnColor="{ Binding IconColorColor }"
+                    ThumbColor="{ Binding IconColorColor }"
+                />
+
+                <!-- On/Off Label -->
+                <Label
+                    Text="{ grial:If
+                        Condition={Binding
+                            IsToggled,
+                            Source={x:Reference statusSwitch}
+                        },
+                        Then='on',
+                        Else='off'
+                    }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    VerticalTextAlignment="Center"
+                    FontSize="16"
+                />
+            </Grid>
+        </VerticalStackLayout>
+
+    </grial:CardView>
+</ContentView>
+

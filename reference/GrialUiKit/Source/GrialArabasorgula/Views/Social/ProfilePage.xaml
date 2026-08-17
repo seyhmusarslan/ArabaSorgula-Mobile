@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.ProfilePage"
+    Title="{ grial:Translate PageTitleProfile }"
+    x:Name="page">
+    <AbsoluteLayout Padding="0">
+        <!-- MAIN IMAGE -->
+        <Image
+            Source="{ Binding Image }"
+            AnchorX="0.5"
+            AnchorY="0.5"
+            AbsoluteLayout.LayoutBounds="0, 0, 1.1, 1.1"
+            AbsoluteLayout.LayoutFlags="All">
+            <VisualElement.Behaviors>
+                <grial:KenBurnsLoop
+                    IsRunning="true"
+                    AnchorY="0.1"
+                />
+            </VisualElement.Behaviors>
+        </Image>
+
+        <!-- BOTTOM ROW -->
+        <VerticalStackLayout
+            Spacing="0"
+            Padding="0"
+            Grid.Row="1"
+            VerticalOptions="End"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 1, 1, 1">
+
+            <grial:CardView
+                RowDefinitions="Auto,Auto,Auto"
+                RowSpacing="10"
+                Margin="25"
+                Padding="{ DynamicResource AirSpacing }"
+                CornerRadius="{ DynamicResource CornerRadius-lg }">
+
+                <!-- Name -->
+                <Label
+                    Text="{ Binding Name }"
+                    FontAttributes="Bold"
+                    LineBreakMode="WordWrap"
+                    VerticalOptions="End"
+                    HorizontalOptions="Start"
+                    FontSize="{ OnIdiom
+                        Default={StaticResource TitleFontSize},
+                        Tablet='40'
+                    }"
+                />
+
+                <!-- Description -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ Binding Description }"
+                    LineBreakMode="WordWrap"
+                    VerticalOptions="End"
+                    FontAttributes="None"
+                    FontSize="{ OnIdiom
+                        Default={StaticResource BaseFontSize},
+                        Tablet='20'
+                    }"
+                />
+
+                <!-- Glass Bg -->
+                <BoxView
+                    Grid.Row="2"
+                    Opacity=".03"
+                    Margin="-30,0,-30,-30"
+                    Color="#000"
+                    VerticalOptions="End"
+                    HeightRequest="75"
+                />
+
+                <!-- Toolbar -->
+                <Grid
+                    Grid.Row="2"
+                    VerticalOptions="End"
+                    Margin="0,20,0,0"
+                    ColumnDefinitions="*,*,*,*"
+                    ColumnSpacing="0">
+                    <!-- HEART VALUE -->
+                    <local:IconText
+                        Icon="{ x:Static local:GrialIconsFont.Heart }"
+                        Text="1629"
+                        IconAttribute="Fill"
+                        IconBackgroundColor="{ DynamicResource FavoriteColor }"
+                        Style="{ StaticResource VerticalCircleIconTextStyle }"
+                        IconColor="{ StaticResource OnSurfaceColor }"
+                    />
+
+                    <!-- MESSAGE VALUE -->
+                    <local:IconText
+                        Grid.Column="1"
+                        Icon="{ x:Static local:GrialIconsFont.MessageSquare }"
+                        IconAttribute="Fill"
+                        Text="235"
+                        IconBackgroundColor="{ DynamicResource InfoColor }"
+                        Style="{ StaticResource VerticalCircleIconTextStyle }"
+                        IconColor="{ StaticResource OnSurfaceColor }"
+                    />
+
+                    <!-- USER VALUE -->
+                    <local:IconText
+                        Grid.Column="2"
+                        IconAttribute="Fill"
+                        Icon="{ x:Static local:GrialIconsFont.User }"
+                        Text="1209"
+                        IconBackgroundColor="{ DynamicResource SuccessColor }"
+                        Style="{ StaticResource VerticalCircleIconTextStyle }"
+                        IconColor="{ StaticResource OnSurfaceColor }"
+                    />
+
+                    <!-- STAR VALUE -->
+                    <local:IconText
+                        Grid.Column="3"
+                        IconAttribute="Fill"
+                        Icon="{ x:Static local:GrialIconsFont.StarFill }"
+                        Text="427"
+                        IconBackgroundColor="{ DynamicResource RatingColor }"
+                        Style="{ StaticResource VerticalCircleIconTextStyle }"
+                        IconColor="{ StaticResource OnSurfaceColor }"
+                    />
+                </Grid>
+            </grial:CardView>
+        </VerticalStackLayout>
+    </AbsoluteLayout>
+</ContentPage>

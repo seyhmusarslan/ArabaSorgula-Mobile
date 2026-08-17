@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.PreferencesItemTemplate"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula">
+
+    <!-- CONTAINER -->
+    <Grid RowDefinitions="Auto,Auto">
+        <!-- HEADER -->
+        <Label
+            Text="{ Binding Header }"
+            FontSize="{ StaticResource TitleFontSize }"
+            VerticalOptions="End"
+            Grid.ColumnSpan="2"
+            IsVisible="{ Binding IsHeader }"
+            Margin="0,32,0,12"
+        />
+        <!-- CARD CONTAINER -->
+        <Grid
+            Grid.Row="1"
+            Padding="0,12"
+            ColumnDefinitions="*,Auto"
+            ColumnSpacing="16"
+            RowDefinitions="*,Auto"
+            VerticalOptions="Center">
+            <!-- CATEGORY -->
+            <Label
+                Text="{ Binding Category }"
+                VerticalTextAlignment="Center"
+            />
+            <!-- DESCRIPTION -->
+            <Label
+                Grid.Row="1"
+                Text="{ Binding Description }"
+                VerticalOptions="Center"
+                FontSize="{ StaticResource SmallFontSize }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                IsVisible="{ Binding HasDescription }"
+                VerticalTextAlignment="Center"
+            />
+            <!-- ARROW -->
+            <Label
+                Grid.Column="2"
+                Grid.RowSpan="2"
+                Text="{ x:Static local:GrialIconsFont.ChevronRight }"
+                FontFamily="{ DynamicResource IconsFontFamily }"
+                FontSize="{ StaticResource TitleFontSize }"
+                VerticalTextAlignment="Center"
+                IsVisible="{ Binding IsLink }"
+            />
+            <!-- SWITCH -->
+            <Switch
+                Grid.Column="2"
+                Grid.RowSpan="2"
+                VerticalOptions="Center"
+                IsToggled="{ Binding IsToggled }"
+                IsVisible="{ Binding IsToggle }"
+            />
+            <!-- LINE SEPARATOR -->
+            <BoxView
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                VerticalOptions="End"
+                Style="{ StaticResource Horizontal1ptLineStyle }"
+                Margin="0,0,0,-12"
+            />
+
+        </Grid>
+    </Grid>
+
+</ContentView>
+
+

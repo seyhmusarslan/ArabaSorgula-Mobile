@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ProductsCatalogItemTemplate"
+    Padding="{ DynamicResource AirSpacingSmallBorder }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <Grid
+        RowSpacing="1"
+        grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+        RowDefinitions="*,50">
+
+        <!-- PRODUCT -->
+        <Grid
+            Grid.Row="0"
+            RowSpacing="10"
+            ColumnSpacing="14"
+            Padding="14"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            ColumnDefinitions="100,*"
+            RowDefinitions="Auto,Auto,*">
+
+            <!-- IMAGE -->
+            <Image
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Source="{ Binding Image }"
+                Aspect="AspectFill"
+                grial:Effects.CornerRadius="{ DynamicResource CornerRadius-big }"
+            />
+
+
+            <local:RatingLabel
+                Grid.Row="0"
+                Grid.Column="1"
+                Value="{ Binding RatingValue }"
+            />
+
+
+            <!-- PRODUCT NAME -->
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{ Binding Name }"
+                FontAttributes="Bold"
+                FontSize="{ OnIdiom
+                    Phone={StaticResource SmallTitleFontSize},
+                    Tablet={StaticResource TitleFontSize}
+                }"
+                LineBreakMode="TailTruncation"
+                TextColor="{ DynamicResource TextColor }"
+                VerticalTextAlignment="Center"
+            />
+
+            <!-- DESCRIPTION -->
+            <Label
+                LineBreakMode="WordWrap"
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="{ Binding Description }"
+                HorizontalOptions="Fill"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                FontSize="{ OnIdiom
+                    Phone={StaticResource BaseFontSize},
+                    Tablet={StaticResource LargeFontSize}
+                }"
+            />
+        </Grid>
+
+        <!-- BUTTONS -->
+        <Grid
+            Grid.Row="1"
+            ColumnSpacing="1"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            ColumnDefinitions="*,*,*">
+
+            <local:IconText
+                Grid.Row="0"
+                Grid.Column="0"
+                Spacing="7"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="{ grial:Translate StringSave }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                Icon="{ x:Static local:GrialIconsFont.Heart }"
+                IconColor="{ DynamicResource TextSecondaryColor }"
+                IconFontSize="{ OnIdiom
+                    Phone={StaticResource SmallTitleFontSize},
+                    Tablet={StaticResource TitleFontSize}
+                }"
+                TextFontSize="{ OnIdiom
+                    Phone={StaticResource BaseFontSize},
+                    Tablet={StaticResource LargeFontSize}
+                }"
+            />
+
+            <local:IconText
+                Grid.Row="0"
+                Grid.Column="1"
+                Spacing="7"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="{ grial:Translate StringCompare }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                Icon="{ x:Static local:GrialIconsFont.Copy }"
+                IconColor="{ DynamicResource TextSecondaryColor }"
+                IconFontSize="{ OnIdiom
+                    Phone={StaticResource SmallTitleFontSize},
+                    Tablet={StaticResource TitleFontSize}
+                }"
+                TextFontSize="{ OnIdiom
+                    Phone={StaticResource BaseFontSize},
+                    Tablet={StaticResource LargeFontSize}
+                }"
+            />
+
+            <local:IconText
+                Grid.Row="0"
+                Grid.Column="2"
+                Spacing="7"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="{ grial:Translate StringShare }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                Icon="{ x:Static local:GrialIconsFont.Share2 }"
+                IconColor="{ DynamicResource TextSecondaryColor }"
+                IconFontSize="{ OnIdiom
+                    Phone={StaticResource SmallTitleFontSize},
+                    Tablet={StaticResource TitleFontSize}
+                }"
+                TextFontSize="{ OnIdiom
+                    Phone={StaticResource BaseFontSize},
+                    Tablet={StaticResource LargeFontSize}
+                }"
+            />
+
+        </Grid>
+
+    </Grid>
+
+</ContentView>
+

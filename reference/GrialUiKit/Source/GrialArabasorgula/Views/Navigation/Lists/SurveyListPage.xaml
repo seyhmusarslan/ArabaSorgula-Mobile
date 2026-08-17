@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.SurveyListPage"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+    Title="{ grial:Translate PageTitleSurveyList }">
+    <!-- MAIN CONTAINER -->
+    <ScrollView
+        Grid.Row="1"
+        grial:Effects.IgnoreIOSSafeAreaOnScrollView="All"
+        VerticalScrollBarVisibility="Never">
+        <!-- CONTENT CONTAINER -->
+        <Grid
+            Padding="{ DynamicResource AirSpacing }"
+            RowSpacing="24"
+            RowDefinitions="Auto, Auto, Auto, *">
+            <!-- MAIN BANNER -->
+            <Grid
+                Padding="20"
+                RowDefinitions="Auto,Auto"
+                ColumnDefinitions="*,Auto"
+                grial:Effects.BackgroundGradient="{ DynamicResource PrimaryGradient }"
+                RowSpacing="6"
+                grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }">
+                <!-- BANNER BACKGROUND DECORATION -->
+                <local:BackgroundDecoration
+                    Grid.RowSpan="2"
+                    Margin="120,-100,-50,-100"
+                />
+                <!-- BANNER TITLE -->
+                <Label
+                    Text="{ grial:Translate SurveyGetExtraPoints }"
+                    FontFamily="{ StaticResource AppSemiBoldFamily }"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    VerticalOptions="End"
+                />
+                <!-- BANNER SUBTITLE -->
+                <Label
+                    Grid.Row="1"
+                    Text="{ grial:Translate SurveyOnlyToday }"
+                    TextColor="{ DynamicResource OnSurfaceColor }"
+                    VerticalOptions="Start"
+                />
+                <!-- STAR ICON -->
+                <local:RoundedIcon
+                    Grid.Column="1"
+                    Grid.RowSpan="2"
+                    IconText="{ x:Static local:GrialIconsFont.Star }"
+                    IconColor="{ DynamicResource OnSurfaceColor }"
+                    IconFontSize="{ StaticResource LargeTitleFontSize }"
+                    IconBackgroundColor="{ DynamicResource OverlayColor }"
+                    IconBackgroundOpacity=".1"
+                    CornerRadius="{ DynamicResource CornerRadius-big }"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                />
+            </Grid>
+            <!-- SURVEY TYPES -->
+            <grial:Repeater
+                Grid.Row="1"
+                VerticalOptions="Center"
+                HeightRequest="60"
+                ItemsSource="{ Binding SurveyCategories }"
+                Spacing="16"
+                ItemSize="40"
+                ScrollPadding="{ DynamicResource AirSpacingNoBorder }"
+                ScrollBarVisibility="Never"
+                Margin="{ DynamicResource RemoveParentAirSpacing }">
+                <grial:Repeater.ItemTemplate>
+                    <DataTemplate>
+                        <!-- ICON TEMPLATE -->
+                        <local:RoundedIcon
+                            IconText="{ Binding Icon }"
+                            IconColor="{ Binding IconColorColor }"
+                            IconFontSize="{ StaticResource SmallTitleFontSize }"
+                            IconFontFamily="{ DynamicResource IconsFontFamily }"
+                            IconBackgroundColor="{ Binding IconColorColor }"
+                            IconBackgroundOpacity=".1"
+                            CornerRadius="{ DynamicResource CornerRadius-md }"
+                            HeightRequest="40"
+                            WidthRequest="40"
+                        />
+                    </DataTemplate>
+                </grial:Repeater.ItemTemplate>
+            </grial:Repeater>
+
+            <!-- SECTION TITLE -->
+            <Label
+                Grid.Row="2"
+                Text="{ grial:Translate StringAllSurveys }"
+                FontSize="{ StaticResource TitleFontSize }"
+                FontAttributes="Bold"
+            />
+
+            <!-- SURVEY LIST -->
+            <VerticalStackLayout
+                Grid.Row="3"
+                BindableLayout.ItemsSource="{ Binding SurveyList }"
+                Spacing="48"
+                Margin="0,0,0,30">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <local:SurveyListItemTemplate />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

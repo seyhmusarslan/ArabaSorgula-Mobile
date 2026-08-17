@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ContactDetailItemTemplate">
+
+    <ContentView.Content>
+        <Grid
+            VerticalOptions="Center"
+            RowSpacing="8"
+            RowDefinitions="Auto,*"
+            Padding="26,16">
+            <!-- LABEL -->
+            <Label
+                Grid.Row="0"
+                FontSize="{ StaticResource SmallFontSize }"
+                Text="{ Binding Label }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+
+            <!-- VALUE -->
+            <Label
+                Grid.Row="1"
+                FontAttributes="None"
+                Text="{ Binding Value }"
+            />
+        </Grid>
+    </ContentView.Content>
+
+</ContentView>

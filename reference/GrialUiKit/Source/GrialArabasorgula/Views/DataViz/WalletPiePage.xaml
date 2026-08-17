@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="arabasorgula.WalletPiePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    Title="{ grial:Translate PageTitleWalletPie }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+    <ContentPage.Resources>
+        <!-- CHART THEME -->
+        <grial:ChartTheme x:Key="PieTheme">
+            <SolidColorBrush Color="#F9B300" />
+            <SolidColorBrush Color="#FF602E" />
+            <SolidColorBrush Color="#B146C2" />
+            <SolidColorBrush Color="#5AC8FA" />
+            <SolidColorBrush Color="#46C771" />
+            <SolidColorBrush Color="#3F75FF" />
+        </grial:ChartTheme>
+
+        <!-- TIME PERIOD BUTTON TEMPLATE -->
+        <ControlTemplate x:Key="TimeRadioButtonTemplate">
+            <Grid>
+                <Rectangle
+                    Fill="Transparent"
+                    HorizontalOptions="Fill"
+                />
+                <RoundRectangle
+                    x:Name="background"
+                    Fill="{ DynamicResource BackgroundSecondaryColor }"
+                    CornerRadius="{ DynamicResource CornerRadius-md }"
+                    HeightRequest="54"
+                    HorizontalOptions="Fill"
+                    IsVisible="False"
+                />
+                <Label
+                    x:Name="text"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{ TemplateBinding Content }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    VerticalOptions="Center"
+                />
+                <Label
+                    x:Name="highlighttext"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    IsVisible="False"
+                    Text="{ TemplateBinding Content }"
+                    TextColor="{ DynamicResource PrimaryColor }"
+                    VerticalOptions="Center"
+                />
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="background" Property="IsVisible" Value="True" />
+                                    <Setter TargetName="text" Property="IsVisible" Value="False" />
+                                    <Setter TargetName="highlighttext" Property="IsVisible" Value="true" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="background" Property="IsVisible" Value="false" />
+                                    <Setter TargetName="text" Property="IsVisible" Value="True" />
+                                    <Setter TargetName="highlighttext" Property="IsVisible" Value="false" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+    </ContentPage.Resources>
+
+    <!-- GRID WRAPPER -->
+    <Grid
+        grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+        RowDefinitions="Auto,*">
+        <!-- Buttons Container -->
+        <grial:ExtendedGrid
+            Grid.Row="0"
+            Padding="{ grial:OnOrientationThickness
+                Landscape='100,20,100,20',
+                PortraitPhone='30,20,30,30',
+                PortraitTablet='100,20,100,20'
+            }"
+            ColumnDefinitions="*,*,*"
+            TrimBottomShape="RoundedCorners"
+            TrimBottomHeight="40"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+
+            <!-- Bg -->
+            <RoundRectangle
+                Grid.ColumnSpan="3"
+                Margin="-4"
+                CornerRadius="{ DynamicResource CornerRadius-big }"
+                Fill="{ DynamicResource PrimaryVariantColor }"
+            />
+
+            <RadioButton
+                ControlTemplate="{ StaticResource TimeRadioButtonTemplate }"
+                HeightRequest="54"
+                Content="{ grial:Translate StringWeek }"
+                HorizontalOptions="Center"
+                IsChecked="{ Binding Week, Mode=TwoWay }"
+                VerticalOptions="Center"
+            />
+
+            <RadioButton
+                Grid.Column="1"
+                ControlTemplate="{ StaticResource TimeRadioButtonTemplate }"
+                HeightRequest="54"
+                Content="{ grial:Translate StringMonth }"
+                IsChecked="{ Binding Month, Mode=TwoWay }"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+            />
+
+            <RadioButton
+                Grid.Column="2"
+                ControlTemplate="{ StaticResource TimeRadioButtonTemplate }"
+                HeightRequest="54"
+                Content="{ grial:Translate StringYear }"
+                IsChecked="{ Binding Year, Mode=TwoWay }"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+            />
+
+        </grial:ExtendedGrid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout>
+
+                <Grid
+                    RowDefinitions="260,Auto"
+                    RowSpacing="24"
+                    Padding="{ DynamicResource AirSpacingWithBorder }">
+
+                    <!-- Inside Pie Labels -->
+                    <VerticalStackLayout
+                        HorizontalOptions="Center"
+                        Spacing="6"
+                        VerticalOptions="Center">
+
+                        <!-- Label -->
+                        <Label
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"
+                            Text="{ grial:Translate StringRemaining }"
+                            TextColor="{ DynamicResource TextSecondaryColor }"
+                            VerticalTextAlignment="Center"
+                        />
+
+                        <!-- Value -->
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="24"
+                            HorizontalTextAlignment="Center"
+                            Text="{ Binding SelectedPeriodData.Remaining }"
+                            TextColor="{ DynamicResource TextColor }"
+                            VerticalTextAlignment="Center"
+                        />
+                    </VerticalStackLayout>
+
+                    <!-- PIE CHART -->
+                    <grial:PieChart
+                        BackgroundColor="Transparent"
+                        IsAnimated="False"
+                        LabelFontColor="DimGray"
+                        LabelFontSize="12"
+                        StrokeSize="0"
+                        Theme="{ StaticResource PieTheme }">
+
+                        <grial:PieSeries
+                            InnerRadius="0.8"
+                            ItemsSource="{ Binding SelectedPeriodData.Transactions }"
+                            Radius="120"
+                            ValuePath="Value"
+                        />
+
+                    </grial:PieChart>
+
+                    <!-- INCOME / EXPENSES -->
+                    <local:WalletAmountsCardItemTemplate
+                        BindingContext="{ Binding SelectedPeriodData }"
+                        Grid.Row="1"
+                        Style="{ DynamicResource OnIdiomResponsiveMarginStyle }"
+                    />
+                </Grid>
+
+                <grial:ExtendedGrid
+                    Padding="{ DynamicResource AirSpacingWithBorder }"
+                    RowDefinitions="Auto,*"
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                    RowSpacing="24">
+
+                    <!-- Section Title -->
+                    <Label
+                        FontAttributes="Bold"
+                        Style="{ StaticResource OnIdiomResponsiveMarginStyle }"
+                        FontSize="{ StaticResource LargeFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate StringTransactions }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                    />
+
+                    <!-- Details List -->
+                    <StackLayout
+                        Grid.Row="1"
+                        BindableLayout.ItemsSource="{ Binding SelectedPeriodData.Transactions }"
+                        Style="{ StaticResource OnIdiomResponsiveMarginStyle }">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <local:WalletDetailsListItemTemplate />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </grial:ExtendedGrid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

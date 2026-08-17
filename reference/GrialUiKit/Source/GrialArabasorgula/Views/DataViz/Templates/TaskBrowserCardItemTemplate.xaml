@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.TaskBrowserCardItemTemplate">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <grial:GreaterThanConverter
+                x:Key="ChartHeightConverter"
+                Threshold="220"
+                x:TypeArguments="x:Double"
+                TrueValue="200"
+                FalseValue="100"
+            />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <grial:CardView
+        HasShadow="False"
+        BackgroundColor="{ DynamicResource BackgroundColor }"
+        Padding="20,20,20,0"
+        Margin="7,14"
+        RowDefinitions="70,*,80,Auto">
+
+        <!-- TOP ROW -->
+        <VerticalStackLayout
+            Grid.Row="0"
+            VerticalOptions="Center">
+
+            <Label
+                Text="{ Binding Completed }"
+                FontSize="32"
+                VerticalOptions="Center"
+            />
+
+            <Label
+                Text="{ grial:Translate CompletedTasks }"
+                FontSize="10"
+                VerticalOptions="Center"
+            />
+        </VerticalStackLayout>
+
+        <!-- CHART -->
+        <Grid
+            VerticalOptions="Fill"
+            HeightRequest="60"
+            x:Name="parent"
+            Grid.Row="1">
+
+            <grial:CategoryChart
+                Margin="-10,0"
+                HeightRequest="{ Binding HeightRequest, Source={x:Reference parent}, Converter={StaticResource ChartHeightConverter} }"
+                WidthRequest="150"
+                DisplayLabels="False"
+                BackgroundColor="Transparent"
+                DisplayValuesAxis="False"
+                DisplayReferenceAxis="False"
+                VerticalOptions="Center">
+
+                <grial:LineSeries
+                    ItemsSource="{ Binding Activity }"
+                    Color="{ DynamicResource PrimaryColor }"
+                    DisplayPoints="False"
+                    CurveFactor="0"
+                    LineStrokeSize="2"
+                />
+            </grial:CategoryChart>
+        </Grid>
+
+        <!-- BOTTOM ROW -->
+        <VerticalStackLayout
+            Grid.Row="2"
+            VerticalOptions="Center">
+
+            <Label
+                Text="{ Binding Name }"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+            />
+
+            <Label
+                Text="{ Binding RemainingTasks }"
+                Opacity=".7"
+                VerticalOptions="Center"
+            />
+        </VerticalStackLayout>
+
+        <Button
+            Grid.Row="3"
+            HeightRequest="44"
+            Text="{ grial:Translate StringDetails }"
+            VerticalOptions="Center"
+            Style="{ StaticResource PrimaryActionButtonStyle }"
+            Margin="0,0,0,20"
+        />
+
+    </grial:CardView>
+</ContentView>

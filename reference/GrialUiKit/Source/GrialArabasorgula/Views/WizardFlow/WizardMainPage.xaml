@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    HideSoftInputOnTapped="true"
+    grial:GrialNavigationPage.BarBackgroundColor="Transparent"
+    x:Class="arabasorgula.WizardMainPage">
+
+    <grial:DataPresenter.TemplatingRules>
+        <grial:TemplatingRule
+            TargetType="local:StepEntryViewModel"
+            TemplateType="local:WizardEntryItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepDatePickerViewModel"
+            TemplateType="local:WizardDatePickerItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepPhoneViewModel"
+            TemplateType="local:WizardPhoneItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepCheckboxViewModel"
+            TemplateType="local:WizardCheckboxItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepRadioViewModel"
+            TemplateType="local:WizardRadioItemTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepCountryPickerViewModel"
+            TemplateType="local:WizardCountryPickerTemplate"
+        />
+        <grial:TemplatingRule
+            TargetType="local:StepSuccessViewModel"
+            TemplateType="local:WizardSuccessItemTemplate"
+        />
+    </grial:DataPresenter.TemplatingRules>
+
+    <Grid
+        RowDefinitions="Auto,*"
+        grial:Effects.ApplyIOSSafeAreaAsPadding="All">
+        <!-- PROGRESS GROUP -->
+        <VerticalStackLayout
+            Spacing="15"
+            Margin="{ OnPlatform
+                iOS={DynamicResource AirSpacingNoTop},
+                Android={DynamicResource AirSpacing}
+            }">
+            <!-- Progress Text -->
+            <Label
+                Text="{ grial:Format
+                    'Step {A} / {B}',
+                    A={grial:Eval
+                        'A+1',
+                        A={Binding
+                            Position,
+                            Source={x:Reference carousel}
+                        }
+                    },
+                    B={Binding Steps.Length}
+                }"
+                FontAttributes="Bold"
+                TextColor="{ DynamicResource PrimaryColor }"
+            />
+
+            <!-- Progress Bar -->
+            <ProgressBar Progress="{ grial:Eval '(A+1) / B', A={Binding Position, Source={x:Reference carousel}}, B={Binding Steps.Length}, BType={x:Type x:Double} }" />
+        </VerticalStackLayout>
+
+        <!-- CARD CAROUSEL -->
+        <grial:Carousel
+            x:Name="carousel"
+            Grid.Row="1"
+            IsClippedToBounds="false"
+            Loop="False"
+            ItemSeparation="20"
+            PeekPercentage="0.05"
+            PeekScale="0.9"
+            Position="{ Binding Position, Mode=OneWayToSource }"
+            MoveNextCommand="{ Binding MoveNextCommand, Mode=OneWayToSource }"
+            MoveEndedCommand="{ Binding MoveEndedCommand }"
+            CanMoveNext="{ Binding CurrentStep.IsValid }"
+            VerticalOptions="Start"
+            Margin="15,0,15,30"
+            ItemsSource="{ Binding Steps }">
+            <grial:Carousel.ItemTemplate>
+                <DataTemplate>
+                    <local:WizardBaseCardItemTemplate />
+                </DataTemplate>
+            </grial:Carousel.ItemTemplate>
+        </grial:Carousel>
+    </Grid>
+</ContentPage>
+

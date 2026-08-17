@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    Title="{ grial:Translate Key=PageTitleOrderConfirmation }"
+    x:Class="arabasorgula.OrderConfirmationPage"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <grial:GreaterThanConverter
+                x:Key="QuantityConverter"
+                Threshold="1"
+                x:TypeArguments="x:String"
+                TrueValue="Items"
+                FalseValue="Item"
+            />
+
+            <grial:AnimationStoryboard
+                x:Key="Anim"
+                Animation1="{ grial:AnimationFadeTo
+                    Target={x:Reference subtotal},
+                    Delay=100,
+                    Duration='100'
+                }"
+                Animation2="{ grial:AnimationFadeTo
+                    Target={x:Reference detail},
+                    Duration='200'
+                }"
+                Animation3="{ grial:AnimationFadeTo
+                    Target={x:Reference gift},
+                    Duration='300'
+                }"
+                Animation4="{ grial:AnimationStoryboard
+                    Animation1={grial:AnimationFadeTo
+                        Target={x:Reference related},
+                        Duration='400'
+                    },
+                    Animation2={grial:AnimationFadeTo
+                        Target={x:Reference checkout},
+                        Duration='500'
+                    }
+                }"
+            />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Triggers>
+        <EventTrigger Event="Appearing">
+            <grial:StartAnimation Animation="{ StaticResource Anim }" />
+        </EventTrigger>
+    </ContentPage.Triggers>
+
+    <ContentPage.Content>
+
+        <Grid
+            RowSpacing="0"
+            RowDefinitions="*,Auto">
+
+            <grial:ExtendedGrid
+                RowSpacing="0"
+                Grid.RowSpan="2"
+                RowDefinitions="50,*">
+
+                <ScrollView
+                    Grid.RowSpan="2"
+                    Padding="0,0,0,70">
+                    <VerticalStackLayout
+                        Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+                        Padding="{ DynamicResource AirSpacing }"
+                        Spacing="16">
+
+                        <!-- SUBTOTAL -->
+                        <Grid
+                            Opacity="0"
+                            x:Name="subtotal"
+                            Padding="5,0,5,20">
+                            <Label
+                                Text="{ grial:Translate StringSubtotal }"
+                                FontSize="24"
+                                FontAttributes="Bold"
+                                HorizontalOptions="Start"
+                                TextColor="{ DynamicResource PrimaryColor }"
+                            />
+                            <Label
+                                HorizontalOptions="End"
+                                Text="{ Binding Subtotal, StringFormat='$ {0:0.##.}' }"
+                                TextColor="{ DynamicResource PrimaryColor }"
+                                FontSize="24"
+                                FontAttributes="Bold"
+                            />
+                        </Grid>
+
+                        <!-- PRODUCT DETAIL HEADER -->
+                        <grial:CardView
+                            Opacity="0"
+                            x:Name="detail"
+                            HasShadow="False"
+                            ColumnDefinitions="*,Auto"
+                            RowDefinitions="*">
+                            <!-- PRDUCT INFORMATION -->
+                            <local:ProductPurchaseCardTemplate Grid.Row="0" />
+
+                            <!-- USER OPTIONS -->
+                            <Grid
+                                Padding="15"
+                                Grid.Column="1">
+                                <!-- DELETE BUTTON -->
+                                <local:RoundedIconButton
+                                    IsCircular="True"
+                                    VerticalOptions="Start"
+                                    HorizontalOptions="Center"
+                                    IconText="{ x:Static local:GrialIconsFont.Trash2 }"
+                                    IconColor="{ DynamicResource OnSurfaceColor }"
+                                    IconFontSize="15"
+                                    WidthRequest="30"
+                                    HeightRequest="30"
+                                    BackgroundColor="{ DynamicResource FavoriteColor }"
+                                />
+
+                                <!-- QUANTITY PICKER -->
+                                <Grid
+                                    VerticalOptions="End"
+                                    WidthRequest="35"
+                                    HeightRequest="35">
+                                    <Picker
+                                        x:Name="picker"
+                                        FontSize="14"
+                                        TextColor="{ DynamicResource TextColor }"
+                                        grial:PickerProperties.BorderStyle="None"
+                                        grial:PickerProperties.HorizontalTextAlignment="Center"
+                                        ItemsSource="{ Binding Product.Quantities }"
+                                        SelectedItem="{ Binding Quantity, Mode=TwoWay }"
+                                        BackgroundColor="Transparent"
+                                    />
+
+                                    <Border
+                                        Padding="0"
+                                        InputTransparent="True"
+                                        Stroke="{ DynamicResource BackgroundColor }"
+                                        BackgroundColor="{ DynamicResource BackgroundColor }">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="{ DynamicResource CornerRadius-md }" />
+                                        </Border.StrokeShape>
+
+                                        <!-- QUANTITY TEXT -->
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            FontSize="11"
+                                            Text="{ Binding SelectedItem, Source={x:Reference picker}, StringFormat='x {0}' }"
+                                            TextColor="{ DynamicResource TextSecondaryColor }"
+                                        />
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </grial:CardView>
+
+                        <!-- GIFT OPTION -->
+                        <grial:CardView
+                            Opacity="0"
+                            x:Name="gift"
+                            Padding="20"
+                            HasShadow="False">
+                            <grial:Checkbox
+                                IsChecked="{ Binding IsGift, Mode=TwoWay }"
+                                HorizontalOptions="Start">
+                                <Grid
+                                    ColumnSpacing="12"
+                                    Margin="10,0,0,0"
+                                    ColumnDefinitions="*,Auto">
+                                    <Label
+                                        Grid.Column="1"
+                                        VerticalTextAlignment="Center"
+                                        Text="{ x:Static local:GrialIconsFont.Gift }"
+                                        FontSize="22"
+                                        Style="{ StaticResource FontIcon }"
+                                    />
+
+                                    <Label
+                                        Grid.Column="0"
+                                        VerticalTextAlignment="Center"
+                                        Text="{ grial:Translate OrderWithGift }"
+                                        FontSize="14"
+                                    />
+                                </Grid>
+                            </grial:Checkbox>
+                        </grial:CardView>
+
+                        <!-- RELATED -->
+                        <Grid
+                            Opacity="0"
+                            x:Name="related"
+                            RowSpacing="0"
+                            Margin="-23,10,-23,0"
+                            RowDefinitions="Auto,*">
+                            <Label
+                                Grid.Row="0"
+                                FontSize="24"
+                                Text="{ grial:Translate RelatedProducts }"
+                                Margin="24,0,20,10"
+                            />
+
+                            <!-- RELATED LIST -->
+
+                            <grial:Repeater
+                                HeightRequest="300"
+                                Grid.Row="1"
+                                ScrollPadding="16,10"
+                                ItemsSource="{ Binding Product.RelatedProducts }"
+                                ScrollBarVisibility="Never"
+                                Spacing="10"
+                                ItemSize="{ OnIdiom
+                                    Phone=190,
+                                    Tablet=260
+                                }">
+                                <grial:Repeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <!-- PRODUCT ITEM TEMPLATE -->
+                                        <local:ProductCardItemTemplate HeightRequest="290" />
+                                    </DataTemplate>
+                                </grial:Repeater.ItemTemplate>
+                            </grial:Repeater>
+
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                </ScrollView>
+
+            </grial:ExtendedGrid>
+
+            <!-- BUTTON -->
+            <!-- TODO-CLASSIC: change to grid ? -->
+            <grial:CardView
+                Style="{ StaticResource ResponsiveLandscapeMarginStyle }"
+                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                Grid.Row="1"
+                HasShadow="True"
+                CornerRadius="0">
+
+                <!-- BUTTON -->
+                <Button
+                    Opacity="0"
+                    x:Name="checkout"
+                    Margin="{ DynamicResource AirSpacingWithBorder }"
+                    Text="{ grial:Translate ProceedToCheckout }"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                    Clicked="OnClicked"
+                />
+
+            </grial:CardView>
+
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

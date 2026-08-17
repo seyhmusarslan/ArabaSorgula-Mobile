@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:grialMaps="clr-namespace:UXDivers.Grial.Maps;assembly=UXDivers.GrialMaui.Maps"
+    x:Class="arabasorgula.FoodPlacesMapPage"
+    Title="{ grial:Translate PageTitleFoodPlacesMap }">
+    <grial:Drawer
+        x:Name="drawer"
+        ControlTemplateHeightHint="35"
+        CaptureInnerItemScrollBeforePositionIndex="1">
+        <!-- DRAWER BEHIND CONTENT -->
+        <grialMaps:Map
+            x:Name="map"
+            MapStyle="Dark"
+            ItemsSource="{ Binding FoodPlaceItemsSource }"
+            InitialPosition="{ Binding FoodPlaceData.Position }"
+            UseDefaultPinsWhenZoomIs="12">
+            <grialMaps:Map.ItemTemplate>
+                <DataTemplate>
+                    <grialMaps:Pin
+                        Location="{ Binding Position }"
+                        Label="{ Binding Description }">
+                        <Grid
+                            BackgroundColor="Transparent"
+                            HeightRequest="125"
+                            WidthRequest="240"
+                            RowSpacing="0"
+                            RowDefinitions="*,Auto"
+                            Scale="0.01">
+                            <!-- BG BALOON -->
+                            <Border
+                                BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="{ DynamicResource BaseCornerRadius }" />
+                                </Border.StrokeShape>
+                            </Border>
+
+                            <!-- CONTENT -->
+                            <Grid
+                                Padding="12"
+                                ColumnDefinitions="70,*"
+                                ColumnSpacing="15"
+                                RowSpacing="0"
+                                RowDefinitions="Auto,15,*">
+                                <!-- COLOR BG -->
+                                <Border
+                                    Grid.RowSpan="3"
+                                    BackgroundColor="#BF0077"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Fill"
+                                    Padding="0">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="{ DynamicResource CornerRadius-big }" />
+                                    </Border.StrokeShape>
+
+                                    <!-- FOOD PLACE INITIALS -->
+                                    <Label
+                                        Margin="{ OnPlatform Android='0,5,0,0' }"
+                                        Text="{ Binding Initials }"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        TextColor="{ DynamicResource OnSurfaceColor }"
+                                        FontSize="40"
+                                    />
+                                </Border>
+
+                                <!-- NAME -->
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{ Binding Name }"
+                                    FontAttributes="Bold"
+                                    FontSize="{ DynamicResource XLargeFontSize }"
+                                />
+
+                                <!-- DESCRIPTION -->
+                                <Label
+                                    Margin="{ OnPlatform Android='0,-8,0,0' }"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    FontSize="{ DynamicResource SmallFontSize }"
+                                    Text="{ Binding Description }"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                />
+
+                                <!-- RATING -->
+                                <grial:Rating
+                                    Grid.Column="1"
+                                    Grid.Row="2"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="End"
+                                    IconColor="{ DynamicResource RatingColor }"
+                                    UnselectedIconText="{ x:Static local:GrialIconsFont.StarFill }"
+                                    Value="{ Binding Rating }"
+                                />
+                            </Grid>
+
+                            <!-- DOWN BALOON -->
+                            <Label
+                                Margin="0,-20,0,0"
+                                Grid.Row="1"
+                                Style="{ StaticResource FontIcon }"
+                                FontSize="50"
+                                Text="{ x:Static local:GrialIconsFont.ShapeArrowDown }"
+                                TextColor="{ DynamicResource BackgroundSecondaryColor }"
+                                HorizontalOptions="Center"
+                            />
+                        </Grid>
+                    </grialMaps:Pin>
+                </DataTemplate>
+            </grialMaps:Map.ItemTemplate>
+        </grialMaps:Map>
+
+        <grial:Drawer.DrawerControlTemplate>
+            <ControlTemplate>
+                <grial:ExtendedGrid
+                    BackgroundColor="{ DynamicResource BackgroundColor }"
+                    grial:Effects.CornerRadius="{ DynamicResource BaseTopCornerRadius }"
+                    RowDefinitions="40,*"
+                    RowSpacing="0">
+                    <grial:ExtendedGrid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapped" />
+                    </grial:ExtendedGrid.GestureRecognizers>
+
+                    <BoxView
+                        HorizontalOptions="Center"
+                        Margin="0,15,0,20"
+                        WidthRequest="60"
+                        HeightRequest="4"
+                        CornerRadius="2"
+                        Color="#000"
+                    />
+
+                    <ContentPresenter Grid.Row="1" />
+                </grial:ExtendedGrid>
+            </ControlTemplate>
+        </grial:Drawer.DrawerControlTemplate>
+        <grial:Drawer.DrawerItems>
+            <!-- DRAWER CONTENT -->
+            <grial:DrawerItem StopPositions="200,*">
+                <local:FoodPlacesDetailsTemplate />
+            </grial:DrawerItem>
+        </grial:Drawer.DrawerItems>
+    </grial:Drawer>
+</ContentPage>

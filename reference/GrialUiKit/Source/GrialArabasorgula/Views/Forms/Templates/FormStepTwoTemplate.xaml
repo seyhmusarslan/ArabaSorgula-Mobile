@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arabasorgula.FormStepTwoTemplate"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula">
+
+    <VerticalStackLayout Spacing="30">
+        <VerticalStackLayout>
+            <!-- TITLE -->
+            <Label
+                Text="{ grial:Translate StringAppUsage }"
+                FontSize="{ StaticResource TitleFontSize }"
+                HorizontalTextAlignment="Center"
+            />
+
+            <!-- SUBTITLE -->
+            <Label
+                Grid.Row="1"
+                Text="{ grial:Translate StringComplete }"
+                FontSize="{ StaticResource SmallFontSize }"
+                HorizontalTextAlignment="Center"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+        </VerticalStackLayout>
+
+        <!-- FORM -->
+        <VerticalStackLayout
+            Spacing="20"
+            BindableLayout.ItemsSource="{ Binding Pickers }">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+
+                    <local:CustomPickerTemplate />
+
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentView>
+

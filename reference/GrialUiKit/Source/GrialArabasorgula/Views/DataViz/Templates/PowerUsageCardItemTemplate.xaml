@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.PowerUsageCardItemTemplate">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <!-- Color Converter -->
+            <grial:GreaterThanOrEqualConverter
+                x:TypeArguments="Color"
+                x:Key="ColorConverter"
+                TrueValue="{ StaticResource SuccessColor }"
+                FalseValue="{ StaticResource ErrorColor }"
+            />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <!-- DATA CARDS -->
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="17">
+
+        <!-- MONTH CARD -->
+        <grial:CardView
+            Grid.Column="0"
+            Padding="20"
+            HasShadow="False"
+            RowDefinitions="Auto,*,Auto"
+            BindingContext="{ Binding Amount }">
+
+            <!-- Label -->
+            <Label
+                FontSize="14"
+                HorizontalTextAlignment="Start"
+                Text="{ grial:Translate StringThisMonth }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                VerticalTextAlignment="Center"
+            />
+
+            <!-- Value -->
+            <Label
+                Grid.Row="1"
+                FontSize="26"
+                HorizontalTextAlignment="Start"
+                Text="{ Binding Value }"
+                TextColor="{ DynamicResource TextColor }"
+                VerticalTextAlignment="Center"
+            />
+
+            <!-- Icon -->
+            <Border
+                Grid.Row="2"
+                BackgroundColor="#1A46C771"
+                HorizontalOptions="Start"
+                Padding="6,4"
+                grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }">
+                <local:IconText
+                    IconColor="{ Binding Difference, Converter={StaticResource ColorConverter} }"
+                    IconFontSize="14"
+                    Icon="{ x:Static local:GrialIconsFont.ArrowUp }"
+                    Text="{ Binding Percentage }"
+                    TextColor="{ Binding Difference, Converter={StaticResource ColorConverter} }"
+                />
+            </Border>
+        </grial:CardView>
+
+        <!-- AMOUNT CARD -->
+        <grial:CardView
+            Grid.Column="1"
+            Padding="20"
+            HasShadow="False"
+            RowDefinitions="Auto,*,Auto"
+            BindingContext="{ Binding Cost }">
+
+            <!-- Label -->
+            <Label
+                FontSize="14"
+                HorizontalTextAlignment="Start"
+                Text="{ grial:Translate StringAmount }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                VerticalTextAlignment="Center"
+            />
+
+            <!-- Value -->
+            <Label
+                Grid.Row="1"
+                FontSize="26"
+                HorizontalTextAlignment="Start"
+                Text="{ Binding Value }"
+                TextColor="{ DynamicResource TextColor }"
+                VerticalTextAlignment="Center"
+            />
+
+            <!-- Icon -->
+            <Border
+                Grid.Row="2"
+                BackgroundColor="#1AFF0000"
+                HorizontalOptions="Start"
+                Padding="6,4"
+                grial:Effects.CornerRadius="{ DynamicResource CornerRadius-md }">
+                <local:IconText
+                    IconColor="{ Binding Difference, Converter={StaticResource ColorConverter} }"
+                    IconFontSize="14"
+                    Icon="{ x:Static local:GrialIconsFont.ArrowDown }"
+                    Text="{ Binding Percentage }"
+                    TextColor="{ Binding Difference, Converter={StaticResource ColorConverter} }"
+                />
+            </Border>
+        </grial:CardView>
+
+    </Grid>
+</ContentView>
+

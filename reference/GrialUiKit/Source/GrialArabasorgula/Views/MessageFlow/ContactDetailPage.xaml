@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.ContactDetailPage"
+    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+    <Grid
+        RowSpacing="0"
+        Padding="0"
+        RowDefinitions="Auto,*,Auto"
+        BackgroundColor="{ DynamicResource BackgroundColor }">
+
+        <!-- HEADER -->
+        <grial:ExtendedGrid
+            HeightRequest="100"
+            Grid.Row="0"
+            Padding="0,0,0,10"
+            ColumnSpacing="5"
+            RowSpacing="4"
+            ColumnDefinitions="Auto,*,Auto"
+            RowDefinitions="*,*"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            TrimBottomShape="RoundedCorners"
+            TrimBottomHeight="40">
+
+            <!-- AVATAR -->
+            <grial:RoundedImage
+                Grid.RowSpan="2"
+                Source="{ Binding Contact.Avatar }"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="20,15,10,15"
+                BorderSize="2"
+                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                Size="60"
+                CornerRadius="{ DynamicResource CornerRadius-big }"
+            />
+
+            <!-- NAME -->
+            <Label
+                Grid.Column="1"
+                Text="{ Binding Contact.Name }"
+                VerticalOptions="End"
+                FontAttributes="Bold"
+                TextColor="{ DynamicResource TextColor }"
+                FontSize="18"
+                LineBreakMode="TailTruncation"
+            />
+
+            <!-- LOCATION INFORMATION -->
+            <local:IconText
+                Grid.Column="1"
+                Grid.Row="1"
+                Icon="{ x:Static local:GrialIconsFont.MapPin }"
+                Text="{ Binding Contact.City }"
+                IconFontSize="14"
+                TextFontSize="14"
+                IconColor="{ DynamicResource TextSecondaryColor }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+
+            <!-- EDIT BUTTON -->
+            <!-- TODO: height = 1/2 Cornerradius -->
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                Grid.RowSpan="2"
+                Text="{ grial:Translate StringEdit }"
+                FontFamily="{ StaticResource IconsFontFamily }"
+                Style="{ DynamicResource OutlineButtonStyle }"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                WidthRequest="60"
+                HeightRequest="34"
+                CornerRadius="17"
+                FontSize="12"
+                Margin="10,0,20,0"
+                BindingContext="{ Binding Contact }"
+                Clicked="OnEdit"
+            />
+        </grial:ExtendedGrid>
+
+        <!-- LIST -->
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{ Binding Values }"
+            SelectionMode="None"
+            VerticalScrollBarVisibility="Never"
+            BackgroundColor="{ DynamicResource BackgroundColor }"
+            Style="{ StaticResource ResponsiveLandscapeMarginStyle }">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <local:ContactDetailItemTemplate />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- BUTTONS GRID -->
+
+        <grial:ExtendedGrid
+            Grid.Row="2"
+            BorderColor="Transparent"
+            ColumnDefinitions="*,*,*,*"
+            Padding="20"
+            TrimTopHeight="40"
+            TrimTopShape="InvertedRoundedCorners"
+            Margin="0,-40,0,0"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            BorderThickness="0,0,0,1">
+
+            <!-- SMS -->
+            <local:IconTextButton
+                Grid.Column="3"
+                Text="SMS"
+                Icon="{ x:Static local:GrialIconsFont.MessageSquare }"
+                Style="{ StaticResource IconTextToolbarButtonStyle }"
+                Command="{ Binding ActionCommand }"
+                CommandParameter="SMS"
+            />
+
+            <!-- MOBILE -->
+            <local:IconTextButton
+                Grid.Column="1"
+                Text="Mobile"
+                Icon="{ x:Static local:GrialIconsFont.Smartphone }"
+                Style="{ StaticResource IconTextToolbarButtonStyle }"
+                Command="{ Binding ActionCommand }"
+                CommandParameter="Mobile"
+            />
+
+            <!-- HOME -->
+            <local:IconTextButton
+                Grid.Column="2"
+                Text="Home"
+                Icon="{ x:Static local:GrialIconsFont.Phone }"
+                Style="{ StaticResource IconTextToolbarButtonStyle }"
+                Command="{ Binding ActionCommand }"
+                CommandParameter="Home"
+            />
+
+            <!-- EMAIL -->
+            <local:IconTextButton
+                Text="Email"
+                Icon="{ x:Static local:GrialIconsFont.Mail }"
+                Style="{ StaticResource IconTextToolbarButtonStyle }"
+                Command="{ Binding ActionCommand }"
+                CommandParameter="Email"
+            />
+
+        </grial:ExtendedGrid>
+    </Grid>
+</ContentPage>

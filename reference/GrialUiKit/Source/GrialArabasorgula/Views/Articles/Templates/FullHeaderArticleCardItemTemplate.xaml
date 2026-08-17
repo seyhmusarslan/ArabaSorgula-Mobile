@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.FullHeaderArticleCardItemTemplate">
+    <ContentView.Content>
+        <!-- TODO-CLASSIC: cambiar cardview por grid ? -->
+        <grial:CardView
+            RowSpacing="0"
+            HeightRequest="88"
+            VerticalOptions="Center"
+            ShadowOpacity="0.5"
+            Padding="12,0"
+            HasShadow="False"
+            RowDefinitions="*,Auto">
+
+            <!-- EMOJI TEXT -->
+            <local:EmojiText
+                Icon="{ Binding Emoji }"
+                Text="{ Binding Value }"
+                TextFontSize="{ StaticResource SmallTitleFontSize }"
+                TextFontAttributes="Bold"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IconSize="36"
+                Orientation="Vertical"
+            />
+
+            <!-- DESCRIPTION -->
+            <Label
+                Grid.Row="1"
+                Text="{ Binding Description }"
+                FontSize="{ StaticResource SmallFontSize }"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+                HorizontalOptions="Center"
+            />
+        </grial:CardView>
+    </ContentView.Content>
+</ContentView>

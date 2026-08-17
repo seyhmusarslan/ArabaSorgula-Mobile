@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.AnimationResources">
+
+    <grial:AnimationStoryboard
+        x:Key="Animation_Pulse"
+        ExecutionMode="Sequential"
+        DefaultEasing="CubicIn"
+        DefaultDuration="120"
+        Animation1="{ grial:AnimationScaleTo Scale=1.2 }"
+        Animation2="{ grial:AnimationScaleTo Scale=1 }"
+        Animation3="{ grial:AnimationScaleTo Scale=1.2 }"
+        Animation4="{ grial:AnimationScaleTo Scale=1 }"
+    />
+
+    <grial:AnimationStoryboard
+        x:Key="Animation_Vibrate"
+        ExecutionMode="Sequential"
+        DefaultDuration="60"
+        Animation1="{ grial:AnimationTranslateX TranslateX=2 }"
+        Animation2="{ grial:AnimationTranslateX TranslateX=-2 }"
+        Animation3="{ grial:AnimationTranslateX TranslateX=2 }"
+        Animation4="{ grial:AnimationTranslateX TranslateX=-2 }"
+        Animation5="{ grial:AnimationTranslateX TranslateX=0 }"
+    />
+
+</ResourceDictionary>

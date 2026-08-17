@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.OrganizationFormPage"
+    Title="{ grial:Translate PageTitleOrganizationForm }"
+    BackgroundColor="{ DynamicResource BackgroundColor }">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                RowSpacing="20"
+                Style="{ StaticResource BaseFormsContentStyle }"
+                RowDefinitions="Auto,*,Auto">
+
+                <local:RoundedIconWithBadge
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    Style="{ StaticResource AvatarPlaceholderIcon }"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                />
+
+                <!-- FIELD CONTAINERS -->
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Spacing="20">
+
+                    <!-- Organization Name -->
+                    <Entry
+                        Placeholder="{ grial:Translate StringOrganizationName }"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                    />
+
+                    <!-- Address 1 -->
+                    <Entry
+                        Placeholder="{ grial:Translate StringAddress1 }"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                    />
+
+                    <!-- Address 2 -->
+                    <Entry
+                        Placeholder="{ grial:Translate StringAddress2 }"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                    />
+
+                    <!-- Country -->
+                    <Entry
+                        Placeholder="{ grial:Translate StringCountry }"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                    />
+
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        ColumnSpacing="14">
+
+                        <!-- City -->
+                        <Entry
+                            Placeholder="{ grial:Translate StringCity }"
+                            VerticalOptions="Center"
+                        />
+
+                        <!-- Zip -->
+                        <Entry
+                            Grid.Column="1"
+                            Placeholder="{ grial:Translate StringZipCode }"
+                            VerticalOptions="Center"
+                        />
+                    </Grid>
+
+                    <Grid
+                        ColumnDefinitions="80,*"
+                        ColumnSpacing="14">
+
+                        <!-- Country Code -->
+                        <Entry
+                            Placeholder="+354"
+                            VerticalOptions="Center"
+                        />
+
+                        <!-- Phone -->
+                        <Entry
+                            Grid.Column="1"
+                            Placeholder="{ grial:Translate StringPhone }"
+                            VerticalOptions="Center"
+                        />
+                    </Grid>
+
+                    <!-- Contact email -->
+                    <Entry
+                        Placeholder="{ grial:Translate StringContactEmail }"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"
+                    />
+
+                </VerticalStackLayout>
+
+                <!-- Primary Button -->
+                <Button
+                    Grid.Row="2"
+                    VerticalOptions="Center"
+                    Text="{ grial:Translate StringSave }"
+                    Style="{ StaticResource PrimaryActionButtonStyle }"
+                />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

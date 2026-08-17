@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.EmployeePerformanceDashboardPage"
+    Title="{ grial:Translate PageTitleEmployeePerformanceDashboard }"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="/Styles/TabControl/SimpleTabResources.xaml" />
+
+        <ResourceDictionary>
+            <SolidColorBrush
+                x:Key="AreaBrush"
+                Color="{ DynamicResource PrimaryColor }"
+            />
+
+            <!-- ROUNDED COLOR TEMPLATE SAMPLE -->
+            <DataTemplate x:Key="WorkedHoursTemplate">
+                <Grid
+                    Margin="0,0,0,20"
+                    ColumnSpacing="10"
+                    ColumnDefinitions="20,*,Auto">
+
+                    <BoxView
+                        Grid.Column="0"
+                        WidthRequest="20"
+                        HeightRequest="20"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        grial:Effects.CornerRadius="{ DynamicResource CornerRadius-sm }"
+                        Color="{ Binding Source.ColorColor }"
+                    />
+
+                    <Label
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        Text="{ Binding Source.Label }"
+                        FontSize="{ StaticResource SmallFontSize }"
+                        TextColor="{ DynamicResource TextTertiaryColor }"
+                    />
+
+                    <Label
+                        Grid.Column="2"
+                        FontAttributes="Bold"
+                        Text="{ Binding Source.Value }"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        FontSize="12"
+                    />
+
+                    <!-- SEPARATOR -->
+                    <BoxView
+                        Grid.ColumnSpan="3"
+                        VerticalOptions="End"
+                        Style="{ StaticResource Horizontal1ptLineStyle }"
+                        Margin="0"
+                    />
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid
+        RowSpacing="0"
+        RowDefinitions="Auto,*">
+        <Grid
+            grial:Effects.CornerRadius="{ DynamicResource BaseBottomCornerRadius }"
+            BackgroundColor="{ StaticResource BackgroundSecondaryColor }">
+            <!-- FILTER -->
+            <local:PerformanceDashboardFilterTemplate
+                Grid.Row="0"
+                Style="{ StaticResource OnIdiomResponsiveMarginStyle }"
+                grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+            />
+        </Grid>
+
+        <!-- SCROLLING AREA -->
+        <ScrollView
+            Grid.Row="1"
+            grial:Effects.IgnoreIOSSafeAreaOnScrollView="Bottom,Left,Right">
+            <VerticalStackLayout Spacing="0">
+                <!-- EMPLOYEE HEADER -->
+                <local:EmployeeCardTemplate
+                    Margin="{ grial:OnOrientationThickness
+                        Landscape='130,30,130,30',
+                        PortraitPhone='30',
+                        PortraitTablet='130,30,130,30'
+                    }"
+                    grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                    BindingContext="{ Binding Employee }">
+                    <local:EmployeeCardTemplate.GestureRecognizers>
+                        <TapGestureRecognizer Command="{ Binding BindingContext.OpenDetailCommand, Source={Reference root} }" />
+                    </local:EmployeeCardTemplate.GestureRecognizers>
+                </local:EmployeeCardTemplate>
+
+                <!-- RING CHARTS -->
+                <grial:Repeater
+                    ItemsSource="{ Binding SelectedPeriodData.RingSeries }"
+                    Spacing="0"
+                    Orientation="Horizontal"
+                    HeightRequest="160"
+                    HorizontalOptions="Center"
+                    ItemSize="{ OnIdiom
+                        Phone=116,
+                        Tablet=150
+                    }"
+                    Style="{ StaticResource OnIdiomResponsiveMarginStyle }">
+                    <grial:Repeater.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                HorizontalOptions="Center"
+                                RowSpacing="0"
+                                RowDefinitions="Auto,116">
+                                <!-- LABEL -->
+                                <Label
+                                    Grid.Row="0"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{ Binding Label }"
+                                    FontSize="{ StaticResource LargeFontSize }"
+                                />
+
+                                <!-- CHART -->
+                                <grial:RingChart
+                                    Grid.Row="1"
+                                    WidthRequest="85"
+                                    IsAnimated="True"
+                                    BackgroundColor="Transparent"
+                                    BackgroundRingColor="{ DynamicResource BackgroundTertiaryColor }"
+                                    BackgroundRingOpacity="1"
+                                    BackgroundRingStrokeSize="10"
+                                    ValueRingStrokeSize="10"
+                                    Color="{ Binding ColorColor }"
+                                    LabelFontSize="{ StaticResource LargeFontSize }"
+                                    LabelFontColor="{ DynamicResource TextSecondaryColor }"
+                                    HasCurvedLineCaps="True"
+                                    Value="{ Binding Value }"
+                                    ValueFormat="0'%'"
+                                />
+                            </Grid>
+                        </DataTemplate>
+                    </grial:Repeater.ItemTemplate>
+                </grial:Repeater>
+
+                <grial:ExtendedGrid
+                    Margin="{ DynamicResource RemoveParentTopAirSpacing }"
+                    TrimTopShape="InvertedRoundedCorners"
+                    TrimTopHeight="40"
+                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }">
+                    <!-- TAB CHARTS -->
+                    <grial:TabControl
+                        TabStripPlacement="Top"
+                        Style="{ StaticResource SimpleTabStyle }"
+                        TabContentHeight="320"
+                        TabContentBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                        TabStripBackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                        grial:Effects.ApplyIOSSafeAreaAsPadding="Bottom">
+
+                        <grial:TabItem Text="Performance">
+                            <Grid Style="{ StaticResource OnIdiomResponsiveMarginStyle }">
+                                <grial:CategoryChart
+                                    Margin="{ DynamicResource AirSpacingNoBorder }"
+                                    HeightRequest="220"
+                                    IsAnimated="False"
+                                    DisplayValues="False"
+                                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                                    LabelFontSize="{ StaticResource SmallFontSize }"
+                                    LabelFontColor="{ DynamicResource TextTertiaryColor }"
+                                    AxisFontColor="{ DynamicResource TextTertiaryColor }"
+                                    AxisFontSize="{ StaticResource SmallFontSize }"
+                                    DisplayReferenceGridLines="True"
+                                    MaxValue="{ Binding Performance.MaxValue }"
+                                    CategorySeparation="13">
+
+                                    <grial:BarSeries
+                                        ItemsSource="{ Binding Performance.Series }"
+                                        ShowBackgroundBar="False"
+                                        ValuePath="Value"
+                                        LabelPath="Label"
+                                        CornerRadius="{ DynamicResource BaseCornerRadiusDouble }"
+                                        SelectedColor="#AF52DE"
+                                        Color="#AF52DE"
+                                        ColorOpacity="1"
+                                    />
+
+                                    <grial:BarSeries
+                                        ItemsSource="{ Binding Performance.Series }"
+                                        ShowBackgroundBar="False"
+                                        ValuePath="Value2"
+                                        LabelPath="Label"
+                                        CornerRadius="{ DynamicResource BaseCornerRadiusDouble }"
+                                        SelectedColor="#AF52DE"
+                                        Color="#F9B300"
+                                        ColorOpacity="1"
+                                    />
+
+                                </grial:CategoryChart>
+                            </Grid>
+                        </grial:TabItem>
+
+                        <grial:TabItem Text="Services">
+                            <Grid Style="{ StaticResource OnIdiomResponsiveMarginStyle }">
+                                <!-- AREA CHART -->
+                                <grial:CategoryChart
+                                    HeightRequest="220"
+                                    Margin="10,0"
+                                    AxisFontMargin="15"
+                                    IsAnimated="False"
+                                    ItemSeparation="10"
+                                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                                    MaxValue="{ Binding Services.MaxValue }"
+                                    LabelMargin="10"
+                                    DisplayValues="False"
+                                    LabelFontSize="{ StaticResource SmallFontSize }"
+                                    LabelFontColor="{ DynamicResource TextTertiaryColor }"
+                                    AxisFontColor="{ DynamicResource TextTertiaryColor }"
+                                    AxisFontSize="{ StaticResource SmallFontSize }"
+                                    DisplayReferenceGridLines="True">
+
+                                    <grial:LineSeries
+                                        ItemsSource="{ Binding Services.Series }"
+                                        DisplayPoints="True"
+                                        PointSize="2"
+                                        FillPoints="False"
+                                        LineStrokeSize="4"
+                                        LabelPath="Label"
+                                        ValuePath="Value"
+                                        CurveFactor="0"
+                                        Color="#FF7134">
+                                        <grial:LineSeries.AreaBrush>
+                                            <LinearGradientBrush EndPoint="0,1">
+                                                <GradientStop Offset="0.1" Color="#66FF7134" />
+                                                <GradientStop Offset="1.0" Color="#00FFE4D9" />
+                                            </LinearGradientBrush>
+                                        </grial:LineSeries.AreaBrush>
+                                    </grial:LineSeries>
+
+                                    <grial:LineSeries
+                                        ItemsSource="{ Binding Services.Series }"
+                                        DisplayPoints="True"
+                                        PointSize="2"
+                                        FillPoints="False"
+                                        CurveFactor="0"
+                                        LineStrokeSize="4"
+                                        LabelPath="Label"
+                                        ValuePath="Value2"
+                                        Color="#3F74FF">
+                                        <grial:LineSeries.AreaBrush>
+                                            <LinearGradientBrush EndPoint="0,1">
+                                                <GradientStop Offset="0.1" Color="#663F74FF" />
+                                                <GradientStop Offset="1.0" Color="#00D9E3FF" />
+                                            </LinearGradientBrush>
+                                        </grial:LineSeries.AreaBrush>
+                                    </grial:LineSeries>
+                                </grial:CategoryChart>
+                            </Grid>
+                        </grial:TabItem>
+
+                        <grial:TabItem Text="Worked hours">
+                            <Grid
+                                Padding="{ DynamicResource AirSpacingNoBorder }"
+                                HeightRequest="190"
+                                ColumnSpacing="20"
+                                HorizontalOptions="Center"
+                                ColumnDefinitions="190,*"
+                                Style="{ StaticResource OnIdiomResponsiveMarginStyle }">
+
+                                <grial:PieChart
+                                    HeightRequest="180"
+                                    Grid.Column="0"
+                                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                                    Legend="{ x:Reference PieChartLegend }"
+                                    IsAnimated="False"
+                                    StrokeSize="0"
+                                    DisplayLabels="False">
+
+                                    <grial:PieSeries
+                                        ItemsSource="{ Binding WorkedHours.Series }"
+                                        LabelPath="Label"
+                                        ValuePath="Value"
+                                        InnerRadius="0.5"
+                                        Radius="90"
+                                        ColorPath="ColorColor"
+                                    />
+
+                                </grial:PieChart>
+
+                                <!-- LEGEND -->
+                                <grial:SingleSeriesLegend
+                                    x:Name="PieChartLegend"
+                                    Grid.Column="1"
+                                    MaximumWidthRequest="150"
+                                    VerticalOptions="Center"
+                                    ItemTemplate="{ StaticResource WorkedHoursTemplate }"
+                                />
+                            </Grid>
+                        </grial:TabItem>
+                    </grial:TabControl>
+                </grial:ExtendedGrid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

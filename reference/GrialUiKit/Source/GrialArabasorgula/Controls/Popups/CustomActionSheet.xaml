@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    x:Class="arabasorgula.CustomActionSheet"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    BackgroundColor="{ DynamicResource OverlayColor }"
+    AppearingAnimation="{ uxd:MoveInPopupAnimation
+        MoveDirection=Bottom,
+        Duration=300,
+        Easing=CubicOut
+    }"
+    DisappearingAnimation="{ uxd:MoveOutPopupAnimation
+        MoveDirection=Bottom,
+        Duration=300,
+        Easing=CubicOut
+    }">
+
+    <uxd:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <Grid>
+        <BoxView
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            Color="Transparent">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{ Binding Cl }"
+                    Tapped="OnClose"
+                />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+        <Grid
+            VerticalOptions="{ StaticResource CustomActionSheetPositioning }"
+            RowDefinitions="Auto,*"
+            grial:Effects.CornerRadius="{ DynamicResource BaseTopCornerRadius }"
+            Padding="{ DynamicResource AirSpacing }"
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            RowSpacing="32">
+            <!-- TITLE -->
+            <Grid
+                Grid.Row="0"
+                Padding="20,0">
+                <!-- TITLE -->
+                <Label
+                    Text="{ Binding Title }"
+                    VerticalTextAlignment="Center"
+                    FontSize="{ DynamicResource SmallTitleFontSize }"
+                    HorizontalOptions="Center"
+                />
+            </Grid>
+
+            <!-- CONTENT -->
+            <grial:GridView
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                RowSpacing="20"
+                Margin="0,0,0,20"
+                ColumnCount="3"
+                ItemsSource="{ Binding Actions }">
+                <grial:GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            RowSpacing="10"
+                            RowDefinitions="Auto,*"
+                            Padding="20,0">
+                            <!-- ICON -->
+                            <local:RoundedIcon
+                                CornerRadius="{ DynamicResource BaseCornerRadius }"
+                                HeightRequest="64"
+                                WidthRequest="64"
+                                IconText="{ Binding Icon }"
+                                IconFontSize="24"
+                                IconColor="{ DynamicResource TextColor }"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                BackgroundColor="{ DynamicResource BackgroundColor }"
+                            />
+
+                            <!-- LABEL -->
+                            <Label
+                                Grid.Row="1"
+                                Text="{ Binding Label }"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="Center"
+                            />
+                        </Grid>
+                    </DataTemplate>
+                </grial:GridView.ItemTemplate>
+            </grial:GridView>
+        </Grid>
+    </Grid>
+</uxd:PopupPage>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SmartHomeMainPage"
+    Title="{ grial:Translate StringHome }"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Name="root">
+
+    <!-- MAIN CONTAINER -->
+    <Grid
+        RowDefinitions="Auto,*"
+        RowSpacing="10">
+
+        <!-- AVATAR AND NAME -->
+        <grial:ExtendedGrid
+            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+            ColumnDefinitions="Auto,*"
+            RowDefinitions="Auto,Auto"
+            ColumnSpacing="15"
+            Padding="30,10,30,30"
+            TrimBottomShape="RoundedCorners"
+            TrimBottomHeight="30"
+            VerticalOptions="Fill">
+
+            <!-- Avatar Image -->
+            <local:AvatarWithStatus
+                Grid.RowSpan="2"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Source="https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_04.jpg"
+                StatusIndicatorText="6"
+                Size="44"
+                BorderSize="2"
+                CornerRadius="{ DynamicResource CornerRadius-md }"
+                StatusIndicatorShift="8"
+                StatusIndicatorSize="16"
+                StatusIndicatorFontSize="10"
+                StatusIndicatorBorderSize="2"
+                StatusIndicatorPosition="TopRight"
+                StatusIndicatorColor="{ DynamicResource ErrorColor }"
+                BorderColor="{ DynamicResource BackgroundSecondaryColor }"
+                StatusIndicatorTextColor="{ DynamicResource TextOnSurfaceColor }"
+                StatusIndicatorBorderColor="{ DynamicResource BackgroundSecondaryColor }"
+            />
+            <!-- Avatar Name -->
+            <Label
+                Grid.Column="1"
+                Text="Hi, Chris"
+                VerticalOptions="Center"
+                FontSize="18"
+                MaxLines="1"
+                LineBreakMode="TailTruncation"
+            />
+            <!-- Copy Text -->
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{ grial:Translate StringManageSmartHome }"
+                VerticalOptions="Center"
+                FontSize="12"
+                MaxLines="1"
+                LineBreakMode="TailTruncation"
+                TextColor="{ DynamicResource TextSecondaryColor }"
+            />
+        </grial:ExtendedGrid>
+
+        <ScrollView
+            Grid.Row="1"
+            Padding="{ DynamicResource AirSpacingNoTop }">
+            <!-- TOP-TRIMMED BOTTOM CONTAINER -->
+            <grial:ExtendedStackLayout grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right">
+
+                <Grid ColumnDefinitions="*,Auto">
+                    <!-- Section Title -->
+                    <Label
+                        Text="{ grial:Translate LabelMyHome }"
+                        VerticalOptions="Center"
+                        FontSize="18"
+                    />
+
+                    <local:IconButton
+                        Grid.Column="1"
+                        WidthRequest="120"
+                        BackgroundColor="Transparent"
+                        Text="{ grial:Translate StringViewAll }"
+                        IconText="{ x:Static local:GrialIconsFont.ArrowRight }"
+                        Command="{ Binding ViewAllCommand }"
+                        VerticalOptions="Center"
+                        IconPosition="Right"
+                        IconColor="{ DynamicResource PrimaryColor }"
+                        TextColor="{ DynamicResource PrimaryColor }"
+                        IconFontSize="{ OnIdiom
+                            Phone='20',
+                            Tablet='26'
+                        }"
+                        IconFontFamily="{ StaticResource IconsFontFamily }"
+                    />
+                </Grid>
+
+                <!-- ROOM LIST CAROUSEL -->
+                <grial:Repeater
+                    VerticalOptions="Center"
+                    HeightRequest="90"
+                    ItemsSource="{ Binding Rooms }"
+                    Spacing="16"
+                    ItemSize="60"
+                    ScrollPadding="{ DynamicResource AirSpacingNoBorder }"
+                    ScrollBarVisibility="Never"
+                    Margin="-30,10,-30,20">
+                    <grial:Repeater.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                RowSpacing="6"
+                                RowDefinitions="Auto,Auto">
+
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{ Binding BindingContext.RoomSelectedCommand, Source={x:Reference root} }"
+                                        CommandParameter="{ Binding . }"
+                                    />
+                                </Grid.GestureRecognizers>
+
+                                <!-- Icon -->
+                                <grial:RoundedLabel
+                                    Text="{ Binding Icon }"
+                                    BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                                    HeightRequest="60"
+                                    WidthRequest="60"
+                                    CornerRadius="{ DynamicResource CornerRadius-md }"
+                                    HorizontalTextAlignment="Center"
+                                    FontFamily="lucide"
+                                    FontSize="24"
+                                    TextColor="{ DynamicResource TextSecondaryColor }"
+                                />
+                                <!-- Room Name -->
+                                <Label
+                                    Grid.Row="1"
+                                    Padding="0,2"
+                                    Text="{ Binding Name }"
+                                    FontSize="10"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Start"
+                                    Margin="-5,0"
+                                    LineBreakMode="TailTruncation"
+                                />
+
+                            </Grid>
+                        </DataTemplate>
+                    </grial:Repeater.ItemTemplate>
+                </grial:Repeater>
+
+                <!-- CARDS GRID CONTENT -->
+                <grial:GridView
+                    ItemHeightAuto="True"
+                    RowSpacing="20"
+                    ColumnSpacing="20"
+                    ItemsSource="{ Binding DashBoardCards }"
+                    Style="{ StaticResource OnIdiomResponsiveMarginStyle }"
+                    ColumnCount="{ grial:OnOrientationInt
+                        Portrait=2,
+                        Landscape=3
+                    }">
+                    <grial:GridView.ItemTemplate>
+                        <DataTemplate>
+                            <local:SmartHomeDashboardCardItemTemplate HeightRequest="200" />
+                        </DataTemplate>
+                    </grial:GridView.ItemTemplate>
+                </grial:GridView>
+
+            </grial:ExtendedStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

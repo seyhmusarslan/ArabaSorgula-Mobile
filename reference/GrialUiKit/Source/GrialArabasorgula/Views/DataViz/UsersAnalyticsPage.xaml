@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="arabasorgula.UsersAnalyticsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    Title="{ grial:Translate PageTitleUsersAnalytics }">
+    <ContentPage.Resources>
+
+        <!-- CHART THEME -->
+        <grial:ChartTheme x:Key="ChartTheme">
+            <SolidColorBrush Color="#46C771" />
+            <SolidColorBrush Color="#3F75FF" />
+            <SolidColorBrush Color="#FF602E" />
+            <SolidColorBrush Color="#5E39CE" />
+        </grial:ChartTheme>
+
+        <!-- CHART LEGEND TEMPLATE -->
+        <DataTemplate x:Key="ChartLegendTemplate">
+            <Grid ColumnDefinitions="20,*">
+                <Rectangle
+                    Grid.Column="0"
+                    Fill="{ Binding Color }"
+                    HeightRequest="10"
+                    RadiusX="10"
+                    RadiusY="10"
+                    VerticalOptions="Center"
+                    WidthRequest="10"
+                />
+
+                <Label
+                    Grid.Column="1"
+                    Margin="5"
+                    Text="{ Binding Text }"
+                    TextColor="{ DynamicResource TextSecondaryColor }"
+                    VerticalOptions="Center"
+                />
+            </Grid>
+        </DataTemplate>
+
+    </ContentPage.Resources>
+
+    <ScrollView BackgroundColor="{ DynamicResource BackgroundColor }">
+        <Grid
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Left,Right"
+            RowDefinitions="Auto,*">
+
+            <!-- Rounded Corners Background -->
+            <BoxView
+                Color="{ DynamicResource BackgroundSecondaryColor }"
+                CornerRadius="{ DynamicResource BaseBottomCornerRadius }"
+            />
+
+            <!-- Top Grid -->
+            <grial:ExtendedGrid
+                RowDefinitions="Auto,Auto,Auto"
+                Padding="{ DynamicResource AirSpacingWithBorder }"
+                Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                <!-- Section Title -->
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="{ StaticResource LargeFontSize }"
+                    HorizontalTextAlignment="Start"
+                    Text="{ grial:Translate StringActiveUsers }"
+                    TextColor="{ DynamicResource TextColor }"
+                    VerticalTextAlignment="Center"
+                />
+
+                <local:DataVizFilterTemplate
+                    Options="{ Binding Periods }"
+                    SelectedOption="{ Binding SelectedPeriod, Mode=TwoWay }"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                />
+
+                <!-- BAR CHART -->
+                <grial:CategoryChart
+                    Grid.Row="1"
+                    Margin="0,20,0,0"
+                    AxisFontColor="{ DynamicResource TextSecondaryColor }"
+                    AxisLinesColor="#E0E3EC"
+                    AxisLinesStrokeSize="1"
+                    BackgroundColor="Transparent"
+                    ItemSeparation="17"
+                    DisplayLabels="False"
+                    DisplayReferenceAxis="True"
+                    DisplayReferenceGridLines="True"
+                    DisplayValues="False"
+                    HasSelection="False"
+                    HeightRequest="240"
+                    IsAnimated="True"
+                    LabelFontColor="{ DynamicResource TextSecondaryColor }"
+                    Legend="ChartLegend"
+                    MaxValue="{ Binding SelectedPeriodData.MaxValue }"
+                    Theme="{ StaticResource ChartTheme }"
+                    ValueLabelFontColor="{ DynamicResource TextSecondaryColor }">
+
+                    <grial:BarSeries
+                        Title="Europe"
+                        ItemsSource="{ Binding SelectedPeriodData.Europe }"
+                        Style="{ DynamicResource UserAnalyticsPage_BarSeriesStyle }"
+                    />
+                    <grial:BarSeries
+                        Title="LATAM"
+                        ItemsSource="{ Binding SelectedPeriodData.Latam }"
+                        Style="{ DynamicResource UserAnalyticsPage_BarSeriesStyle }"
+                    />
+                    <grial:BarSeries
+                        Title="Asia"
+                        ItemsSource="{ Binding SelectedPeriodData.Asia }"
+                        Style="{ DynamicResource UserAnalyticsPage_BarSeriesStyle }"
+                    />
+                    <grial:BarSeries
+                        Title="UK"
+                        ItemsSource="{ Binding SelectedPeriodData.Uk }"
+                        Style="{ DynamicResource UserAnalyticsPage_BarSeriesStyle }"
+                    />
+
+                </grial:CategoryChart>
+
+                <!-- Legend -->
+                <grial:MultiSeriesLegend
+                    x:Name="ChartLegend"
+                    Grid.Row="2"
+                    HeightRequest="40"
+                    ItemTemplate="{ StaticResource ChartLegendTemplate }">
+
+                    <grial:MultiSeriesLegend.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </grial:MultiSeriesLegend.ItemsLayout>
+
+                </grial:MultiSeriesLegend>
+            </grial:ExtendedGrid>
+
+            <!-- Bottom grid -->
+            <Grid
+                Grid.Row="1"
+                RowDefinitions="Auto,*"
+                Padding="{ DynamicResource AirSpacingWithBorder }"
+                RowSpacing="32">
+
+                <!-- DEVICES -->
+                <Grid
+                    Grid.Row="0"
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="16"
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="16"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                    <!-- Section Title -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource LargeFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate StringDevices }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                    />
+
+                    <!-- DESKTOP CARD -->
+                    <grial:CardView
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Padding="16"
+                        HasShadow="False"
+                        RowDefinitions="56,Auto,Auto">
+
+                        <!-- Icon -->
+                        <local:RoundedIcon
+                            CornerRadius="{ DynamicResource CornerRadius-md }"
+                            HeightRequest="40"
+                            HorizontalOptions="Start"
+                            IconBackgroundColor="{ DynamicResource PrimaryColor }"
+                            IconBackgroundOpacity="0.1"
+                            IconColor="{ DynamicResource PrimaryColor }"
+                            IconFontSize="20"
+                            IconText="{ x:Static local:GrialIconsFont.Monitor }"
+                            VerticalOptions="Start"
+                            WidthRequest="40"
+                        />
+
+                        <HorizontalStackLayout
+                            Grid.Row="1"
+                            HorizontalOptions="Start"
+                            Spacing="6"
+                            VerticalOptions="Center">
+
+                            <!-- Value -->
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="{ StaticResource TitleFontSize }"
+                                HorizontalTextAlignment="Start"
+                                Text="5678"
+                                TextColor="{ DynamicResource TextColor }"
+                                VerticalTextAlignment="Center"
+                            />
+
+                            <!-- Arrow Icon -->
+                            <Label
+                                FontFamily="{ StaticResource GrialIconsFill }"
+                                FontSize="10"
+                                Text="{ x:Static local:GrialIconsFont.ArrowDown }"
+                                TextColor="{ DynamicResource ErrorColor }"
+                                VerticalOptions="Center"
+                            />
+
+                            <!-- Percentage -->
+                            <Label
+                                FontSize="10"
+                                Text="2.80%"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                VerticalOptions="Center"
+                            />
+
+                        </HorizontalStackLayout>
+
+                        <!-- Platform -->
+                        <Label
+                            Grid.Row="2"
+                            HorizontalTextAlignment="Start"
+                            Text="{ grial:Translate StringDesktop }"
+                            TextColor="{ DynamicResource TextColor }"
+                            VerticalTextAlignment="Center"
+                        />
+
+                    </grial:CardView>
+
+                    <!-- MOBILE CARD -->
+                    <grial:CardView
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Padding="16"
+                        HasShadow="False"
+                        RowDefinitions="56,Auto,Auto">
+
+                        <!-- Icon -->
+                        <local:RoundedIcon
+                            CornerRadius="{ DynamicResource CornerRadius-md }"
+                            HeightRequest="40"
+                            HorizontalOptions="Start"
+                            IconBackgroundColor="#5E39CE"
+                            IconBackgroundOpacity="0.1"
+                            IconColor="#5E39CE"
+                            IconFontSize="20"
+                            IconText="{ x:Static local:GrialIconsFont.Smartphone }"
+                            VerticalOptions="Start"
+                            WidthRequest="40"
+                        />
+
+                        <HorizontalStackLayout
+                            Grid.Row="1"
+                            HorizontalOptions="Start"
+                            Spacing="6"
+                            VerticalOptions="Center">
+
+                            <!-- Value -->
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="{ StaticResource TitleFontSize }"
+                                HorizontalTextAlignment="Start"
+                                Text="12286"
+                                TextColor="{ DynamicResource TextColor }"
+                                VerticalTextAlignment="Center"
+                            />
+
+                            <!-- Arrow -->
+                            <Label
+                                FontFamily="{ StaticResource GrialIconsFill }"
+                                FontSize="10"
+                                Text="{ x:Static local:GrialIconsFont.ArrowUp }"
+                                TextColor="{ DynamicResource SuccessColor }"
+                                VerticalOptions="Center"
+                            />
+
+                            <!-- Percentage -->
+                            <Label
+                                FontSize="10"
+                                Text="2.80%"
+                                TextColor="{ DynamicResource TextSecondaryColor }"
+                                VerticalOptions="Center"
+                            />
+
+                        </HorizontalStackLayout>
+
+                        <!-- Platform -->
+                        <Label
+                            Grid.Row="2"
+                            HorizontalTextAlignment="Start"
+                            Text="{ grial:Translate StringMobilePhone }"
+                            TextColor="{ DynamicResource TextColor }"
+                            VerticalTextAlignment="Center"
+                        />
+
+                    </grial:CardView>
+                </Grid>
+
+                <!-- CUSTOMER RATE -->
+                <Grid
+                    Grid.Row="1"
+                    RowDefinitions="Auto,Auto,Auto,Auto"
+                    Style="{ DynamicResource OnIdiomResponsiveMarginStyle }">
+
+                    <!-- Section Title -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{ StaticResource LargeFontSize }"
+                        HorizontalTextAlignment="Start"
+                        Text="{ grial:Translate StringCustomerRate }"
+                        TextColor="{ DynamicResource TextColor }"
+                        VerticalTextAlignment="Center"
+                    />
+
+                    <!-- Filter -->
+                    <local:DataVizFilterTemplate
+                        Options="{ Binding Periods }"
+                        SelectedOption="{ Binding CustomerSelectedPeriod, Mode=TwoWay }"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                    />
+
+                    <!-- Percentage container -->
+                    <Grid
+                        Grid.Row="1"
+                        ColumnDefinitions="Auto,50,*"
+                        ColumnSpacing="16">
+
+                        <!-- Bg -->
+                        <BoxView
+                            Grid.Column="1"
+                            CornerRadius="{ DynamicResource BaseCornerRadius }"
+                            HeightRequest="20"
+                            Opacity=".1"
+                            VerticalOptions="Center"
+                            Color="{ DynamicResource SuccessColor }"
+                        />
+
+                        <!-- Percentage -->
+                        <Label
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            FontSize="{ StaticResource TitleFontSize }"
+                            HorizontalTextAlignment="Start"
+                            Text="5.44%"
+                            TextColor="{ DynamicResource TextColor }"
+                            VerticalTextAlignment="Center"
+                        />
+
+                        <!-- Value Increase -->
+                        <Label
+                            Grid.Column="1"
+                            Padding="0,0,0,2"
+                            FontFamily="{ StaticResource IconsFontFamily }"
+                            FontSize="10"
+                            HorizontalTextAlignment="Center"
+                            Text="+4.39%"
+                            TextColor="{ DynamicResource SuccessColor }"
+                            VerticalOptions="Center"
+                        />
+                    </Grid>
+
+                    <!-- AREA CHART -->
+                    <grial:CategoryChart
+                        Grid.Row="2"
+                        Margin="-10,20,-10,0"
+                        AxisFontColor="{ DynamicResource TextSecondaryColor }"
+                        AxisLinesColor="#E0E3EC"
+                        BackgroundColor="Transparent"
+                        CategoryLabels="{ Binding ChartAreaData.Labels }"
+                        DisplayLabels="True"
+                        DisplayReferenceAxis="True"
+                        DisplayReferenceGridLines="True"
+                        DisplayValues="True"
+                        GridDashPattern="0"
+                        HasSelection="False"
+                        HeightRequest="150"
+                        Legend="AreaChartLegend"
+                        MaxValue="{ Binding SelectedPeriodAreaData.MaxValue }"
+                        LabelFontColor="{ DynamicResource TextSecondaryColor }"
+                        ValueLabelFontColor="{ DynamicResource TextSecondaryColor }">
+
+                        <!-- First Series -->
+                        <grial:LineSeries
+                            Title="{ grial:Translate StringFirstTime }"
+                            AreaBrush="{ DynamicResource PrimaryColor }"
+                            CurveFactor="0"
+                            DisplayPoints="False"
+                            IsStacked="True"
+                            ItemsSource="{ Binding SelectedPeriodAreaData.FirstTime }"
+                            LineStrokeSize="0"
+                            Color="{ DynamicResource PrimaryColor }"
+                        />
+
+                        <!-- Second Series -->
+                        <grial:LineSeries
+                            Title="{ grial:Translate StringReturning }"
+                            AreaBrush="#D9E3FF"
+                            CurveFactor="0"
+                            DisplayPoints="False"
+                            IsStacked="True"
+                            ItemsSource="{ Binding SelectedPeriodAreaData.Recurring }"
+                            LineStrokeSize="0"
+                            Opacity=".1"
+                            Color="#D9E3FF"
+                        />
+
+                    </grial:CategoryChart>
+
+                    <!-- Legend -->
+                    <grial:MultiSeriesLegend
+                        x:Name="AreaChartLegend"
+                        Grid.Row="3"
+                        HeightRequest="40"
+                        ItemTemplate="{ StaticResource ChartLegendTemplate }">
+
+                        <grial:MultiSeriesLegend.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </grial:MultiSeriesLegend.ItemsLayout>
+
+                    </grial:MultiSeriesLegend>
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

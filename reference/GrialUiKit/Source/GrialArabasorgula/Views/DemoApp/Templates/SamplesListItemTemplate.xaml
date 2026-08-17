@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    x:Class="arabasorgula.SamplesListItemTemplate"
+    xmlns:local="clr-namespace:arabasorgula">
+
+    <grial:CardView
+        RowSpacing="10"
+        ColumnSpacing="4"
+        ColumnDefinitions="22,*"
+        RowDefinitions="22,*"
+        Padding="{ DynamicResource AirSpacing }"
+        Margin="{ DynamicResource AirSpacingSmallBorder }"
+        HasShadow="False">
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Text="{ Binding Icon }"
+            FontSize="18"
+            Style="{ StaticResource MainMenuIconStyle }"
+            TextColor="{ DynamicResource SecondaryPageTextColor }"
+        />
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            FontAttributes="Bold"
+            Text="{ Binding Name }"
+            FontSize="14"
+            VerticalOptions="Center"
+        />
+
+        <Label
+            Grid.Row="1"
+            VerticalOptions="Fill"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Text="{ Binding Description }"
+            LineBreakMode="WordWrap"
+            FontSize="14"
+        />
+    </grial:CardView>
+</ContentView>

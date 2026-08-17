@@ -1,0 +1,312 @@
+{
+  "[grial-metadata]": "id: Grial#Social.json version: 1.0.1",
+  "AllMembers": [
+    {
+      "$id": "hhrr-person-1",
+      "Name": "David Nolan",
+      "Country": "Canada",
+      "CountryCode": "CA",
+      "EmojiFlag": "1f1e8-1f1e6",
+      "Position": "Chief Tecnology Officer",
+      "About": "With more than 20 years in the field, David is behind every strategic and technical decision in the organization no matter how big or small.\n\nHe’s the person that engineers look for when seeking for the right answer.",
+      "Picture": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/hhrr_01.jpeg"
+    },
+    {
+      "$id": "hhrr-person-2",
+      "Name": "Andie Zverth",
+      "Country": "USA",
+      "CountryCode": "US",
+      "EmojiFlag": "1f1fa-1f1f8",
+      "Position": "Big Data Scientist",
+      "About": "With more than 8 years in the field, Andie is one of the most recognized data scientist professionals in the country.\n\nShe’s defines the organization data-centric strategy and works with engineers around the world.",
+      "Picture": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/hhrr_02.jpeg"
+    },
+    {
+      "$id": "hhrr-person-3",
+      "Name": "Hun Darin",
+      "Country": "Japan",
+      "CountryCode": "JP",
+      "EmojiFlag": "1f1ef-1f1f5",
+      "Position": "AI Engineer",
+      "About": "With more than 13 years in the field, Hun is one of the most recognized AI engineers in the country.\n\nHe’s in charge of automatic image recognition and generation programs.",
+      "Picture": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/hhrr_03.jpeg"
+    },
+    {
+      "$id": "hhrr-person-4",
+      "Name": "Roxanne Michels",
+      "Country": "United Kingdom",
+      "CountryCode": "UK",
+      "EmojiFlag": "1f1ec-1f1e7",
+      "Position": "Principal UX researcher",
+      "About": "With more than 22 years in the field, Roxanne is one of the most recognized UX researcher professionals in the country.\n\nShe’s in charge of global user research and leads the UX Standards team.",
+      "Picture": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/hhrr_04.jpeg"
+    },
+    {
+      "$id": "hhrr-person-5",
+      "Name": "Jane Rose",
+      "Country": "Finland",
+      "CountryCode": "FI",
+      "EmojiFlag": "1f1eb-1f1ee",
+      "Position": "Principal UI Testing Chief",
+      "About": "With more than 20 years in the field, Jane is one of the most recognized UI testing professionals in the country.\n\nShe’s in charge UI testing across all teams.",
+      "Picture": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/hhrr_05.jpeg"
+    },
+    {
+      "$id": "hhrr-person-6",
+      "Name": "Jaques Pector",
+      "Country": "France",
+      "CountryCode": "FR",
+      "EmojiFlag": "1f1eb-1f1f7",
+      "Position": "Chief Operations Officer",
+      "About": "With more than 20 years in the field, Jaques is a key player in the organization.\n\nHe’s in charge of our worldwide operations in 5 regions spread in 26 countries.",
+      "Picture": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/hhrr_06.jpeg"
+    },
+    {
+      "$id": "hhrr-person-7",
+      "Name": "Rita Vinah",
+      "Country": "Norway",
+      "CountryCode": "NO",
+      "EmojiFlag": "1f1f3-1f1f4",
+      "Position": "Business Development Manager",
+      "About": "With more than 4 years in the field, Rita is a talented sale professional who has gained invaluable experience in the organization.\n\nShe travels a lot and is on top of all business-related stuff.",
+      "Picture": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/hhrr_07.jpeg"
+    }
+  ],
+  "SocialPage.xaml": {
+    "$id": "SocialPage.xaml",
+    "Profile": {
+      "Name": "Robert Stainford",
+      "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/user_01.jpg",
+      "Description": "Passion driven designer and developer. Frustrated musician and father of two."
+    },
+    "Related": {
+      "$id": "social-related",
+      "Images": [
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_01.jpg",
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_02.jpg",
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_03.jpg",
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_04.jpg",
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_05.jpg",
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_06.jpg",
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_07.jpg",
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_08.jpg",
+        "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/gallery_09.jpg"
+      ],
+      "Friends": [
+        {
+          "$id": "friend-1",
+          "Name": "Donald Davies",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg"
+        },
+        {
+          "Name": "Janis Spector",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_02.jpg"
+        },
+        {
+          "Name": "Regina Joplin",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg"
+        },
+        {
+          "Name": "Jaco Morrison",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_04.jpg"
+        },
+        {
+          "Name": "Margaret Whites",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg"
+        },
+        {
+          "Name": "Skyler Harrisson",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg"
+        },
+        {
+          "Name": "Alison Pastorius",
+          "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_07.jpg"
+        }
+      ]
+    }
+  },
+  "SocialVariantPage.xaml": {
+    "Profile": {
+      "Name": "Clare Japi",
+      "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/user_02.jpg",
+      "Description": "I like my toast done on one side."
+    },
+    "Related": {
+      "$ref": "social-related"
+    }
+  },
+  "ProfilePage.xaml": {
+    "Name": "Regina Joplin",
+    "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/profile_image.jpg",
+    "Description": "Photography is my passion. Black and white is the way I see the world."
+  },
+  "TimelinePage.xaml": {
+    "TimelineList": [
+      {
+        "$id": "timeline-item-1",
+        "EventTitle": "Eric Douglas has a new photo",
+        "EventDescription": "Eric uploaded a more recently pic from him.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+        "When": "JUN 29, 2022"
+      },
+      {
+        "EventTitle": "Sam joined a new group",
+        "EventDescription": "Sam joined the Marketing and Affiliates group",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg",
+        "When": "JUN 28, 2022"
+      },
+      {
+        "EventTitle": "You have a new follower!",
+        "EventDescription": "Tony is now folowing you.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_04.jpg",
+        "When": "JUN 17, 2022"
+      },
+      {
+        "EventTitle": "You have a new follower!",
+        "EventDescription": "Ingrid Davies is now followig you.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg",
+        "When": "JUN 17, 2022"
+      },
+      {
+        "EventTitle": "You have a new like!",
+        "EventDescription": "Emily liked your last post!",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg",
+        "When": "JUN 14, 2022"
+      },
+      {
+        "EventTitle": "Jaco joined a new group!",
+        "EventDescription": "Jaco Davies has joined the Internet of Things group. He is now the member number 100 of this group.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_07.jpg",
+        "When": "JUN 14, 2022"
+      },
+      {
+        "EventTitle": "Jaco added a new comment to \"Internet of Things\" group",
+        "EventDescription": "Hi guys, thanks for allow me be part of this great group. I would like to suggest...",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_07.jpg",
+        "When": "JUN 14, 2022"
+      },
+      {
+        "EventTitle": "Ingrid have a new like!",
+        "EventDescription": "Jaco liked your last post.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg",
+        "When": "JUN 14, 2022"
+      },
+      {
+        "EventTitle": "Eric Douglas joined a new group!",
+        "EventDescription": "Eric has joined the Jazz and Blues group. He is now the member number 207 of this group.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+        "When": "JUN 12, 2022"
+      },
+      {
+        "EventTitle": "You have a new like!",
+        "EventDescription": "Emily liked your last post!",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_06.jpg",
+        "When": "JUN 12, 2022"
+      },
+      {
+        "EventTitle": "You have a new like!",
+        "EventDescription": "Sam liked your last post!",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_03.jpg",
+        "When": "JUN 12, 2022"
+      },
+      {
+        "EventTitle": "Sam joined a new group!",
+        "EventDescription": "Sam has joined the Avant Garde group. She is now the member number 99 of this group.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+        "When": "JUN 12, 2022"
+      },
+      {
+        "EventTitle": "Sam joined a new group!",
+        "EventDescription": "Sam has joined the Bon Apetite! group. She is now the member number 487 of this group.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_01.jpg",
+        "When": "JUN 12, 2022"
+      },
+      {
+        "EventTitle": "Ingrid have a new like!",
+        "EventDescription": "Jaco liked your last post.",
+        "Image": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg",
+        "When": "JUN 11, 2022"
+      }
+    ]
+  },
+  "SocialCardPage.xaml": {
+    "Profile": {
+      "Name": "Clare Japi",
+      "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/user_02.jpg",
+      "Description": "I like my toast done on one side."
+    },
+    "Related": {
+      "$ref": "social-related"
+    }
+  },
+  "ContactSimpleDetailPage.xaml": {
+    "Avatar": "https://d3nz6a95rn0zd2.cloudfront.net/v4.0/friend_05.jpg",
+    "Values": [
+      {
+        "Label": "Name",
+        "Value": "Regina Joplin"
+      },
+      {
+        "Label": "Address 1",
+        "Value": "05673 Brisa Cape"
+      },
+      {
+        "Label": "Address 2",
+        "Value": "4618 Skiles Vista"
+      },
+      {
+        "Label": "Phone Number",
+        "Value": "(+352) 621-7040 4940"
+      },
+      {
+        "Label": "Email",
+        "Value": "rjoplin@uxdivers.com"
+      },
+      {
+        "Label": "Organization",
+        "Value": "UXDivers"
+      },
+      {
+        "Label": "Country",
+        "Value": "USA"
+      },
+      {
+        "Label": "City",
+        "Value": "San Francisco"
+      },
+      {
+        "Label": "ZIP",
+        "Value": "WY 96078"
+      },
+      {
+        "Label": "Notes",
+        "Value": "UX/UI Designer with a BA in Motion Design."
+      }
+    ]
+  },
+  "TeamPersonDetailPage.xaml": {
+    "AllMembers": [
+      {
+        "$ref": "hhrr-person-1"
+      },
+      {
+        "$ref": "hhrr-person-2"
+      },
+      {
+        "$ref": "hhrr-person-3"
+      },
+      {
+        "$ref": "hhrr-person-4"
+      },
+      {
+        "$ref": "hhrr-person-5"
+      },
+      {
+        "$ref": "hhrr-person-6"
+      },
+      {
+        "$ref": "hhrr-person-7"
+      }
+    ]
+  }
+}

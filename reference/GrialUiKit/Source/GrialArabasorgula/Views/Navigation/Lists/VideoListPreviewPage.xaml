@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    BackgroundColor="{ DynamicResource BackgroundColor }"
+    x:Class="arabasorgula.VideoListPreviewPage"
+    Title="{ grial:Translate PageTitleVideoListPreview }">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:VideoPlayerResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView VerticalScrollBarVisibility="Never">
+
+        <!--
+            TODO: info
+            le agregue spacing al verticalstack
+            y le modifique el padding que tenia el grid para estandarizar
+            Padding="30,0,30,20"
+            tambien podriamos poner todos el Espaciado en el verticalStack
+        -->
+        <VerticalStackLayout
+            Margin="0,20,0,0"
+            grial:Effects.ApplyIOSSafeAreaAsPadding="Left, Right"
+            BindableLayout.ItemsSource="{ Binding Movies }"
+            Spacing="20">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="{ DynamicResource AirSpacingNoBorder }">
+                        <grial:CardView
+                            x:Name="card2"
+                            HasShadow="False"
+                            BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                            Style="{ StaticResource ResponsiveLandscapeMarginStyle }">
+
+                            <local:LazyExpander
+                                x:Name="expander"
+                                ExpandedChanged="ExpanderTapped"
+                                Padding="0"
+                                Background="transparent">
+
+                                <!-- HEADER -->
+                                <local:LazyExpander.Header>
+                                    <Grid
+                                        RowSpacing="0"
+                                        Padding="5"
+                                        x:Name="header"
+                                        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+                                        ColumnDefinitions="80,*,Auto"
+                                        RowDefinitions="80">
+
+                                        <!-- THUMBNAIL -->
+                                        <Image
+                                            Source="{ Binding PosterImage }"
+                                            Aspect="AspectFill"
+                                            Margin="5"
+                                            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                                        />
+
+                                        <!-- ICON -->
+                                        <Image
+                                            x:Name="icon"
+                                            Grid.Column="2"
+                                            VerticalOptions="Center"
+                                            Margin="20,0">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    Glyph="{ x:Static local:GrialIconsFont.ChevronDown }"
+                                                    FontFamily="{ StaticResource IconsFontFamily }"
+                                                    Color="{ DynamicResource TextColor }"
+                                                    Size="24"
+                                                />
+                                            </Image.Source>
+
+                                            <Image.Resources>
+                                                <ResourceDictionary>
+                                                    <grial:AnimationStoryboard x:Key="HeaderIconInAnimation">
+                                                        <grial:AnimationReset
+                                                            Target="{ x:Reference icon }"
+                                                            Rotation="0"
+                                                            Delay="0"
+                                                            Duration="0"
+                                                            Easing="CubicIn"
+                                                        />
+
+                                                        <grial:AnimationRotateTo
+                                                            Target="{ x:Reference icon }"
+                                                            Duration="340"
+                                                            Rotation="180"
+                                                            Delay="0"
+                                                            Easing="CubicIn"
+                                                        />
+                                                    </grial:AnimationStoryboard>
+                                                </ResourceDictionary>
+                                            </Image.Resources>
+
+                                            <Image.Triggers>
+                                                <DataTrigger
+                                                    TargetType="Image"
+                                                    Binding="{ Binding Source={RelativeSource AncestorType={x:Type local:LazyExpander}}, Path=IsExpanded }"
+                                                    Value="False">
+                                                    <DataTrigger.EnterActions>
+                                                        <grial:StartAnimation Animation="{ grial:AnimationRotateTo Duration=340, Easing=CubicIn, Rotation=0, Target={x:Reference icon} }" />
+                                                    </DataTrigger.EnterActions>
+                                                </DataTrigger>
+
+                                                <DataTrigger
+                                                    TargetType="Image"
+                                                    Binding="{ Binding Source={RelativeSource AncestorType={x:Type local:LazyExpander}}, Path=IsExpanded }"
+                                                    Value="True">
+                                                    <DataTrigger.EnterActions>
+                                                        <grial:StartAnimation Animation="{ grial:AnimationRotateTo Duration=340, Easing=CubicIn, Rotation=180, Target={x:Reference icon} }" />
+                                                    </DataTrigger.EnterActions>
+                                                </DataTrigger>
+                                            </Image.Triggers>
+
+                                        </Image>
+
+                                        <!-- TEXT -->
+                                        <Label
+                                            Grid.Column="1"
+                                            Text="{ Binding Name }"
+                                            TextColor="{ DynamicResource TextColor }"
+                                            VerticalOptions="Center"
+                                            Margin="10,0">
+                                            <Label.Triggers>
+                                                <DataTrigger
+                                                    TargetType="Label"
+                                                    Binding="{ Binding Source={RelativeSource AncestorType={x:Type local:LazyExpander}}, Path=IsExpanded }"
+                                                    Value="True">
+                                                    <Setter Property="FontAttributes" Value="Bold" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </Grid>
+                                </local:LazyExpander.Header>
+
+                                <!-- CONTENT -->
+                                <local:LazyExpander.ContentTemplate>
+                                    <ControlTemplate>
+                                        <Grid
+                                            grial:Effects.CornerRadius="{ DynamicResource BaseCornerRadius }"
+                                            x:Name="videoPlayerContainer"
+                                            HeightRequest="{ grial:OnOrientationDouble
+                                                Portrait=156,
+                                                Landscape=206
+                                            }"
+                                            BackgroundColor="{ DynamicResource OverlayVariantColor }"
+                                            AnchorY="0"
+                                            Padding="0"
+                                            Margin="0,0"
+                                            RowSpacing="0">
+
+                                            <!-- VIDEO PLAYER -->
+                                            <grial:VideoPlayerContainer>
+                                                <grial:VideoPlayer
+                                                    x:Name="videoPlayer"
+                                                    Source="{ Binding TrailerVideo }"
+                                                    AutoPlay="True"
+                                                    IsMuted="True"
+                                                    Position="0"
+                                                    Thumbnail="{ Binding BackdropImage }"
+                                                    VerticalOptions="Fill"
+                                                    Margin="0"
+                                                    Aspect="AspectFill"
+                                                    AlwaysUseYoutubeWebPlayer="True"
+                                                    IsVisible="True">
+                                                    <grial:VideoPlayer.Triggers>
+                                                        <DataTrigger
+                                                            TargetType="grial:VideoPlayer"
+                                                            Binding="{ Binding Source={RelativeSource AncestorType={x:Type local:LazyExpander}}, Path=IsExpanded }"
+                                                            Value="True">
+                                                            <Setter Property="local:VideoListPreviewPage.DoPlay" Value="True" />
+                                                        </DataTrigger>
+
+                                                        <DataTrigger
+                                                            TargetType="grial:VideoPlayer"
+                                                            Binding="{ Binding Source={RelativeSource AncestorType={x:Type local:LazyExpander}}, Path=IsExpanded }"
+                                                            Value="False">
+                                                            <Setter Property="local:VideoListPreviewPage.DoPlay" Value="False" />
+                                                        </DataTrigger>
+
+                                                        <DataTrigger
+                                                            TargetType="grial:VideoPlayer"
+                                                            Binding="{ Binding Source={RelativeSource Self}, Path=IsFullScreen }"
+                                                            Value="False">
+                                                            <Setter Property="Aspect" Value="AspectFill" />
+                                                        </DataTrigger>
+
+                                                        <DataTrigger
+                                                            TargetType="grial:VideoPlayer"
+                                                            Binding="{ Binding Source={RelativeSource Self}, Path=IsFullScreen }"
+                                                            Value="True">
+                                                            <Setter Property="Aspect" Value="AspectFit" />
+                                                        </DataTrigger>
+                                                    </grial:VideoPlayer.Triggers>
+                                                </grial:VideoPlayer>
+                                            </grial:VideoPlayerContainer>
+
+                                            <!-- BACKGROUND IMAGE -->
+                                            <Grid
+                                                x:Name="BackgroundImgGrid"
+                                                InputTransparent="True"
+                                                BackgroundColor="{ Binding BackgroundColor, Source={x:Reference BackgroundImage} }">
+                                                <Grid.Triggers>
+                                                    <DataTrigger
+                                                        TargetType="Grid"
+                                                        Binding="{ Binding IsPlaying }"
+                                                        Value="True">
+                                                        <DataTrigger.EnterActions>
+                                                            <grial:StartAnimation Animation="{ grial:AnimationFadeTo Duration=900, Easing=CubicIn, Delay=300, Opacity=0, Target={x:Reference BackgroundImgGrid} }" />
+                                                        </DataTrigger.EnterActions>
+                                                    </DataTrigger>
+
+                                                    <DataTrigger
+                                                        TargetType="Grid"
+                                                        Binding="{ Binding IsPlaying }"
+                                                        Value="False">
+                                                        <Setter Property="Opacity" Value="1" />
+                                                    </DataTrigger>
+                                                </Grid.Triggers>
+
+                                                <Image
+                                                    x:Name="BackgroundImage"
+                                                    Aspect="AspectFill"
+                                                    VerticalOptions="Fill"
+                                                    Source="{ Binding BackdropImage }"
+                                                    BackgroundColor="{ Binding Color }"
+                                                    Style="{ StaticResource NoPlaceholderImageStyle }"
+                                                    Opacity=".75"
+                                                />
+
+                                                <!-- COLOR OVERLAY -->
+                                                <BoxView
+                                                    Color="{ Binding BackgroundColor, Source={x:Reference BackgroundImage} }"
+                                                    Opacity=".8"
+                                                />
+                                            </Grid>
+
+                                            <!-- SHADOW TOP -->
+                                            <BoxView
+                                                VerticalOptions="Start"
+                                                HorizontalOptions="Fill"
+                                                HeightRequest="10">
+                                                <grial:Effects.BackgroundGradient>
+                                                    <grial:LinearGradient Angle="0">
+                                                        <grial:GradientColor Color="#33000000" Opacity="0" Position="0" />
+                                                        <grial:GradientColor Color="#33000000" Opacity="0.8" Position=".5" />
+                                                        <grial:GradientColor Color="#33000000" Opacity="1" Position="1" />
+                                                    </grial:LinearGradient>
+                                                </grial:Effects.BackgroundGradient>
+                                            </BoxView>
+
+                                            <!-- SHADOW BOTTOM -->
+                                            <BoxView
+                                                VerticalOptions="End"
+                                                HorizontalOptions="Fill"
+                                                HeightRequest="10">
+                                                <grial:Effects.BackgroundGradient>
+                                                    <grial:LinearGradient Angle="180">
+                                                        <grial:GradientColor Color="#33000000" Opacity="0" Position="0" />
+                                                        <grial:GradientColor Color="#33000000" Opacity="0.8" Position=".5" />
+                                                        <grial:GradientColor Color="#33000000" Opacity="1" Position="1" />
+                                                    </grial:LinearGradient>
+                                                </grial:Effects.BackgroundGradient>
+                                            </BoxView>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </local:LazyExpander.ContentTemplate>
+                            </local:LazyExpander>
+                        </grial:CardView>
+                    </Grid>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

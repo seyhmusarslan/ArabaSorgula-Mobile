@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:local="clr-namespace:arabasorgula"
+    x:Class="arabasorgula.MoviesSectionTemplate"
+    x:Name="root">
+    <!--
+        TODO:
+        added rowspacing and margin to grid
+        changed fixed row height from 46 to auto
+        to standardize Label titleMargin
+    -->
+    <Grid
+        RowSpacing="10"
+        Margin="0,20,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="{ OnIdiom Phone='178', Tablet='314' }" />
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Row="0"
+            Margin="{ Binding TitleMargin, Source={x:Reference root} }"
+            Text="{ Binding Title }"
+        />
+
+        <grial:Repeater
+            Grid.Row="1"
+            ScrollPadding="{ Binding ScrollPadding, Source={x:Reference root} }"
+            ItemsSource="{ Binding Movies }"
+            ScrollBarVisibility="Never"
+            Spacing="20"
+            ItemSize="{ OnIdiom
+                Phone=121,
+                Tablet=202
+            }">
+            <grial:Repeater.ItemTemplate>
+                <DataTemplate>
+                    <local:MoviesSectionItemTemplate />
+                </DataTemplate>
+            </grial:Repeater.ItemTemplate>
+            <!-- <grial:Repeater.SelectedItemTemplate>
+                <DataTemplate>
+                    <local:MoviesSectionItemTemplate />
+                </DataTemplate>
+            </grial:Repeater.SelectedItemTemplate>-->
+        </grial:Repeater>
+    </Grid>
+</ContentView>

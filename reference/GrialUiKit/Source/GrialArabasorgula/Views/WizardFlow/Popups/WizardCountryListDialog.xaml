@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uxd:PopupPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:arabasorgula"
+    xmlns:grial="http://uxdivers.com/grial"
+    xmlns:uxd="clr-namespace:UXDivers.Popups.Maui;assembly=UXDivers.Popups.Maui"
+    x:Class="arabasorgula.WizardCountryListDialog"
+    x:Name="root">
+
+    <uxd:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:DialogsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </uxd:PopupPage.Resources>
+
+    <Grid
+        Margin="20"
+        Style="{ StaticResource BlurredShadow }"
+        VerticalOptions="{ DynamicResource DialogsVerticalPositioning }"
+        RowSpacing="0"
+        Padding="{ DynamicResource AirSpacing }"
+        BackgroundColor="{ DynamicResource BackgroundSecondaryColor }"
+        grial:Effects.CornerRadius="{ StaticResource DialogsCornerRadius }"
+        RowDefinitions="Auto,Auto,*">
+
+        <!-- ICON CLOSE -->
+        <Label
+            FontSize="{ StaticResource DialogsIconsSize }"
+            Text="{ x:Static local:GrialIconsFont.Close }"
+            Style="{ StaticResource FontIconFill }"
+            HorizontalTextAlignment="End">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnClose" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- TRANSLUCID SEARCH BAR -->
+        <local:CustomSearchBar
+            Grid.Row="1"
+            Placeholder="{ grial:Translate StringSearch }"
+            Style="{ StaticResource CustomSearchBarStyle }"
+            Text="{ Binding SearchText, Mode=TwoWay }"
+            SearchBackgroundColor="Transparent"
+            Margin="0,0,0,5"
+        />
+
+        <!-- COUNTRY LIST -->
+        <CollectionView
+            Grid.Row="2"
+            HeightRequest="{ grial:Eval
+                'A - 400',
+                A={Binding
+                    Height,
+                    Source={x:Reference root}
+                }
+            }"
+            ItemsSource="{ Binding CountryList }"
+            ItemSizingStrategy="MeasureFirstItem">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        Padding="10,12,10,0"
+                        ColumnDefinitions="40,*"
+                        RowDefinitions="30,12"
+                        ColumnSpacing="8">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{ Binding BindingContext.SelectCommand, Source={x:Reference root} }"
+                                CommandParameter="{ Binding . }"
+                            />
+                        </Grid.GestureRecognizers>
+
+                        <!-- Flag -->
+                        <local:Emoji
+                            Grid.Column="0"
+                            WidthRequest="34"
+                            Unicode="{ Binding Flag }"
+                            HorizontalOptions="Center"
+                        />
+
+                        <!-- Name -->
+                        <Label
+                            Grid.Column="1"
+                            Text="{ Binding Name }"
+                            VerticalOptions="Center"
+                            FontSize="14"
+                        />
+
+                        <!-- Separator -->
+                        <BoxView
+                            Grid.Row="1"
+                            Margin="0,12,0,0"
+                            VerticalOptions="End"
+                            Grid.ColumnSpan="2"
+                            HeightRequest="1"
+                            Color="{ DynamicResource ListSeparatorColor }"
+                        />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</uxd:PopupPage>
