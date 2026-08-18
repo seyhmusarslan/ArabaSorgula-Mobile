@@ -3,8 +3,9 @@
 ## Status
 
 Bu belge resource contract'ını kilitler. G1 kapsamında human-approved marka
-renkleri ve light neutral baseline uygulanmıştır. Typography ölçüleri ve dark
-theme henüz uygulanmış veya onaylanmış kabul edilmez.
+renkleri ve light neutral baseline, G2 kapsamında Poppins typography ve
+GrialIconsLine icon foundation uygulanmıştır. Dark theme henüz uygulanmış veya
+onaylanmış kabul edilmez.
 
 Human-approved brand palette:
 
@@ -60,6 +61,18 @@ AS.Type.FontFamily.Primary
 AS.Type.FontFamily.Strong
 ```
 
+Implemented typography values:
+
+```text
+AS.Type.FontFamily.Primary = Poppins
+AS.Type.FontFamily.Strong  = PoppinsSemiBold
+AS.Type.Caption            = 12
+AS.Type.Body               = 16
+AS.Type.BodyStrong         = 16
+AS.Type.Title              = 22
+AS.Type.Headline           = 28
+```
+
 ### Radius
 
 ```text
@@ -84,6 +97,12 @@ AS.Style.Label.Secondary
 AS.Style.Label.Body
 AS.Brush.Brand.VerticalGradient
 ```
+
+Icon foundation yalnız `GrialIconsLine.ttf` kullanır. Production font alias'ı
+`GrialIconsLine`, semantic family token'ı `AS.Icon.FontFamily`'dir. Implemented
+icon sizes `AS.Icon.Size.Sm = 16`, `Md = 20`, `Lg = 24` değerleridir. Generated
+glyph constants production namespace'i altında korunur; `GrialIconsFill` veya
+başka icon family eklenmemiştir.
 
 State color values G1 sonunda `NOT CONFIRMED` durumundadır ve production
 resource olarak uygulanmamıştır.

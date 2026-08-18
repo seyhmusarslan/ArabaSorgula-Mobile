@@ -21,8 +21,8 @@ Status değerleri:
 
 - G0 Package/license bootstrap spike: `COMPLETE`
 - G1 Semantic design tokens implementation: `COMPLETE`
-- G2 Typography/icon foundation: `NOT STARTED`
-- G3 Reusable controls: `NOT STARTED`
+- G2 Typography/icon foundation: `COMPLETE`
+- G3 Reusable controls: `COMPLETE`
 - G4 Auth visual prototype: `NOT STARTED`
 - G5 Shell navigation contract implementation: `NOT STARTED`
 - G6 Home dashboard: `NOT STARTED`
@@ -54,11 +54,13 @@ Status değerleri:
 Production app `net10.0-android`, Android minimum SDK 21,
 `Microsoft.Maui.Controls` 10.0.30 ve `UXDivers.GrialMaui` 4.4.127 kullanır.
 Local ve ignored `GrialLicense` ile restore, canonical build ve fiziksel Android
-cihaz launch smoke test'i tamamlanmıştır. G1 semantic design tokens, approved
-brand palette ve base control styles implementation'ı tamamlanmıştır;
-production feature, popup veya maps implementation'ı yoktur.
+cihaz launch smoke test'i tamamlanmıştır. G1 semantic design tokens ile G2
+Poppins ve GrialIconsLine foundation tamamlanmıştır. G3
+ASIconText/ASIconButton/ASBadge/ASTag fiziksel Android visual ve TalkBack
+component smoke `PASS` sonucuyla tamamlanmıştır. Production feature, popup veya
+maps implementation'ı yoktur.
 
 ## Next implementation decision
 
-G0 ve G1 tamamlanmıştır. G2 typography/icon foundation için ayrı açık
-task/human approval gereklidir.
+G0, G1, G2 ve G3 tamamlanmıştır. G4 Auth visual prototype ve G5 Shell
+navigation contract başlatılmamıştır.

@@ -2,15 +2,16 @@
 
 ## Scope
 
-Bu belge production reusable component sözleşmesini tanımlar. Aşağıdaki
-isimler **CANDIDATE / PLANNED COMPONENTS**'tir; repository'de uygulanmış
-oldukları anlamına gelmez.
+Bu belge production reusable component sözleşmesini tanımlar.
 
-- `ASIconText`
-- `ASIconButton`
+- `ASIconText`: `IMPLEMENTED`
+- `ASIconButton`: `IMPLEMENTED`
+- `ASBadge`: `IMPLEMENTED`
+- `ASTag`: `IMPLEMENTED`
+
+Aşağıdakiler `CANDIDATE / PLANNED` durumundadır:
+
 - `ASRoundedIcon`
-- `ASBadge`
-- `ASTag`
 - `ASAvatar`
 - `ASSearchBar`
 
@@ -72,16 +73,26 @@ ve açık compile condition ile sınırlandırılır.
 
 ## Candidate notes
 
-- `ASIconText`: icon + text presentation; non-interactive default.
-- `ASIconButton`: command, disabled ve semantics destekli action.
+- `ASIconText`: icon + text presentation; non-interactive ve semantic
+  description destekli.
+- `ASIconButton`: command, command parameter, disabled visual state,
+  `SemanticDescription` fallback contract ve iki boyutta minimum 48 tap target
+  destekli action. Outer component tek semantic/action node'dur; command
+  availability `CanExecuteChanged` dahil effective enabled state'e yansır.
 - `ASRoundedIcon`: dekoratif/action olmayan icon surface.
-- `ASBadge`: kısa count/status; uzun text için kullanılmaz.
-- `ASTag`: filtre/özellik/durum; selected state erişilebilir olmalıdır.
+- `ASBadge`: kısa, tek satırlı count/status presentation; uzun text için
+  kullanılmaz.
+- `ASTag`: two-way selected state, command/event contract,
+  `SemanticDescription` fallback contract, iki boyutta minimum 48 tap target ve
+  seçili durumda renk dışında check glyph indicator içerir. Selected/unselected
+  localization component dışında consumer sorumluluğundadır.
 - `ASAvatar`: fallback, image, initials ve optional status contract'ı.
 - `ASSearchBar`: text, search/clear command ve keyboard davranışı.
 
 ## Verification
 
+- G3 isolated component smoke tamamlandı; fiziksel Android visual smoke ve
+  TalkBack smoke `PASS`.
 - Isolated render/smoke page veya component test
 - Light theme baseline; dark mode yalnız uygulanınca
 - Long text ve large font

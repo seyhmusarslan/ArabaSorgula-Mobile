@@ -40,5 +40,21 @@
 
     <Thickness x:Key="AS.Inset.Button">18,12</Thickness>
     <Thickness x:Key="AS.Inset.Card">18</Thickness>
+    <Thickness x:Key="AS.Inset.Badge">8,4</Thickness>
+    <Thickness x:Key="AS.Inset.Tag">12,6</Thickness>
+    <x:Double x:Key="AS.Size.TouchTarget.Minimum">48</x:Double>
+
+    <x:String x:Key="AS.Type.FontFamily.Primary">Poppins</x:String>
+    <x:String x:Key="AS.Type.FontFamily.Strong">PoppinsSemiBold</x:String>
+    <x:Double x:Key="AS.Type.Caption">12</x:Double>
+    <x:Double x:Key="AS.Type.Body">16</x:Double>
+    <x:Double x:Key="AS.Type.BodyStrong">16</x:Double>
+    <x:Double x:Key="AS.Type.Title">22</x:Double>
+    <x:Double x:Key="AS.Type.Headline">28</x:Double>
+
+    <x:String x:Key="AS.Icon.FontFamily">GrialIconsLine</x:String>
+    <x:Double x:Key="AS.Icon.Size.Sm">16</x:Double>
+    <x:Double x:Key="AS.Icon.Size.Md">20</x:Double>
+    <x:Double x:Key="AS.Icon.Size.Lg">24</x:Double>
 
 </ResourceDictionary>

@@ -8,30 +8,20 @@
     <Grid Padding="{StaticResource AS.Space.Xl}">
         <VerticalStackLayout
             HorizontalOptions="Center"
-            Spacing="{StaticResource AS.Space.Md}"
+            Spacing="{StaticResource AS.Space.Sm}"
             VerticalOptions="Center">
 
-            <Border
-                Padding="{StaticResource AS.Space.Lg}"
-                BackgroundColor="{DynamicResource AS.Color.Brand.Primary}"
-                StrokeThickness="0">
-
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="{StaticResource AS.Radius.Lg}" />
-                </Border.StrokeShape>
-
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="28"
-                    HorizontalTextAlignment="Center"
-                    Text="ArabaSorgula"
-                    TextColor="{DynamicResource AS.Color.Text.OnBrand}" />
-            </Border>
+            <Label
+                FontFamily="{StaticResource AS.Type.FontFamily.Strong}"
+                FontSize="{StaticResource AS.Type.Headline}"
+                HorizontalTextAlignment="Center"
+                Text="ArabaSorgula"
+                TextColor="{DynamicResource AS.Color.Text.Primary}" />
 
             <Label
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource AS.Style.Label.Body}"
-                Text="Temel proje hazır. Grial UI Kit kaynaklarını reference/GrialUiKit/Source altına ekleyebilirsin." />
+                Text="Foundation hazır. Ürün geliştirmesi henüz başlamadı." />
 
         </VerticalStackLayout>
     </Grid>

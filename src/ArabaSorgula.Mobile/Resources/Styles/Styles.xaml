@@ -7,6 +7,8 @@
         <Setter Property="BackgroundColor" Value="{DynamicResource AS.Color.Brand.Primary}" />
         <Setter Property="BorderWidth" Value="0" />
         <Setter Property="CornerRadius" Value="{StaticResource AS.Radius.Md}" />
+        <Setter Property="FontFamily" Value="{StaticResource AS.Type.FontFamily.Strong}" />
+        <Setter Property="FontSize" Value="{StaticResource AS.Type.BodyStrong}" />
         <Setter Property="Padding" Value="{StaticResource AS.Inset.Button}" />
         <Setter Property="TextColor" Value="{DynamicResource AS.Color.Text.OnBrand}" />
     </Style>
@@ -16,12 +18,16 @@
         <Setter Property="BorderColor" Value="{DynamicResource AS.Color.Brand.Primary}" />
         <Setter Property="BorderWidth" Value="1" />
         <Setter Property="CornerRadius" Value="{StaticResource AS.Radius.Md}" />
+        <Setter Property="FontFamily" Value="{StaticResource AS.Type.FontFamily.Strong}" />
+        <Setter Property="FontSize" Value="{StaticResource AS.Type.BodyStrong}" />
         <Setter Property="Padding" Value="{StaticResource AS.Inset.Button}" />
         <Setter Property="TextColor" Value="{DynamicResource AS.Color.Brand.Primary}" />
     </Style>
 
     <Style x:Key="AS.Control.Entry.Default" TargetType="Entry">
         <Setter Property="BackgroundColor" Value="{DynamicResource AS.Color.Surface.Primary}" />
+        <Setter Property="FontFamily" Value="{StaticResource AS.Type.FontFamily.Primary}" />
+        <Setter Property="FontSize" Value="{StaticResource AS.Type.Body}" />
         <Setter Property="PlaceholderColor" Value="{DynamicResource AS.Color.Text.Secondary}" />
         <Setter Property="TextColor" Value="{DynamicResource AS.Color.Text.Primary}" />
     </Style>
@@ -39,10 +45,12 @@
     </Style>
 
     <Style x:Key="AS.Style.Label.Primary" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource AS.Type.FontFamily.Primary}" />
         <Setter Property="TextColor" Value="{DynamicResource AS.Color.Text.Primary}" />
     </Style>
 
     <Style x:Key="AS.Style.Label.Secondary" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource AS.Type.FontFamily.Primary}" />
         <Setter Property="TextColor" Value="{DynamicResource AS.Color.Text.Secondary}" />
     </Style>
 
@@ -50,7 +58,7 @@
         x:Key="AS.Style.Label.Body"
         BasedOn="{StaticResource AS.Style.Label.Secondary}"
         TargetType="Label">
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontSize" Value="{StaticResource AS.Type.Body}" />
         <Setter Property="LineBreakMode" Value="WordWrap" />
     </Style>
 

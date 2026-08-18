@@ -10,7 +10,13 @@ public static class MauiProgram
 
         builder
             .UseMauiApp<App>()
-            .UseGrial();
+            .UseGrial()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("Poppins-Regular.ttf", "Poppins");
+                fonts.AddFont("Poppins-SemiBold.ttf", "PoppinsSemiBold");
+                fonts.AddFont("GrialIconsLine.ttf", "GrialIconsLine");
+            });
 
         return builder.Build();
     }
